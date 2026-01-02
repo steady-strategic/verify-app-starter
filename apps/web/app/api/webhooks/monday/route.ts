@@ -33,22 +33,27 @@ export async function POST(request: NextRequest) {
         // Map decision to user status
         const userStatus = body.decision === "APPROVED" ? "VERIFIED" : "REJECTED";
 
-        // Update user and verification request
+        // First, update the user status
         const user = await prisma.user.update({
             where: { id: body.userId },
             data: {
                 status: userStatus,
-                verificationRequest: {
-                    update: {
-                        decision: body.decision,
-                        mondayItemId: body.mondayItemId,
-                    },
-                },
-            },
-            include: {
-                verificationRequest: true,
             },
         });
+
+        // Then, try to update verification request if it exists
+        try {
+            await prisma.verificationRequest.update({
+                where: { userId: body.userId },
+                data: {
+                    decision: body.decision,
+                    mondayItemId: body.mondayItemId,
+                },
+            });
+        } catch (vrError) {
+            // Verification request might not exist, that's okay
+            console.log("VerificationRequest update skipped:", vrError);
+        }
 
         return NextResponse.json({
             success: true,
@@ -58,16 +63,20 @@ export async function POST(request: NextRequest) {
     } catch (error) {
         console.error("Monday webhook error:", error);
 
+        // Return detailed error for debugging
+        const errorMessage = error instanceof Error ? error.message : "Unknown error";
+        const errorCode = (error as any)?.code;
+
         // Check if it's a "record not found" error
-        if ((error as any)?.code === "P2025") {
+        if (errorCode === "P2025") {
             return NextResponse.json(
-                { error: "User not found" },
+                { error: "User not found", details: errorMessage },
                 { status: 404 }
             );
         }
 
         return NextResponse.json(
-            { error: "An unexpected error occurred" },
+            { error: "An unexpected error occurred", details: errorMessage, code: errorCode },
             { status: 500 }
         );
     }

@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { registerSchema } from "@verify/validation";
-import { prisma } from "@/lib/db";
-import { signIn } from "@/lib/auth";
+import { prisma } from "../../../lib/db";
+import { signIn } from "../../../lib/auth";
 
 export async function POST(request: NextRequest) {
     try {

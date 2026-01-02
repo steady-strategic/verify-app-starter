@@ -1,0 +1,50 @@
+// Prisma schema for User Verification System
+// Uses Supabase Postgres
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model User {
+  id                  String               @id @default(cuid())
+  email               String               @unique
+  firstName           String
+  lastName            String
+  businessName        String?
+  licenseNumber       String
+  licenseType         String
+  state               String
+  status              UserStatus           @default(PENDING)
+  verificationRequest VerificationRequest?
+  createdAt           DateTime             @default(now())
+  updatedAt           DateTime             @updatedAt
+}
+
+model VerificationRequest {
+  id           String   @id @default(cuid())
+  userId       String   @unique
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  payload      Json
+  decision     Decision @default(PENDING)
+  mondayItemId String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+enum UserStatus {
+  PENDING
+  VERIFIED
+  REJECTED
+}
+
+enum Decision {
+  PENDING
+  APPROVED
+  REJECTED
+}

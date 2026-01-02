@@ -1,0 +1,8 @@
+{
+  "expo": {
+    "name": "VerifyApp",
+    "slug": "verifyapp",
+    "scheme": "verifyapp",
+    "plugins": ["expo-router"]
+  }
+}

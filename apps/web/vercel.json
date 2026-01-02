@@ -1,4 +1,4 @@
 {
-    "buildCommand": "cd ../.. && pnpm install && pnpm build",
-    "installCommand": "npm install -g pnpm && cd ../.. && pnpm install"
+    "buildCommand": "cd ../.. && pnpm install --frozen-lockfile && pnpm db:generate && pnpm build",
+    "installCommand": "npm install -g pnpm && cd ../.. && pnpm install --frozen-lockfile"
 }

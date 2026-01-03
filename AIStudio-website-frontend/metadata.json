@@ -1,0 +1,8 @@
+{
+  "name": "MORE Wellness - Dr. Eric Garland Redesign",
+  "description": "A modern, therapeutic landing page for the MORE (Mindfulness-Oriented Recovery Enhancement) program and mobile app.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}

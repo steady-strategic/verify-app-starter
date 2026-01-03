@@ -45,7 +45,7 @@ export async function POST(req: NextRequest) {
         }
 
         const body = await req.json();
-        const { title, slug, excerpt, content, imageUrl, published } = body;
+        const { title, slug, excerpt, content, imageUrl, mediaUrl, published } = body;
 
         // Validate required fields
         if (!title || !slug || !excerpt || !content) {
@@ -74,6 +74,7 @@ export async function POST(req: NextRequest) {
                 excerpt,
                 content,
                 imageUrl,
+                mediaUrl,
                 published: published || false,
                 publishedAt: published ? new Date() : null,
                 authorId: (session.user as any).id,

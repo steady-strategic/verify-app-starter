@@ -54,7 +54,7 @@ export async function PUT(
         }
 
         const body = await req.json();
-        const { title, slug, excerpt, content, imageUrl, published } = body;
+        const { title, slug, excerpt, content, imageUrl, mediaUrl, published } = body;
 
         // Validate required fields
         if (!title || !slug || !excerpt || !content) {
@@ -92,6 +92,7 @@ export async function PUT(
                 excerpt,
                 content,
                 imageUrl,
+                mediaUrl,
                 published,
                 publishedAt: published && !currentStory?.published ? new Date() : undefined,
             },

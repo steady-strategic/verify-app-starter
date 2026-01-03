@@ -33,6 +33,7 @@ export default async function EditStoryPage({
                             excerpt: story.excerpt,
                             content: story.content,
                             imageUrl: story.imageUrl || "",
+                            mediaUrl: story.mediaUrl || "",
                             published: story.published,
                         }}
                     />

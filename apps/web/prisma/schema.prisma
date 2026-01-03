@@ -85,6 +85,7 @@ model Story {
   excerpt     String
   content     String    @db.Text
   imageUrl    String?
+  mediaUrl    String?   // External media link (YouTube, etc.)
   published   Boolean   @default(false)
   authorId    String
   author      AdminUser @relation(fields: [authorId], references: [id])

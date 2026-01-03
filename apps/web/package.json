@@ -12,6 +12,7 @@
         "@prisma/client": "^5.22.0",
         "@verify/config": "workspace:*",
         "@verify/validation": "workspace:*",
+        "bcrypt": "^6.0.0",
         "next": "14.2.18",
         "next-auth": "^5.0.0-beta.25",
         "react": "^18.3.1",
@@ -19,6 +20,7 @@
         "zod": "^3.23.8"
     },
     "devDependencies": {
+        "@types/bcrypt": "^6.0.0",
         "@types/node": "^20.17.9",
         "@types/react": "^18.3.12",
         "@types/react-dom": "^18.3.1",

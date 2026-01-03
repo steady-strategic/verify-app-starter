@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { registerSchema } from "@verify/validation";
 import { prisma } from "../../../lib/db";
 import { signIn } from "../../../lib/auth";
+import bcrypt from "bcrypt";
 
 export async function POST(request: NextRequest) {
     try {
@@ -30,10 +31,14 @@ export async function POST(request: NextRequest) {
             );
         }
 
+        // Hash password
+        const passwordHash = await bcrypt.hash(data.password, 10);
+
         // Create user and verification request in a transaction
         const user = await prisma.user.create({
             data: {
                 email: data.email,
+                passwordHash,
                 firstName: data.firstName,
                 lastName: data.lastName,
                 businessName: data.businessName,
@@ -56,6 +61,13 @@ export async function POST(request: NextRequest) {
             include: {
                 verificationRequest: true,
             },
+        });
+
+        // Auto-login the user
+        await signIn("credentials", {
+            email: data.email,
+            password: data.password,
+            redirect: false,
         });
 
         // Return success with user ID (for Make.com webhook trigger)

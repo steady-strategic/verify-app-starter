@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useSession } from "next-auth/react";
 
 interface NavbarProps {
     scrolled?: boolean;
@@ -11,8 +12,10 @@ interface NavbarProps {
 export const Navbar: React.FC<NavbarProps> = ({ scrolled = false }) => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const pathname = usePathname();
+    const { data: session, status } = useSession();
 
     const isActive = (path: string) => pathname === path;
+    const isLoggedIn = status === "authenticated";
 
     return (
         <nav
@@ -65,12 +68,29 @@ export const Navbar: React.FC<NavbarProps> = ({ scrolled = false }) => {
 
                     <div className="h-4 w-[1px] bg-stone-200"></div>
 
-                    <Link
-                        href="/signup"
-                        className="px-5 py-2.5 bg-stone-900 text-white text-xs font-semibold rounded-full hover:bg-stone-800 transition-all active:scale-95"
-                    >
-                        Get Started
-                    </Link>
+                    {isLoggedIn ? (
+                        <Link
+                            href="/dashboard"
+                            className="px-5 py-2.5 bg-stone-900 text-white text-xs font-semibold rounded-full hover:bg-stone-800 transition-all active:scale-95"
+                        >
+                            Account
+                        </Link>
+                    ) : (
+                        <>
+                            <Link
+                                href="/signin"
+                                className="text-stone-600 hover:text-stone-900 transition-colors font-semibold"
+                            >
+                                Sign In
+                            </Link>
+                            <Link
+                                href="/signup"
+                                className="px-5 py-2.5 bg-stone-900 text-white text-xs font-semibold rounded-full hover:bg-stone-800 transition-all active:scale-95"
+                            >
+                                Get Started
+                            </Link>
+                        </>
+                    )}
                 </div>
 
                 {/* Mobile Hamburger */}
@@ -143,13 +163,33 @@ export const Navbar: React.FC<NavbarProps> = ({ scrolled = false }) => {
                         >
                             The App
                         </Link>
-                        <Link
-                            href="/signup"
-                            onClick={() => setMobileMenuOpen(false)}
-                            className="px-5 py-2.5 bg-stone-900 text-white text-xs font-semibold rounded-full hover:bg-stone-800 transition-all text-center"
-                        >
-                            Get Started
-                        </Link>
+
+                        {isLoggedIn ? (
+                            <Link
+                                href="/dashboard"
+                                onClick={() => setMobileMenuOpen(false)}
+                                className="px-5 py-2.5 bg-stone-900 text-white text-xs font-semibold rounded-full hover:bg-stone-800 transition-all text-center"
+                            >
+                                Account
+                            </Link>
+                        ) : (
+                            <>
+                                <Link
+                                    href="/signin"
+                                    onClick={() => setMobileMenuOpen(false)}
+                                    className="text-sm font-medium text-stone-600"
+                                >
+                                    Sign In
+                                </Link>
+                                <Link
+                                    href="/signup"
+                                    onClick={() => setMobileMenuOpen(false)}
+                                    className="px-5 py-2.5 bg-stone-900 text-white text-xs font-semibold rounded-full hover:bg-stone-800 transition-all text-center"
+                                >
+                                    Get Started
+                                </Link>
+                            </>
+                        )}
                     </div>
                 </div>
             )}

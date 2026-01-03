@@ -17,6 +17,7 @@ export function SignupForm() {
         firstName: "",
         lastName: "",
         email: "",
+        password: "",
         businessName: "",
         licenseNumber: "",
         licenseType: "",
@@ -135,6 +136,24 @@ export function SignupForm() {
                 />
                 {errors.email && (
                     <span className="text-rose-600 text-xs">{errors.email}</span>
+                )}
+            </div>
+
+            <div className="space-y-2">
+                <label className="text-[10px] font-bold uppercase tracking-widest text-stone-400">
+                    Password
+                </label>
+                <input
+                    type="password"
+                    name="password"
+                    value={formData.password}
+                    onChange={handleChange}
+                    className={`w-full bg-stone-50 border-none rounded-2xl py-3 px-4 focus:ring-2 focus:ring-amber-200 outline-none text-stone-900 ${errors.password ? "ring-2 ring-rose-300" : ""
+                        }`}
+                    placeholder="••••••••"
+                />
+                {errors.password && (
+                    <span className="text-rose-600 text-xs">{errors.password}</span>
                 )}
             </div>
 

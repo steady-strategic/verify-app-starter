@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useFormStatus } from "react-dom";
-import { adminLogin } from "../../app/admin/login/actions";
+import { adminLogin } from "../../app/admin-login/actions";
 
 function SubmitButton() {
     const { pending } = useFormStatus();

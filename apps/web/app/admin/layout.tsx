@@ -11,7 +11,7 @@ export default async function AdminLayout({
 
     // Check if user is authenticated as admin
     if (!session?.user || (session.user as any).userType !== "ADMIN") {
-        redirect("/admin/login");
+        redirect("/admin-login");
     }
 
     const adminUser = session.user as any;

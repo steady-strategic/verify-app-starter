@@ -1,4 +1,4 @@
-// Prisma schema for User Verification System
+// Prisma schema for User Verification System + Admin Panel
 // Uses Supabase Postgres
 
 generator client {
@@ -10,6 +10,10 @@ datasource db {
   url       = env("DATABASE_URL")
   directUrl = env("DIRECT_URL")
 }
+
+// ========================================
+// USER VERIFICATION SYSTEM (EXISTING)
+// ========================================
 
 model User {
   id                  String               @id @default(cuid())
@@ -48,4 +52,63 @@ enum Decision {
   PENDING
   APPROVED
   REJECTED
+}
+
+// ========================================
+// ADMIN PANEL & CONTENT MANAGEMENT (NEW)
+// ========================================
+
+model AdminUser {
+  id           String    @id @default(cuid())
+  email        String    @unique
+  passwordHash String
+  firstName    String
+  lastName     String
+  role         AdminRole @default(EDITOR)
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+
+  stories Story[]
+  lessons Lesson[]
+}
+
+enum AdminRole {
+  EDITOR       // Can create/edit stories and lessons
+  ADMIN        // EDITOR + can publish/unpublish
+  SUPER_ADMIN  // ADMIN + user management
+}
+
+model Story {
+  id          String    @id @default(cuid())
+  title       String
+  slug        String    @unique
+  excerpt     String
+  content     String    @db.Text
+  imageUrl    String?
+  published   Boolean   @default(false)
+  authorId    String
+  author      AdminUser @relation(fields: [authorId], references: [id])
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  publishedAt DateTime?
+
+  @@index([published, createdAt])
+}
+
+model Lesson {
+  id            String    @id @default(cuid())
+  title         String
+  description   String
+  audioFileName String
+  audioUrl      String?
+  durationSecs  Int
+  fileSizeBytes Int
+  allowOffline  Boolean   @default(true)
+  published     Boolean   @default(false)
+  authorId      String
+  author        AdminUser @relation(fields: [authorId], references: [id])
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  @@index([published, createdAt])
 }

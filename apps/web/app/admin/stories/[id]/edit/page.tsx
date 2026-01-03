@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
-import { prisma } from "../../../../../lib/db";
-import { StoryForm } from "../../../../../components/admin/StoryForm";
+import { prisma } from "@/lib/db";
+import { StoryForm } from "@/components/admin/StoryForm";
 
 export default async function EditStoryPage({
     params,

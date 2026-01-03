@@ -65,19 +65,24 @@ export async function PUT(
         }
 
         // Check if new slug conflicts with another story
-        const existing = await prisma.story.findFirst({
+        const slugConflict = await prisma.story.findFirst({
             where: {
                 slug,
                 id: { not: params.id },
             },
         });
 
-        if (existing) {
+        if (slugConflict) {
             return NextResponse.json(
                 { error: "A story with this slug already exists" },
                 { status: 409 }
             );
         }
+
+        // Get current story to check if it was previously published
+        const currentStory = await prisma.story.findUnique({
+            where: { id: params.id },
+        });
 
         const story = await prisma.story.update({
             where: { id: params.id },
@@ -88,7 +93,7 @@ export async function PUT(
                 content,
                 imageUrl,
                 published,
-                publishedAt: published && !existing?.published ? new Date() : undefined,
+                publishedAt: published && !currentStory?.published ? new Date() : undefined,
             },
             include: {
                 author: {

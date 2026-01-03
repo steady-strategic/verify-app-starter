@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useSession } from "next-auth/react";
+import { useSession, signOut } from "next-auth/react";
 
 interface NavbarProps {
     scrolled?: boolean;
@@ -20,8 +20,8 @@ export const Navbar: React.FC<NavbarProps> = ({ scrolled = false }) => {
     return (
         <nav
             className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled
-                    ? "py-4 glass shadow-sm border-b border-stone-100"
-                    : "py-8 bg-transparent"
+                ? "py-4 glass shadow-sm border-b border-stone-100"
+                : "py-8 bg-transparent"
                 }`}
         >
             <div className="container mx-auto px-6 flex justify-between items-center">
@@ -50,8 +50,8 @@ export const Navbar: React.FC<NavbarProps> = ({ scrolled = false }) => {
                     <Link
                         href="/stories"
                         className={`hover:text-stone-900 transition-colors ${isActive("/stories")
-                                ? "text-stone-900 font-bold border-b-2 border-amber-500"
-                                : ""
+                            ? "text-stone-900 font-bold border-b-2 border-amber-500"
+                            : ""
                             }`}
                     >
                         Stories
@@ -59,8 +59,8 @@ export const Navbar: React.FC<NavbarProps> = ({ scrolled = false }) => {
                     <Link
                         href="/program"
                         className={`hover:text-stone-900 transition-colors ${isActive("/program")
-                                ? "text-stone-900 font-bold border-b-2 border-amber-500"
-                                : ""
+                            ? "text-stone-900 font-bold border-b-2 border-amber-500"
+                            : ""
                             }`}
                     >
                         The App
@@ -69,12 +69,20 @@ export const Navbar: React.FC<NavbarProps> = ({ scrolled = false }) => {
                     <div className="h-4 w-[1px] bg-stone-200"></div>
 
                     {isLoggedIn ? (
-                        <Link
-                            href="/dashboard"
-                            className="px-5 py-2.5 bg-stone-900 text-white text-xs font-semibold rounded-full hover:bg-stone-800 transition-all active:scale-95"
-                        >
-                            Account
-                        </Link>
+                        <>
+                            <button
+                                onClick={() => signOut()}
+                                className="text-stone-600 hover:text-stone-900 transition-colors font-semibold"
+                            >
+                                Sign Out
+                            </button>
+                            <Link
+                                href="/dashboard"
+                                className="px-5 py-2.5 bg-stone-900 text-white text-xs font-semibold rounded-full hover:bg-stone-800 transition-all active:scale-95"
+                            >
+                                Account
+                            </Link>
+                        </>
                     ) : (
                         <>
                             <Link
@@ -147,8 +155,8 @@ export const Navbar: React.FC<NavbarProps> = ({ scrolled = false }) => {
                             href="/stories"
                             onClick={() => setMobileMenuOpen(false)}
                             className={`text-sm font-medium ${isActive("/stories")
-                                    ? "text-stone-900 font-bold"
-                                    : "text-stone-600"
+                                ? "text-stone-900 font-bold"
+                                : "text-stone-600"
                                 }`}
                         >
                             Stories
@@ -157,21 +165,32 @@ export const Navbar: React.FC<NavbarProps> = ({ scrolled = false }) => {
                             href="/program"
                             onClick={() => setMobileMenuOpen(false)}
                             className={`text-sm font-medium ${isActive("/program")
-                                    ? "text-stone-900 font-bold"
-                                    : "text-stone-600"
+                                ? "text-stone-900 font-bold"
+                                : "text-stone-600"
                                 }`}
                         >
                             The App
                         </Link>
 
                         {isLoggedIn ? (
-                            <Link
-                                href="/dashboard"
-                                onClick={() => setMobileMenuOpen(false)}
-                                className="px-5 py-2.5 bg-stone-900 text-white text-xs font-semibold rounded-full hover:bg-stone-800 transition-all text-center"
-                            >
-                                Account
-                            </Link>
+                            <>
+                                <button
+                                    onClick={() => {
+                                        setMobileMenuOpen(false);
+                                        signOut();
+                                    }}
+                                    className="text-sm font-medium text-stone-600"
+                                >
+                                    Sign Out
+                                </button>
+                                <Link
+                                    href="/dashboard"
+                                    onClick={() => setMobileMenuOpen(false)}
+                                    className="px-5 py-2.5 bg-stone-900 text-white text-xs font-semibold rounded-full hover:bg-stone-800 transition-all text-center"
+                                >
+                                    Account
+                                </Link>
+                            </>
                         ) : (
                             <>
                                 <Link

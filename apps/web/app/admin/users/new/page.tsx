@@ -1,6 +1,6 @@
 import { redirect } from "next/navigation";
 import { auth } from "@/lib/auth";
-import { AdminUserForm } from "../../../components/admin/AdminUserForm";
+import { AdminUserForm } from "@/components/admin/AdminUserForm";
 
 export default async function NewAdminUserPage() {
     const session = await auth();

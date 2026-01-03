@@ -25,23 +25,20 @@ export function AdminLoginForm() {
         setError(null);
 
         try {
-            const result = await signIn("admin-credentials", {
+            // With redirect: true, NextAuth will handle the redirect automatically
+            // This won't return if successful - page will redirect
+            await signIn("admin-credentials", {
                 email: formData.email,
                 password: formData.password,
-                redirect: false,
+                callbackUrl: "/admin",
             });
 
-            if (result?.error) {
-                setError("Invalid email or password");
-                setIsSubmitting(false);
-                return;
-            }
-
-            // Redirect to admin dashboard
-            router.push("/admin");
-            router.refresh();
+            // If we get here, login failed
+            setError("Invalid email or password");
+            setIsSubmitting(false);
         } catch (error) {
-            setError("An unexpected error occurred. Please try again.");
+            console.error("Login error:", error);
+            setError("Invalid email or password");
             setIsSubmitting(false);
         }
     };

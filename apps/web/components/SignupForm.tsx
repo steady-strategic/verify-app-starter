@@ -13,15 +13,16 @@ export function SignupForm() {
     const [errors, setErrors] = useState<FormErrors>({});
     const [apiError, setApiError] = useState<string | null>(null);
 
-    const [formData, setFormData] = useState<RegisterInput>({
+    // Use Partial to allow empty strings for dropdowns initially
+    const [formData, setFormData] = useState<Partial<RegisterInput> & { firstName: string; lastName: string; email: string; password: string }>({
         firstName: "",
         lastName: "",
         email: "",
         password: "",
         businessName: "",
         licenseNumber: "",
-        licenseType: "",
-        state: "",
+        licenseType: "" as any,
+        state: "" as any,
     });
 
     const handleChange = (

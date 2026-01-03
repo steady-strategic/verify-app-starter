@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { registerSchema } from "@verify/validation";
 import { prisma } from "../../../lib/db";
 import { signIn } from "../../../lib/auth";
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 
 export async function POST(request: NextRequest) {
     try {

@@ -19,6 +19,7 @@ interface StoryFormProps {
 export function StoryForm({ initialData, mode }: StoryFormProps) {
     const router = useRouter();
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const [isGeneratingImage, setIsGeneratingImage] = useState(false);
     const [error, setError] = useState<string | null>(null);
     const [formData, setFormData] = useState({
         title: initialData?.title || "",
@@ -47,6 +48,37 @@ export function StoryForm({ initialData, mode }: StoryFormProps) {
                 .replace(/[^a-z0-9]+/g, "-")
                 .replace(/(^-|-$)/g, "");
             setFormData((prev) => ({ ...prev, slug }));
+        }
+    };
+
+    const handleGenerateImage = async () => {
+        if (!formData.title && !formData.excerpt) {
+            setError("Please add a title or excerpt first");
+            return;
+        }
+
+        setIsGeneratingImage(true);
+        setError(null);
+
+        try {
+            const prompt = formData.title || formData.excerpt;
+            const response = await fetch("/api/admin/generate-image", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ prompt }),
+            });
+
+            const data = await response.json();
+
+            if (!response.ok) {
+                throw new Error(data.error || "Failed to generate image");
+            }
+
+            setFormData((prev) => ({ ...prev, imageUrl: data.imageUrl }));
+        } catch (err: any) {
+            setError(err.message);
+        } finally {
+            setIsGeneratingImage(false);
         }
     };
 
@@ -146,14 +178,42 @@ export function StoryForm({ initialData, mode }: StoryFormProps) {
                 <label className="text-[10px] font-bold uppercase tracking-widest text-stone-400">
                     Image URL
                 </label>
-                <input
-                    type="url"
-                    name="imageUrl"
-                    value={formData.imageUrl}
-                    onChange={handleChange}
-                    className="w-full bg-stone-50 border-none rounded-2xl py-3 px-4 focus:ring-2 focus:ring-amber-200 outline-none text-stone-900"
-                    placeholder="https://images.unsplash.com/..."
-                />
+                <div className="flex items-center space-x-2">
+                    <input
+                        type="url"
+                        name="imageUrl"
+                        value={formData.imageUrl}
+                        onChange={handleChange}
+                        className="flex-1 bg-stone-50 border-none rounded-2xl py-3 px-4 focus:ring-2 focus:ring-amber-200 outline-none text-stone-900"
+                        placeholder="https://images.unsplash.com/..."
+                    />
+                    <button
+                        type="button"
+                        onClick={handleGenerateImage}
+                        disabled={isGeneratingImage || (!formData.title && !formData.excerpt)}
+                        className="px-6 py-3 bg-gradient-to-r from-violet-600 to-purple-600 text-white rounded-xl font-semibold text-sm hover:from-violet-700 hover:to-purple-700 transition-all disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap flex items-center space-x-2"
+                    >
+                        {isGeneratingImage ? (
+                            <>
+                                <svg className="animate-spin h-4 w-4" fill="none" viewBox="0 0 24 24">
+                                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                </svg>
+                                <span>Generating...</span>
+                            </>
+                        ) : (
+                            <>
+                                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                                </svg>
+                                <span>Generate with AI</span>
+                            </>
+                        )}
+                    </button>
+                </div>
+                <p className="text-xs text-stone-400">
+                    Paste a URL or click "Generate with AI" to create an image based on the story title
+                </p>
                 {formData.imageUrl && (
                     <div className="mt-4 rounded-2xl overflow-hidden border border-stone-200">
                         <img

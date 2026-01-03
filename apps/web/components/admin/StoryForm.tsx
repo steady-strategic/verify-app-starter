@@ -245,8 +245,8 @@ export function StoryForm({ initialData, mode }: StoryFormProps) {
                         onDragOver={handleDragOver}
                         onDragLeave={handleDragLeave}
                         className={`relative border-2 border-dashed rounded-2xl p-6 transition-all ${isDragging
-                                ? "border-amber-500 bg-amber-50"
-                                : "border-stone-200 bg-stone-50"
+                            ? "border-amber-500 bg-amber-50"
+                            : "border-stone-200 bg-stone-50"
                             } ${formData.imageUrl ? "aspect-video" : "h-48"}`}
                     >
                         {formData.imageUrl ? (
@@ -308,7 +308,8 @@ export function StoryForm({ initialData, mode }: StoryFormProps) {
                     <label className="text-[10px] font-bold uppercase tracking-widest text-stone-400">
                         Or Generate with AI
                     </label>
-                    <div className="border-2 border-stone-200 rounded-2xl p-6 bg-gradient-to-br from-violet-50 to-purple-50 h-48 flex flex-col items-center justify-center text-center">
+                    <div className={`border-2 border-stone-200 rounded-2xl p-6 bg-gradient-to-br from-violet-50 to-purple-50 flex flex-col items-center justify-center text-center ${formData.imageUrl ? "aspect-video" : "h-48"
+                        }`}>
                         <svg className="w-16 h-16 text-violet-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
                         </svg>

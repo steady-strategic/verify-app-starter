@@ -28,7 +28,6 @@ export function SignupForm() {
     ) => {
         const { name, value } = e.target;
         setFormData((prev) => ({ ...prev, [name]: value }));
-        // Clear error for this field when user starts typing
         if (errors[name as keyof RegisterInput]) {
             setErrors((prev) => ({ ...prev, [name]: undefined }));
         }
@@ -41,7 +40,6 @@ export function SignupForm() {
         setErrors({});
         setApiError(null);
 
-        // Client-side validation
         const validation = registerSchema.safeParse(formData);
         if (!validation.success) {
             const fieldErrors: FormErrors = {};
@@ -69,7 +67,6 @@ export function SignupForm() {
                 return;
             }
 
-            // Success - redirect to pending page
             router.push("/pending");
         } catch (error) {
             setApiError("An unexpected error occurred. Please try again.");
@@ -78,100 +75,112 @@ export function SignupForm() {
     };
 
     return (
-        <form className="form" onSubmit={handleSubmit}>
-            {apiError && <div className="api-error">{apiError}</div>}
+        <form onSubmit={handleSubmit} className="space-y-6">
+            {apiError && (
+                <div className="bg-rose-50 border border-rose-200 text-rose-700 px-6 py-4 rounded-2xl text-sm">
+                    {apiError}
+                </div>
+            )}
 
-            <div className="form-row">
-                <div className="form-group">
-                    <label htmlFor="firstName">First Name</label>
+            <div className="grid md:grid-cols-2 gap-6">
+                <div className="space-y-2">
+                    <label className="text-[10px] font-bold uppercase tracking-widest text-stone-400">
+                        First Name
+                    </label>
                     <input
                         type="text"
-                        id="firstName"
                         name="firstName"
                         value={formData.firstName}
                         onChange={handleChange}
-                        className={errors.firstName ? "error" : ""}
+                        className={`w-full bg-stone-50 border-none rounded-2xl py-3 px-4 focus:ring-2 focus:ring-amber-200 outline-none text-stone-900 ${errors.firstName ? "ring-2 ring-rose-300" : ""
+                            }`}
                         placeholder="John"
                     />
                     {errors.firstName && (
-                        <span className="error-message">{errors.firstName}</span>
+                        <span className="text-rose-600 text-xs">{errors.firstName}</span>
                     )}
                 </div>
 
-                <div className="form-group">
-                    <label htmlFor="lastName">Last Name</label>
+                <div className="space-y-2">
+                    <label className="text-[10px] font-bold uppercase tracking-widest text-stone-400">
+                        Last Name
+                    </label>
                     <input
                         type="text"
-                        id="lastName"
                         name="lastName"
                         value={formData.lastName}
                         onChange={handleChange}
-                        className={errors.lastName ? "error" : ""}
+                        className={`w-full bg-stone-50 border-none rounded-2xl py-3 px-4 focus:ring-2 focus:ring-amber-200 outline-none text-stone-900 ${errors.lastName ? "ring-2 ring-rose-300" : ""
+                            }`}
                         placeholder="Doe"
                     />
                     {errors.lastName && (
-                        <span className="error-message">{errors.lastName}</span>
+                        <span className="text-rose-600 text-xs">{errors.lastName}</span>
                     )}
                 </div>
             </div>
 
-            <div className="form-group">
-                <label htmlFor="email">Email</label>
+            <div className="space-y-2">
+                <label className="text-[10px] font-bold uppercase tracking-widest text-stone-400">
+                    Email
+                </label>
                 <input
                     type="email"
-                    id="email"
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    className={errors.email ? "error" : ""}
+                    className={`w-full bg-stone-50 border-none rounded-2xl py-3 px-4 focus:ring-2 focus:ring-amber-200 outline-none text-stone-900 ${errors.email ? "ring-2 ring-rose-300" : ""
+                        }`}
                     placeholder="john@example.com"
                 />
                 {errors.email && (
-                    <span className="error-message">{errors.email}</span>
+                    <span className="text-rose-600 text-xs">{errors.email}</span>
                 )}
             </div>
 
-            <div className="form-group">
-                <label htmlFor="businessName">Business Name (Optional)</label>
+            <div className="space-y-2">
+                <label className="text-[10px] font-bold uppercase tracking-widest text-stone-400">
+                    Business Name (Optional)
+                </label>
                 <input
                     type="text"
-                    id="businessName"
                     name="businessName"
                     value={formData.businessName}
                     onChange={handleChange}
-                    className={errors.businessName ? "error" : ""}
+                    className="w-full bg-stone-50 border-none rounded-2xl py-3 px-4 focus:ring-2 focus:ring-amber-200 outline-none text-stone-900"
                     placeholder="Acme Healthcare"
                 />
-                {errors.businessName && (
-                    <span className="error-message">{errors.businessName}</span>
-                )}
             </div>
 
-            <div className="form-group">
-                <label htmlFor="licenseNumber">License Number</label>
+            <div className="space-y-2">
+                <label className="text-[10px] font-bold uppercase tracking-widest text-stone-400">
+                    License Number
+                </label>
                 <input
                     type="text"
-                    id="licenseNumber"
                     name="licenseNumber"
                     value={formData.licenseNumber}
                     onChange={handleChange}
-                    className={errors.licenseNumber ? "error" : ""}
+                    className={`w-full bg-stone-50 border-none rounded-2xl py-3 px-4 focus:ring-2 focus:ring-amber-200 outline-none text-stone-900 ${errors.licenseNumber ? "ring-2 ring-rose-300" : ""
+                        }`}
                     placeholder="MD-12345"
                 />
                 {errors.licenseNumber && (
-                    <span className="error-message">{errors.licenseNumber}</span>
+                    <span className="text-rose-600 text-xs">{errors.licenseNumber}</span>
                 )}
             </div>
 
-            <div className="form-row">
-                <div className="form-group">
-                    <label htmlFor="licenseType">License Type</label>
+            <div className="grid md:grid-cols-2 gap-6">
+                <div className="space-y-2">
+                    <label className="text-[10px] font-bold uppercase tracking-widest text-stone-400">
+                        License Type
+                    </label>
                     <select
-                        id="licenseType"
                         name="licenseType"
                         value={formData.licenseType}
                         onChange={handleChange}
-                        className={errors.licenseType ? "error" : ""}
+                        className={`w-full bg-stone-50 border-none rounded-2xl py-3 px-4 focus:ring-2 focus:ring-amber-200 outline-none text-stone-900 appearance-none ${errors.licenseType ? "ring-2 ring-rose-300" : ""
+                            }`}
                     >
                         <option value="">Select type...</option>
                         {licenseTypes.map((type) => (
@@ -181,18 +190,20 @@ export function SignupForm() {
                         ))}
                     </select>
                     {errors.licenseType && (
-                        <span className="error-message">{errors.licenseType}</span>
+                        <span className="text-rose-600 text-xs">{errors.licenseType}</span>
                     )}
                 </div>
 
-                <div className="form-group">
-                    <label htmlFor="state">State</label>
+                <div className="space-y-2">
+                    <label className="text-[10px] font-bold uppercase tracking-widest text-stone-400">
+                        State
+                    </label>
                     <select
-                        id="state"
                         name="state"
                         value={formData.state}
                         onChange={handleChange}
-                        className={errors.state ? "error" : ""}
+                        className={`w-full bg-stone-50 border-none rounded-2xl py-3 px-4 focus:ring-2 focus:ring-amber-200 outline-none text-stone-900 appearance-none ${errors.state ? "ring-2 ring-rose-300" : ""
+                            }`}
                     >
                         <option value="">Select state...</option>
                         {states.map((s) => (
@@ -202,15 +213,15 @@ export function SignupForm() {
                         ))}
                     </select>
                     {errors.state && (
-                        <span className="error-message">{errors.state}</span>
+                        <span className="text-rose-600 text-xs">{errors.state}</span>
                     )}
                 </div>
             </div>
 
             <button
                 type="submit"
-                className="submit-button"
                 disabled={isSubmitting}
+                className="w-full py-5 bg-amber-600 text-white rounded-full font-bold text-sm uppercase tracking-widest hover:bg-amber-700 transition-all shadow-lg shadow-amber-100 disabled:opacity-50 disabled:cursor-not-allowed"
             >
                 {isSubmitting ? "Submitting..." : "Submit for Verification"}
             </button>

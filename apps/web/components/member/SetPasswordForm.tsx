@@ -1,16 +1,19 @@
 "use client";
 
 import { useState } from "react";
-import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 
-export function SignInForm() {
+interface SetPasswordFormProps {
+    token: string;
+}
+
+export function SetPasswordForm({ token }: SetPasswordFormProps) {
     const router = useRouter();
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [error, setError] = useState<string | null>(null);
     const [formData, setFormData] = useState({
-        email: "",
         password: "",
+        confirmPassword: "",
     });
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -24,30 +27,40 @@ export function SignInForm() {
         setIsSubmitting(true);
         setError(null);
 
+        // Validate passwords match
+        if (formData.password !== formData.confirmPassword) {
+            setError("Passwords do not match");
+            setIsSubmitting(false);
+            return;
+        }
+
+        // Validate password length
+        if (formData.password.length < 8) {
+            setError("Password must be at least 8 characters long");
+            setIsSubmitting(false);
+            return;
+        }
+
         try {
-            const result = await signIn("credentials", {
-                email: formData.email,
-                password: formData.password,
-                redirect: false,
+            const response = await fetch("/api/auth/set-password", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    token,
+                    password: formData.password,
+                }),
             });
 
-            if (result?.error) {
-                setError("Invalid email or password");
+            const data = await response.json();
+
+            if (!response.ok) {
+                setError(data.error || "Failed to set password");
                 setIsSubmitting(false);
                 return;
             }
 
-            // Fetch user status to determine redirect
-            const response = await fetch("/api/auth/session");
-            const session = await response.json();
-
-            if (session?.user?.status === "PENDING") {
-                router.push("/pending");
-            } else if (session?.user?.status === "VERIFIED") {
-                router.push("/dashboard");
-            } else {
-                router.push("/");
-            }
+            // Success - redirect to account page
+            router.push("/account");
         } catch (error) {
             setError("An unexpected error occurred. Please try again.");
             setIsSubmitting(false);
@@ -64,22 +77,7 @@ export function SignInForm() {
 
             <div className="space-y-2">
                 <label className="text-[10px] font-bold uppercase tracking-widest text-stone-400">
-                    Email
-                </label>
-                <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                    className="w-full bg-stone-50 border-none rounded-2xl py-3 px-4 focus:ring-2 focus:ring-amber-200 outline-none text-stone-900"
-                    placeholder="john@example.com"
-                />
-            </div>
-
-            <div className="space-y-2">
-                <label className="text-[10px] font-bold uppercase tracking-widest text-stone-400">
-                    Password
+                    New Password
                 </label>
                 <input
                     type="password"
@@ -89,6 +87,24 @@ export function SignInForm() {
                     required
                     className="w-full bg-stone-50 border-none rounded-2xl py-3 px-4 focus:ring-2 focus:ring-amber-200 outline-none text-stone-900"
                     placeholder="••••••••"
+                    minLength={8}
+                />
+                <p className="text-xs text-stone-400">Minimum 8 characters</p>
+            </div>
+
+            <div className="space-y-2">
+                <label className="text-[10px] font-bold uppercase tracking-widest text-stone-400">
+                    Confirm Password
+                </label>
+                <input
+                    type="password"
+                    name="confirmPassword"
+                    value={formData.confirmPassword}
+                    onChange={handleChange}
+                    required
+                    className="w-full bg-stone-50 border-none rounded-2xl py-3 px-4 focus:ring-2 focus:ring-amber-200 outline-none text-stone-900"
+                    placeholder="••••••••"
+                    minLength={8}
                 />
             </div>
 
@@ -97,7 +113,7 @@ export function SignInForm() {
                 disabled={isSubmitting}
                 className="w-full py-5 bg-amber-600 text-white rounded-full font-bold text-sm uppercase tracking-widest hover:bg-amber-700 transition-all shadow-lg shadow-amber-100 disabled:opacity-50 disabled:cursor-not-allowed"
             >
-                {isSubmitting ? "Signing In..." : "Sign In"}
+                {isSubmitting ? "Setting Password..." : "Set Password & Continue"}
             </button>
         </form>
     );

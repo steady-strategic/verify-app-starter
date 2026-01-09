@@ -12,8 +12,10 @@ datasource db {
 }
 
 // ========================================
-// USER VERIFICATION SYSTEM (EXISTING)
+// USER VERIFICATION SYSTEM (DEPRECATED - V1)
 // ========================================
+// NOTE: These models are preserved for data safety.
+// New user accounts use the Member model below.
 
 model User {
   id                  String               @id @default(cuid())
@@ -112,4 +114,41 @@ model Lesson {
   updatedAt     DateTime  @updatedAt
 
   @@index([published, createdAt])
+}
+
+// ========================================
+// USER ACCOUNT SYSTEM V2 (NEW)
+// ========================================
+
+model Member {
+  id            String         @id @default(cuid())
+  email         String         @unique
+  passwordHash  String?        // Null until password is set
+  firstName     String
+  lastName      String
+  mondayItemId  String?        @unique  // monday.com item ID
+  status        MemberStatus   @default(INVITED)
+  inviteTokens  InviteToken[]
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+  lastLoginAt   DateTime?
+}
+
+model InviteToken {
+  id            String    @id @default(cuid())
+  tokenHash     String    @unique  // SHA-256 hash of the raw token
+  memberId      String
+  member        Member    @relation(fields: [memberId], references: [id], onDelete: Cascade)
+  expiresAt     DateTime  // TTL: 24 hours from creation
+  usedAt        DateTime? // Null if unused, timestamp if used
+  createdAt     DateTime  @default(now())
+
+  @@index([tokenHash])
+  @@index([memberId])
+}
+
+enum MemberStatus {
+  INVITED     // Initial state, awaiting password set
+  ACTIVE      // Password set, can log in
+  SUSPENDED   // Account suspended (optional future use)
 }

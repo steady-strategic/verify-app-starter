@@ -5,10 +5,10 @@ import bcrypt from "bcryptjs";
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
     providers: [
-        // Regular User Authentication
+        // Member Authentication (V2)
         Credentials({
-            id: "user-credentials",
-            name: "User Login",
+            id: "member-credentials",
+            name: "Member Login",
             credentials: {
                 email: { label: "Email", type: "email" },
                 password: { label: "Password", type: "password" },
@@ -16,25 +16,35 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             async authorize(credentials) {
                 if (!credentials?.email || !credentials?.password) return null;
 
-                const user = await prisma.user.findUnique({
+                const member = await prisma.member.findUnique({
                     where: { email: credentials.email as string },
                 });
 
-                if (!user) return null;
+                if (!member) return null;
+
+                // Member must have set password and be active
+                if (!member.passwordHash || member.status !== "ACTIVE") {
+                    return null;
+                }
 
                 const isValidPassword = await bcrypt.compare(
                     credentials.password as string,
-                    user.passwordHash
+                    member.passwordHash
                 );
 
                 if (!isValidPassword) return null;
 
+                // Update last login timestamp
+                await prisma.member.update({
+                    where: { id: member.id },
+                    data: { lastLoginAt: new Date() },
+                });
+
                 return {
-                    id: user.id,
-                    email: user.email,
-                    name: `${user.firstName} ${user.lastName}`,
-                    status: user.status,
-                    userType: "USER",
+                    id: member.id,
+                    email: member.email,
+                    name: `${member.firstName} ${member.lastName}`,
+                    userType: "MEMBER",
                 };
             },
         }),
@@ -79,9 +89,9 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
                 token.id = user.id;
                 token.userType = (user as any).userType;
 
-                // User-specific fields
-                if ((user as any).userType === "USER") {
-                    token.status = (user as any).status;
+                // Member-specific fields
+                if ((user as any).userType === "MEMBER") {
+                    // No additional fields needed for members currently
                 }
 
                 // Admin-specific fields
@@ -96,9 +106,9 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
                 (session.user as any).id = token.id;
                 (session.user as any).userType = token.userType;
 
-                // User-specific fields
-                if (token.userType === "USER") {
-                    (session.user as any).status = token.status;
+                // Member-specific fields
+                if (token.userType === "MEMBER") {
+                    // No additional fields needed for members currently
                 }
 
                 // Admin-specific fields
@@ -110,8 +120,8 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         },
     },
     pages: {
-        signIn: "/signin",
-        error: "/signin",
+        signIn: "/login",
+        error: "/login",
     },
     session: {
         strategy: "jwt",

@@ -65,6 +65,7 @@ export async function fetchMondayContactItem(itemId: string): Promise<{
         column_values {
           id
           text
+          value
         }
       }
     }
@@ -74,7 +75,7 @@ export async function fetchMondayContactItem(itemId: string): Promise<{
         items: Array<{
             id: string;
             name: string;
-            column_values: Array<{ id: string; text: string | null }>;
+            column_values: Array<{ id: string; text: string | null; value: string | null }>;
         }>;
     }>(query, { itemId });
 
@@ -97,7 +98,18 @@ export async function fetchMondayContactItem(itemId: string): Promise<{
         (col) => col.id === lastNameColumnId
     );
 
-    const email = emailColumn?.text;
+    // For email columns, Monday stores data in JSON value field
+    let email = emailColumn?.text;
+    if (!email && emailColumn?.value) {
+        try {
+            const emailValue = JSON.parse(emailColumn.value);
+            email = emailValue.email || emailValue.text;
+        } catch (e) {
+            // If parsing fails, value might be a plain string
+            email = emailColumn.value;
+        }
+    }
+
     const firstName = firstNameColumn?.text || "";
     const lastName = lastNameColumn?.text || "";
 

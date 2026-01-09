@@ -5,45 +5,41 @@ import {
     hashToken,
     getTokenExpirationDate,
 } from "../../../../lib/invite-token";
-import {
-    fetchMondayContactItem,
-    updateMondayInviteColumns,
-} from "../../../../lib/monday";
 
 /**
  * Monday.com webhook handler for contact creation
- * Handles: challenge handshake, contact creation, invite token generation
+ * Accepts contact data from Make.com and creates Member + InviteToken
  */
 
 interface MondayWebhookPayload {
     challenge?: string; // For webhook verification
     event?: {
-        type: string;
         itemId: string;
+    };
+    contactData: {
+        email: string;
+        firstName: string;
+        lastName: string;
     };
 }
 
 export async function POST(request: NextRequest) {
     try {
-        // 1. Verify webhook authenticity using Monday's signature
+        // 1. Optional webhook authentication
         const signature = request.headers.get("authorization");
         const expectedSecret = process.env.MONDAY_WEBHOOK_SECRET;
 
-        // Monday.com sends signature in Authorization header
-        // For now, we'll make signature verification optional
-        // If MONDAY_WEBHOOK_SECRET is set, we verify it matches
-        if (expectedSecret && signature) {
-            // Monday sends the token in format: "Bearer {token}" or just the token
-            const token = signature.replace("Bearer ", "");
+        if (expectedSecret) {
+            if (!signature) {
+                console.error("Webhook authentication failed: missing authorization header");
+                return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+            }
 
+            const token = signature.replace("Bearer ", "");
             if (token !== expectedSecret) {
                 console.error("Webhook authentication failed: invalid signature");
                 return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
             }
-        } else if (expectedSecret && !signature) {
-            // Secret is configured but no signature provided
-            console.error("Webhook authentication failed: missing signature");
-            return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
         }
 
         const body: MondayWebhookPayload = await request.json();
@@ -61,48 +57,34 @@ export async function POST(request: NextRequest) {
             );
         }
 
-        const { itemId } = body.event;
-
-        // 4. Fetch contact details from monday
-        let contactDetails;
-        try {
-            contactDetails = await fetchMondayContactItem(itemId);
-        } catch (error) {
-            console.error("Failed to fetch monday contact:", error);
-            console.error("Item ID:", itemId);
-            console.error("MONDAY_API_TOKEN set:", !!process.env.MONDAY_API_TOKEN);
-            console.error("MONDAY_BOARD_ID:", process.env.MONDAY_BOARD_ID);
+        if (!body.contactData?.email) {
             return NextResponse.json(
-                {
-                    error: "Failed to fetch contact from monday",
-                    details: error instanceof Error ? error.message : "Unknown error",
-                    itemId: itemId,
-                    hasApiToken: !!process.env.MONDAY_API_TOKEN,
-                },
-                { status: 500 }
+                { error: "Missing required field: contactData.email" },
+                { status: 400 }
             );
         }
 
-        const { email, firstName, lastName } = contactDetails;
+        const { itemId } = body.event;
+        const { email, firstName, lastName } = body.contactData;
 
-        // 5. Upsert member record
+        // 4. Upsert member record
         const member = await prisma.member.upsert({
             where: { email },
             update: {
-                firstName,
-                lastName,
+                firstName: firstName || "",
+                lastName: lastName || "",
                 mondayItemId: itemId,
             },
             create: {
                 email,
-                firstName,
-                lastName,
+                firstName: firstName || "",
+                lastName: lastName || "",
                 mondayItemId: itemId,
                 status: "INVITED",
             },
         });
 
-        // 6. Generate invite token
+        // 5. Generate invite token
         const rawToken = generateInviteToken();
         const tokenHash = hashToken(rawToken);
         const expiresAt = getTokenExpirationDate();
@@ -115,25 +97,18 @@ export async function POST(request: NextRequest) {
             },
         });
 
-        // 7. Build Set Password URL
+        // 6. Build Set Password URL
         const baseUrl = process.env.NEXTAUTH_URL || "http://localhost:3000";
         const setPasswordUrl = `${baseUrl}/set-password?token=${rawToken}`;
 
-        // 8. Update monday item columns
-        try {
-            await updateMondayInviteColumns(itemId, setPasswordUrl, "Sent");
-        } catch (error) {
-            console.error("Failed to update monday columns:", error);
-            // Don't fail the webhook if monday update fails
-            // The member and token are already created
-        }
-
-        // 9. Return success
+        // 7. Return success with invite URL
+        // Make.com will handle updating Monday columns
         return NextResponse.json({
             success: true,
             memberId: member.id,
             email: member.email,
             inviteUrl: setPasswordUrl,
+            itemId: itemId,
         });
     } catch (error) {
         console.error("Monday webhook error:", error);
@@ -145,7 +120,7 @@ export async function POST(request: NextRequest) {
     }
 }
 
-// Support GET for webhook verification (some services require this)
+// Support GET for webhook verification
 export async function GET() {
     return NextResponse.json({ status: "ok", service: "monday-contact-webhook" });
 }

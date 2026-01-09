@@ -83,13 +83,18 @@ export async function fetchMondayContactItem(itemId: string): Promise<{
         throw new Error(`Monday item ${itemId} not found`);
     }
 
+    // Column IDs from your board (configurable via env vars)
+    const emailColumnId = process.env.MONDAY_EMAIL_COLUMN_ID || "email_mkzenam9";
+    const firstNameColumnId = process.env.MONDAY_FIRST_NAME_COLUMN_ID || "text_mkzeqemp";
+    const lastNameColumnId = process.env.MONDAY_LAST_NAME_COLUMN_ID || "text_mkze1r7g";
+
     // Extract email from column values
-    const emailColumn = item.column_values.find((col) => col.id === "email");
+    const emailColumn = item.column_values.find((col) => col.id === emailColumnId);
     const firstNameColumn = item.column_values.find(
-        (col) => col.id === "first_name"
+        (col) => col.id === firstNameColumnId
     );
     const lastNameColumn = item.column_values.find(
-        (col) => col.id === "last_name"
+        (col) => col.id === lastNameColumnId
     );
 
     const email = emailColumn?.text;

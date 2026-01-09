@@ -69,10 +69,15 @@ export async function POST(request: NextRequest) {
             contactDetails = await fetchMondayContactItem(itemId);
         } catch (error) {
             console.error("Failed to fetch monday contact:", error);
+            console.error("Item ID:", itemId);
+            console.error("MONDAY_API_TOKEN set:", !!process.env.MONDAY_API_TOKEN);
+            console.error("MONDAY_BOARD_ID:", process.env.MONDAY_BOARD_ID);
             return NextResponse.json(
                 {
                     error: "Failed to fetch contact from monday",
                     details: error instanceof Error ? error.message : "Unknown error",
+                    itemId: itemId,
+                    hasApiToken: !!process.env.MONDAY_API_TOKEN,
                 },
                 { status: 500 }
             );

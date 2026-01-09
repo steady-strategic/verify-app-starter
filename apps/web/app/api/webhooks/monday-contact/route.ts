@@ -67,22 +67,40 @@ export async function POST(request: NextRequest) {
         const { itemId } = body.event;
         const { email, firstName, lastName } = body.contactData;
 
-        // 4. Upsert member record
-        const member = await prisma.member.upsert({
-            where: { email },
-            update: {
-                firstName: firstName || "",
-                lastName: lastName || "",
-                mondayItemId: itemId,
-            },
-            create: {
-                email,
-                firstName: firstName || "",
-                lastName: lastName || "",
-                mondayItemId: itemId,
-                status: "INVITED",
+        // 4. Find or create member record
+        // Check if member exists by mondayItemId or email
+        let member = await prisma.member.findFirst({
+            where: {
+                OR: [
+                    { email },
+                    { mondayItemId: itemId },
+                ],
             },
         });
+
+        if (member) {
+            // Update existing member
+            member = await prisma.member.update({
+                where: { id: member.id },
+                data: {
+                    email,
+                    firstName: firstName || "",
+                    lastName: lastName || "",
+                    mondayItemId: itemId,
+                },
+            });
+        } else {
+            // Create new member
+            member = await prisma.member.create({
+                data: {
+                    email,
+                    firstName: firstName || "",
+                    lastName: lastName || "",
+                    mondayItemId: itemId,
+                    status: "INVITED",
+                },
+            });
+        }
 
         // 5. Generate invite token
         const rawToken = generateInviteToken();

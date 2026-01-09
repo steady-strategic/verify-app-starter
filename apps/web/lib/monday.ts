@@ -105,6 +105,7 @@ export async function fetchMondayContactItem(itemId: string): Promise<{
 
 /**
  * Update monday item columns with invite link and status
+ * Updates are done sequentially: Set Password Link first, then Invite Status
  */
 export async function updateMondayInviteColumns(
     itemId: string,
@@ -122,25 +123,31 @@ export async function updateMondayInviteColumns(
     }
 
     const mutation = `
-    mutation UpdateInviteLink($boardId: ID!, $itemId: ID!, $columnValues: JSON!) {
-      change_multiple_column_values(
+    mutation UpdateColumn($boardId: ID!, $itemId: ID!, $columnId: String!, $value: JSON!) {
+      change_column_value(
         board_id: $boardId
         item_id: $itemId
-        column_values: $columnValues
+        column_id: $columnId
+        value: $value
       ) {
         id
       }
     }
   `;
 
-    const columnValues = JSON.stringify({
-        [setPasswordColumnId]: setPasswordUrl,
-        [inviteStatusColumnId]: { label: inviteStatus },
-    });
-
+    // Step 1: Update Set Password Link first
     await mondayGraphQL(mutation, {
         boardId,
         itemId,
-        columnValues,
+        columnId: setPasswordColumnId,
+        value: JSON.stringify(setPasswordUrl),
+    });
+
+    // Step 2: Update Invite Status second
+    await mondayGraphQL(mutation, {
+        boardId,
+        itemId,
+        columnId: inviteStatusColumnId,
+        value: JSON.stringify({ label: inviteStatus }),
     });
 }

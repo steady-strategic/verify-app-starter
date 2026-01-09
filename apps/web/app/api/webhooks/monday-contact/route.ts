@@ -25,12 +25,24 @@ interface MondayWebhookPayload {
 
 export async function POST(request: NextRequest) {
     try {
-        // 1. Verify webhook authenticity
-        const webhookSecret = request.headers.get("x-monday-signature");
+        // 1. Verify webhook authenticity using Monday's signature
+        const signature = request.headers.get("authorization");
         const expectedSecret = process.env.MONDAY_WEBHOOK_SECRET;
 
-        if (expectedSecret && webhookSecret !== expectedSecret) {
-            console.error("Webhook authentication failed: invalid signature");
+        // Monday.com sends signature in Authorization header
+        // For now, we'll make signature verification optional
+        // If MONDAY_WEBHOOK_SECRET is set, we verify it matches
+        if (expectedSecret && signature) {
+            // Monday sends the token in format: "Bearer {token}" or just the token
+            const token = signature.replace("Bearer ", "");
+
+            if (token !== expectedSecret) {
+                console.error("Webhook authentication failed: invalid signature");
+                return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+            }
+        } else if (expectedSecret && !signature) {
+            // Secret is configured but no signature provided
+            console.error("Webhook authentication failed: missing signature");
             return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
         }
 

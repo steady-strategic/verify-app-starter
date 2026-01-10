@@ -73,8 +73,8 @@ const DropdownMenu: React.FC<{
                             key={item.href}
                             href={item.href}
                             className={`block px-4 py-2 text-sm hover:bg-amber-50 transition-colors ${isActive(item.href)
-                                    ? "text-stone-900 font-bold bg-amber-50/50"
-                                    : "text-stone-600"
+                                ? "text-stone-900 font-bold bg-amber-50/50"
+                                : "text-stone-600"
                                 }`}
                             onClick={() => setIsOpen(false)}
                         >
@@ -115,8 +115,8 @@ export const Navbar: React.FC<NavbarProps> = ({ scrolled = false }) => {
     return (
         <nav
             className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled
-                    ? "py-4 glass shadow-sm border-b border-stone-100"
-                    : "py-8 bg-transparent"
+                ? "py-4 glass shadow-sm border-b border-stone-100"
+                : "py-8 bg-transparent"
                 }`}
         >
             <div className="container mx-auto px-6 flex justify-between items-center">
@@ -158,20 +158,12 @@ export const Navbar: React.FC<NavbarProps> = ({ scrolled = false }) => {
                     <div className="h-4 w-[1px] bg-stone-200"></div>
 
                     {isLoggedIn ? (
-                        <>
-                            <Link
-                                href="/dashboard"
-                                className="text-stone-600 hover:text-stone-900 transition-colors font-semibold"
-                            >
-                                Account
-                            </Link>
-                            <button
-                                onClick={() => signOut()}
-                                className="px-5 py-2.5 bg-stone-900 text-white text-xs font-semibold rounded-full hover:bg-stone-800 transition-all active:scale-95"
-                            >
-                                Sign Out
-                            </button>
-                        </>
+                        <button
+                            onClick={() => signOut()}
+                            className="px-5 py-2.5 bg-stone-900 text-white text-xs font-semibold rounded-full hover:bg-stone-800 transition-all active:scale-95"
+                        >
+                            Sign Out
+                        </button>
                     ) : (
                         <Link
                             href="/login"
@@ -235,8 +227,8 @@ export const Navbar: React.FC<NavbarProps> = ({ scrolled = false }) => {
                                     href={item.href}
                                     onClick={() => setMobileMenuOpen(false)}
                                     className={`block text-sm font-medium pl-3 ${isActive(item.href)
-                                            ? "text-stone-900 font-bold"
-                                            : "text-stone-600"
+                                        ? "text-stone-900 font-bold"
+                                        : "text-stone-600"
                                         }`}
                                 >
                                     {item.label}
@@ -255,8 +247,8 @@ export const Navbar: React.FC<NavbarProps> = ({ scrolled = false }) => {
                                     href={item.href}
                                     onClick={() => setMobileMenuOpen(false)}
                                     className={`block text-sm font-medium pl-3 ${isActive(item.href)
-                                            ? "text-stone-900 font-bold"
-                                            : "text-stone-600"
+                                        ? "text-stone-900 font-bold"
+                                        : "text-stone-600"
                                         }`}
                                 >
                                     {item.label}
@@ -275,8 +267,8 @@ export const Navbar: React.FC<NavbarProps> = ({ scrolled = false }) => {
                                     href={item.href}
                                     onClick={() => setMobileMenuOpen(false)}
                                     className={`block text-sm font-medium pl-3 ${isActive(item.href)
-                                            ? "text-stone-900 font-bold"
-                                            : "text-stone-600"
+                                        ? "text-stone-900 font-bold"
+                                        : "text-stone-600"
                                         }`}
                                 >
                                     {item.label}
@@ -289,8 +281,8 @@ export const Navbar: React.FC<NavbarProps> = ({ scrolled = false }) => {
                             href="/about"
                             onClick={() => setMobileMenuOpen(false)}
                             className={`text-sm font-medium ${isActive("/about")
-                                    ? "text-stone-900 font-bold"
-                                    : "text-stone-600"
+                                ? "text-stone-900 font-bold"
+                                : "text-stone-600"
                                 }`}
                         >
                             About Us
@@ -298,26 +290,17 @@ export const Navbar: React.FC<NavbarProps> = ({ scrolled = false }) => {
 
                         <div className="h-[1px] bg-stone-200"></div>
 
-                        {/* Login/Account */}
+                        {/* Login/Sign Out */}
                         {isLoggedIn ? (
-                            <>
-                                <Link
-                                    href="/dashboard"
-                                    onClick={() => setMobileMenuOpen(false)}
-                                    className="text-sm font-medium text-stone-600"
-                                >
-                                    Account
-                                </Link>
-                                <button
-                                    onClick={() => {
-                                        setMobileMenuOpen(false);
-                                        signOut();
-                                    }}
-                                    className="px-5 py-2.5 bg-stone-900 text-white text-xs font-semibold rounded-full hover:bg-stone-800 transition-all text-center"
-                                >
-                                    Sign Out
-                                </button>
-                            </>
+                            <button
+                                onClick={() => {
+                                    setMobileMenuOpen(false);
+                                    signOut();
+                                }}
+                                className="px-5 py-2.5 bg-stone-900 text-white text-xs font-semibold rounded-full hover:bg-stone-800 transition-all text-center"
+                            >
+                                Sign Out
+                            </button>
                         ) : (
                             <Link
                                 href="/login"

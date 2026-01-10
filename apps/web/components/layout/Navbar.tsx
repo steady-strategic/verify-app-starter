@@ -132,7 +132,7 @@ export const Navbar: React.FC<NavbarProps> = ({ scrolled = false }) => {
                     </Link>
 
                     {/* Desktop Navigation - Center */}
-                    <div className="hidden md:flex items-center justify-center space-x-10 text-sm font-medium text-stone-600">
+                    <div className="hidden md:flex items-center justify-center space-x-20 text-sm font-medium text-stone-600 whitespace-nowrap">
                         <DropdownMenu
                             label="Clinicians"
                             items={cliniciansItems}

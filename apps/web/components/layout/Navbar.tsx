@@ -179,7 +179,7 @@ export const Navbar: React.FC<NavbarProps> = ({ scrolled = false }) => {
                             href="/login"
                             className="text-stone-600 hover:text-stone-900 transition-colors font-semibold"
                         >
-                            Login
+                            Sign In
                         </Link>
                     )}
                 </div>
@@ -325,7 +325,7 @@ export const Navbar: React.FC<NavbarProps> = ({ scrolled = false }) => {
                                 onClick={() => setMobileMenuOpen(false)}
                                 className="text-sm font-medium text-stone-600"
                             >
-                                Login
+                                Sign In
                             </Link>
                         )}
                     </div>

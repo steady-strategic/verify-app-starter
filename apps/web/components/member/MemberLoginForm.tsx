@@ -37,8 +37,8 @@ export function MemberLoginForm() {
                 return;
             }
 
-            // Redirect to account page on success
-            router.push("/account");
+            // Redirect to modules page on success
+            router.push("/account/modules");
         } catch (error) {
             setError("An unexpected error occurred. Please try again.");
             setIsSubmitting(false);

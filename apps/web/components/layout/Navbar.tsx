@@ -119,107 +119,110 @@ export const Navbar: React.FC<NavbarProps> = ({ scrolled = false }) => {
                 : "py-8 bg-transparent"
                 }`}
         >
-            <div className="container mx-auto px-6 flex justify-between items-center">
-                {/* Logo */}
-                <Link href="/" className="flex items-center space-x-2 focus:outline-none">
-                    <div className="w-8 h-8 rounded-full bg-stone-900 flex items-center justify-center">
-                        <span className="text-white font-bold text-xs">M</span>
-                    </div>
-                    <span className="text-xl font-bold tracking-tighter text-stone-900">
-                        MORE
-                    </span>
-                </Link>
-
-                {/* Desktop Navigation */}
-                <div className="hidden md:flex items-center space-x-8 text-sm font-medium text-stone-600">
-                    <DropdownMenu
-                        label="Clinicians"
-                        items={cliniciansItems}
-                        isActive={isActive}
-                    />
-                    <DropdownMenu
-                        label="Patients"
-                        items={patientsItems}
-                        isActive={isActive}
-                    />
-                    <DropdownMenu
-                        label="Resources"
-                        items={resourcesItems}
-                        isActive={isActive}
-                    />
-                    <Link
-                        href="/about"
-                        className={`hover:text-stone-900 transition-colors ${isActive("/about") ? "text-stone-900 font-bold" : ""
-                            }`}
-                    >
-                        About Us
+            <div className="container mx-auto px-6">
+                <div className="grid grid-cols-3 items-center">
+                    {/* Logo - Left */}
+                    <Link href="/" className="flex items-center space-x-2 focus:outline-none justify-self-start">
+                        <div className="w-8 h-8 rounded-full bg-stone-900 flex items-center justify-center">
+                            <span className="text-white font-bold text-xs">M</span>
+                        </div>
+                        <span className="text-xl font-bold tracking-tighter text-stone-900">
+                            MORE
+                        </span>
                     </Link>
 
-                    <div className="h-4 w-[1px] bg-stone-200"></div>
-
-                    {isLoggedIn ? (
+                    {/* Desktop Navigation - Center */}
+                    <div className="hidden md:flex items-center justify-center space-x-10 text-sm font-medium text-stone-600">
+                        <DropdownMenu
+                            label="Clinicians"
+                            items={cliniciansItems}
+                            isActive={isActive}
+                        />
+                        <DropdownMenu
+                            label="Patients"
+                            items={patientsItems}
+                            isActive={isActive}
+                        />
+                        <DropdownMenu
+                            label="Resources"
+                            items={resourcesItems}
+                            isActive={isActive}
+                        />
                         <Link
-                            href={
-                                pathname === "/account/modules"
-                                    ? "/account"
+                            href="/about"
+                            className={`hover:text-stone-900 transition-colors ${isActive("/about") ? "text-stone-900 font-bold" : ""
+                                }`}
+                        >
+                            About Us
+                        </Link>
+                    </div>
+
+                    {/* Auth Button - Right */}
+                    <div className="hidden md:flex items-center justify-end space-x-4">
+                        {isLoggedIn ? (
+                            <Link
+                                href={
+                                    pathname === "/account/modules"
+                                        ? "/account"
+                                        : pathname === "/account"
+                                            ? "/account/modules"
+                                            : "/account/modules"
+                                }
+                                className="px-5 py-2.5 bg-stone-900 text-white text-xs font-semibold rounded-full hover:bg-stone-800 transition-all active:scale-95"
+                            >
+                                {pathname === "/account/modules"
+                                    ? "Account Settings"
                                     : pathname === "/account"
-                                        ? "/account/modules"
-                                        : "/account/modules"
-                            }
-                            className="px-5 py-2.5 bg-stone-900 text-white text-xs font-semibold rounded-full hover:bg-stone-800 transition-all active:scale-95"
-                        >
-                            {pathname === "/account/modules"
-                                ? "Account Settings"
-                                : pathname === "/account"
-                                    ? "MORE Modules"
-                                    : "Account"}
-                        </Link>
-                    ) : (
-                        <Link
-                            href="/login"
-                            className="text-stone-600 hover:text-stone-900 transition-colors font-semibold"
-                        >
-                            Sign In
-                        </Link>
-                    )}
-                </div>
+                                        ? "MORE Modules"
+                                        : "Account"}
+                            </Link>
+                        ) : (
+                            <Link
+                                href="/login"
+                                className="text-stone-600 hover:text-stone-900 transition-colors font-semibold"
+                            >
+                                Sign In
+                            </Link>
+                        )}
+                    </div>
 
-                {/* Mobile Hamburger */}
-                <button
-                    onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                    className="md:hidden text-stone-900 focus:outline-none"
-                    aria-label="Toggle menu"
-                >
-                    {mobileMenuOpen ? (
-                        <svg
-                            className="w-6 h-6"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                        >
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth={2}
-                                d="M6 18L18 6M6 6l12 12"
-                            />
-                        </svg>
-                    ) : (
-                        <svg
-                            className="w-6 h-6"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                        >
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth={2}
-                                d="M4 6h16M4 12h16M4 18h16"
-                            />
-                        </svg>
-                    )}
-                </button>
+                    {/* Mobile Hamburger - Right (on mobile only) */}
+                    <button
+                        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                        className="md:hidden justify-self-end text-stone-900 focus:outline-none"
+                        aria-label="Toggle menu"
+                    >
+                        {mobileMenuOpen ? (
+                            <svg
+                                className="w-6 h-6"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth={2}
+                                    d="M6 18L18 6M6 6l12 12"
+                                />
+                            </svg>
+                        ) : (
+                            <svg
+                                className="w-6 h-6"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth={2}
+                                    d="M4 6h16M4 12h16M4 18h16"
+                                />
+                            </svg>
+                        )}
+                    </button>
+                </div>
             </div>
 
             {/* Mobile Menu */}

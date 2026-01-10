@@ -2,7 +2,6 @@ import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "../../../../lib/db";
 import { hashToken } from "../../../../lib/invite-token";
 import bcrypt from "bcryptjs";
-import { signIn } from "../../../../lib/auth";
 
 interface SetPasswordRequest {
     token: string;
@@ -80,18 +79,7 @@ export async function POST(request: NextRequest) {
             },
         });
 
-        // Auto-login the user
-        try {
-            await signIn("member-credentials", {
-                email: inviteToken.member.email,
-                password: body.password,
-                redirect: false,
-            });
-        } catch (signInError) {
-            // If auto-login fails, that's okay - user can login manually
-            console.error("Auto-login failed after password set:", signInError);
-        }
-
+        // Return success with email for client-side auto-login
         return NextResponse.json({
             success: true,
             message: "Password set successfully",

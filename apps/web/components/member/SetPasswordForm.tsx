@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { signIn } from "next-auth/react";
 
 interface SetPasswordFormProps {
     token: string;
@@ -42,6 +43,7 @@ export function SetPasswordForm({ token }: SetPasswordFormProps) {
         }
 
         try {
+            // Step 1: Set the password via API
             const response = await fetch("/api/auth/set-password", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
@@ -59,8 +61,24 @@ export function SetPasswordForm({ token }: SetPasswordFormProps) {
                 return;
             }
 
-            // Success - redirect to account page
-            router.push("/account");
+            // Step 2: Auto-sign-in with the new password
+            const signInResult = await signIn("member-credentials", {
+                email: data.email,
+                password: formData.password,
+                redirect: false,
+            });
+
+            if (signInResult?.error) {
+                // Password was set but auto-login failed - redirect to login
+                setError("Password set successfully! Redirecting to login...");
+                setTimeout(() => {
+                    router.push("/login");
+                }, 2000);
+                return;
+            }
+
+            // Step 3: Success - redirect to modules page
+            router.push("/account/modules");
         } catch (error) {
             setError("An unexpected error occurred. Please try again.");
             setIsSubmitting(false);

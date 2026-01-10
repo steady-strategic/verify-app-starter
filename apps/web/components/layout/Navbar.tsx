@@ -3,7 +3,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useSession, signOut } from "next-auth/react";
+import { useSession } from "next-auth/react";
 
 interface NavbarProps {
     scrolled?: boolean;
@@ -158,12 +158,22 @@ export const Navbar: React.FC<NavbarProps> = ({ scrolled = false }) => {
                     <div className="h-4 w-[1px] bg-stone-200"></div>
 
                     {isLoggedIn ? (
-                        <button
-                            onClick={() => signOut()}
+                        <Link
+                            href={
+                                pathname === "/account/modules"
+                                    ? "/account"
+                                    : pathname === "/account"
+                                        ? "/account/modules"
+                                        : "/account/modules"
+                            }
                             className="px-5 py-2.5 bg-stone-900 text-white text-xs font-semibold rounded-full hover:bg-stone-800 transition-all active:scale-95"
                         >
-                            Sign Out
-                        </button>
+                            {pathname === "/account/modules"
+                                ? "Account Settings"
+                                : pathname === "/account"
+                                    ? "MORE Modules"
+                                    : "Account"}
+                        </Link>
                     ) : (
                         <Link
                             href="/login"
@@ -290,17 +300,25 @@ export const Navbar: React.FC<NavbarProps> = ({ scrolled = false }) => {
 
                         <div className="h-[1px] bg-stone-200"></div>
 
-                        {/* Login/Sign Out */}
+                        {/* Login/Account */}
                         {isLoggedIn ? (
-                            <button
-                                onClick={() => {
-                                    setMobileMenuOpen(false);
-                                    signOut();
-                                }}
+                            <Link
+                                href={
+                                    pathname === "/account/modules"
+                                        ? "/account"
+                                        : pathname === "/account"
+                                            ? "/account/modules"
+                                            : "/account/modules"
+                                }
+                                onClick={() => setMobileMenuOpen(false)}
                                 className="px-5 py-2.5 bg-stone-900 text-white text-xs font-semibold rounded-full hover:bg-stone-800 transition-all text-center"
                             >
-                                Sign Out
-                            </button>
+                                {pathname === "/account/modules"
+                                    ? "Account Settings"
+                                    : pathname === "/account"
+                                        ? "MORE Modules"
+                                        : "Account"}
+                            </Link>
                         ) : (
                             <Link
                                 href="/login"

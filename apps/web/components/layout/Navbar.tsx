@@ -179,7 +179,7 @@ export const Navbar: React.FC<NavbarProps> = ({ scrolled = false }) => {
                         ) : (
                             <Link
                                 href="/login"
-                                className="text-stone-600 hover:text-stone-900 transition-colors font-semibold"
+                                className="px-5 py-2.5 bg-stone-900 text-white text-xs font-semibold rounded-full hover:bg-stone-800 transition-all active:scale-95"
                             >
                                 Sign In
                             </Link>
@@ -326,7 +326,7 @@ export const Navbar: React.FC<NavbarProps> = ({ scrolled = false }) => {
                             <Link
                                 href="/login"
                                 onClick={() => setMobileMenuOpen(false)}
-                                className="text-sm font-medium text-stone-600"
+                                className="px-5 py-2.5 bg-stone-900 text-white text-xs font-semibold rounded-full hover:bg-stone-800 transition-all text-center"
                             >
                                 Sign In
                             </Link>

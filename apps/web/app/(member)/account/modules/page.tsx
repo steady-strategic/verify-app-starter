@@ -298,49 +298,38 @@ export default function ModulesPage() {
             <Navbar scrolled={true} />
 
             <main className="flex-1 pt-20">
-                {/* Header */}
-                <div className="bg-cream border-b border-stone-200 py-8">
-                    <div className="container mx-auto px-6">
-                        <span className="inline-block px-3 py-1 bg-amber-100 text-amber-700 rounded-full text-[10px] uppercase tracking-[0.2em] font-bold mb-4">
-                            Member Resources
-                        </span>
-                        <h1 className="text-4xl serif text-stone-900">
-                            MORE Modules
-                        </h1>
-                        <p className="text-stone-500 mt-2">
-                            Explore guided lessons and therapeutic content
-                        </p>
-                    </div>
-                </div>
 
                 {/* Main Content - Three Column Layout */}
-                <div className="container mx-auto px-6 py-8">
-                    <div className="flex gap-6 relative">
+                <div className="h-[calc(100vh-5rem)] px-6 py-6">
+                    <div className="flex gap-6 h-full">
                         {/* Left Column - Module List (25%) */}
                         <div className="w-1/4 flex-shrink-0">
-                            <div className="bg-white rounded-2xl shadow-sm border border-stone-200 overflow-hidden sticky top-24">
-                                <div className="p-6 border-b border-stone-100">
+                            <div className="bg-white rounded-2xl shadow-sm border border-stone-200 overflow-hidden h-full flex flex-col">
+                                <div className="p-6 border-b border-stone-100 flex-shrink-0">
                                     <h2 className="text-sm font-bold uppercase tracking-widest text-stone-900">
                                         Modules
                                     </h2>
                                 </div>
-                                <div className="max-h-[calc(100vh-16rem)] overflow-y-auto">
+                                <div className="flex-1 overflow-y-auto">
                                     {MODULES.map((module) => (
                                         <button
                                             key={module.id}
                                             onClick={() => setSelectedModule(module)}
-                                            className={`w-full text-left p-4 border-b border-stone-100 transition-all hover:bg-stone-50 ${selectedModule.id === module.id
-                                                    ? 'bg-amber-50 border-l-4 border-l-amber-500'
-                                                    : ''
+                                            className={`w-full text-left p-5 border-b border-stone-100 transition-all hover:bg-stone-50 ${selectedModule.id === module.id
+                                                ? 'bg-amber-50 border-l-4 border-l-amber-500'
+                                                : ''
                                                 }`}
                                         >
                                             <span className={`inline-block px-2 py-1 rounded-full text-[9px] font-bold uppercase tracking-wider mb-2 ${module.accent}`}>
                                                 {module.category}
                                             </span>
-                                            <h3 className={`text-sm font-bold leading-tight ${selectedModule.id === module.id ? 'text-amber-700' : 'text-stone-900'
+                                            <h3 className={`text-sm font-bold leading-tight mb-2 ${selectedModule.id === module.id ? 'text-amber-700' : 'text-stone-900'
                                                 }`}>
                                                 {module.title}
                                             </h3>
+                                            <p className="text-xs text-stone-500 leading-relaxed">
+                                                {module.shortDescription}
+                                            </p>
                                         </button>
                                     ))}
                                 </div>
@@ -349,11 +338,11 @@ export default function ModulesPage() {
 
                         {/* Middle Column - Media Player (50%) */}
                         <div
-                            className={`transition-all duration-500 ${isLiteratureExpanded ? 'w-0 opacity-0' : 'w-1/2 opacity-100'
+                            className={`transition-all duration-500 h-full ${isLiteratureExpanded ? 'w-0 opacity-0' : 'w-1/2 opacity-100'
                                 }`}
                         >
                             {!isLiteratureExpanded && (
-                                <div className="bg-white rounded-2xl shadow-sm border border-stone-200 p-8">
+                                <div className="bg-white rounded-2xl shadow-sm border border-stone-200 p-8 h-full flex flex-col overflow-y-auto">
                                     {/* Module Header */}
                                     <div className="mb-8">
                                         <span className={`inline-block px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider mb-4 ${selectedModule.accent}`}>
@@ -416,11 +405,11 @@ export default function ModulesPage() {
 
                         {/* Right Column - Literature (25% / 75% when expanded) */}
                         <div
-                            className={`transition-all duration-500 ${isLiteratureExpanded ? 'w-3/4' : 'w-1/4'
+                            className={`transition-all duration-500 h-full ${isLiteratureExpanded ? 'w-3/4' : 'w-1/4'
                                 }`}
                         >
-                            <div className="bg-white rounded-2xl shadow-sm border border-stone-200 overflow-hidden sticky top-24">
-                                <div className="p-6 border-b border-stone-100 flex items-center justify-between">
+                            <div className="bg-white rounded-2xl shadow-sm border border-stone-200 overflow-hidden h-full flex flex-col">
+                                <div className="p-6 border-b border-stone-100 flex items-center justify-between flex-shrink-0">
                                     <h2 className="text-sm font-bold uppercase tracking-widest text-stone-900">
                                         Literature
                                     </h2>
@@ -440,10 +429,7 @@ export default function ModulesPage() {
                                         )}
                                     </button>
                                 </div>
-                                <div className={`overflow-y-auto p-6 prose prose-stone max-w-none ${isLiteratureExpanded
-                                        ? 'h-[calc(100vh-20rem)]'
-                                        : 'h-[calc(100vh-16rem)]'
-                                    }`}>
+                                <div className="flex-1 overflow-y-auto p-6 prose prose-stone max-w-none">
                                     {selectedModule.literature.split('\n').map((line, index) => {
                                         if (line.startsWith('# ')) {
                                             return <h1 key={index} className="text-2xl font-bold text-stone-900 mb-4 mt-6">{line.substring(2)}</h1>;

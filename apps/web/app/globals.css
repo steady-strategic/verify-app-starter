@@ -2,15 +2,28 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
 
 @layer base {
+  button,
+  input,
+  select,
+  textarea {
+    @apply appearance-none bg-transparent border-0 outline-none;
+  }
+
   body {
     @apply bg-cream text-stone-700 font-sans;
   }
 
   h1, h2, h3, h4, h5, h6 {
     @apply font-serif text-stone-900;
+  }
+}
+
+@layer components {
+  .all-\[unset\] {
+    all: unset;
   }
 }
 
@@ -31,5 +44,275 @@
   /* Selection styling */
   ::selection {
     @apply bg-amber-100 text-amber-900;
+  }
+}
+
+/* Figma Design Tokens - CSS Variables */
+:root {
+  /* Border Radius */
+  --border-radius-rounded-full: 9999px;
+  --border-radius-rounded-lg: 8px;
+  --border-radius-rounded-md: 6px;
+
+  /* Colors - Grays */
+  --colors-gray-200: rgba(229, 231, 235, 1);
+  --colors-gray-500: rgba(107, 114, 128, 1);
+  --colors-gray-700: rgba(55, 65, 81, 1);
+  --colors-gray-800: rgba(31, 42, 55, 1);
+  --colors-gray-900: rgba(17, 25, 40, 1);
+  --colors-gray-900-duplicate: rgba(17, 25, 40, 1);
+
+  /* Colors - Green */
+  --colors-green-100: rgba(222, 247, 236, 1);
+
+  /* Colors - White */
+  --colors-white: rgba(255, 255, 255, 1);
+  --colors-white-duplicate: rgba(255, 255, 255, 1);
+
+  /* Colors - Primary Palette */
+  --primary-1: rgba(198, 14, 200, 1);
+  --primary-2: rgba(103, 11, 108, 1);
+  --primary-3: rgba(72, 216, 253, 1);
+  --primary-4: rgba(255, 183, 38, 1);
+  --primary-5: rgba(255, 255, 255, 1);
+  --primary-11: rgba(168, 89, 242, 1);
+
+  /* Paragraph Color */
+  --variable-collection-paragraph: rgba(69, 74, 85, 1);
+
+  /* Typography - Content Header 1 */
+  --content-header-1-font-family: "Inter", Helvetica;
+  --content-header-1-font-size: 38px;
+  --content-header-1-font-style: normal;
+  --content-header-1-font-weight: 300;
+  --content-header-1-letter-spacing: -1.9px;
+  --content-header-1-line-height: 129.99999523162842%;
+
+  /* Typography - Content Header 2 */
+  --content-header-2-font-family: "Inter", Helvetica;
+  --content-header-2-font-size: 28px;
+  --content-header-2-font-style: normal;
+  --content-header-2-font-weight: 600;
+  --content-header-2-letter-spacing: -0.56px;
+  --content-header-2-line-height: 125%;
+
+  /* Typography - HERO Headers */
+  --HERO-headers-font-family: "Inter", Helvetica;
+  --HERO-headers-font-size: 46px;
+  --HERO-headers-font-style: normal;
+  --HERO-headers-font-weight: 800;
+  --HERO-headers-letter-spacing: -0.92px;
+  --HERO-headers-line-height: 129.99999523162842%;
+
+  /* Typography - Paragraph */
+  --paragraph-font-family: "Inter", Helvetica;
+  --paragraph-font-size: 18px;
+  --paragraph-font-style: normal;
+  --paragraph-font-weight: 400;
+  --paragraph-letter-spacing: 0px;
+  --paragraph-line-height: 150%;
+
+  /* Typography - Title */
+  --title-font-family: "Inter", Helvetica;
+  --title-font-size: 20px;
+  --title-font-style: normal;
+  --title-font-weight: 600;
+  --title-letter-spacing: -0.4px;
+  --title-line-height: 139.9999976158142%;
+
+  /* Typography - Text Variants */
+  --text-base-font-normal-font-family: "Inter", Helvetica;
+  --text-base-font-normal-font-size: 16px;
+  --text-base-font-normal-font-style: normal;
+  --text-base-font-normal-font-weight: 400;
+  --text-base-font-normal-letter-spacing: 0px;
+  --text-base-font-normal-line-height: 150%;
+
+  --text-sm-font-medium-font-family: "Inter", Helvetica;
+  --text-sm-font-medium-font-size: 14px;
+  --text-sm-font-medium-font-style: normal;
+  --text-sm-font-medium-font-weight: 500;
+  --text-sm-font-medium-letter-spacing: 0px;
+  --text-sm-font-medium-line-height: 150%;
+
+  --text-xl-font-normal-font-family: "Inter", Helvetica;
+  --text-xl-font-normal-font-size: 20px;
+  --text-xl-font-normal-font-style: normal;
+  --text-xl-font-normal-font-weight: 400;
+  --text-xl-font-normal-letter-spacing: 0px;
+  --text-xl-font-normal-line-height: 150%;
+
+  --text-xs-font-medium-font-family: "Inter", Helvetica;
+  --text-xs-font-medium-font-size: 12px;
+  --text-xs-font-medium-font-style: normal;
+  --text-xs-font-medium-font-weight: 500;
+  --text-xs-font-medium-letter-spacing: 0px;
+  --text-xs-font-medium-line-height: 150%;
+
+  --leading-none-text-xs-font-normal-font-family: "Inter", Helvetica;
+  --leading-none-text-xs-font-normal-font-size: 12px;
+  --leading-none-text-xs-font-normal-font-style: normal;
+  --leading-none-text-xs-font-normal-font-weight: 400;
+  --leading-none-text-xs-font-normal-letter-spacing: 0px;
+  --leading-none-text-xs-font-normal-line-height: 12px;
+
+  --leading-tight-text-base-font-semibold-font-family: "Inter", Helvetica;
+  --leading-tight-text-base-font-semibold-font-size: 16px;
+  --leading-tight-text-base-font-semibold-font-style: normal;
+  --leading-tight-text-base-font-semibold-font-weight: 600;
+  --leading-tight-text-base-font-semibold-letter-spacing: 0px;
+  --leading-tight-text-base-font-semibold-line-height: 125%;
+
+  --leading-tight-text-sm-font-bold-font-family: "Inter", Helvetica;
+  --leading-tight-text-sm-font-bold-font-size: 14px;
+  --leading-tight-text-sm-font-bold-font-style: normal;
+  --leading-tight-text-sm-font-bold-font-weight: 700;
+  --leading-tight-text-sm-font-bold-letter-spacing: 0px;
+  --leading-tight-text-sm-font-bold-line-height: 125%;
+
+  --leading-tight-text-sm-font-medium-font-family: "Inter", Helvetica;
+  --leading-tight-text-sm-font-medium-font-size: 14px;
+  --leading-tight-text-sm-font-medium-font-style: normal;
+  --leading-tight-text-sm-font-medium-font-weight: 500;
+  --leading-tight-text-sm-font-medium-letter-spacing: 0px;
+  --leading-tight-text-sm-font-medium-line-height: 125%;
+
+  --leading-tight-text-sm-font-normal-font-family: "Inter", Helvetica;
+  --leading-tight-text-sm-font-normal-font-size: 14px;
+  --leading-tight-text-sm-font-normal-font-style: normal;
+  --leading-tight-text-sm-font-normal-font-weight: 400;
+  --leading-tight-text-sm-font-normal-letter-spacing: 0px;
+  --leading-tight-text-sm-font-normal-line-height: 125%;
+
+  /* Elevation */
+  --elevation-1: 0px 0px 9.399999618530273px 0px rgba(0, 0, 0, 0.03);
+
+  /* Spacing */
+  --spacing-0: 0px;
+  --spacing-0-5: 2px;
+  --spacing-1: 4px;
+  --spacing-1-5: 6px;
+  --spacing-2: 8px;
+  --spacing-2-5: 10px;
+  --spacing-2-duplicate: 8px;
+  --spacing-3: 12px;
+  --spacing-3-5: 14px;
+  --spacing-3-duplicate: 12px;
+  --spacing-4: 16px;
+  --spacing-4-duplicate: 16px;
+  --spacing-5: 20px;
+  --spacing-6: 24px;
+  --spacing-7: 28px;
+  --spacing-8: 32px;
+  --spacing-12: 48px;
+  --spacing-16: 64px;
+  --spacing-24: 96px;
+
+  /* Animation */
+  --animate-spin: spin 1s linear infinite;
+}
+
+/* Figma Animations */
+.animate-fade-in {
+  animation: fade-in 1s var(--animation-delay, 0s) ease forwards;
+}
+
+.animate-fade-up {
+  animation: fade-up 1s var(--animation-delay, 0s) ease forwards;
+}
+
+.animate-marquee {
+  animation: marquee var(--duration) infinite linear;
+}
+
+.animate-marquee-vertical {
+  animation: marquee-vertical var(--duration) linear infinite;
+}
+
+.animate-shimmer {
+  animation: shimmer 8s infinite;
+}
+
+.animate-spin {
+  animation: var(--animate-spin);
+}
+
+/* Figma Keyframes */
+@keyframes spin {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+@keyframes image-glow {
+  0% {
+    opacity: 0;
+    animation-timing-function: cubic-bezier(0.74, 0.25, 0.76, 1);
+  }
+
+  10% {
+    opacity: 0.7;
+    animation-timing-function: cubic-bezier(0.12, 0.01, 0.08, 0.99);
+  }
+
+  to {
+    opacity: 0.4;
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes fade-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes shimmer {
+  0%,
+  90%,
+  to {
+    background-position: calc(-100% - var(--shimmer-width)) 0;
+  }
+
+  30%,
+  60% {
+    background-position: calc(100% + var(--shimmer-width)) 0;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translate(0);
+  }
+
+  to {
+    transform: translateX(calc(-100% - var(--gap)));
+  }
+}
+
+@keyframes marquee-vertical {
+  0% {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(calc(-100% - var(--gap)));
   }
 }

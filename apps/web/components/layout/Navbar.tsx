@@ -106,7 +106,6 @@ export const Navbar: React.FC<NavbarProps> = ({ scrolled = false }) => {
     ];
 
     const resourcesItems: DropdownItem[] = [
-        { label: "How It Works", href: "/resources/how-it-works" },
         { label: "Research", href: "/resources/research" },
         { label: "Stories", href: "/stories" },
         { label: "FAQ", href: "/resources/faq" },
@@ -133,13 +132,20 @@ export const Navbar: React.FC<NavbarProps> = ({ scrolled = false }) => {
 
                     {/* Desktop Navigation - Center */}
                     <div className="hidden md:flex items-center justify-center space-x-20 text-sm font-medium text-stone-600 whitespace-nowrap z-10 pointer-events-auto">
+                        <Link
+                            href="/how-it-works"
+                            className={`hover:text-stone-900 transition-colors ${isActive("/how-it-works") ? "text-stone-900 font-bold" : ""
+                                }`}
+                        >
+                            How it Works
+                        </Link>
                         <DropdownMenu
-                            label="Clinicians"
+                            label="For Clinicians"
                             items={cliniciansItems}
                             isActive={isActive}
                         />
                         <DropdownMenu
-                            label="Patients"
+                            label="For Patients"
                             items={patientsItems}
                             isActive={isActive}
                         />
@@ -232,10 +238,22 @@ export const Navbar: React.FC<NavbarProps> = ({ scrolled = false }) => {
             {mobileMenuOpen && (
                 <div className="md:hidden glass border-t border-stone-100 mt-4">
                     <div className="container mx-auto px-6 py-6 flex flex-col space-y-4">
-                        {/* Clinicians Section */}
+                        {/* How it Works */}
+                        <Link
+                            href="/how-it-works"
+                            onClick={() => setMobileMenuOpen(false)}
+                            className={`text-sm font-medium ${isActive("/how-it-works")
+                                ? "text-stone-900 font-bold"
+                                : "text-stone-600"
+                                }`}
+                        >
+                            How it Works
+                        </Link>
+
+                        {/* For Clinicians Section */}
                         <div className="space-y-2">
                             <p className="text-xs font-bold text-stone-400 uppercase tracking-wider">
-                                Clinicians
+                                For Clinicians
                             </p>
                             {cliniciansItems.map((item) => (
                                 <Link
@@ -252,10 +270,10 @@ export const Navbar: React.FC<NavbarProps> = ({ scrolled = false }) => {
                             ))}
                         </div>
 
-                        {/* Patients Section */}
+                        {/* For Patients Section */}
                         <div className="space-y-2">
                             <p className="text-xs font-bold text-stone-400 uppercase tracking-wider">
-                                Patients
+                                For Patients
                             </p>
                             {patientsItems.map((item) => (
                                 <Link

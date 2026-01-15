@@ -7,6 +7,7 @@ import { useSession } from "next-auth/react";
 
 interface NavbarProps {
     scrolled?: boolean;
+    variant?: "light" | "dark";
 }
 
 interface DropdownItem {
@@ -18,7 +19,8 @@ const DropdownMenu: React.FC<{
     label: string;
     items: DropdownItem[];
     isActive: (path: string) => boolean;
-}> = ({ label, items, isActive }) => {
+    variant?: "light" | "dark";
+}> = ({ label, items, isActive, variant = "light" }) => {
     const [isOpen, setIsOpen] = useState(false);
     const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -46,7 +48,9 @@ const DropdownMenu: React.FC<{
             onMouseLeave={handleMouseLeave}
         >
             <button
-                className={`hover:text-stone-900 transition-colors flex items-center space-x-1 ${hasActiveItem ? "text-stone-900 font-bold" : ""
+                className={`transition-colors flex items-center space-x-1 ${variant === "dark"
+                        ? `text-white hover:text-primary-1 ${hasActiveItem ? "font-bold" : ""}`
+                        : `hover:text-stone-900 ${hasActiveItem ? "text-stone-900 font-bold" : ""}`
                     }`}
             >
                 <span>{label}</span>
@@ -87,7 +91,7 @@ const DropdownMenu: React.FC<{
     );
 };
 
-export const Navbar: React.FC<NavbarProps> = ({ scrolled = false }) => {
+export const Navbar: React.FC<NavbarProps> = ({ scrolled = false, variant = "light" }) => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const pathname = usePathname();
     const { data: session, status } = useSession();
@@ -114,27 +118,35 @@ export const Navbar: React.FC<NavbarProps> = ({ scrolled = false }) => {
     return (
         <nav
             className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled
-                ? "py-4 glass shadow-sm border-b border-stone-100"
-                : "py-8 bg-transparent"
+                    ? variant === "dark"
+                        ? "py-4 bg-black/40 backdrop-blur-md shadow-sm border-b border-white/10"
+                        : "py-4 glass shadow-sm border-b border-stone-100"
+                    : "py-8 bg-transparent"
                 }`}
         >
             <div className="container mx-auto px-6">
                 <div className="grid grid-cols-3 items-center">
                     {/* Logo - Left */}
                     <Link href="/" className="flex items-center space-x-2 focus:outline-none justify-self-start">
-                        <div className="w-8 h-8 rounded-full bg-stone-900 flex items-center justify-center">
-                            <span className="text-white font-bold text-xs">M</span>
+                        <div className={`w-8 h-8 rounded-full flex items-center justify-center ${variant === "dark" ? "bg-white" : "bg-stone-900"
+                            }`}>
+                            <span className={`font-bold text-xs ${variant === "dark" ? "text-primary-1" : "text-white"
+                                }`}>M</span>
                         </div>
-                        <span className="text-xl font-bold tracking-tighter text-stone-900">
+                        <span className={`text-xl font-bold tracking-tighter ${variant === "dark" ? "text-white" : "text-stone-900"
+                            }`}>
                             MORE
                         </span>
                     </Link>
 
                     {/* Desktop Navigation - Center */}
-                    <div className="hidden md:flex items-center justify-center space-x-20 text-sm font-medium text-stone-600 whitespace-nowrap z-10 pointer-events-auto">
+                    <div className={`hidden md:flex items-center justify-center space-x-20 text-sm font-medium whitespace-nowrap z-10 pointer-events-auto ${variant === "dark" ? "text-white" : "text-stone-600"
+                        }`}>
                         <Link
                             href="/how-it-works"
-                            className={`hover:text-stone-900 transition-colors ${isActive("/how-it-works") ? "text-stone-900 font-bold" : ""
+                            className={`transition-colors ${variant === "dark"
+                                    ? `hover:text-primary-1 ${isActive("/how-it-works") ? "font-bold" : ""}`
+                                    : `hover:text-stone-900 ${isActive("/how-it-works") ? "text-stone-900 font-bold" : ""}`
                                 }`}
                         >
                             How it Works
@@ -143,20 +155,25 @@ export const Navbar: React.FC<NavbarProps> = ({ scrolled = false }) => {
                             label="For Clinicians"
                             items={cliniciansItems}
                             isActive={isActive}
+                            variant={variant}
                         />
                         <DropdownMenu
                             label="For Patients"
                             items={patientsItems}
                             isActive={isActive}
+                            variant={variant}
                         />
                         <DropdownMenu
                             label="Resources"
                             items={resourcesItems}
                             isActive={isActive}
+                            variant={variant}
                         />
                         <Link
                             href="/about"
-                            className={`hover:text-stone-900 transition-colors ${isActive("/about") ? "text-stone-900 font-bold" : ""
+                            className={`transition-colors ${variant === "dark"
+                                    ? `hover:text-primary-1 ${isActive("/about") ? "font-bold" : ""}`
+                                    : `hover:text-stone-900 ${isActive("/about") ? "text-stone-900 font-bold" : ""}`
                                 }`}
                         >
                             About Us
@@ -188,9 +205,12 @@ export const Navbar: React.FC<NavbarProps> = ({ scrolled = false }) => {
                             href="https://www.learnworlds.com"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="px-5 py-2.5 bg-stone-900 text-white text-xs font-semibold rounded-full hover:bg-stone-800 transition-all active:scale-95"
+                            className={`px-5 py-2.5 text-white text-xs font-semibold rounded-lg transition-all active:scale-95 ${variant === "dark"
+                                    ? "bg-primary-1 hover:bg-primary-2"
+                                    : "bg-stone-900 hover:bg-stone-800"
+                                }`}
                         >
-                            Sign In
+                            Login
                         </a>
                         {/* )} */}
                     </div>

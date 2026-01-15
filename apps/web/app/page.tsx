@@ -25,7 +25,7 @@ export default function HomePage() {
 
     return (
         <div className="min-h-screen">
-            <Navbar scrolled={scrolled} />
+            <Navbar scrolled={scrolled} variant="dark" />
 
             <main>
                 <Hero />

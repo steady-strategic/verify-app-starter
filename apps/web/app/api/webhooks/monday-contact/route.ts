@@ -24,6 +24,24 @@ interface MondayWebhookPayload {
 }
 
 export async function POST(request: NextRequest) {
+    // DISABLED: Member onboarding is currently disabled
+
+    // Handle challenge handshake (keep this to prevent Monday.com from retrying)
+    try {
+        const body: MondayWebhookPayload = await request.json();
+        if (body.challenge) {
+            return NextResponse.json({ challenge: body.challenge });
+        }
+    } catch (error) {
+        // Ignore JSON parse errors
+    }
+
+    return NextResponse.json(
+        { error: "Member onboarding is currently disabled" },
+        { status: 503 }
+    );
+
+    /* ORIGINAL CODE - DISABLED
     try {
         // 1. Optional webhook authentication
         const signature = request.headers.get("authorization");
@@ -136,6 +154,7 @@ export async function POST(request: NextRequest) {
             { status: 500 }
         );
     }
+    */
 }
 
 // Support GET for webhook verification

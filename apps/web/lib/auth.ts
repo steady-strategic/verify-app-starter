@@ -6,6 +6,7 @@ import bcrypt from "bcryptjs";
 export const { handlers, signIn, signOut, auth } = NextAuth({
     providers: [
         // Member Authentication (V2)
+        // DISABLED: Member authentication disabled
         Credentials({
             id: "member-credentials",
             name: "Member Login",
@@ -14,6 +15,10 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
                 password: { label: "Password", type: "password" },
             },
             async authorize(credentials) {
+                // DISABLED: Always return null to deny all member login attempts
+                return null;
+
+                /* ORIGINAL CODE - DISABLED
                 if (!credentials?.email || !credentials?.password) return null;
 
                 const member = await prisma.member.findUnique({
@@ -46,6 +51,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
                     name: `${member.firstName} ${member.lastName}`,
                     userType: "MEMBER",
                 };
+                */
             },
         }),
 
@@ -120,8 +126,8 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         },
     },
     pages: {
-        signIn: "/login",
-        error: "/login",
+        signIn: "/", // DISABLED: Redirect to home page instead of /login
+        error: "/", // DISABLED: Redirect to home page instead of /login
     },
     session: {
         strategy: "jwt",

@@ -8,6 +8,10 @@ export default function SetPasswordPage({
 }: {
     searchParams: { token?: string };
 }) {
+    // DISABLED: Account activation disabled - redirecting to home page
+    redirect("/");
+
+    /* ORIGINAL CODE - DISABLED
     const token = searchParams.token;
 
     // If no token provided, redirect to login
@@ -22,7 +26,7 @@ export default function SetPasswordPage({
             <main className="flex-1 bg-cream pt-32 pb-24">
                 <div className="container mx-auto px-6">
                     <div className="max-w-md mx-auto">
-                        {/* Header */}
+                        {/* Header *\/}
                         <div className="text-center mb-12">
                             <span className="inline-block px-3 py-1 bg-amber-100 text-amber-700 rounded-full text-[10px] uppercase tracking-[0.2em] font-bold mb-6">
                                 Welcome
@@ -35,12 +39,12 @@ export default function SetPasswordPage({
                             </p>
                         </div>
 
-                        {/* Form Card */}
+                        {/* Form Card *\/}
                         <div className="bg-white rounded-[2.5rem] p-10 shadow-sm border border-stone-100">
                             <SetPasswordForm token={token} />
                         </div>
 
-                        {/* Additional Info */}
+                        {/* Additional Info *\/}
                         <div className="mt-8 text-center">
                             <p className="text-sm text-stone-400">
                                 This link expires in 24 hours
@@ -53,4 +57,5 @@ export default function SetPasswordPage({
             <Footer />
         </div>
     );
+    */
 }

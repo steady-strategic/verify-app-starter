@@ -7,6 +7,7 @@ export default function LoginPage() {
     // DISABLED: User login disabled - redirecting to home page
     redirect("/");
 
+    /* ORIGINAL CODE - DISABLED
     return (
         <div className="min-h-screen flex flex-col">
             <Navbar scrolled={true} />
@@ -14,7 +15,7 @@ export default function LoginPage() {
             <main className="flex-1 bg-cream pt-32 pb-24">
                 <div className="container mx-auto px-6">
                     <div className="max-w-md mx-auto">
-                        {/* Header */}
+                        {/* Header *\/}
                         <div className="text-center mb-12">
                             <span className="inline-block px-3 py-1 bg-amber-100 text-amber-700 rounded-full text-[10px] uppercase tracking-[0.2em] font-bold mb-6">
                                 Member Login
@@ -27,12 +28,12 @@ export default function LoginPage() {
                             </p>
                         </div>
 
-                        {/* Form Card */}
+                        {/* Form Card *\/}
                         <div className="bg-white rounded-[2.5rem] p-10 shadow-sm border border-stone-100">
                             <MemberLoginForm />
                         </div>
 
-                        {/* Additional Info */}
+                        {/* Additional Info *\/}
                         <div className="mt-8 text-center">
                             <p className="text-sm text-stone-400">
                                 New member? Check your email for an invite link.
@@ -45,4 +46,5 @@ export default function LoginPage() {
             <Footer />
         </div>
     );
+    */
 }

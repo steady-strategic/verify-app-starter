@@ -9,6 +9,7 @@ export default async function MemberLayout({
     // DISABLED: Member account section disabled - redirecting to home page
     redirect("/");
 
+    /* ORIGINAL CODE - DISABLED
     const session = await auth();
 
     // Not logged in - redirect to login
@@ -23,4 +24,5 @@ export default async function MemberLayout({
     }
 
     return <>{children}</>;
+    */
 }

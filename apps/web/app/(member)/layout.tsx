@@ -6,6 +6,9 @@ export default async function MemberLayout({
 }: {
     children: React.ReactNode;
 }) {
+    // DISABLED: Member account section disabled - redirecting to home page
+    redirect("/");
+
     const session = await auth();
 
     // Not logged in - redirect to login

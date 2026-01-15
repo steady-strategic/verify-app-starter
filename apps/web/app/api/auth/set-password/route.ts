@@ -9,6 +9,13 @@ interface SetPasswordRequest {
 }
 
 export async function POST(request: NextRequest) {
+    // DISABLED: Account activation is currently disabled
+    return NextResponse.json(
+        { error: "Account activation is currently disabled" },
+        { status: 503 }
+    );
+
+    /* ORIGINAL CODE - DISABLED
     try {
         const body: SetPasswordRequest = await request.json();
 
@@ -93,4 +100,5 @@ export async function POST(request: NextRequest) {
             { status: 500 }
         );
     }
+    */
 }

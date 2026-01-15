@@ -8,6 +8,9 @@ export default function SetPasswordPage({
 }: {
     searchParams: { token?: string };
 }) {
+    // DISABLED: Account activation disabled - redirecting to home page
+    redirect("/");
+
     const token = searchParams.token;
 
     // If no token provided, redirect to login

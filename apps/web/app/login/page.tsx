@@ -1,8 +1,12 @@
 import { Navbar } from "../../components/layout/Navbar";
 import { Footer } from "../../components/layout/Footer";
 import { MemberLoginForm } from "../../components/member/MemberLoginForm";
+import { redirect } from "next/navigation";
 
 export default function LoginPage() {
+    // DISABLED: User login disabled - redirecting to home page
+    redirect("/");
+
     return (
         <div className="min-h-screen flex flex-col">
             <Navbar scrolled={true} />

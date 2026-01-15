@@ -159,7 +159,8 @@ export const Navbar: React.FC<NavbarProps> = ({ scrolled = false }) => {
 
                     {/* Auth Button - Right */}
                     <div className="hidden md:flex items-center justify-end space-x-4">
-                        {isLoggedIn ? (
+                        {/* DISABLED: User account system disabled - see disable-user-accounts branch */}
+                        {/* {isLoggedIn ? (
                             <Link
                                 href={
                                     pathname === "/account/modules"
@@ -176,14 +177,16 @@ export const Navbar: React.FC<NavbarProps> = ({ scrolled = false }) => {
                                         ? "MORE Modules"
                                         : "Account"}
                             </Link>
-                        ) : (
-                            <Link
-                                href="/login"
-                                className="px-5 py-2.5 bg-stone-900 text-white text-xs font-semibold rounded-full hover:bg-stone-800 transition-all active:scale-95"
-                            >
-                                Sign In
-                            </Link>
-                        )}
+                        ) : ( */}
+                        <a
+                            href="https://www.learnworlds.com"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="px-5 py-2.5 bg-stone-900 text-white text-xs font-semibold rounded-full hover:bg-stone-800 transition-all active:scale-95"
+                        >
+                            Sign In
+                        </a>
+                        {/* )} */}
                     </div>
 
                     {/* Mobile Hamburger - Right (on mobile only) */}
@@ -304,7 +307,8 @@ export const Navbar: React.FC<NavbarProps> = ({ scrolled = false }) => {
                         <div className="h-[1px] bg-stone-200"></div>
 
                         {/* Login/Account */}
-                        {isLoggedIn ? (
+                        {/* DISABLED: User account system disabled - see disable-user-accounts branch */}
+                        {/* {isLoggedIn ? (
                             <Link
                                 href={
                                     pathname === "/account/modules"
@@ -322,15 +326,17 @@ export const Navbar: React.FC<NavbarProps> = ({ scrolled = false }) => {
                                         ? "MORE Modules"
                                         : "Account"}
                             </Link>
-                        ) : (
-                            <Link
-                                href="/login"
-                                onClick={() => setMobileMenuOpen(false)}
-                                className="px-5 py-2.5 bg-stone-900 text-white text-xs font-semibold rounded-full hover:bg-stone-800 transition-all text-center"
-                            >
-                                Sign In
-                            </Link>
-                        )}
+                        ) : ( */}
+                        <a
+                            href="https://www.learnworlds.com"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={() => setMobileMenuOpen(false)}
+                            className="px-5 py-2.5 bg-stone-900 text-white text-xs font-semibold rounded-full hover:bg-stone-800 transition-all text-center"
+                        >
+                            Sign In
+                        </a>
+                        {/* )} */}
                     </div>
                 </div>
             )}

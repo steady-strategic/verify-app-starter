@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import Inter font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+@layer base {
+  body {
+    @apply font-sans;
+  }
+
+  h1, h2, h3 {
+    @apply font-sans;
+  }
+}
+
+@layer components {
+  /* Container and layout */
+  .why-more-container {
+    @apply flex flex-col gap-18;
+  }
+
+  /* Header section */
+  .why-more-header {
+    @apply flex flex-col gap-4;
+  }
+
+  .why-more-title {
+    @apply text-center text-title font-semibold text-gray-700;
+  }
+
+  .why-more-highlight {
+    @apply text-purple-600;
+  }
+
+  .why-more-description {
+    @apply text-center text-subheading text-gray-600 max-w-3xl mx-auto;
+  }
+
+  /* Cards grid */
+  .why-more-grid {
+    @apply w-full rounded-xl shadow-card bg-white;
+  }
+
+  .why-more-row {
+    @apply flex;
+  }
+
+  .why-more-card {
+    @apply flex-1 p-8 flex flex-col gap-4;
+  }
+
+  .why-more-card-title {
+    @apply text-card-title font-semibold text-gray-900;
+  }
+
+  .why-more-card-text {
+    @apply text-body text-gray-700;
+  }
+
+  .why-more-divider-vertical {
+    @apply w-px bg-gray-200 h-auto;
+  }
+
+  .why-more-divider-horizontal {
+    @apply h-px bg-gray-200 w-full;
+  }
+
+  .why-more-button {
+    @apply px-8 py-3 bg-purple-600 hover:bg-purple-500 text-white text-button font-semibold rounded-lg transition-colors;
+  }
+}
+
+@layer utilities {
+  /* Utility classes for spacing and alignment */
+  .center-content {
+    @apply flex flex-col items-center justify-center;
+  }
+
+  .gap-4 {
+    gap: 16px;
+  }
+
+  .gap-18 {
+    gap: 72px;
+  }
+}

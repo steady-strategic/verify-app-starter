@@ -38,6 +38,7 @@ export default function CliniciansPage() {
 
                 {/* Cards Section */}
                 <Cards
+                    variant="Cards2x3"
                     headline={{
                         text: "Empower your practice with evidence-based interventions",
                         highlight: "evidence-based",
@@ -73,6 +74,22 @@ export default function CliniciansPage() {
                                 "Join a network of experts",
                                 "Access mentorship opportunities",
                                 "Collaborate with peers",
+                            ],
+                        },
+                        {
+                            title: "Patient Satisfaction",
+                            stats: [
+                                "High retention rates",
+                                "Positive patient feedback",
+                                "Deepened therapeutic trust",
+                            ],
+                        },
+                        {
+                            title: "Holistic Care",
+                            stats: [
+                                "Integrative mind-body approach",
+                                "Whole-person focus",
+                                "Sustainable wellness tools",
                             ],
                         },
                     ]}

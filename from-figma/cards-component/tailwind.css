@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import Inter font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@layer base {
+  body {
+    @apply font-sans;
+  }
+}
+
+@layer components {
+  /* Research Statistics Component Styles */
+  .research-section {
+    @apply flex flex-col items-center gap-14 py-16 px-4;
+  }
+
+  .research-headline {
+    @apply text-center text-heading-lg text-gray-700 max-w-[694px];
+  }
+
+  .research-highlight {
+    @apply text-purple-600;
+  }
+
+  .research-grid {
+    @apply w-full max-w-[1280px] rounded-lg shadow-card bg-white;
+  }
+
+  .research-row {
+    @apply flex;
+  }
+
+  .research-card {
+    @apply flex-1 p-12 flex flex-col gap-4;
+  }
+
+  .research-card-title {
+    @apply text-heading-md text-gray-900;
+  }
+
+  .research-card-text {
+    @apply text-body-lg text-gray-700 whitespace-pre-line;
+  }
+
+  .research-divider-vertical {
+    @apply w-px bg-gray-200;
+  }
+
+  .research-divider-horizontal {
+    @apply h-px bg-gray-200;
+  }
+
+  .research-cta-button {
+    @apply px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white text-button rounded-md transition-colors;
+  }
+}
+
+@layer utilities {
+  /* Custom utilities if needed */
+}

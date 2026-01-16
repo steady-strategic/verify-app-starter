@@ -4,6 +4,15 @@ description:
 
 The following workflow is for Creating a new section component configuration file so the component can be easily be reused for other pages (with different content populated).
 
+IMPORTANT RULES:
+1. Always work on the Section-components-setup branch - switch to this branch before executing the workflow
+2. before starting this workflow, always ask the user for the the following links/file locations:
+- figma-component-URL
+- reference-image.png
+- new-component-name.tsx
+
+
+WORKFLOW STEPS:
 
 1. Analyze Tailwind CSS code extracted from a figma component design, in order to inform the new section component's configuration, styling, layout, etc. The figma design code files are here:[@figma-component-URL] 
 
@@ -23,9 +32,3 @@ The following workflow is for Creating a new section component configuration fil
 
 Execute this workflow step by step. Incrementally test, verify, and debug throughout process. Your goal shoild be to build, test and verify this entire workflow in one run, and notify the user when the job is complete and ready to be viewed.
 
-IMPORTANT RULES:
-1. Always work on the Section-components-setup branch - switch to this branch before executing the workflow
-2. before starting this workflow, always ask the user for the the following links/file locations:
-- figma-component-URL
-- reference-image.png
-- new-component-name.tsx

@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import Inter font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+@layer base {
+  body {
+    @apply font-sans;
+  }
+
+  h1, h2, h3 {
+    @apply font-sans;
+  }
+}
+
+@layer components {
+  /* Container and layout */
+  .content-row {
+    @apply flex gap-16;
+  }
+
+  /* Image section */
+  .content-image {
+    @apply rounded-xl overflow-hidden flex-shrink-0;
+  }
+
+  .content-image img {
+    @apply w-full h-full object-cover;
+  }
+
+  /* Content column */
+  .content-column {
+    @apply flex flex-col gap-8 flex-1;
+  }
+
+  /* Header section */
+  .content-header {
+    @apply flex flex-col gap-4;
+  }
+
+  .content-title {
+    @apply text-heading font-semibold text-gray-900;
+  }
+
+  .content-subtitle {
+    @apply text-subheading font-semibold text-gray-700;
+  }
+
+  /* Features section */
+  .content-features {
+    @apply flex flex-col gap-4;
+  }
+
+  .content-separator {
+    @apply h-px bg-gray-200 w-full;
+  }
+
+  .content-list {
+    @apply flex flex-col gap-4;
+  }
+
+  /* Feature item */
+  .content-feature {
+    @apply flex gap-2.5 items-start;
+  }
+
+  .content-feature-icon {
+    @apply w-6 h-6 flex-shrink-0 text-purple-600;
+  }
+
+  .content-feature-text {
+    @apply text-body text-gray-900;
+  }
+}
+
+@layer utilities {
+  /* Utility classes for alignment */
+  .items-start {
+    align-items: flex-start;
+  }
+
+  .flex-shrink-0 {
+    flex-shrink: 0;
+  }
+}

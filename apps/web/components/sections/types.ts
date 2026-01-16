@@ -1,6 +1,6 @@
 // Base section props that all sections will extend
 export interface BaseSectionProps {
-    variant?: "default";
+    variant?: string;
     className?: string;
     id?: string;
 }
@@ -13,11 +13,12 @@ export interface StatCard {
 
 // Cards section props
 export interface CardsSectionProps extends BaseSectionProps {
+    variant?: "default" | "Cards2x3";
     headline: {
         text: string;
         highlight?: string;  // Word to highlight in accent color
     };
-    cards: StatCard[];  // STRICTLY 4 cards for "default" variant (2x2 grid)
+    cards: StatCard[];  // STRICTLY 4 cards for "default", 6 cards for "Cards2x3"
     cta?: {
         label: string;
         href: string; // Internal path for Next.js Link

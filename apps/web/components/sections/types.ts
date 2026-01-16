@@ -24,3 +24,24 @@ export interface CardsSectionProps extends BaseSectionProps {
         href: string; // Internal path for Next.js Link
     };
 }
+
+// Feature item for Content section
+export interface ContentFeature {
+    text: string;
+}
+
+// Content section props
+export interface ContentSectionProps extends BaseSectionProps {
+    variant?: "default";
+    title: string;
+    subtitle: string;
+    features: ContentFeature[];  // Array of feature items with checkmark icons
+    image: {
+        src: string;
+        alt: string;
+    };
+    cta?: {
+        label: string;
+        href: string; // Internal path for Next.js Link
+    };
+}

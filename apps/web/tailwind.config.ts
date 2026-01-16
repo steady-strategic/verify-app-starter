@@ -56,6 +56,7 @@ const config: Config = {
             },
             boxShadow: {
                 "elevation-1": "var(--elevation-1)",
+                "card": "0px 1px 10px rgba(0, 0, 0, 0.04)",
             },
             borderRadius: {
                 "figma-full": "var(--border-radius-rounded-full)",
@@ -63,6 +64,7 @@ const config: Config = {
                 "figma-md": "var(--border-radius-rounded-md)",
             },
             spacing: {
+                "14": "56px",
                 "figma-0": "var(--spacing-0)",
                 "figma-0.5": "var(--spacing-0-5)",
                 "figma-1": "var(--spacing-1)",

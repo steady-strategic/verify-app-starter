@@ -1,5 +1,4 @@
 import React from "react";
-import Link from "next/link";
 import Image from "next/image";
 import { ContentSectionProps } from "./types";
 
@@ -27,7 +26,6 @@ export const Content: React.FC<ContentSectionProps> = ({
     subtitle,
     features,
     image,
-    cta,
     variant = "default",
     className = "",
     id,
@@ -115,17 +113,6 @@ export const Content: React.FC<ContentSectionProps> = ({
                     </div>
                 </div>
             </div>
-
-            {/* CTA Button */}
-            {cta && (
-                <Link
-                    href={cta.href}
-                    className="px-6 py-3 bg-primary-11 hover:bg-primary-2 text-white font-bold rounded-md transition-colors"
-                    style={{ fontSize: "var(--paragraph-font-size)" }}
-                >
-                    {cta.label}
-                </Link>
-            )}
         </section>
     );
 };

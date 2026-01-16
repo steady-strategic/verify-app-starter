@@ -32,7 +32,6 @@ A reusable section component system that allows the same component layouts to be
 - Title and subtitle sections
 - Feature list with checkmark icons
 - Separator line between subtitle and features
-- Optional CTA button using Next.js Link
 - Uses CSS custom properties from `globals.css`
 - Responsive: stacks vertically on mobile
 
@@ -135,10 +134,6 @@ const contentData = {
   image: {
     src: "/assets/images/patient-hero-image.jpg",
     alt: "Patient experiencing relief",
-  },
-  cta: {
-    label: "Learn More",
-    href: "/patients",
   },
 };
 

@@ -16,10 +16,6 @@ export default function TestContentPage() {
                     src: "/assets/images/patient-hero-image.jpg",
                     alt: "Patient experiencing relief",
                 }}
-                cta={{
-                    label: "Learn More",
-                    href: "/patients",
-                }}
                 variant="default"
             />
         </main>

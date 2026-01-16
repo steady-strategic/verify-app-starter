@@ -40,8 +40,4 @@ export interface ContentSectionProps extends BaseSectionProps {
         src: string;
         alt: string;
     };
-    cta?: {
-        label: string;
-        href: string; // Internal path for Next.js Link
-    };
 }

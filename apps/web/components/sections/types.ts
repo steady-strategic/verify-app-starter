@@ -86,3 +86,26 @@ export interface HowItWorksSectionProps extends BaseSectionProps {
     research: string;  // Research quote text
 }
 
+// DownloadApp section props
+export interface DownloadAppSectionProps extends BaseSectionProps {
+    variant?: "default";
+    title: string;
+    description: string;
+    features: string[];
+    downloadLabel: string;
+    links: {
+        appStore: string;
+        googlePlay: string;
+    };
+    images?: {
+        phoneMockup?: {
+            src: string;
+            alt: string;
+        };
+        soundWave?: {
+            src: string;
+            alt: string;
+        };
+    };
+}
+

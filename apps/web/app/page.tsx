@@ -9,7 +9,7 @@ import HomeResearch from "../components/landing/HomeResearch";
 import HomeAbout from "../components/landing/HomeAbout";
 import HomeHowItWorks from "../components/landing/HomeHowItWorks";
 import HomeFeatures from "../components/landing/HomeFeatures";
-import HomeGetTheApp from "../components/landing/HomeGetTheApp";
+import HomeDownloadTheApp from "../components/landing/HomeDownloadTheApp";
 import HomeTestimonials from "../components/landing/HomeTestimonials";
 
 export default function HomePage() {
@@ -34,7 +34,7 @@ export default function HomePage() {
                 <HomeAbout />
                 <HomeHowItWorks />
                 <HomeFeatures />
-                <HomeGetTheApp />
+                <HomeDownloadTheApp />
                 <HomeTestimonials />
             </main>
 

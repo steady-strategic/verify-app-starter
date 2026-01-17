@@ -1,0 +1,92 @@
+/**
+ * Global styles for HowItWorks-text component
+ * Include these in your main globals.css or import in the component
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800');
+
+:root {
+  /* Typography */
+  --font-inter: 'Inter', sans-serif;
+
+  /* Colors - Text */
+  --color-text-primary: #111928;
+  --color-text-secondary: #374151;
+
+  /* Colors - Accents */
+  --color-mindfulness: #e704e7;
+  --color-reappraisal: #f59e0b;
+  --color-savoring: #06b6d4;
+
+  /* Spacing */
+  --spacing-container: 92px;
+  --spacing-row: 48px;
+  --spacing-feature: 16px;
+  --spacing-content: 8px;
+
+  /* Typography scales */
+  --font-size-header: 28px;
+  --font-size-feature-title: 20px;
+  --font-size-description: 18px;
+
+  --font-weight-bold: 700;
+  --font-weight-normal: 400;
+
+  --line-height-header: 35px;
+  --line-height-description: 27px;
+  --letter-spacing-header: -0.56px;
+}
+
+/* Feature Column Styles */
+.how-it-works-feature {
+  gap: var(--spacing-feature);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Feature Icon Styles */
+.how-it-works-icon {
+  width: auto;
+  height: auto;
+}
+
+.how-it-works-icon.mindfulness {
+  color: var(--color-mindfulness);
+}
+
+.how-it-works-icon.reappraisal {
+  color: var(--color-reappraisal);
+}
+
+.how-it-works-icon.savoring {
+  color: var(--color-savoring);
+}
+
+/* Feature Title Styles */
+.how-it-works-title {
+  font-family: var(--font-inter);
+  font-size: var(--font-size-feature-title);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+/* Feature Description Styles */
+.how-it-works-description {
+  font-family: var(--font-inter);
+  font-size: var(--font-size-description);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-description);
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+/* Header Section */
+.how-it-works-header {
+  font-family: var(--font-inter);
+  font-size: var(--font-size-header);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: var(--letter-spacing-header);
+  line-height: var(--line-height-header);
+  color: var(--color-text-secondary);
+}

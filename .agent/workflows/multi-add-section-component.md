@@ -35,7 +35,7 @@ For each dataset, the user provides the following inputs:
 
 4. Address any other file dependencies, page configurations, routings, etc., as you implment the new section component files.
 
-4.5 Copy any asset files referenced by the new component over to the public/assets/images folder
+4.5 Copy asset files referenced by the new component over to: public/assets/images. If the asset files already exist in: /public/assets/images, DON'T overwrite them, and use the existing asset files for the component instead.
 
 5. Final Outcome: The new reusable section component can be called by name and added to any page. New component sections should load with the default configuration
 

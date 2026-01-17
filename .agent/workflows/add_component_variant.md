@@ -14,13 +14,16 @@ The user will provide the following dataset:
 [file-download-folder]
 [screenshot-reference]
 
-
-1. ANALYZE REQUIREMENTS from [file-download-folder]
+1. ANALYZE REQUIREMENTS from: [file-download-folder]
 - Variant Name: [new-variant-name]
 - Layout Structure: Determine rows, columns, and dividers
 - Props: Does it need different data? (e.g., 6 cards instead of 4)
-- Assets: Does the variant use different assets? If so, copy new asset files to the folder: /public/assets/images (if the file already exists, DON'T overwrite it)
-- Reference: Use the [screenshot-reference] image for how the new variant should look  
+- Reference: Reference the [screenshot-reference] image to know what the new variant should look like
+
+Assets: Does the variant use different assets?
+- If so, copy those different asset files to: /public/assets/images
+- If the asset files already exist in: /public/assets/images, DON'T overwrite them, and use existing asset files for the variant instead.
+DON'T overwrite them
 
 2. UPDATE TYPES
 - File: `apps/web/components/sections/types.ts`

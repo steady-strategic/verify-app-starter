@@ -5,7 +5,8 @@ import { PageBannerSectionProps } from "./types";
 export const PageBanner: React.FC<PageBannerSectionProps> = ({
     title,
     description,
-    image,
+    backgroundImage,
+    foregroundImage,
     variant = "default",
     className = "",
     id,
@@ -18,9 +19,15 @@ export const PageBanner: React.FC<PageBannerSectionProps> = ({
             }}
             id={id}
         >
-            {/* Background Layer */}
+            {/* Background Image Layer */}
             <div className="absolute inset-0 opacity-50">
-                {/* Optional: Add background texture/pattern here if needed */}
+                <Image
+                    src={backgroundImage.src}
+                    alt={backgroundImage.alt}
+                    fill
+                    className="object-cover"
+                    priority
+                />
             </div>
 
             {/* Content Container */}
@@ -60,11 +67,11 @@ export const PageBanner: React.FC<PageBannerSectionProps> = ({
                     </div>
                 </div>
 
-                {/* Right: Image */}
+                {/* Right: Foreground Image */}
                 <div className="absolute right-0 top-1/2 -translate-y-1/2 w-1/2 h-full">
                     <Image
-                        src={image.src}
-                        alt={image.alt}
+                        src={foregroundImage.src}
+                        alt={foregroundImage.alt}
                         fill
                         className="object-cover rounded-3xl"
                         priority

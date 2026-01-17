@@ -47,7 +47,11 @@ export interface PageBannerSectionProps extends BaseSectionProps {
     variant?: "default";
     title: string;
     description: string[];  // Array of description paragraphs
-    image: {
+    backgroundImage: {
+        src: string;
+        alt: string;
+    };
+    foregroundImage: {
         src: string;
         alt: string;
     };

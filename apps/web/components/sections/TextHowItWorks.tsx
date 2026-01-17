@@ -9,13 +9,15 @@ export const TextHowItWorks: React.FC<TextHowItWorksSectionProps> = ({
     className = "",
     id,
 }) => {
+    const isClinicians = variant === "clinicians";
+
     return (
         <section
             id={id}
             className={`w-full py-16 px-6 ${className}`}
             style={{ backgroundColor: "#FFFFFF" }}
         >
-            <div className="container mx-auto max-w-7xl flex flex-col gap-[92px]">
+            <div className={`container mx-auto max-w-7xl flex flex-col ${isClinicians ? "gap-[48px]" : "gap-[92px]"}`}>
                 {/* Header */}
                 <h2
                     className="max-w-4xl"
@@ -25,7 +27,7 @@ export const TextHowItWorks: React.FC<TextHowItWorksSectionProps> = ({
                         fontWeight: 700,
                         lineHeight: "35px",
                         letterSpacing: "-0.56px",
-                        color: "#374151",
+                        color: isClinicians ? "#111928" : "#374151",
                     }}
                 >
                     {header}
@@ -40,7 +42,7 @@ export const TextHowItWorks: React.FC<TextHowItWorksSectionProps> = ({
                                 className="rounded-full flex items-center justify-center w-12 h-12 mb-2"
                                 style={{ backgroundColor: feature.iconBgColor }}
                             >
-                                <div className="relative w-8 h-8">
+                                <div className={`relative ${isClinicians ? "w-6 h-6" : "w-8 h-8"}`}>
                                     <Image
                                         src={feature.iconSrc}
                                         alt={feature.title}
@@ -67,10 +69,10 @@ export const TextHowItWorks: React.FC<TextHowItWorksSectionProps> = ({
                             <p
                                 style={{
                                     fontFamily: "var(--font-inter), Inter, sans-serif",
-                                    fontSize: "18px",
+                                    fontSize: isClinicians ? "16px" : "18px",
                                     fontWeight: 400,
-                                    lineHeight: "27px",
-                                    color: "#374151",
+                                    lineHeight: isClinicians ? "24px" : "27px",
+                                    color: isClinicians ? "#6B7280" : "#374151",
                                 }}
                             >
                                 {feature.description}

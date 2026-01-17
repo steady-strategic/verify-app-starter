@@ -21,7 +21,7 @@ The user will provide the following dataset:
 - Reference: Reference the [screenshot-reference] image to know what the new variant should look like
 
 Assets: Does the variant use different assets?
-- If so, copy those different asset files to: /public/assets/images
+- If so, copy those asset files to: /public/assets/images
 - If the asset files already exist in: /public/assets/images, DON'T overwrite them, and use existing asset files for the variant instead.
 DON'T overwrite them
 

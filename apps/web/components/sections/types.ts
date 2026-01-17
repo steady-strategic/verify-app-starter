@@ -119,9 +119,9 @@ export interface TextHowItWorksFeature {
 
 // TextHowItWorks section props
 export interface TextHowItWorksSectionProps extends BaseSectionProps {
-    variant?: "default";
+    variant?: "default" | "clinicians";
     header: string; // Main heading text
-    features: TextHowItWorksFeature[]; // Array of 3 features
+    features: TextHowItWorksFeature[]; // Array of 3 or 6 features
 }
 
 

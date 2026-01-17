@@ -8,16 +8,19 @@ IMPORTANT RULES
 Always work on the section-components-setup branch - switch to this branch before executing the workflow
 
 WORKFLOW INSTRUCTIONS
-The user will provide the following inputs:
-[variant-name]
-[file-download-folder]
+The user will provide the following dataset:
+[new-variant-name]
 [component-name]
+[file-download-folder]
+[screenshot-reference]
 
-1. ANALYZE REQUIREMENTS
-- Variant Name: [variant-name]
+
+1. ANALYZE REQUIREMENTS from [file-download-folder]
+- Variant Name: [new-variant-name]
 - Layout Structure: Determine rows, columns, and dividers
 - Props: Does it need different data? (e.g., 6 cards instead of 4)
-- Assets: Does the variant use different assets? If so, copy new asset files to the folder: /public/assets/images (if the file already exists in the /public/assets/images folder, DON'T overwrite it)
+- Assets: Does the variant use different assets? If so, copy new asset files to the folder: /public/assets/images (if the file already exists, DON'T overwrite it)
+- Reference: Use the [screenshot-reference] image for how the new variant should look  
 
 2. UPDATE TYPES
 - File: `apps/web/components/sections/types.ts`

@@ -10,6 +10,7 @@ import HomeAbout from "../components/landing/HomeAbout";
 import HomeHowItWorks from "../components/landing/HomeHowItWorks";
 import HomeFeatures from "../components/landing/HomeFeatures";
 import HomeDownloadTheApp from "../components/landing/HomeDownloadTheApp";
+import HomeDownloadTheAppDark from "../components/landing/HomeDownloadTheAppDark";
 import HomeTestimonials from "../components/landing/HomeTestimonials";
 
 export default function HomePage() {
@@ -35,6 +36,7 @@ export default function HomePage() {
                 <HomeHowItWorks />
                 <HomeFeatures />
                 <HomeDownloadTheApp />
+                <HomeDownloadTheAppDark />
                 <HomeTestimonials />
             </main>
 

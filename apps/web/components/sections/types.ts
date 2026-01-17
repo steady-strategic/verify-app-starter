@@ -88,7 +88,7 @@ export interface HowItWorksSectionProps extends BaseSectionProps {
 
 // DownloadApp section props
 export interface DownloadAppSectionProps extends BaseSectionProps {
-    variant?: "default";
+    variant?: "default" | "dark";
     title: string;
     description: string;
     features: string[];

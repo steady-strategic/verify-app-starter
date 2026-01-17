@@ -6,4 +6,5 @@ export { PageBanner } from "./PageBanner";
 export { Video } from "./Video";
 export { HowItWorks } from "./HowItWorks";
 export { DownloadApp } from "./DownloadApp";
+export { TextHowItWorks } from "./TextHowItWorks";
 

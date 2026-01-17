@@ -109,3 +109,19 @@ export interface DownloadAppSectionProps extends BaseSectionProps {
     };
 }
 
+// TextHowItWorks content item
+export interface TextHowItWorksFeature {
+    title: string;
+    description: string;
+    iconSrc: string;
+    iconBgColor: string; // Hex color for the icon background
+}
+
+// TextHowItWorks section props
+export interface TextHowItWorksSectionProps extends BaseSectionProps {
+    variant?: "default";
+    header: string; // Main heading text
+    features: TextHowItWorksFeature[]; // Array of 3 features
+}
+
+

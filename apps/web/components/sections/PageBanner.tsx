@@ -11,8 +11,8 @@ export const PageBanner: React.FC<PageBannerSectionProps> = ({
     className = "",
     id,
 }) => {
-    // Variant: Clinicians
-    if (variant === "clinicians") {
+    // Variant: More Institute
+    if (variant === "more-institute") {
         return (
             <section id={id} className={`relative w-full overflow-hidden ${className}`}>
                 {/* Background Split Layer */}
@@ -90,7 +90,7 @@ export const PageBanner: React.FC<PageBannerSectionProps> = ({
                                         />
                                     </div>
                                     <div>
-                                        <label className="block font-sans text-sm font-semibold mb-figma-1.5">Topic</label>
+                                        <label className="block font-sans text-sm font-semibold mb-1.5">Topic</label>
                                         <div className="relative">
                                             <select className="w-full px-4 py-3.5 rounded-figma-lg bg-white/10 border border-white/20 text-colors-white focus:outline-none focus:ring-2 focus:ring-white/50 appearance-none cursor-pointer font-sans">
                                                 <option className="text-colors-gray-900">Select a topic</option>

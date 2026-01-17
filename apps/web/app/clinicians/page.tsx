@@ -23,7 +23,7 @@ export default function CliniciansPage() {
             <main className="pt-20">
                 {/* PageBanner Section */}
                 <PageBanner
-                    variant="clinicians"
+                    variant="more-institute"
                     title="MORE Institute"
                     description={[
                         "Discover evidence-based mindfulness interventions for addiction and chronic pain treatment.",

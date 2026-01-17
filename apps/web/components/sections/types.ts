@@ -44,7 +44,7 @@ export interface ContentSectionProps extends BaseSectionProps {
 
 // PageBanner section props
 export interface PageBannerSectionProps extends BaseSectionProps {
-    variant?: "default" | "clinicians";
+    variant?: "default" | "more-institute";
     title: string;
     description: string[];  // Array of description paragraphs
     backgroundImage: {

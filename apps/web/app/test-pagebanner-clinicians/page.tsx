@@ -5,7 +5,7 @@ export default function TestPage() {
     return (
         <div className="bg-gray-100 min-h-screen">
             <PageBanner
-                variant="clinicians"
+                variant="more-institute"
                 title="MORE Institute"
                 description={[
                     "We are a non-profit organization dedicated to bringing research-backed relief to people suffering from chronic pain, addiction, and emotional distress.",

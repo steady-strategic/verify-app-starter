@@ -18,9 +18,9 @@ export const HowItWorks: React.FC<HowItWorksSectionProps> = ({
             style={{ backgroundColor: "#fafafa" }}
             id={id}
         >
-            <div className="container mx-auto px-6 max-w-[1280px]">
+            <div className="container mx-auto px-6">
                 {/* White content container */}
-                <div className="bg-white rounded-xl shadow-sm p-12">
+                <div className="bg-white rounded-xl shadow-sm w-[1280px] mx-auto py-12">
                     <div className="flex flex-col items-center justify-center gap-8">
                         {/* Header */}
                         <div className="flex flex-col items-center gap-6">
@@ -90,9 +90,14 @@ export const HowItWorks: React.FC<HowItWorksSectionProps> = ({
                                             {step}
                                         </div>
                                         {index < steps.length - 1 && (
-                                            <span className="mx-4 text-gray-400 text-sm">
-                                                ···········→
-                                            </span>
+                                            <div className="w-[137px] h-6 relative flex-shrink-0">
+                                                <Image
+                                                    src="/assets/images/Arrow1.svg"
+                                                    alt="Arrow"
+                                                    fill
+                                                    className="object-contain"
+                                                />
+                                            </div>
                                         )}
                                     </React.Fragment>
                                 ))}

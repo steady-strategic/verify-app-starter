@@ -14,7 +14,8 @@ export const HowItWorks: React.FC<HowItWorksSectionProps> = ({
 }) => {
     return (
         <section
-            className={`w-full bg-white py-16 ${className}`}
+            className={`w-full py-16 ${className}`}
+            style={{ backgroundColor: "#fafafa" }}
             id={id}
         >
             <div className="container mx-auto px-6 max-w-[1280px]">

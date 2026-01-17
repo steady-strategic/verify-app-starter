@@ -1,0 +1,64 @@
+{
+  "name": "DownloadApp2 (Dark Variant)",
+  "colors": {
+    "background": "linear-gradient(135deg, #0f0c2e 0%, #3d1f7e 50%, #7b1fa2 100%)",
+    "text-primary": "#ffffff",
+    "text-secondary": "#6b7280",
+    "accent-magenta": "#e704e7",
+    "separator": "#a859f2",
+    "button-primary": "#e704e7"
+  },
+  "typography": {
+    "title": {
+      "fontFamily": "Inter",
+      "fontSize": "64px",
+      "fontWeight": 300,
+      "letterSpacing": "-3.20px"
+    },
+    "body": {
+      "fontFamily": "Inter",
+      "fontSize": "20px",
+      "fontWeight": 400,
+      "lineHeight": "30px"
+    },
+    "feature-title": {
+      "fontFamily": "Inter",
+      "fontSize": "16px",
+      "fontWeight": 700
+    },
+    "download-label": {
+      "fontFamily": "Inter",
+      "fontSize": "20px",
+      "fontWeight": 400
+    },
+    "button-small": {
+      "fontFamily": "Inter",
+      "fontSize": "12px",
+      "fontWeight": 400,
+      "lineHeight": "12px"
+    },
+    "button-label": {
+      "fontFamily": "Inter",
+      "fontSize": "14px",
+      "fontWeight": 700
+    }
+  },
+  "spacing": {
+    "gap-large": "32px",
+    "gap-medium": "24px",
+    "gap-small": "16px",
+    "gap-tiny": "10px",
+    "gap-button": "8px"
+  },
+  "borderRadius": {
+    "button": "8px"
+  },
+  "assets": {
+    "background": "background.png",
+    "check-icon": "check-icon.svg",
+    "apple-icon": "apple-icon.svg",
+    "google-play-icon": "google-play-icon.svg",
+    "sound-wave": "sound-wave-background.png",
+    "phone-mockup": "phone-mockup.svg"
+  }
+}

@@ -1,7 +1,7 @@
 import React from "react";
 import { Content } from "@/components/sections";
 
-export default function HomeFeatures() {
+export default function HomeContent() {
     return (
         <section className="py-16 bg-white">
             <Content

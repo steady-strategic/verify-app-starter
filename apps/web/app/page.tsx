@@ -8,7 +8,8 @@ import HomeBrands from "../components/landing/HomeBrands";
 import HomeResearch from "../components/landing/HomeResearch";
 import HomeAbout from "../components/landing/HomeAbout";
 import HomeHowItWorks from "../components/landing/HomeHowItWorks";
-import HomeFeatures from "../components/landing/HomeFeatures";
+import HomeContent from "../components/landing/HomeContent";
+import HomeContentSwap from "../components/landing/HomeContentSwap";
 import HomeDownloadTheApp from "../components/landing/HomeDownloadTheApp";
 import HomeDownloadTheAppDark from "../components/landing/HomeDownloadTheAppDark";
 import HomeTestimonials from "../components/landing/HomeTestimonials";
@@ -34,7 +35,8 @@ export default function HomePage() {
                 <HomeResearch />
                 <HomeAbout />
                 <HomeHowItWorks />
-                <HomeFeatures />
+                <HomeContent />
+                <HomeContentSwap />
                 <HomeDownloadTheApp />
                 <HomeDownloadTheAppDark />
                 <HomeTestimonials />

@@ -18,13 +18,13 @@ export const PageBanner: React.FC<PageBannerSectionProps> = ({
                 {/* Background Split Layer */}
                 <div className="absolute inset-0 flex flex-col lg:flex-row">
                     <div className="w-full lg:w-1/2 bg-colors-white" />
-                    <div className="w-full lg:w-1/2 bg-gradient-to-br from-indigo-600 to-primary-1" />
+                    <div className="w-full lg:w-1/2 bg-gradient-to-tr from-indigo-600 to-primary-1" />
                 </div>
 
                 <div className="relative z-10 container mx-auto">
-                    <div className="flex flex-col lg:flex-row">
+                    <div className="flex flex-col lg:flex-row items-stretch">
                         {/* Left: Content (50%) */}
-                        <div className="w-full lg:w-1/2 py-20 lg:py-32 px-4 md:px-8 xl:pr-24 flex flex-col justify-center gap-figma-8">
+                        <div className="w-full lg:w-1/2 py-20 lg:pt-32 lg:pb-24 px-4 md:px-8 xl:pr-24 flex flex-col gap-figma-8">
                             {/* Heading */}
                             <h1 className="font-sans text-5xl font-bold leading-tight tracking-tighter text-colors-gray-900">
                                 <span className="text-primary-1">MORE</span> {title.replace("MORE ", "")}
@@ -60,9 +60,9 @@ export const PageBanner: React.FC<PageBannerSectionProps> = ({
                         </div>
 
                         {/* Right: Registration Form (50%) */}
-                        <div className="w-full lg:w-1/2 py-20 lg:py-32 px-4 md:px-8 flex items-center justify-center lg:justify-start lg:pl-24">
+                        <div className="w-full lg:w-1/2 py-20 lg:pt-32 lg:pb-24 px-4 md:px-8 xl:pl-40 flex flex-col gap-figma-8">
                             <div className="w-full max-w-[480px] text-colors-white">
-                                <div className="flex flex-col gap-figma-2 mb-figma-8">
+                                <div className="flex flex-col gap-figma-2 mb-figma-12">
                                     <h2 className="font-sans text-3xl font-bold leading-tight text-colors-white">
                                         No commitment today
                                     </h2>
@@ -103,12 +103,14 @@ export const PageBanner: React.FC<PageBannerSectionProps> = ({
                                         </div>
                                     </div>
 
-                                    <button
-                                        type="button"
-                                        className="mt-figma-4 w-full py-4 rounded-figma-lg font-sans font-bold text-center bg-primary-1 hover:brightness-110 text-colors-white transition-all shadow-elevation-1 active:scale-[0.98]"
-                                    >
-                                        Pre-Register
-                                    </button>
+                                    <div className="flex justify-end mt-figma-4">
+                                        <button
+                                            type="button"
+                                            className="px-10 py-4 rounded-figma-lg font-sans font-bold text-center bg-primary-1 hover:brightness-110 text-colors-white transition-all shadow-elevation-1 active:scale-[0.98]"
+                                        >
+                                            Pre-Register
+                                        </button>
+                                    </div>
                                 </form>
                             </div>
                         </div>

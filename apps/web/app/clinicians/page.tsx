@@ -3,7 +3,7 @@
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { useState, useEffect } from "react";
-import { Cards } from "@/components/sections";
+import { Cards, PageBanner } from "@/components/sections";
 
 export default function CliniciansPage() {
     const [scrolled, setScrolled] = useState(false);
@@ -20,21 +20,22 @@ export default function CliniciansPage() {
         <div className="min-h-screen bg-cream text-colors-gray-700 font-sans selection:bg-primary-3 selection:text-primary-1">
             <Navbar scrolled={scrolled} variant="dark" />
 
-            <main className="pt-32 pb-24">
-                {/* Header Section */}
-                <div className="container mx-auto px-6 max-w-4xl text-center">
-                    <span className="inline-block px-3 py-1 bg-primary-2/10 text-primary-2 rounded-full text-[10px] uppercase tracking-widest font-bold mb-6">
-                        For Clinicians
-                    </span>
-
-                    <h1 className="text-5xl md:text-6xl font-serif font-bold text-colors-gray-900 mb-6">
-                        MORE for Clinicians
-                    </h1>
-
-                    <p className="text-xl text-colors-gray-700 leading-relaxed mb-12">
-                        Discover evidence-based mindfulness interventions for addiction and chronic pain treatment.
-                    </p>
-                </div>
+            <main className="pb-24">
+                <PageBanner
+                    variant="clinicians"
+                    title="MORE Institute"
+                    description={[
+                        "Discover evidence-based mindfulness interventions for addiction and chronic pain treatment.",
+                    ]}
+                    backgroundImage={{
+                        src: "/assets/images/background.png", // Satisfying props
+                        alt: "Background",
+                    }}
+                    foregroundImage={{
+                        src: "/assets/images/therapist-client.png", // Satisfying props
+                        alt: "Therapist and Client",
+                    }}
+                />
 
                 {/* Cards Section */}
                 <Cards

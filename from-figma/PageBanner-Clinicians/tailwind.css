@@ -1,0 +1,143 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Design tokens from PageBanner-Clinicians */
+
+/* Color palette */
+:root {
+  /* Primary colors */
+  --color-magenta: #FF00FF;
+  --color-purple-dark: #6D28D9;
+  --color-purple-light: #A855F7;
+  
+  /* Text colors */
+  --color-text-primary: #374151;
+  --color-text-dark: #111928;
+  --color-text-white: #ffffff;
+  --color-text-placeholder: #6b7280;
+  
+  /* UI colors */
+  --color-border: #9ca3af;
+  
+  /* Spacing */
+  --spacing-gap-lg: 24px;
+  --spacing-gap-sm: 8px;
+  
+  /* Typography */
+  --font-family: "Inter", sans-serif;
+  
+  /* Font sizes */
+  --font-size-title-xl: 46px;
+  --font-size-title-lg: 20px;
+  --font-size-title-md: 18px;
+  --font-size-body-sm: 16px;
+  
+  /* Line heights */
+  --line-height-title: 28px;
+  --line-height-body: 27px;
+}
+
+/* Component styles */
+.page-banner-clinicians {
+  background-color: #ffffff;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 680px;
+}
+
+.page-banner-clinicians__title {
+  font-family: var(--font-family);
+  font-size: 46px;
+  font-weight: 800;
+  letter-spacing: -0.92px;
+  color: var(--color-text-primary);
+  margin-bottom: 1rem;
+}
+
+.page-banner-clinicians__description {
+  font-family: var(--font-family);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 27px;
+  color: var(--color-text-dark);
+}
+
+.page-banner-clinicians__form {
+  background-image: url('./assets/background-gradient.png');
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 48px;
+  gap: var(--spacing-gap-lg);
+}
+
+.page-banner-clinicians__form-title {
+  font-family: var(--font-family);
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.40px;
+  line-height: 28px;
+  color: var(--color-text-white);
+  margin-bottom: 1rem;
+}
+
+.page-banner-clinicians__input-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-gap-sm);
+}
+
+.page-banner-clinicians__input-label {
+  font-family: var(--font-family);
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--color-text-white);
+}
+
+.page-banner-clinicians__input {
+  font-family: var(--font-family);
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--color-text-placeholder);
+  padding: 12px 16px;
+  border-radius: 4px;
+  border: none;
+  background-color: #ffffff;
+}
+
+.page-banner-clinicians__input::placeholder {
+  color: var(--color-text-placeholder);
+}
+
+.page-banner-clinicians__button {
+  font-family: var(--font-family);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-text-white);
+  background-color: var(--color-magenta);
+  padding: 12px 24px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  align-self: flex-end;
+  margin-top: auto;
+}
+
+.page-banner-clinicians__button:hover {
+  opacity: 0.9;
+}
+
+/* Icon styles */
+.icon-info {
+  width: 12px;
+  height: 12px;
+  color: var(--color-border);
+}
+
+.icon-chevron {
+  width: 9px;
+  height: 5px;
+  color: var(--color-text-placeholder);
+}

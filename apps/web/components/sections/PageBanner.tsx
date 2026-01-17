@@ -68,7 +68,7 @@ export const PageBanner: React.FC<PageBannerSectionProps> = ({
                 </div>
 
                 {/* Right: Foreground Image */}
-                <div className="absolute right-0 top-1/2 -translate-y-1/2 w-1/2 h-full">
+                <div className="absolute right-20 top-1/2 -translate-y-1/2 w-[656px] h-[492px]">
                     <Image
                         src={foregroundImage.src}
                         alt={foregroundImage.alt}

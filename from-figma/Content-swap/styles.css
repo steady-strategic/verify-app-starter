@@ -1,0 +1,68 @@
+/* Content-swap Section Styles */
+
+.for-clinicians-section {
+  font-family: "Inter", sans-serif;
+}
+
+.for-clinicians-heading {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.56px;
+  color: #111928;
+  line-height: 1.25;
+}
+
+.for-clinicians-description {
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.40px;
+  color: #374151;
+  line-height: 28px;
+}
+
+.for-clinicians-feature {
+  font-size: 18px;
+  font-weight: 400;
+  color: #111928;
+  line-height: 1.5;
+}
+
+.for-clinicians-separator {
+  height: 1px;
+  background-color: #e5e7eb;
+  width: 100%;
+}
+
+.for-clinicians-icon {
+  width: 8px;
+  height: 7px;
+  color: #e704e7;
+  flex-shrink: 0;
+}
+
+.for-clinicians-image {
+  border-radius: 20px;
+  overflow: hidden;
+  aspect-ratio: auto;
+}
+
+/* Responsive Behavior */
+@media (max-width: 1024px) {
+  .for-clinicians-layout {
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .for-clinicians-heading {
+    font-size: 24px;
+  }
+
+  .for-clinicians-description {
+    font-size: 18px;
+  }
+
+  .for-clinicians-layout {
+    flex-direction: column;
+  }
+}

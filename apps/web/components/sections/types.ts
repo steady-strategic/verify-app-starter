@@ -32,7 +32,7 @@ export interface ContentFeature {
 
 // Content section props
 export interface ContentSectionProps extends BaseSectionProps {
-    variant?: "default";
+    variant?: "default" | "swap";
     title: string;
     subtitle: string;
     features: ContentFeature[];  // Array of feature items with checkmark icons

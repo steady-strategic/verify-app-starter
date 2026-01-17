@@ -1,0 +1,144 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700');
+
+/* Download App Component Styles */
+.download-app {
+  @apply relative w-full bg-white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 60px 80px;
+  gap: 60px;
+}
+
+.download-app__left-content {
+  @apply flex flex-col;
+  gap: 32px;
+  flex: 1;
+  max-width: 640px;
+}
+
+.download-app__heading-section {
+  @apply flex flex-col;
+  gap: 16px;
+}
+
+.download-app__title {
+  font-family: 'Inter', sans-serif;
+  font-size: 36px;
+  font-weight: 300;
+  letter-spacing: -0.36px;
+  color: #111928;
+  line-height: 1.2;
+}
+
+.download-app__description {
+  font-family: 'Inter', sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 30px;
+  color: #454a55;
+}
+
+.download-app__features-section {
+  @apply flex flex-col;
+  gap: 24px;
+}
+
+.download-app__separator {
+  @apply w-full h-px;
+  background-color: #e5e7eb;
+}
+
+.download-app__features-list {
+  @apply flex flex-col;
+  gap: 16px;
+}
+
+.download-app__feature {
+  @apply flex items-start;
+  gap: 10px;
+}
+
+.download-app__feature-icon {
+  @apply flex-shrink-0;
+  width: 8px;
+  height: 7px;
+  background-color: #0e9f6e;
+  border-radius: 1px;
+}
+
+.download-app__feature-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #454a55;
+  line-height: 1.5;
+}
+
+.download-app__cta-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  color: #6b7280;
+}
+
+.download-app__buttons {
+  @apply flex items-center;
+  gap: 12px;
+}
+
+.download-app__button {
+  @apply flex items-center gap-2 px-4 py-3 rounded-lg;
+  background-color: #111928;
+  border-radius: 8px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.download-app__button:hover {
+  background-color: #1f2a37;
+}
+
+.download-app__button-text {
+  @apply flex flex-col;
+}
+
+.download-app__button-label-small {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 12px;
+  color: #ffffff;
+}
+
+.download-app__button-label-large {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.download-app__right-content {
+  @apply relative flex-1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 656px;
+}
+
+.download-app__phone-mockup {
+  @apply relative z-20;
+  max-width: 352px;
+}
+
+.download-app__sound-wave {
+  @apply absolute inset-0;
+  width: 847px;
+  height: 306px;
+  object-fit: cover;
+}

@@ -35,6 +35,8 @@ For each dataset, the user provides the following inputs:
 
 4. Address any other file dependencies, page configurations, routings, etc., as you implment the new section component files.
 
+4.5 Copy any asset files referenced by the new component over to the public/assets/images folder
+
 5. Final Outcome: The new reusable section component can be called by name and added to any page. New component sections should load with the default configuration
 
 Execute this workflow step by step. Incrementally test, verify, and debug throughout process. Your goal shoild be to build, test and verify this entire workflow in one run, and notify the user when the job is complete and ready for review.

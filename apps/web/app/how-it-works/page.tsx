@@ -3,6 +3,7 @@
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { PageBanner } from "@/components/sections/PageBanner";
+import { HowItWorks } from "@/components/sections/HowItWorks";
 
 export default function HowItWorksPage() {
     return (
@@ -25,6 +26,32 @@ export default function HowItWorksPage() {
                 }}
                 variant="default"
                 id="how-it-works-banner"
+            />
+
+            <HowItWorks
+                title="Carefully curated structure 3 step, 8 week program based on years of research"
+                subtitle="Mindfulness"
+                steps={["Step 1", "Step 2", "Step 3"]}
+                cards={[
+                    {
+                        title: "Guided Meditations",
+                        iconSrc: "/assets/images/meditation-icon.svg",
+                        iconColor: "#e704e7",
+                    },
+                    {
+                        title: "Reappraisal",
+                        iconSrc: "/assets/images/reappraisal-icon.svg",
+                        iconColor: "#f59e0b",
+                    },
+                    {
+                        title: "Savoring",
+                        iconSrc: "/assets/images/savoring-icon.svg",
+                        iconColor: "#06b6d4",
+                    },
+                ]}
+                research="As your prefrontal cortex grows - your cravings decrease and your capacity for joy increases"
+                variant="default"
+                id="how-it-works-section"
             />
 
             <main className="pb-24">

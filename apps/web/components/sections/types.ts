@@ -69,3 +69,20 @@ export interface VideoSectionProps extends BaseSectionProps {
     videoUrl?: string;  // Optional video URL for playback
 }
 
+// Card item for HowItWorks section
+export interface HowItWorksCard {
+    title: string;
+    iconSrc: string;  // Path to icon SVG
+    iconColor: string;  // Background color for icon circle
+}
+
+// HowItWorks section props
+export interface HowItWorksSectionProps extends BaseSectionProps {
+    variant?: "default";
+    title: string;
+    subtitle: string;  // Text below lotus icon (e.g., "Mindfulness")
+    steps: string[];  // Array of step labels (e.g., ["Step 1", "Step 2", "Step 3"])
+    cards: HowItWorksCard[];  // Array of 3 cards with icons
+    research: string;  // Research quote text
+}
+

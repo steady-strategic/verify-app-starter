@@ -41,3 +41,27 @@ export interface ContentSectionProps extends BaseSectionProps {
         alt: string;
     };
 }
+
+// PageBanner section props
+export interface PageBannerSectionProps extends BaseSectionProps {
+    variant?: "default";
+    title: string;
+    description: string[];  // Array of description paragraphs
+    image: {
+        src: string;
+        alt: string;
+    };
+}
+
+// Video section props
+export interface VideoSectionProps extends BaseSectionProps {
+    variant?: "default";
+    title: string;
+    description: string;
+    videoThumbnail: {
+        src: string;
+        alt: string;
+    };
+    videoUrl?: string;  // Optional video URL for playback
+}
+

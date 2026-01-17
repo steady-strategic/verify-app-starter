@@ -1,0 +1,81 @@
+{
+  "design": "Text-HowItWorks",
+  "colors": {
+    "text": {
+      "primary": "#111928",
+      "secondary": "#374151"
+    },
+    "icons": {
+      "mindfulness": {
+        "background": "#E879F9",
+        "name": "magenta"
+      },
+      "reappraisal": {
+        "background": "#FFA500",
+        "name": "orange"
+      },
+      "savoring": {
+        "background": "#00D4FF",
+        "name": "cyan"
+      }
+    }
+  },
+  "typography": {
+    "fontFamily": "Inter, sans-serif",
+    "weights": {
+      "regular": 400,
+      "semibold": 700,
+      "bold": 800
+    },
+    "sizes": {
+      "heading": {
+        "fontSize": "28px",
+        "fontWeight": 700,
+        "lineHeight": "35px",
+        "letterSpacing": "-0.56px"
+      },
+      "featureTitle": {
+        "fontSize": "20px",
+        "fontWeight": 700,
+        "lineHeight": "25px"
+      },
+      "featureDescription": {
+        "fontSize": "18px",
+        "fontWeight": 400,
+        "lineHeight": "27px"
+      }
+    }
+  },
+  "spacing": {
+    "containerGap": "92px",
+    "featuresRowGap": "48px",
+    "featureCardGap": "16px",
+    "contentGap": "8px"
+  },
+  "icons": {
+    "mindfulness": {
+      "filename": "lotus-flower-white.svg",
+      "width": "32px",
+      "height": "28px"
+    },
+    "reappraisal": {
+      "filename": "reappraisal-icon.svg",
+      "width": "41px",
+      "height": "38px"
+    },
+    "savoring": {
+      "filename": "savoring-icon.svg",
+      "width": "24px",
+      "height": "22px"
+    }
+  },
+  "layout": {
+    "type": "3-column-row",
+    "responsive": true,
+    "structure": {
+      "container": "column",
+      "featureRow": "row",
+      "featureCard": "column"
+    }
+  }
+}

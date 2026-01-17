@@ -1,0 +1,98 @@
+{
+  "design": "Text-Clinicians",
+  "colors": {
+    "text": {
+      "primary": "#111928",
+      "secondary": "#6B7280"
+    },
+    "iconBackground": "#1a56db"
+  },
+  "typography": {
+    "fontFamily": "Inter, sans-serif",
+    "weights": {
+      "regular": 400,
+      "bold": 700
+    },
+    "sizes": {
+      "heading": {
+        "fontSize": "28px",
+        "fontWeight": 700,
+        "letterSpacing": "-0.56px"
+      },
+      "featureTitle": {
+        "fontSize": "20px",
+        "fontWeight": 700
+      },
+      "featureDescription": {
+        "fontSize": "16px",
+        "fontWeight": 400,
+        "lineHeight": "24px"
+      }
+    }
+  },
+  "spacing": {
+    "containerGap": "48px",
+    "featureRowGap": "48px",
+    "featureCardGap": "16px",
+    "contentGap": "8px"
+  },
+  "icons": {
+    "feature1": {
+      "filename": "chart-line.svg",
+      "width": "24px",
+      "height": "24px",
+      "label": "Understand the Science Behind Suffering"
+    },
+    "feature2": {
+      "filename": "scales.svg",
+      "width": "24px",
+      "height": "24px",
+      "label": "Master Innovative Techniques"
+    },
+    "feature3": {
+      "filename": "meditation-bowl.svg",
+      "width": "24px",
+      "height": "22px",
+      "label": "Boost Patient Engagement & Motivation"
+    },
+    "feature4": {
+      "filename": "dollar-sign.svg",
+      "width": "14px",
+      "height": "24px",
+      "label": "Finance"
+    },
+    "feature5": {
+      "filename": "palette.svg",
+      "width": "24px",
+      "height": "24px",
+      "label": "Enterprise Design"
+    },
+    "feature6": {
+      "filename": "layers.svg",
+      "width": "22px",
+      "height": "24px",
+      "label": "Operations"
+    }
+  },
+  "layout": {
+    "type": "2x3-grid",
+    "responsive": true,
+    "rows": 2,
+    "columns": 3,
+    "structure": {
+      "container": "column",
+      "featureRow": "row",
+      "featureCard": "column"
+    }
+  },
+  "sections": {
+    "row1": {
+      "title": "Clinical Training (13 hours)",
+      "features": ["feature1", "feature2", "feature3"]
+    },
+    "row2": {
+      "title": "Operational Focus",
+      "features": ["feature4", "feature5", "feature6"]
+    }
+  }
+}

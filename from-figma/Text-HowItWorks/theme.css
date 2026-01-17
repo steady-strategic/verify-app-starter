@@ -1,0 +1,140 @@
+/* Text-HowItWorks Design Theme */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap');
+
+:root {
+  /* Colors */
+  --text-primary: #111928;
+  --text-secondary: #374151;
+  
+  --icon-mindfulness-bg: #E879F9;
+  --icon-reappraisal-bg: #FFA500;
+  --icon-savoring-bg: #00D4FF;
+  
+  /* Typography */
+  --font-family-base: 'Inter', sans-serif;
+  
+  --font-size-heading: 28px;
+  --font-weight-heading: 700;
+  --line-height-heading: 35px;
+  --letter-spacing-heading: -0.56px;
+  
+  --font-size-feature-title: 20px;
+  --font-weight-feature-title: 700;
+  --line-height-feature-title: 25px;
+  
+  --font-size-feature-desc: 18px;
+  --font-weight-feature-desc: 400;
+  --line-height-feature-desc: 27px;
+  
+  /* Spacing */
+  --gap-container: 92px;
+  --gap-features-row: 48px;
+  --gap-feature-card: 16px;
+  --gap-content: 8px;
+}
+
+/* Container */
+.text-howItWorks-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-container);
+  font-family: var(--font-family-base);
+}
+
+/* Heading */
+.text-howItWorks-heading {
+  font-size: var(--font-size-heading);
+  font-weight: var(--font-weight-heading);
+  line-height: var(--line-height-heading);
+  letter-spacing: var(--letter-spacing-heading);
+  color: var(--text-primary);
+  margin: 0;
+}
+
+/* Features Row */
+.text-howItWorks-features-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--gap-features-row);
+}
+
+/* Feature Card */
+.text-howItWorks-feature-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-feature-card);
+}
+
+/* Feature Icon */
+.text-howItWorks-feature-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  padding: 8px;
+  border-radius: 8px;
+}
+
+.text-howItWorks-feature-icon.mindfulness {
+  background-color: var(--icon-mindfulness-bg);
+}
+
+.text-howItWorks-feature-icon.reappraisal {
+  background-color: var(--icon-reappraisal-bg);
+}
+
+.text-howItWorks-feature-icon.savoring {
+  background-color: var(--icon-savoring-bg);
+}
+
+.text-howItWorks-feature-icon svg {
+  width: auto;
+  height: auto;
+}
+
+/* Feature Content */
+.text-howItWorks-feature-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-content);
+}
+
+/* Feature Title */
+.text-howItWorks-feature-title {
+  font-size: var(--font-size-feature-title);
+  font-weight: var(--font-weight-feature-title);
+  line-height: var(--line-height-feature-title);
+  color: var(--text-primary);
+  margin: 0;
+}
+
+/* Feature Description */
+.text-howItWorks-feature-description {
+  font-size: var(--font-size-feature-desc);
+  font-weight: var(--font-weight-feature-desc);
+  line-height: var(--line-height-feature-desc);
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .text-howItWorks-features-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .text-howItWorks-container {
+    gap: var(--gap-features-row);
+  }
+  
+  .text-howItWorks-features-row {
+    grid-template-columns: 1fr;
+  }
+  
+  .text-howItWorks-heading {
+    font-size: 24px;
+    line-height: 32px;
+  }
+}

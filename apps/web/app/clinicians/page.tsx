@@ -25,14 +25,14 @@ export default function CliniciansPage() {
                     variant="clinicians"
                     title="MORE Institute"
                     description={[
-                        "Discover evidence-based mindfulness interventions for addiction and chronic pain treatment.",
+                        "We are a non-profit organization dedicated to bringing research-backed relief to people suffering from chronic pain, addiction, and emotional distress.",
                     ]}
                     backgroundImage={{
-                        src: "/assets/images/background.png", // Satisfying props
+                        src: "/assets/images/background.png",
                         alt: "Background",
                     }}
                     foregroundImage={{
-                        src: "/assets/images/therapist-client.png", // Satisfying props
+                        src: "/assets/images/therapist-client.png",
                         alt: "Therapist and Client",
                     }}
                 />

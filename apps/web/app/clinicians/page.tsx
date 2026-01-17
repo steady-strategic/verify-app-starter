@@ -18,14 +18,15 @@ export default function CliniciansPage() {
 
     return (
         <div className="min-h-screen bg-cream text-colors-gray-700 font-sans selection:bg-primary-3 selection:text-primary-1">
-            <Navbar scrolled={scrolled} variant="dark" />
+            <Navbar scrolled={true} />
 
-            <main className="pb-24">
+            <main className="pt-20">
+                {/* PageBanner Section */}
                 <PageBanner
                     variant="clinicians"
                     title="MORE Institute"
                     description={[
-                        "We are a non-profit organization dedicated to bringing research-backed relief to people suffering from chronic pain, addiction, and emotional distress.",
+                        "Discover evidence-based mindfulness interventions for addiction and chronic pain treatment.",
                     ]}
                     backgroundImage={{
                         src: "/assets/images/background.png",

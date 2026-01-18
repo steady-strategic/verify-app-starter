@@ -50,7 +50,7 @@ export const Content: React.FC<ContentSectionProps> = ({
     id,
 }) => {
     const isSwap = variant === "swap";
-    const isHowItWorks = variant === "Content-HowItWorks";
+    const isHowItWorks = variant === "Content-HowItWorks" || variant === "Content-forClinicians";
     const imageRadiusClass = (isSwap || isHowItWorks) ? "rounded-[20px]" : "rounded-xl";
 
     // Image Bundle

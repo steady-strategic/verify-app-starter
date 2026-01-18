@@ -1,0 +1,163 @@
+/* Content-forClinicians Section Styles */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700');
+
+/* Main row container - flex layout with image and content side by side */
+.content-for-clinicians-row {
+  display: flex;
+  flex-direction: row;
+  gap: 64px;
+  align-items: flex-start;
+  width: 100%;
+  padding: 0;
+}
+
+/* Image container with rounded corners */
+.content-for-clinicians-image-container {
+  flex-shrink: 0;
+  overflow: hidden;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 607px;
+  height: auto;
+}
+
+.content-for-clinicians-image-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* Left content section */
+.content-for-clinicians-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* Heading and description section */
+.content-for-clinicians-heading-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Main heading */
+.content-for-clinicians-heading {
+  font-family: Inter, sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.56px;
+  line-height: 1;
+  color: #111928;
+  margin: 0;
+  padding: 0;
+}
+
+/* Subheading/description */
+.content-for-clinicians-description {
+  font-family: Inter, sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.40px;
+  line-height: 28px;
+  color: #374151;
+  margin: 0;
+  padding: 0;
+}
+
+/* Features section */
+.content-for-clinicians-features {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* Separator line */
+.content-for-clinicians-separator {
+  height: 1px;
+  background-color: #e5e7eb;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+/* Features list */
+.content-for-clinicians-feature-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Individual feature item */
+.content-for-clinicians-feature {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+/* Feature icon */
+.content-for-clinicians-feature-icon {
+  flex-shrink: 0;
+  width: 8px;
+  height: 7px;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #e704e7; /* Primary color from design tokens */
+}
+
+.content-for-clinicians-feature-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Feature text */
+.content-for-clinicians-feature-text {
+  font-family: Inter, sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1;
+  color: #111928;
+  margin: 0;
+  padding: 0;
+}
+
+/* Responsive styles */
+@media (max-width: 1024px) {
+  .content-for-clinicians-row {
+    flex-direction: column;
+    gap: 32px;
+  }
+  
+  .content-for-clinicians-image-container {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .content-for-clinicians-row {
+    gap: 24px;
+  }
+  
+  .content-for-clinicians-heading {
+    font-size: 24px;
+    letter-spacing: -0.48px;
+  }
+  
+  .content-for-clinicians-description {
+    font-size: 16px;
+    letter-spacing: -0.32px;
+    line-height: 24px;
+  }
+  
+  .content-for-clinicians-feature-text {
+    font-size: 16px;
+  }
+}

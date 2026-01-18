@@ -17,6 +17,7 @@ export interface CardsSectionProps extends BaseSectionProps {
     headline: {
         text: string;
         highlight?: string;  // Word to highlight in accent color
+        subtitle?: string;   // Optional text below the headline
     };
     cards: StatCard[];  // STRICTLY 4 cards for "default", 6 cards for "Cards2x3"
     cta?: {

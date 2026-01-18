@@ -45,8 +45,9 @@ export default function CliniciansPage() {
                 <Cards
                     variant="Cards2x3"
                     headline={{
-                        text: "Empower your practice with evidence-based interventions",
-                        highlight: "evidence-based",
+                        text: "Why MORE Works, and Why Clinicians Should Offer It",
+                        highlight: "MORE",
+                        subtitle: "Transforms how pain, craving, and distress are experienced: MORE helps patients shift from reactive responses to mindful awareness, self-regulation, and natural reward.",
                     }}
                     cards={[
                         {
@@ -99,7 +100,7 @@ export default function CliniciansPage() {
                         },
                     ]}
                     cta={{
-                        label: "View Certification Program",
+                        label: "Read the Research",
                         href: "/clinicians/certified",
                     }}
                 />

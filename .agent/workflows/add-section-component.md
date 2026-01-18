@@ -6,15 +6,15 @@ The following workflow is for Creating a new section component configuration fil
 
 IMPORTANT RULES:
 1. Always work on the Section-components-setup branch - switch to this branch before executing the workflow
-2. before starting this workflow, always ask the user for the the following links/file locations:
-- figma-component-URL
+2. before starting this workflow, always ask the user for the the following file locations:
+- from-figma-files
 - reference-image.png
 - new-component-name.tsx
 
 
 WORKFLOW STEPS:
 
-1. Analyze Tailwind CSS code extracted from a figma component design, in order to inform the new section component's configuration, styling, layout, etc. The figma design code files are here:[@figma-component-URL] 
+1. Analyze Tailwind CSS code extracted from a figma component design, in order to inform the new section component's configuration, styling, layout, etc. The figma design code files are located here:[@from-figma-files] 
 
 1.2 Don't overwrite/rewrite the existing global tailwind CSS configuration files. Use existing Tailwind CSS styling for the base component configuration. If there is any extra Tailwind CSS data that's needed by the section component internally, then add that new data to Tailwind
 
@@ -28,7 +28,8 @@ WORKFLOW STEPS:
 
 4. Address any other file dependencies, page configurations, routings, etc., as you implment the new section component files.
 
+4.5 4.5 Copy any asset files referenced by the new component over to the public/assets/images folder
+
 5. Final Outcome: Create new reusable section component can be called by name and added to any page. New component sections should load with the default configuration
 
 Execute this workflow step by step. Incrementally test, verify, and debug throughout process. Your goal shoild be to build, test and verify this entire workflow in one run, and notify the user when the job is complete and ready to be viewed.
-

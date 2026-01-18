@@ -1,0 +1,159 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900');
+
+/* Download App Dark Variant Component Styles */
+.download-app-dark {
+  @apply relative w-full overflow-hidden;
+  background: linear-gradient(135deg, #0f0c2e 0%, #3d1f7e 50%, #7b1fa2 100%);
+  min-height: 724px;
+}
+
+.download-app-dark__background {
+  @apply absolute inset-0;
+  background-image: url('./background.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.download-app-dark__content {
+  @apply relative z-10 flex items-center justify-between;
+  padding: 96px 111px;
+  gap: 60px;
+}
+
+.download-app-dark__left-content {
+  @apply flex flex-col;
+  gap: 32px;
+  flex: 1;
+  max-width: 709px;
+}
+
+.download-app-dark__heading-section {
+  @apply flex flex-col;
+  gap: 16px;
+}
+
+.download-app-dark__title {
+  font-family: 'Inter', sans-serif;
+  font-size: 64px;
+  font-weight: 300;
+  letter-spacing: -3.20px;
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+.download-app-dark__title-accent {
+  color: #e704e7;
+  font-weight: 900;
+}
+
+.download-app-dark__description {
+  font-family: 'Inter', sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 30px;
+  color: #ffffff;
+}
+
+.download-app-dark__features-section {
+  @apply flex flex-col;
+  gap: 24px;
+}
+
+.download-app-dark__separator {
+  @apply w-full h-px;
+  background-color: #a859f2;
+}
+
+.download-app-dark__features-list {
+  @apply flex flex-col;
+  gap: 16px;
+}
+
+.download-app-dark__feature {
+  @apply flex items-start;
+  gap: 10px;
+}
+
+.download-app-dark__feature-icon {
+  @apply flex-shrink-0;
+  width: 8px;
+  height: 7px;
+  background-color: #e704e7;
+  border-radius: 1px;
+}
+
+.download-app-dark__feature-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.5;
+}
+
+.download-app-dark__cta-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  color: #6b7280;
+}
+
+.download-app-dark__buttons {
+  @apply flex items-center;
+  gap: 12px;
+}
+
+.download-app-dark__button {
+  @apply flex items-center gap-2 px-4 py-3 rounded-lg;
+  background-color: #e704e7;
+  border-radius: 8px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.download-app-dark__button:hover {
+  background-color: #d603d3;
+}
+
+.download-app-dark__button-text {
+  @apply flex flex-col;
+}
+
+.download-app-dark__button-label-small {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 12px;
+  color: #ffffff;
+}
+
+.download-app-dark__button-label-large {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.download-app-dark__right-content {
+  @apply relative flex-1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 656px;
+}
+
+.download-app-dark__phone-mockup {
+  @apply relative z-20;
+  max-width: 352px;
+}
+
+.download-app-dark__sound-wave {
+  @apply absolute bottom-0 left-0 right-0;
+  width: 100%;
+  height: 306px;
+  object-fit: cover;
+}

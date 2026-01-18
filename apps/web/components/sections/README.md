@@ -27,7 +27,15 @@ A reusable section component system that allows the same component layouts to be
 - CTA button using Next.js Link
 - Uses CSS custom properties from `globals.css`
 
-### 4. **Barrel Export** (`components/sections/index.ts`)
+### 4. **Content Component** (`components/sections/Content.tsx`)
+- Horizontal layout with image on left, content on right
+- Title and subtitle sections
+- Feature list with checkmark icons
+- Separator line between subtitle and features
+- Uses CSS custom properties from `globals.css`
+- Responsive: stacks vertically on mobile
+
+### 5. **Barrel Export** (`components/sections/index.ts`)
 - Clean import syntax: `import { Cards } from "../sections"`
 - Exports all types and components
 
@@ -107,6 +115,30 @@ const content = {
 
 export default function MyPage() {
   return <Cards {...content} />;
+}
+```
+
+### Content Component Usage
+```tsx
+import { Content } from "@/components/sections";
+
+const contentData = {
+  title: "For Patients",
+  subtitle: "Get relief from chronic pain, addiction, stress, depression and more.",
+  features: [
+    { text: "Learn to transform addictive habits, craving, and chronic pain" },
+    { text: "Reframe distressing thoughts and negative core beliefs" },
+    { text: "Amplify positive emotions and reconnect with natural rewards" },
+    { text: "Experience powerful and lasting change with just 5 weekly sessions" },
+  ],
+  image: {
+    src: "/assets/images/patient-hero-image.jpg",
+    alt: "Patient experiencing relief",
+  },
+};
+
+export default function MyPage() {
+  return <Content {...contentData} />;
 }
 ```
 

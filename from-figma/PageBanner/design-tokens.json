@@ -1,0 +1,33 @@
+{
+  "name": "PageBanner",
+  "colors": {
+    "text": "#ffffff",
+    "background": "linear-gradient(to bottom, #6b21a8, #0f172a)"
+  },
+  "typography": {
+    "title": {
+      "fontFamily": "Inter",
+      "fontSize": "46px",
+      "fontWeight": 800,
+      "letterSpacing": "-0.92px"
+    },
+    "body": {
+      "fontFamily": "Inter",
+      "fontSize": "18px",
+      "fontWeight": 400,
+      "lineHeight": "27px"
+    }
+  },
+  "spacing": {
+    "gap": "24px"
+  },
+  "assets": {
+    "background": "background.png",
+    "maskImage": "brain-image.jpg"
+  },
+  "layout": {
+    "width": "1440px",
+    "height": "680px",
+    "contentPosition": "left"
+  }
+}

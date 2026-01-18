@@ -72,7 +72,7 @@ export const Cards: React.FC<CardsSectionProps> = ({
         return (
             <>
                 {parts[0]}
-                <span className="text-primary-11">{headline.highlight}</span>
+                <span className="text-primary-1">{headline.highlight}</span>
                 {parts[1]}
             </>
         );
@@ -93,6 +93,20 @@ export const Cards: React.FC<CardsSectionProps> = ({
             >
                 {renderHeadline()}
             </h2>
+
+            {headline.subtitle && (
+                <p
+                    className="text-center text-gray-500 max-w-[800px] mt-[-2rem]"
+                    style={{
+                        fontFamily: "var(--paragraph-font-family)",
+                        fontSize: "var(--paragraph-font-size)",
+                        fontWeight: "var(--paragraph-font-weight)",
+                        lineHeight: "var(--paragraph-line-height)",
+                    }}
+                >
+                    {headline.subtitle}
+                </p>
+            )}
 
             {/* Cards Grid Container */}
             <div className="w-full max-w-[1280px] rounded-lg shadow-card bg-white">
@@ -118,7 +132,7 @@ export const Cards: React.FC<CardsSectionProps> = ({
             {cta && (
                 <Link
                     href={cta.href}
-                    className="px-6 py-3 bg-primary-11 hover:bg-primary-2 text-white font-bold rounded-md transition-colors"
+                    className="px-6 py-3 bg-primary-1 hover:brightness-110 text-white font-bold rounded-md transition-colors"
                     style={{ fontSize: "var(--paragraph-font-size)" }}
                 >
                     {cta.label}

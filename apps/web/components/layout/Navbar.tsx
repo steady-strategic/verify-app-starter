@@ -2,6 +2,7 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useSession } from "next-auth/react";
 
@@ -49,8 +50,8 @@ const DropdownMenu: React.FC<{
         >
             <button
                 className={`transition-colors flex items-center space-x-1 ${variant === "dark"
-                        ? `text-white hover:text-primary-1 ${hasActiveItem ? "font-bold" : ""}`
-                        : `hover:text-stone-900 ${hasActiveItem ? "text-stone-900 font-bold" : ""}`
+                    ? `text-white hover:text-primary-1 ${hasActiveItem ? "font-bold" : ""}`
+                    : `hover:text-stone-900 ${hasActiveItem ? "text-stone-900 font-bold" : ""}`
                     }`}
             >
                 <span>{label}</span>
@@ -118,25 +119,23 @@ export const Navbar: React.FC<NavbarProps> = ({ scrolled = false, variant = "lig
     return (
         <nav
             className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled
-                    ? variant === "dark"
-                        ? "py-4 bg-black/40 backdrop-blur-md shadow-sm border-b border-white/10"
-                        : "py-4 glass shadow-sm border-b border-stone-100"
-                    : "py-8 bg-transparent"
+                ? variant === "dark"
+                    ? "py-4 bg-black/40 backdrop-blur-md shadow-sm border-b border-white/10"
+                    : "py-4 glass shadow-sm border-b border-stone-100"
+                : "py-8 bg-transparent"
                 }`}
         >
             <div className="container mx-auto px-6">
                 <div className="grid grid-cols-3 items-center">
                     {/* Logo - Left */}
-                    <Link href="/" className="flex items-center space-x-2 focus:outline-none justify-self-start">
-                        <div className={`w-8 h-8 rounded-full flex items-center justify-center ${variant === "dark" ? "bg-white" : "bg-stone-900"
-                            }`}>
-                            <span className={`font-bold text-xs ${variant === "dark" ? "text-primary-1" : "text-white"
-                                }`}>M</span>
-                        </div>
-                        <span className={`text-xl font-bold tracking-tighter ${variant === "dark" ? "text-white" : "text-stone-900"
-                            }`}>
-                            MORE
-                        </span>
+                    <Link href="/" className="flex items-center focus:outline-none justify-self-start">
+                        <Image
+                            src={variant === "dark" ? "/assets/images/LOGO_white.svg" : "/assets/images/LOGO_Magenta_1.svg"}
+                            alt="MORE Logo"
+                            width={100}
+                            height={35}
+                            className="h-8 w-auto"
+                        />
                     </Link>
 
                     {/* Desktop Navigation - Center */}
@@ -145,8 +144,8 @@ export const Navbar: React.FC<NavbarProps> = ({ scrolled = false, variant = "lig
                         <Link
                             href="/how-it-works"
                             className={`transition-colors ${variant === "dark"
-                                    ? `hover:text-primary-1 ${isActive("/how-it-works") ? "font-bold" : ""}`
-                                    : `hover:text-stone-900 ${isActive("/how-it-works") ? "text-stone-900 font-bold" : ""}`
+                                ? `hover:text-primary-1 ${isActive("/how-it-works") ? "font-bold" : ""}`
+                                : `hover:text-stone-900 ${isActive("/how-it-works") ? "text-stone-900 font-bold" : ""}`
                                 }`}
                         >
                             How it Works
@@ -172,8 +171,8 @@ export const Navbar: React.FC<NavbarProps> = ({ scrolled = false, variant = "lig
                         <Link
                             href="/about"
                             className={`transition-colors ${variant === "dark"
-                                    ? `hover:text-primary-1 ${isActive("/about") ? "font-bold" : ""}`
-                                    : `hover:text-stone-900 ${isActive("/about") ? "text-stone-900 font-bold" : ""}`
+                                ? `hover:text-primary-1 ${isActive("/about") ? "font-bold" : ""}`
+                                : `hover:text-stone-900 ${isActive("/about") ? "text-stone-900 font-bold" : ""}`
                                 }`}
                         >
                             About Us
@@ -205,10 +204,7 @@ export const Navbar: React.FC<NavbarProps> = ({ scrolled = false, variant = "lig
                             href="https://www.learnworlds.com"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className={`px-5 py-2.5 text-white text-xs font-semibold rounded-lg transition-all active:scale-95 ${variant === "dark"
-                                    ? "bg-primary-1 hover:bg-primary-2"
-                                    : "bg-stone-900 hover:bg-stone-800"
-                                }`}
+                            className="px-5 py-2.5 bg-primary-1 hover:brightness-110 text-white text-xs font-semibold rounded-lg transition-all active:scale-95"
                         >
                             Login
                         </a>
@@ -370,9 +366,9 @@ export const Navbar: React.FC<NavbarProps> = ({ scrolled = false, variant = "lig
                             target="_blank"
                             rel="noopener noreferrer"
                             onClick={() => setMobileMenuOpen(false)}
-                            className="px-5 py-2.5 bg-stone-900 text-white text-xs font-semibold rounded-full hover:bg-stone-800 transition-all text-center"
+                            className="px-5 py-2.5 bg-primary-1 hover:brightness-110 text-white text-xs font-semibold rounded-full transition-all text-center"
                         >
-                            Sign In
+                            Login
                         </a>
                         {/* )} */}
                     </div>

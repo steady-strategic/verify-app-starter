@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;800');
+
+/* Page Banner Styles */
+.page-banner {
+  @apply relative w-full h-[680px] overflow-hidden;
+  background: linear-gradient(135deg, #6b21a8 0%, #0f172a 100%);
+}
+
+.page-banner__background {
+  @apply absolute inset-0;
+  background-image: url('./background.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.page-banner__content {
+  @apply relative z-10 w-full h-full flex items-center px-20;
+}
+
+.page-banner__text-section {
+  @apply max-w-[720px] flex flex-col gap-6;
+}
+
+.page-banner__title {
+  @apply text-[46px] font-black text-white;
+  font-family: 'Inter', sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.92px;
+  line-height: 1.2;
+}
+
+.page-banner__description {
+  @apply text-[18px] font-normal text-white;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  line-height: 27px;
+  max-width: 571px;
+}
+
+.page-banner__image {
+  @apply absolute right-0 top-1/2 -translate-y-1/2 w-1/2 h-full object-cover rounded-3xl;
+}

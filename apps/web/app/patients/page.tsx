@@ -2,6 +2,7 @@
 
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { Content } from "@/components/sections";
 import { useState, useEffect } from "react";
 
 export default function PatientsPage() {
@@ -32,6 +33,24 @@ export default function PatientsPage() {
                     <p className="text-xl text-stone-600 leading-relaxed mb-12">
                         Discover a mindfulness-based approach to healing from addiction and chronic pain.
                     </p>
+
+                    {/* Content Section Component */}
+                    <div className="mb-16 -mx-6">
+                        <Content
+                            title="For Patients"
+                            subtitle="Get relief from chronic pain, addiction, stress, depression and more."
+                            features={[
+                                { text: "Learn to transform addictive habits, craving, and chronic pain" },
+                                { text: "Reframe distressing thoughts and negative core beliefs" },
+                                { text: "Amplify positive emotions and reconnect with natural rewards" },
+                                { text: "Experience powerful and lasting change with just 5 weekly sessions" },
+                            ]}
+                            image={{
+                                src: "/assets/images/patient-hero-image.jpg",
+                                alt: "Patient experiencing relief",
+                            }}
+                        />
+                    </div>
 
                     <div className="prose prose-stone max-w-none">
                         <h2 className="text-3xl font-bold text-stone-900 mb-4">

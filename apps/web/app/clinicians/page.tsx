@@ -3,7 +3,7 @@
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { useState, useEffect } from "react";
-import { Cards } from "@/components/sections";
+import { Cards, PageBanner, Content } from "@/components/sections";
 
 export default function CliniciansPage() {
     const [scrolled, setScrolled] = useState(false);
@@ -18,30 +18,35 @@ export default function CliniciansPage() {
 
     return (
         <div className="min-h-screen bg-cream text-colors-gray-700 font-sans selection:bg-primary-3 selection:text-primary-1">
-            <Navbar scrolled={scrolled} variant="dark" />
+            <Navbar scrolled={true} />
 
-            <main className="pt-32 pb-24">
-                {/* Header Section */}
-                <div className="container mx-auto px-6 max-w-4xl text-center">
-                    <span className="inline-block px-3 py-1 bg-primary-2/10 text-primary-2 rounded-full text-[10px] uppercase tracking-widest font-bold mb-6">
-                        For Clinicians
-                    </span>
+            <main className="pt-20">
+                {/* PageBanner Section */}
+                <PageBanner
+                    variant="forClinicians"
+                    title="MORE for Clinicians"
+                    subtitle="Provide Real, Lasting Recovery"
+                    description={[
+                        "A transformative approach offering clinicians evidence-based tools for effective addiction and chronic pain treatment.",
+                        "Enhance your practice with mindfulness-oriented recovery enhancement techniques backed by extensive research.",
+                        "Join a community of professionals dedicated to sustainable healing outcomes.",
+                    ]}
+                    backgroundImage={{
+                        src: "", // No background image needed for this variant
+                        alt: "",
+                    }}
+                    foregroundImage={{
+                        src: "/assets/images/clinician-therapy-session.png",
+                        alt: "Therapist Session",
+                    }}
+                />
 
-                    <h1 className="text-5xl md:text-6xl font-serif font-bold text-colors-gray-900 mb-6">
-                        MORE for Clinicians
-                    </h1>
-
-                    <p className="text-xl text-colors-gray-700 leading-relaxed mb-12">
-                        Discover evidence-based mindfulness interventions for addiction and chronic pain treatment.
-                    </p>
-                </div>
-
-                {/* Cards Section */}
                 <Cards
                     variant="Cards2x3"
                     headline={{
-                        text: "Empower your practice with evidence-based interventions",
-                        highlight: "evidence-based",
+                        text: "Why MORE Works, and Why Clinicians Should Offer It",
+                        highlight: "MORE",
+                        subtitle: "Transforms how pain, craving, and distress are experienced: MORE helps patients shift from reactive responses to mindful awareness, self-regulation, and natural reward.",
                     }}
                     cards={[
                         {
@@ -94,8 +99,24 @@ export default function CliniciansPage() {
                         },
                     ]}
                     cta={{
-                        label: "View Certification Program",
+                        label: "Read the Research",
                         href: "/clinicians/certified",
+                    }}
+                />
+
+                {/* Content Section */}
+                <Content
+                    variant="Content-forClinicians"
+                    title="MORE isn't just about reducing symptoms"
+                    subtitle="it's about helping people flourish. Most mindfulness programs stop at awareness. MORE goes further, guiding patients to:"
+                    features={[
+                        { text: "Transform negative emotions into positive growth" },
+                        { text: "Reclaim a sense of meaning and purpose in life" },
+                        { text: "Experience deep, restorative states of well-being" }
+                    ]}
+                    image={{
+                        src: "/assets/images/scientist-hero-image.jpg",
+                        alt: "Scientist examining brain scans"
                     }}
                 />
 

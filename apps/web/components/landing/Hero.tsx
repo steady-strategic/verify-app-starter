@@ -22,22 +22,10 @@ export const Hero: React.FC = () => {
                 <div className="max-w-6xl mx-auto space-y-8">
                     {/* Main Headline */}
                     <h1
-                        className="text-white text-center"
-                        style={{
-                            fontFamily: 'Inter',
-                            fontSize: 'clamp(2.5rem, 10vw, 84px)',
-                            fontWeight: 200,
-                            lineHeight: '60px',
-                            letterSpacing: '-4.2px',
-                        }}
+                        className="text-white text-center font-HERO-headers text-[85px] font-extrabold leading-[1.1] tracking-[-0.92px]"
                     >
                         Get{" "}
-                        <span
-                            style={{
-                                color: 'var(--primary-1, #C60EC8)',
-                                fontWeight: 900,
-                            }}
-                        >
+                        <span className="text-primary-1 font-black">
                             MORE
                         </span>{" "}
                         out of therapy
@@ -45,25 +33,14 @@ export const Hero: React.FC = () => {
 
                     {/* Subheadline */}
                     <h2
-                        className="text-white text-center"
-                        style={{
-                            fontFamily: 'Inter',
-                            fontSize: 'clamp(2rem, 8vw, 84px)',
-                            fontWeight: 200,
-                            lineHeight: '60px',
-                            letterSpacing: '-4.2px',
-                        }}
+                        className="text-white text-center font-content-header-1 text-[85px] font-light leading-[1.1] tracking-[-1.9px]"
                     >
                         More joy |
                     </h2>
 
                     {/* Certification Text */}
                     <p
-                        className="text-white/90 text-base md:text-lg pt-8"
-                        style={{
-                            fontFamily: 'var(--paragraph-font-family)',
-                            letterSpacing: '0.02em',
-                        }}
+                        className="text-white/90 font-paragraph text-lg pt-8 tracking-[0.02em]"
                     >
                         MORE Clinician certification
                     </p>
@@ -71,10 +48,7 @@ export const Hero: React.FC = () => {
                     {/* CTA Button */}
                     <div className="pt-6">
                         <button
-                            className="bg-primary-1 hover:bg-primary-2 text-white font-semibold px-8 py-3 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
-                            style={{
-                                fontSize: 'var(--text-base-font-normal-font-size)',
-                            }}
+                            className="bg-primary-1 hover:brightness-110 text-white font-text-base-font-normal font-semibold px-8 py-3 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
                         >
                             Register Now
                         </button>

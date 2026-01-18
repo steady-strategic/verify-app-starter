@@ -23,18 +23,21 @@ export default function CliniciansPage() {
             <main className="pt-20">
                 {/* PageBanner Section */}
                 <PageBanner
-                    variant="more-institute"
-                    title="MORE Institute"
+                    variant="forClinicians"
+                    title="MORE for Clinicians"
+                    subtitle="Provide Real, Lasting Recovery"
                     description={[
-                        "Discover evidence-based mindfulness interventions for addiction and chronic pain treatment.",
+                        "A transformative approach offering clinicians evidence-based tools for effective addiction and chronic pain treatment.",
+                        "Enhance your practice with mindfulness-oriented recovery enhancement techniques backed by extensive research.",
+                        "Join a community of professionals dedicated to sustainable healing outcomes.",
                     ]}
                     backgroundImage={{
-                        src: "/assets/images/background.png",
-                        alt: "Background",
+                        src: "", // No background image needed for this variant
+                        alt: "",
                     }}
                     foregroundImage={{
-                        src: "/assets/images/therapist-client.png",
-                        alt: "Therapist and Client",
+                        src: "/assets/images/clinician-therapy-session.png",
+                        alt: "Therapist Session",
                     }}
                 />
 

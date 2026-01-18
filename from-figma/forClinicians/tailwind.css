@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-sans text-text-primary;
+  }
+
+  h1 {
+    @apply text-title text-text-secondary;
+  }
+
+  p {
+    @apply text-body text-text-primary leading-relaxed;
+  }
+}
+
+@layer components {
+  .clinician-section {
+    @apply min-h-screen flex items-center justify-between gap-8 px-8 py-16;
+  }
+
+  .content-area {
+    @apply flex-1 max-w-2xl;
+  }
+
+  .image-area {
+    @apply flex-1;
+  }
+
+  .clinician-image {
+    @apply w-full h-auto rounded-lg object-cover;
+  }
+}

@@ -5,16 +5,73 @@ import { PageBannerSectionProps } from "./types";
 export const PageBanner: React.FC<PageBannerSectionProps> = ({
     title,
     description,
+    subtitle,
     backgroundImage,
     foregroundImage,
     variant = "default",
     className = "",
     id,
 }) => {
+    // Variant: For Clinicians
+    if (variant === "forClinicians") {
+        return (
+            <section id={id} className={`relative w-full max-w-[1440px] mx-auto h-[680px] overflow-hidden ${className}`}>
+                <div className="absolute inset-0 flex flex-col lg:flex-row">
+                    {/* Left: Background (White) */}
+                    <div className="w-full lg:w-1/2 bg-white" />
+                    {/* Right: Background (Image) */}
+                    <div className="w-full lg:w-1/2 relative">
+                        <Image
+                            src={foregroundImage.src} // Using foregroundImage as the main hero image
+                            alt={foregroundImage.alt}
+                            fill
+                            className="object-cover object-right"
+                            priority
+                        />
+                    </div>
+                </div>
+
+                <div className="relative z-10 container mx-auto h-full">
+                    <div className="flex flex-col lg:flex-row h-full">
+                        {/* Left: Content (50%) */}
+                        <div className="w-full lg:w-1/2 py-20 px-4 md:px-8 xl:pr-24 flex flex-col justify-center h-full">
+                            {/* Heading */}
+                            <h1 className="font-sans text-[46px] font-extrabold leading-[130%] tracking-[-0.92px] text-colors-gray-900 mb-2">
+                                <span className="text-primary-1">MORE</span> {title.replace("MORE ", "")}
+                            </h1>
+
+                            {/* Subtitle */}
+                            {subtitle && (
+                                <h2 className="font-sans text-xl font-semibold leading-relaxed text-colors-gray-700 mb-8">
+                                    {subtitle}
+                                </h2>
+                            )}
+
+                            {/* Description */}
+                            <div className="space-y-6">
+                                {description.map((paragraph, index) => (
+                                    <p
+                                        key={index}
+                                        className="font-sans text-lg font-normal leading-[150%] text-colors-gray-700"
+                                    >
+                                        {paragraph}
+                                    </p>
+                                ))}
+                            </div>
+                        </div>
+
+                        {/* Right: Spacer (50%) */}
+                        <div className="hidden lg:block w-1/2" />
+                    </div>
+                </div>
+            </section>
+        );
+    }
+
     // Variant: More Institute
     if (variant === "more-institute") {
         return (
-            <section id={id} className={`relative w-full overflow-hidden ${className}`}>
+            <section id={id} className={`relative w-full max-w-[1440px] mx-auto h-[680px] overflow-hidden ${className}`}>
                 {/* Background Split Layer */}
                 <div className="absolute inset-0 flex flex-col lg:flex-row">
                     <div className="w-full lg:w-1/2 bg-colors-white" />
@@ -122,7 +179,7 @@ export const PageBanner: React.FC<PageBannerSectionProps> = ({
 
     return (
         <section
-            className={`relative w-full h-[680px] overflow-hidden ${className}`}
+            className={`relative w-full max-w-[1440px] mx-auto h-[680px] overflow-hidden ${className}`}
             style={{
                 background: "linear-gradient(135deg, #6b21a8 0%, #0f172a 100%)",
             }}

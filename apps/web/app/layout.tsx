@@ -1,13 +1,12 @@
 import type { Metadata } from "next";
 import { SessionProvider } from "next-auth/react";
+import { ThemeInit } from "../.flowbite-react/init";
 import "./globals.css";
 
 export const metadata: Metadata = {
     title: "MORE Mindfulness",
     description: "Mindfulness-Oriented Recovery Enhancement",
 };
-
-import { ThemeInit } from "../.flowbite-react/init";
 
 export default function RootLayout({
     children,
@@ -16,10 +15,8 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en">
-            <head>
-                <ThemeInit />
-            </head>
             <body>
+                <ThemeInit />
                 <SessionProvider>{children}</SessionProvider>
             </body>
         </html>

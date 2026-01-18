@@ -3,7 +3,7 @@
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { useState, useEffect } from "react";
-import { Cards, PageBanner } from "@/components/sections";
+import { Cards, PageBanner, Content } from "@/components/sections";
 
 export default function CliniciansPage() {
     const [scrolled, setScrolled] = useState(false);
@@ -41,7 +41,6 @@ export default function CliniciansPage() {
                     }}
                 />
 
-                {/* Cards Section */}
                 <Cards
                     variant="Cards2x3"
                     headline={{
@@ -102,6 +101,22 @@ export default function CliniciansPage() {
                     cta={{
                         label: "Read the Research",
                         href: "/clinicians/certified",
+                    }}
+                />
+
+                {/* Content Section */}
+                <Content
+                    variant="Content-forClinicians"
+                    title="MORE isn't just about reducing symptoms"
+                    subtitle="it's about helping people flourish. Most mindfulness programs stop at awareness. MORE goes further, guiding patients to:"
+                    features={[
+                        { text: "Transform negative emotions into positive growth" },
+                        { text: "Reclaim a sense of meaning and purpose in life" },
+                        { text: "Experience deep, restorative states of well-being" }
+                    ]}
+                    image={{
+                        src: "/assets/images/scientist-hero-image.jpg",
+                        alt: "Scientist examining brain scans"
                     }}
                 />
 

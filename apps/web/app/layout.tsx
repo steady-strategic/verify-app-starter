@@ -7,6 +7,8 @@ export const metadata: Metadata = {
     description: "Mindfulness-Oriented Recovery Enhancement",
 };
 
+import { ThemeInit } from "../.flowbite-react/init";
+
 export default function RootLayout({
     children,
 }: {
@@ -14,6 +16,9 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en">
+            <head>
+                <ThemeInit />
+            </head>
             <body>
                 <SessionProvider>{children}</SessionProvider>
             </body>

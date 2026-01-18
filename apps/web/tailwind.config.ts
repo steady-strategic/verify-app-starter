@@ -96,6 +96,7 @@ const config: Config = {
                 "marquee-vertical": "marquee-vertical var(--duration) linear infinite",
                 "shimmer": "shimmer 8s infinite",
                 "spin": "spin 1s linear infinite",
+                "blink": "blink 1s step-end infinite",
             },
             keyframes: {
                 // Existing keyframes
@@ -141,6 +142,10 @@ const config: Config = {
                 "marquee-vertical": {
                     "0%": { transform: "translateY(0)" },
                     "100%": { transform: "translateY(calc(-100% - var(--gap)))" },
+                },
+                "blink": {
+                    "0%, 100%": { borderColor: "transparent" },
+                    "50%": { borderColor: "var(--primary-1)" },
                 },
             },
         },

@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import { TypingAnimation } from "../ui/TypingAnimation";
 
 export const Hero: React.FC = () => {
     return (
@@ -32,11 +33,11 @@ export const Hero: React.FC = () => {
                     </h1>
 
                     {/* Subheadline */}
-                    <h2
+                    <TypingAnimation
+                        WrapperTag="h2"
+                        phrases={["More Peace", "More Joy", "More Mindful"]}
                         className="text-white text-center font-content-header-1 text-[85px] font-light leading-[1.1] tracking-[-1.9px]"
-                    >
-                        More joy |
-                    </h2>
+                    />
 
                     {/* Certification Text */}
                     <p

@@ -8,7 +8,7 @@ export const Hero: React.FC = () => {
             {/* Background Image with Overlay */}
             <div className="absolute inset-0 -z-10">
                 <Image
-                    src="/assets/home/images/mindfulness_1.png"
+                    src="/assets/images/mindfulness_1.png"
                     alt="Mindfulness background"
                     fill
                     className="object-cover"

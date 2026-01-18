@@ -4,23 +4,23 @@ import Image from "next/image";
 export default function HomeBrands() {
     const logos = [
         {
-            src: "/assets/home/logos/Johns-Hopkins-University-Logo_1.png",
+            src: "/assets/logos/Johns-Hopkins-University-Logo_1.png",
             alt: "Johns Hopkins University",
         },
         {
-            src: "/assets/home/logos/hms-logo-final-rgb_1.png",
+            src: "/assets/logos/hms-logo-final-rgb_1.png",
             alt: "Harvard Medical School",
         },
         {
-            src: "/assets/home/logos/University_of_California,_San_Diego_logo.svg_2.png",
+            src: "/assets/logos/University_of_California,_San_Diego_logo.svg_2.png",
             alt: "UC San Diego",
         },
         {
-            src: "/assets/home/logos/pngegg_1.png",
+            src: "/assets/logos/pngegg_1.png",
             alt: "Partner Institution",
         },
         {
-            src: "/assets/home/logos/kaiser-permanente-eastmoreland-dental-office-kaiser-westside-medical-center-health-insurance-health-care-others-d924d53548165cd067655983122df683_1.png",
+            src: "/assets/logos/kaiser-permanente-eastmoreland-dental-office-kaiser-westside-medical-center-health-insurance-health-care-others-d924d53548165cd067655983122df683_1.png",
             alt: "Kaiser Permanente",
         },
     ];

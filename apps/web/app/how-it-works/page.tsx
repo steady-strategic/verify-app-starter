@@ -4,6 +4,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { PageBanner } from "@/components/sections/PageBanner";
 import { HowItWorks } from "@/components/sections/HowItWorks";
+import { Content } from "@/components/sections/Content";
 
 export default function HowItWorksPage() {
     return (
@@ -53,6 +54,24 @@ export default function HowItWorksPage() {
                 variant="default"
                 id="how-it-works-section"
             />
+
+            {/* Content-HowItWorks Section */}
+            <div className="mb-24">
+                <Content
+                    variant="Content-HowItWorks"
+                    title="MORE isn't just about reducing symptoms"
+                    subtitle="it's about helping people flourish. Most mindfulness programs stop at awareness. MORE goes further, guiding patients to:"
+                    features={[
+                        { text: "Transform negative emotions into positive growth" },
+                        { text: "Reclaim a sense of meaning and purpose in life" },
+                        { text: "Experience deep, restorative states of well-being" }
+                    ]}
+                    image={{
+                        src: "/assets/images/content-how-it-works.png",
+                        alt: "Mindfulness hero"
+                    }}
+                />
+            </div>
 
             <main className="pb-24">
                 <div className="container mx-auto px-6 max-w-4xl">
@@ -113,6 +132,8 @@ export default function HowItWorksPage() {
                             </div>
                         </div>
                     </div>
+
+
 
                     <h2 className="text-3xl font-bold text-stone-900 mb-4 mt-12">
                         The Treatment Process

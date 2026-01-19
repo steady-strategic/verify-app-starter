@@ -22,7 +22,7 @@ export default function ResearchPage() {
 
             <main className="pb-24 pt-24 md:pt-32">
                 <PageBanner
-                    variant="Research"
+                    variant="researchBrain"
                     title="Research"
                     subtitle={"MORE™ Delivers Powerful\nClinical Results"}
                     description={["Explore the scientific evidence supporting Mindfulness-Oriented Recovery Enhancement."]}

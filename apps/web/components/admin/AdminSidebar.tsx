@@ -16,13 +16,13 @@ export function AdminSidebar({ role, userName }: AdminSidebarProps) {
 
     const navItems = [
         { href: "/admin", label: "Dashboard", icon: "📊" },
-        { href: "/admin/stories", label: "Stories", icon: "📝" },
-        { href: "/admin/lessons", label: "Lessons", icon: "🎧" },
+        { href: "/admin/stories", label: "Blog", icon: "📝" },
+        { href: "/admin/clinician-directory", label: "Clinicians", icon: "🩺" },
     ];
 
     // Only SUPER_ADMIN can access user management
     if (role === "SUPER_ADMIN") {
-        navItems.push({ href: "/admin/users", label: "Admin Users", icon: "👥" });
+        navItems.push({ href: "/admin/users", label: "Admin", icon: "👥" });
     }
 
     return (
@@ -47,8 +47,8 @@ export function AdminSidebar({ role, userName }: AdminSidebarProps) {
                         key={item.href}
                         href={item.href}
                         className={`flex items-center space-x-3 px-4 py-3 rounded-xl transition-all ${isActive(item.href)
-                                ? "bg-amber-100 text-amber-900 font-semibold"
-                                : "text-stone-600 hover:bg-stone-200"
+                            ? "bg-amber-100 text-amber-900 font-semibold"
+                            : "text-stone-600 hover:bg-stone-200"
                             }`}
                     >
                         <span className="text-lg">{item.icon}</span>

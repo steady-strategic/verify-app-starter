@@ -20,14 +20,14 @@ export default async function StoriesPage() {
                 {/* Header */}
                 <div className="flex items-center justify-between mb-8">
                     <div>
-                        <h1 className="text-4xl serif text-stone-900 mb-2">Stories</h1>
+                        <h1 className="text-4xl serif text-stone-900 mb-2">Blog</h1>
                         <p className="text-stone-500">Manage blog posts and articles</p>
                     </div>
                     <Link
                         href="/admin/stories/new"
                         className="px-6 py-3 bg-stone-900 text-white rounded-full font-semibold text-sm hover:bg-stone-800 transition-all"
                     >
-                        + New Story
+                        + New Post
                     </Link>
                 </div>
 
@@ -35,13 +35,13 @@ export default async function StoriesPage() {
                 {stories.length === 0 ? (
                     <div className="bg-white rounded-[2rem] p-12 text-center shadow-sm border border-stone-100">
                         <div className="text-6xl mb-4">📝</div>
-                        <h3 className="text-xl font-bold text-stone-900 mb-2">No stories yet</h3>
-                        <p className="text-stone-500 mb-6">Create your first story to get started</p>
+                        <h3 className="text-xl font-bold text-stone-900 mb-2">No blog posts yet</h3>
+                        <p className="text-stone-500 mb-6">Create your first post to get started</p>
                         <Link
                             href="/admin/stories/new"
                             className="inline-block px-6 py-3 bg-amber-600 text-white rounded-full font-semibold text-sm hover:bg-amber-700 transition-all"
                         >
-                            Create Story
+                            Create Post
                         </Link>
                     </div>
                 ) : (

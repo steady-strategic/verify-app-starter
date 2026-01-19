@@ -314,7 +314,7 @@ export function StoryForm({ initialData, mode }: StoryFormProps) {
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
                         </svg>
                         <p className="text-sm text-stone-600 mb-4">
-                            Use AI to generate an image based on your story title
+                            Use AI to generate an image based on your blog post title
                         </p>
                         <button
                             type="button"
@@ -355,7 +355,7 @@ export function StoryForm({ initialData, mode }: StoryFormProps) {
                     required
                     rows={15}
                     className="w-full bg-stone-50 border-none rounded-2xl py-3 px-4 focus:ring-2 focus:ring-amber-200 outline-none text-stone-900 resize-none font-mono text-sm"
-                    placeholder="Write your story content here... (Supports plain text and line breaks)"
+                    placeholder="Write your post content here... (Supports plain text and line breaks)"
                 />
                 <p className="text-xs text-stone-400">
                     Content will be displayed with preserved line breaks
@@ -376,7 +376,7 @@ export function StoryForm({ initialData, mode }: StoryFormProps) {
                     placeholder="https://youtube.com/watch?v=... or https://vimeo.com/..."
                 />
                 <p className="text-xs text-stone-400">
-                    Add a YouTube, Vimeo, or external media link to display below the story content
+                    Add a YouTube, Vimeo, or external media link to display below the post content
                 </p>
             </div>
 
@@ -405,8 +405,8 @@ export function StoryForm({ initialData, mode }: StoryFormProps) {
                     {isSubmitting
                         ? "Saving..."
                         : mode === "create"
-                            ? "Create Story"
-                            : "Update Story"}
+                            ? "Create Post"
+                            : "Update Post"}
                 </button>
                 <button
                     type="button"

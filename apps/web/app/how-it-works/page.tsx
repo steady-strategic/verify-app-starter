@@ -18,7 +18,7 @@ export default function HowItWorksPage() {
                     "Discover how MORE integrates mindfulness, reappraisal, and savoring to address addiction, chronic pain, and emotional distress."
                 ]}
                 backgroundImage={{
-                    src: "/assets/images/background.png",
+                    src: "/assets/images/photo-1710166755608-58b3d62db3a81.svg",
                     alt: "Background pattern"
                 }}
                 foregroundImage={{

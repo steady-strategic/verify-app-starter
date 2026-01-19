@@ -27,7 +27,7 @@ export default function ResearchPage() {
                     subtitle={"MORE™ Delivers Powerful\nClinical Results"}
                     description={["Explore the scientific evidence supporting Mindfulness-Oriented Recovery Enhancement."]}
                     backgroundImage={{
-                        src: "/assets/images/background-gradient.png",
+                        src: "/assets/images/photo-1710166755608-58b3d62db3a81.svg",
                         alt: "Background Gradient"
                     }}
                     foregroundImage={{

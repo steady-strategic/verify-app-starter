@@ -22,7 +22,7 @@ export default async function AdminDashboard() {
                 <div className="grid md:grid-cols-3 gap-6 mb-8">
                     <div className="bg-white rounded-[2rem] p-6 shadow-sm border border-stone-100">
                         <div className="text-3xl mb-2">📝</div>
-                        <h3 className="text-2xl font-bold text-stone-900 mb-1">Stories</h3>
+                        <h3 className="text-2xl font-bold text-stone-900 mb-1">Blog</h3>
                         <p className="text-stone-500 text-sm">Manage blog posts</p>
                         <Link
                             href="/admin/stories"
@@ -32,12 +32,14 @@ export default async function AdminDashboard() {
                         </Link>
                     </div>
 
+
+
                     <div className="bg-white rounded-[2rem] p-6 shadow-sm border border-stone-100">
-                        <div className="text-3xl mb-2">🎧</div>
-                        <h3 className="text-2xl font-bold text-stone-900 mb-1">Lessons</h3>
-                        <p className="text-stone-500 text-sm">Manage audio content</p>
+                        <div className="text-3xl mb-2">🩺</div>
+                        <h3 className="text-2xl font-bold text-stone-900 mb-1">Clinicians</h3>
+                        <p className="text-stone-500 text-sm">Manage practitioner directory</p>
                         <Link
-                            href="/admin/lessons"
+                            href="/admin/clinician-directory"
                             className="mt-4 inline-block text-amber-600 hover:text-amber-700 font-medium text-sm"
                         >
                             View all →
@@ -47,7 +49,7 @@ export default async function AdminDashboard() {
                     {adminUser.role === "SUPER_ADMIN" && (
                         <div className="bg-white rounded-[2rem] p-6 shadow-sm border border-stone-100">
                             <div className="text-3xl mb-2">👥</div>
-                            <h3 className="text-2xl font-bold text-stone-900 mb-1">Users</h3>
+                            <h3 className="text-2xl font-bold text-stone-900 mb-1">Admin</h3>
                             <p className="text-stone-500 text-sm">Manage admin accounts</p>
                             <Link
                                 href="/admin/users"
@@ -59,43 +61,7 @@ export default async function AdminDashboard() {
                     )}
                 </div>
 
-                {/* Quick Actions */}
-                <div className="bg-white rounded-[2rem] p-8 shadow-sm border border-stone-100">
-                    <h2 className="text-xl font-bold text-stone-900 mb-6">Quick Actions</h2>
-                    <div className="grid md:grid-cols-2 gap-4">
-                        <Link
-                            href="/admin/stories/new"
-                            className="flex items-center justify-between p-4 bg-stone-50 rounded-xl hover:bg-stone-100 transition-colors group"
-                        >
-                            <div className="flex items-center space-x-3">
-                                <div className="w-10 h-10 rounded-lg bg-amber-100 flex items-center justify-center text-amber-700">
-                                    ➕
-                                </div>
-                                <div>
-                                    <p className="font-semibold text-stone-900">Create Story</p>
-                                    <p className="text-xs text-stone-500">Write a new blog post</p>
-                                </div>
-                            </div>
-                            <span className="text-stone-400 group-hover:text-stone-600">→</span>
-                        </Link>
 
-                        <Link
-                            href="/admin/lessons/new"
-                            className="flex items-center justify-between p-4 bg-stone-50 rounded-xl hover:bg-stone-100 transition-colors group"
-                        >
-                            <div className="flex items-center space-x-3">
-                                <div className="w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center text-blue-700">
-                                    ➕
-                                </div>
-                                <div>
-                                    <p className="font-semibold text-stone-900">Create Lesson</p>
-                                    <p className="text-xs text-stone-500">Upload new audio content</p>
-                                </div>
-                            </div>
-                            <span className="text-stone-400 group-hover:text-stone-600">→</span>
-                        </Link>
-                    </div>
-                </div>
             </div>
         </div>
     );

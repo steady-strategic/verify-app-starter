@@ -19,8 +19,8 @@ export default async function EditStoryPage({
         <div className="p-8">
             <div className="max-w-4xl mx-auto">
                 <div className="mb-8">
-                    <h1 className="text-4xl serif text-stone-900 mb-2">Edit Story</h1>
-                    <p className="text-stone-500">Update story content and settings</p>
+                    <h1 className="text-4xl serif text-stone-900 mb-2">Edit Blog Post</h1>
+                    <p className="text-stone-500">Update blog post content and settings</p>
                 </div>
 
                 <div className="bg-white rounded-[2rem] p-8 shadow-sm border border-stone-100">

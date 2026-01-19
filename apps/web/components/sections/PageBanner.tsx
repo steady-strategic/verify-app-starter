@@ -271,13 +271,13 @@ export const PageBanner: React.FC<PageBannerSectionProps> = ({
         return (
             <section
                 id={id}
-                className={`relative w-full max-w-[1440px] mx-auto h-[680px] overflow-hidden rounded-[24px] ${className}`}
+                className={`relative w-full max-w-[1440px] mx-auto h-[680px] overflow-hidden ${className}`}
                 style={{
-                    background: "linear-gradient(90deg, #7c3aed 0%, #1a0a2e 100%)",
+                    background: "linear-gradient(135deg, #6b21a8 0%, #0f172a 100%)",
                 }}
             >
                 {/* Background Image Layer */}
-                <div className="absolute inset-0 z-0">
+                <div className="absolute inset-0 opacity-50">
                     <Image
                         src={backgroundImage.src}
                         alt={backgroundImage.alt}
@@ -287,18 +287,19 @@ export const PageBanner: React.FC<PageBannerSectionProps> = ({
                     />
                 </div>
 
-                <div className="relative z-10 w-full h-full flex flex-row">
-                    {/* Left: Content */}
-                    <div className="flex flex-col pl-[100px] pt-[171px] max-w-[650px] z-20">
+                {/* Content Container */}
+                <div className="relative z-10 w-full h-full flex items-center px-20">
+                    {/* Left: Text Section */}
+                    <div className="max-w-[720px] flex flex-col gap-6">
                         {/* Title */}
                         <h1
-                            className="text-white font-inter"
+                            className="text-white"
                             style={{
+                                fontFamily: "var(--font-inter), Inter, sans-serif",
                                 fontSize: "46px",
                                 fontWeight: 800,
                                 letterSpacing: "-0.92px",
                                 lineHeight: "1.2",
-                                marginBottom: "24px",
                             }}
                         >
                             {title}
@@ -307,8 +308,9 @@ export const PageBanner: React.FC<PageBannerSectionProps> = ({
                         {/* Subtitle */}
                         {subtitle && (
                             <h2
-                                className="text-white font-inter whitespace-pre-line"
+                                className="text-white whitespace-pre-line"
                                 style={{
+                                    fontFamily: "var(--font-inter), Inter, sans-serif",
                                     fontSize: "28px",
                                     fontWeight: 700,
                                     letterSpacing: "-0.56px",
@@ -320,33 +322,31 @@ export const PageBanner: React.FC<PageBannerSectionProps> = ({
                         )}
 
                         {/* Description */}
-                        {description && description.length > 0 && (
-                            <div className="mt-4 space-y-4">
-                                {description.map((paragraph, index) => (
-                                    <p
-                                        key={index}
-                                        className="text-white font-inter text-lg"
-                                        style={{
-                                            fontSize: "28px",
-                                            fontWeight: 700,
-                                            letterSpacing: "-0.56px",
-                                            lineHeight: "35px",
-                                        }}
-                                    >
-                                        {paragraph}
-                                    </p>
-                                ))}
-                            </div>
-                        )}
+                        <div className="flex flex-col gap-4 max-w-[571px]">
+                            {description.map((paragraph, index) => (
+                                <p
+                                    key={index}
+                                    className="text-white"
+                                    style={{
+                                        fontFamily: "var(--font-inter), Inter, sans-serif",
+                                        fontSize: "18px",
+                                        fontWeight: 400,
+                                        lineHeight: "27px",
+                                    }}
+                                >
+                                    {paragraph}
+                                </p>
+                            ))}
+                        </div>
                     </div>
 
-                    {/* Right: Foreground Image (Brain) */}
-                    <div className="absolute right-0 top-0 h-full w-[50%] z-10">
+                    {/* Right: Foreground Image */}
+                    <div className="absolute right-20 top-1/2 -translate-y-1/2 w-[656px] h-[492px]">
                         <Image
                             src={foregroundImage.src}
                             alt={foregroundImage.alt}
                             fill
-                            className="object-cover object-right"
+                            className="object-cover rounded-3xl"
                             priority
                         />
                     </div>

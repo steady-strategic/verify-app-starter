@@ -33,13 +33,19 @@ export interface ContentFeature {
 
 // Content section props
 export interface ContentSectionProps extends BaseSectionProps {
-    variant?: "default" | "swap" | "Content-HowItWorks" | "Content-forClinicians";
+    variant?: "default" | "swap" | "Content-HowItWorks" | "Content-forClinicians" | "Home-About";
     title: string;
     subtitle: string;
     features: ContentFeature[];  // Array of feature items with checkmark icons
     image: {
         src: string;
         alt: string;
+    };
+    // Home-About variant specific props
+    titleHighlight?: string;  // Word to highlight in purple (e.g., "MORE")
+    buttons?: {  // Action buttons for Home-About variant
+        linkedin?: string;  // LinkedIn profile URL
+        twitter?: string;   // X/Twitter profile URL
     };
 }
 

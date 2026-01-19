@@ -1,0 +1,29 @@
+:root {
+  /* Colors */
+  --color-text-primary: #ffffff;
+  --color-background-gradient-start: #7c3aed;
+  --color-background-gradient-end: #1a0a2e;
+  
+  /* Typography */
+  --font-family-primary: 'Inter', sans-serif;
+  --font-size-title: 46px;
+  --font-weight-title: 800;
+  --letter-spacing-title: -0.92px;
+  
+  --font-size-subtitle: 28px;
+  --font-weight-subtitle: 700;
+  --letter-spacing-subtitle: -0.56px;
+  --line-height-subtitle: 35px;
+  
+  /* Spacing */
+  --gap-between-sections: 24px;
+  --padding-left: 100px;
+  --padding-top: 171px;
+  
+  /* Dimensions */
+  --banner-width: 1451px;
+  --banner-height: 685px;
+  
+  /* Border Radius */
+  --border-radius-card: 24px;
+}

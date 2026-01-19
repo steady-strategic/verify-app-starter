@@ -1,15 +1,15 @@
-# Home-About Section - Tailwind CSS Classes
+# HomeAbout Section - Tailwind CSS Classes
 
-## Generated Tailwind Classes for the Home-About Design
+## Generated Tailwind Classes for the HomeAbout Design
 
 ### Container
 ```html
-<div class="w-[1480px] h-[570px] border border-dashed border-[#8a38f5] rounded-[5px] p-8 flex gap-8 items-start">
+<div class="w-[1480px] h-[700px] bg-[#fafafa] px-12 py-12 flex gap-12 items-center">
 ```
 
 ### Profile Image
 ```html
-<img class="w-[280px] h-[280px] rounded-full object-cover flex-shrink-0" />
+<img class="w-[280px] h-[280px] rounded-full object-cover flex-shrink-0" src="dr-eric-garland.png" />
 ```
 
 ### Content Wrapper
@@ -17,15 +17,11 @@
 <div class="flex-1 flex flex-col gap-4">
 ```
 
-### Title (Part 1 - "MORE - Mindfulness-Oriented Recovery Enhancement")
+### Title/Subtitle
 ```html
 <h1 class="font-inter text-[28px] font-bold leading-[35px] tracking-[-0.56px] text-[#111928]">
-  <span class="text-[#8a38f5]">MORE</span> - Mindfulness-Oriented Recovery Enhancement
+  <span class="text-[#8a38f5]">Mindfulness-Oriented Recovery Enhancement</span>
 </h1>
-```
-
-### Subtitle (Part 2 - "A Therapy Based on Science and Lasting Outcomes")
-```html
 <h2 class="font-inter text-[28px] font-bold leading-[35px] text-[#111928]">
   A Therapy Based on Science and Lasting Outcomes
 </h2>
@@ -46,54 +42,21 @@
 <div class="flex gap-4 mt-auto">
 ```
 
-### Button - LinkedIn Profile
+### Button
 ```html
 <button class="font-inter text-[14px] font-medium text-[#111928] border border-[#111928] rounded px-4 py-2 hover:border-[#8a38f5] hover:text-[#8a38f5] transition-all duration-300">
   LinkedIn Profile
 </button>
-```
-
-### Button - Follow on X
-```html
 <button class="font-inter text-[14px] font-medium text-[#111928] border border-[#111928] rounded px-4 py-2 hover:border-[#8a38f5] hover:text-[#8a38f5] transition-all duration-300">
   Follow on X
 </button>
-```
-
-## Custom Tailwind Configuration Additions
-
-Add these to your `tailwind.config.ts` if using custom colors and spacing:
-
-```typescript
-theme: {
-  extend: {
-    colors: {
-      'home-about': {
-        'text-primary': '#111928',
-        'text-secondary': '#374151',
-        'border': '#8a38f5',
-      },
-    },
-    spacing: {
-      'component-gap': '32px',
-    },
-    fontSize: {
-      'home-about-title': '28px',
-      'home-about-body': '18px',
-      'home-about-button': '14px',
-    },
-    fontFamily: {
-      'inter': ['Inter', 'sans-serif'],
-    },
-  },
-}
 ```
 
 ## Font Import
 
 Add to your global CSS or layout:
 ```css
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700');
 ```
 
-Or use the font source provided: https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800
+Or use the font source provided: https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700

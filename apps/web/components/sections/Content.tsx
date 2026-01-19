@@ -48,96 +48,12 @@ export const Content: React.FC<ContentSectionProps> = ({
     variant = "default",
     className = "",
     id,
-    titleHighlight,
-    buttons,
 }) => {
     const isSwap = variant === "swap";
     const isHowItWorks = variant === "Content-HowItWorks" || variant === "Content-forClinicians";
-    const isHomeAbout = variant === "Home-About";
     const imageRadiusClass = (isSwap || isHowItWorks) ? "rounded-[20px]" : "rounded-xl";
 
-    // Home-About variant has a completely different layout
-    if (isHomeAbout) {
-        return (
-            <section
-                className={`flex flex-col items-center gap-14 py-16 px-4 ${className}`}
-                id={id}
-            >
-                <div className="w-full max-w-[1480px] border border-dashed border-[#8a38f5] rounded-[5px] p-8 flex flex-col md:flex-row gap-8 items-start">
-                    {/* Profile Image - Circular */}
-                    <div className="flex-shrink-0">
-                        <Image
-                            src={image.src}
-                            alt={image.alt}
-                            width={280}
-                            height={280}
-                            className="w-[280px] h-[280px] rounded-full object-cover"
-                        />
-                    </div>
-
-                    {/* Content */}
-                    <div className="flex-1 flex flex-col gap-4">
-                        {/* Title with highlight */}
-                        <h1 className="font-inter text-[28px] font-bold leading-[35px] tracking-[-0.56px] text-[#111928] m-0">
-                            {titleHighlight ? (
-                                <>
-                                    <span className="text-[#8a38f5]">{titleHighlight}</span>
-                                    {title.replace(titleHighlight, "")}
-                                </>
-                            ) : (
-                                title
-                            )}
-                        </h1>
-
-                        {/* Subtitle */}
-                        <h2 className="font-inter text-[28px] font-bold leading-[35px] text-[#111928] m-0">
-                            {subtitle}
-                        </h2>
-
-                        {/* Description - using features array for paragraphs */}
-                        <div className="flex flex-col gap-3">
-                            {features.map((feature, index) => (
-                                <p
-                                    key={index}
-                                    className="font-inter text-[18px] font-normal leading-[27px] text-[#374151] m-0"
-                                >
-                                    {feature.text}
-                                </p>
-                            ))}
-                        </div>
-
-                        {/* Action Buttons */}
-                        {buttons && (
-                            <div className="flex gap-4 mt-auto">
-                                {buttons.linkedin && (
-                                    <a
-                                        href={buttons.linkedin}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="font-inter text-[14px] font-medium text-[#111928] border border-[#111928] rounded px-4 py-2 hover:border-[#8a38f5] hover:text-[#8a38f5] transition-all duration-300 no-underline"
-                                    >
-                                        LinkedIn Profile
-                                    </a>
-                                )}
-                                {buttons.twitter && (
-                                    <a
-                                        href={buttons.twitter}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="font-inter text-[14px] font-medium text-[#111928] border border-[#111928] rounded px-4 py-2 hover:border-[#8a38f5] hover:text-[#8a38f5] transition-all duration-300 no-underline"
-                                    >
-                                        Follow on X
-                                    </a>
-                                )}
-                            </div>
-                        )}
-                    </div>
-                </div>
-            </section>
-        );
-    }
-
-    // Image Bundle (for other variants)
+    // Image Bundle
     const ImageColumn = (
         <div className={`flex-shrink-0 w-full md:w-[480px] ${imageRadiusClass} overflow-hidden`}>
             <Image
@@ -150,7 +66,7 @@ export const Content: React.FC<ContentSectionProps> = ({
         </div>
     );
 
-    // Content Bundle (for other variants)
+    // Content Bundle
     const ContentColumn = (
         <div className="flex flex-col gap-8 flex-1">
             {/* Header Section */}

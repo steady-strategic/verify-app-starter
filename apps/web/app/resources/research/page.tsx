@@ -3,6 +3,7 @@
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { useState, useEffect } from "react";
+import { PageBanner } from "@/components/sections/PageBanner";
 
 export default function ResearchPage() {
     const [scrolled, setScrolled] = useState(false);
@@ -19,19 +20,24 @@ export default function ResearchPage() {
         <div className="min-h-screen text-stone-700 overflow-x-hidden selection:bg-amber-100 selection:text-amber-900">
             <Navbar scrolled={scrolled} />
 
-            <main className="pt-32 pb-24">
+            <main className="pb-24 pt-24 md:pt-32">
+                <PageBanner
+                    variant="Research"
+                    title="Research"
+                    subtitle={"MORE™ Delivers Powerful\nClinical Results"}
+                    description={["Explore the scientific evidence supporting Mindfulness-Oriented Recovery Enhancement."]}
+                    backgroundImage={{
+                        src: "/assets/images/background-gradient.png",
+                        alt: "Background Gradient"
+                    }}
+                    foregroundImage={{
+                        src: "/assets/images/brain-illustration.png",
+                        alt: "Brain Illustration"
+                    }}
+                    className="mb-12"
+                />
+
                 <div className="container mx-auto px-6 max-w-4xl">
-                    <span className="inline-block px-3 py-1 bg-amber-100 text-amber-700 rounded-full text-[10px] uppercase tracking-widest font-bold mb-6">
-                        Resources
-                    </span>
-
-                    <h1 className="text-5xl md:text-6xl font-bold text-stone-900 mb-6">
-                        Research
-                    </h1>
-
-                    <p className="text-xl text-stone-600 leading-relaxed mb-12">
-                        Explore the scientific evidence supporting Mindfulness-Oriented Recovery Enhancement.
-                    </p>
 
                     <div className="prose prose-stone max-w-none">
                         {/* Stats Section */}

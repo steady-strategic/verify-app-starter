@@ -177,6 +177,95 @@ export const PageBanner: React.FC<PageBannerSectionProps> = ({
         );
     }
 
+    // Variant: Research
+    if (variant === "Research") {
+        return (
+            <section
+                id={id}
+                className={`relative w-full max-w-[1451px] mx-auto h-[685px] overflow-hidden rounded-[24px] ${className}`}
+                style={{
+                    background: "linear-gradient(90deg, #7c3aed 0%, #1a0a2e 100%)",
+                }}
+            >
+                {/* Background Image Layer */}
+                <div className="absolute inset-0 z-0">
+                    <Image
+                        src={backgroundImage.src}
+                        alt={backgroundImage.alt}
+                        fill
+                        className="object-cover"
+                        priority
+                    />
+                </div>
+
+                <div className="relative z-10 w-full h-full flex flex-row">
+                    {/* Left: Content */}
+                    <div className="flex flex-col pl-[100px] pt-[171px] max-w-[650px] z-20">
+                        {/* Title */}
+                        <h1
+                            className="text-white font-inter"
+                            style={{
+                                fontSize: "46px",
+                                fontWeight: 800,
+                                letterSpacing: "-0.92px",
+                                lineHeight: "1.2",
+                                marginBottom: "24px",
+                            }}
+                        >
+                            {title}
+                        </h1>
+
+                        {/* Subtitle */}
+                        {subtitle && (
+                            <h2
+                                className="text-white font-inter whitespace-pre-line"
+                                style={{
+                                    fontSize: "28px",
+                                    fontWeight: 700,
+                                    letterSpacing: "-0.56px",
+                                    lineHeight: "35px",
+                                }}
+                            >
+                                {subtitle}
+                            </h2>
+                        )}
+
+                        {/* Description */}
+                        {description && description.length > 0 && (
+                            <div className="mt-4 space-y-4">
+                                {description.map((paragraph, index) => (
+                                    <p
+                                        key={index}
+                                        className="text-white font-inter text-lg"
+                                        style={{
+                                            fontSize: "28px",
+                                            fontWeight: 700,
+                                            letterSpacing: "-0.56px",
+                                            lineHeight: "35px",
+                                        }}
+                                    >
+                                        {paragraph}
+                                    </p>
+                                ))}
+                            </div>
+                        )}
+                    </div>
+
+                    {/* Right: Foreground Image (Brain) */}
+                    <div className="absolute right-0 top-0 h-full w-[50%] z-10">
+                        <Image
+                            src={foregroundImage.src}
+                            alt={foregroundImage.alt}
+                            fill
+                            className="object-cover object-right"
+                            priority
+                        />
+                    </div>
+                </div>
+            </section>
+        );
+    }
+
     return (
         <section
             className={`relative w-full max-w-[1440px] mx-auto h-[680px] overflow-hidden ${className}`}

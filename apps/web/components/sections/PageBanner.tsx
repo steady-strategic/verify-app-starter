@@ -273,11 +273,11 @@ export const PageBanner: React.FC<PageBannerSectionProps> = ({
                 id={id}
                 className={`relative w-full max-w-[1440px] mx-auto h-[680px] overflow-hidden ${className}`}
                 style={{
-                    background: "linear-gradient(135deg, #6b21a8 0%, #0f172a 100%)",
+                    background: "linear-gradient(90deg, #7c3aed 0%, #1a0a2e 100%)",
                 }}
             >
                 {/* Background Image Layer */}
-                <div className="absolute inset-0 opacity-50">
+                <div className="absolute inset-0 z-0">
                     <Image
                         src={backgroundImage.src}
                         alt={backgroundImage.alt}

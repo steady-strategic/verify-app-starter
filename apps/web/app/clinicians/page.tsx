@@ -3,7 +3,7 @@
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { useState, useEffect } from "react";
-import { Cards, PageBanner, Content } from "@/components/sections";
+import { Cards, PageBanner, Content, Video } from "@/components/sections";
 
 export default function CliniciansPage() {
     const [scrolled, setScrolled] = useState(false);
@@ -118,6 +118,18 @@ export default function CliniciansPage() {
                         src: "/assets/images/scientist-hero-image.jpg",
                         alt: "Scientist examining brain scans"
                     }}
+                />
+
+                {/* Video Section */}
+                <Video
+                    title="See MORE in Action"
+                    description="Watch how Mindfulness-Oriented Recovery Enhancement transforms lives through evidence-based practices and clinical excellence."
+                    videoThumbnail={{
+                        src: "/assets/images/video-background.png",
+                        alt: "Video demonstration of MORE in action",
+                    }}
+                    videoUrl="https://www.youtube.com/watch?v=LXb3EKWsInQ"
+                    variant="default"
                 />
 
                 <div className="container mx-auto px-6 max-w-4xl">

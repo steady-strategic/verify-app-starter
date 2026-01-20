@@ -98,7 +98,7 @@ export const Video: React.FC<VideoSectionProps> = ({
                                     alt="Play video"
                                     width={128}
                                     height={128}
-                                    className="drop-shadow-2xl"
+                                    className="drop-shadow-2xl h-32 w-32"
                                 />
                             </button>
                         </div>

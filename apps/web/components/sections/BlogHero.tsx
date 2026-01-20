@@ -36,11 +36,11 @@ export const BlogHero: React.FC<BlogHeroSectionProps> = ({
                 </div>
 
                 {/* Blog Cards Container */}
-                <div className="flex flex-wrap gap-4 justify-center">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                     {cards.map((card, index) => (
                         <div
                             key={index}
-                            className="w-full md:w-[405px] rounded-lg shadow-[0px_0px_9.4px_rgba(0,0,0,0.03)] overflow-hidden flex flex-col bg-white"
+                            className="w-full rounded-lg shadow-[0px_0px_9.4px_rgba(0,0,0,0.03)] overflow-hidden flex flex-col bg-white"
                         >
                             {/* Card Header */}
                             <div

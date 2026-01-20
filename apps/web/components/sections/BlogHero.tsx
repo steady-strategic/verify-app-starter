@@ -23,18 +23,6 @@ export const BlogHero: React.FC<BlogHeroSectionProps> = ({
                     </p>
                 </div>
 
-                {/* Charts Row */}
-                <div className="flex flex-col md:flex-row gap-4 justify-between items-center">
-                    {charts.map((chart, index) => (
-                        <img
-                            key={index}
-                            src={chart.src}
-                            alt={chart.alt}
-                            className="w-full md:w-[358px] h-auto md:h-[200px] object-contain"
-                        />
-                    ))}
-                </div>
-
                 {/* Blog Cards Container */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                     {cards.map((card, index) => (
@@ -44,9 +32,17 @@ export const BlogHero: React.FC<BlogHeroSectionProps> = ({
                         >
                             {/* Card Header */}
                             <div
-                                className="h-[180px]"
+                                className="h-[180px] relative flex items-end justify-center overflow-hidden"
                                 style={{ background: card.headerGradient }}
-                            ></div>
+                            >
+                                {charts[index] && (
+                                    <img
+                                        src={charts[index].src}
+                                        alt={charts[index].alt}
+                                        className="w-[90%] h-[90%] object-contain object-bottom mb-[-10px]"
+                                    />
+                                )}
+                            </div>
 
                             {/* Card Content */}
                             <div className="p-8 flex flex-col gap-3 flex-1">

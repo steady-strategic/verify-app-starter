@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import { Modal } from "flowbite-react";
+import { Modal, ModalHeader, ModalBody } from "flowbite-react";
 import { VideoSectionProps } from "./types";
 
 export const Video: React.FC<VideoSectionProps> = ({
@@ -111,8 +111,8 @@ export const Video: React.FC<VideoSectionProps> = ({
 
             {/* Video Modal */}
             <Modal show={openModal} size="7xl" onClose={() => setOpenModal(false)} popup dismissible>
-                <Modal.Header />
-                <Modal.Body>
+                <ModalHeader />
+                <ModalBody>
                     <div className="relative pt-[56.25%] w-full">
                         {videoUrl && (
                             <iframe
@@ -125,7 +125,7 @@ export const Video: React.FC<VideoSectionProps> = ({
                             ></iframe>
                         )}
                     </div>
-                </Modal.Body>
+                </ModalBody>
             </Modal>
         </section>
     );

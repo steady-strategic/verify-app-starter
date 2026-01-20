@@ -127,3 +127,54 @@ export interface TextHowItWorksSectionProps extends BaseSectionProps {
 }
 
 
+
+// Blog Card item
+export interface BlogCard {
+    tag: string;
+    tagColor: string; // Hex styling for the badge background
+    headerGradient: string; // CSS linear-gradient string
+    title: string;
+    description: string;
+    author: {
+        name: string;
+        avatar: string;
+    };
+    publishDate: string;
+    readTime: string;
+}
+
+// BlogHero section props
+export interface BlogHeroSectionProps extends BaseSectionProps {
+    variant?: "default";
+    header: {
+        title: string;
+        description: string;
+    };
+    charts: {
+        src: string;
+        alt: string;
+    }[]; // Array of 3 chart images
+    cards: BlogCard[]; // Array of 3 blog cards
+}
+
+// Blog Feed Post item
+export interface BlogFeedPost {
+    id: string;
+    title: string;
+    description: string;
+    cta: {
+        label: string;
+        href: string;
+        iconSrc: string; // Arrow icon SVG path
+    };
+    imageMockup?: {
+        src: string; // Optional image overlay if design evolves, currently just a dark box
+        alt?: string;
+    };
+}
+
+// BlogFeed section props
+export interface BlogFeedSectionProps extends BaseSectionProps {
+    variant?: "default";
+    posts: BlogFeedPost[];
+}

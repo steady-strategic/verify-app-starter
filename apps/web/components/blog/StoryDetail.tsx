@@ -30,7 +30,7 @@ export const StoryDetail: React.FC<StoryDetailProps> = ({ story }) => {
             <div className="container mx-auto px-6">
                 <div className="max-w-3xl mx-auto">
                     <Link
-                        href="/stories"
+                        href="/resources/blog"
                         className="text-amber-800 text-xs font-bold uppercase tracking-widest hover:text-amber-600 transition-colors flex items-center mb-12"
                     >
                         <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -120,7 +120,7 @@ export const StoryDetail: React.FC<StoryDetailProps> = ({ story }) => {
 
                     <div className="mt-24 text-center">
                         <Link
-                            href="/stories"
+                            href="/resources/blog"
                             className="px-8 py-4 bg-stone-900 text-white rounded-full font-bold text-sm hover:bg-stone-800 transition-all uppercase tracking-widest inline-block"
                         >
                             Discover More Stories

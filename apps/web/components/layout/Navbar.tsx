@@ -112,7 +112,7 @@ export const Navbar: React.FC<NavbarProps> = ({ scrolled = false, variant = "lig
 
     const resourcesItems: DropdownItem[] = [
         { label: "Research", href: "/resources/research" },
-        { label: "Stories", href: "/stories" },
+        { label: "Blog", href: "/resources/blog" },
         { label: "FAQ", href: "/resources/faq" },
     ];
 

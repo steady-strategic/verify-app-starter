@@ -1,0 +1,147 @@
+/* Design Tokens - CSS Variables */
+/* Generated from Figma Blog Feed Component */
+
+:root {
+  /* ========== COLORS ========== */
+  
+  /* Primary Colors */
+  --color-primary-dark: #111928;
+  --color-secondary-dark: #1f2a37;
+  
+  /* Text Colors */
+  --color-text-primary: #111928;
+  --color-text-secondary: #6b7280;
+  
+  /* Border Colors */
+  --color-border: #e5e7eb;
+  
+  /* ========== TYPOGRAPHY ========== */
+  
+  /* Font Families */
+  --font-family-default: 'Inter', sans-serif;
+  
+  /* Font Sizes */
+  --font-size-title: 28px;
+  --font-size-body: 18px;
+  --font-size-button: 14px;
+  
+  /* Font Weights */
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+  
+  /* Line Heights */
+  --line-height-title: 35px;
+  --line-height-body: 27px;
+  
+  /* Letter Spacing */
+  --letter-spacing-title: -0.56px;
+  
+  /* ========== SPACING ========== */
+  
+  --spacing-container-vertical: 64px;
+  --spacing-row-horizontal: 80px;
+  --spacing-column-vertical: 24px;
+  --spacing-button-item: 8px;
+  --spacing-button-padding-x: 20px;
+  --spacing-button-padding-y: 12px;
+  
+  /* ========== BORDER RADIUS ========== */
+  
+  --border-radius-lg: 8px;
+  
+  /* ========== SHADOWS ========== */
+  
+  --shadow-card: 0px 4px 6px rgba(0, 0, 0, 0.05), 0px 10px 15px rgba(0, 0, 0, 0.10);
+  
+  /* ========== DIMENSIONS ========== */
+  
+  /* Mockup Dimensions */
+  --width-mockup: 540px;
+  --height-mockup: 407px;
+  
+  /* Icon Dimensions */
+  --width-icon: 11px;
+  --height-icon: 7px;
+}
+
+/* ========== COMPONENT TOKENS ========== */
+
+/* Blog Row Container */
+.blog-row-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-container-vertical);
+}
+
+/* Blog Row */
+.blog-row {
+  display: flex;
+  flex-direction: row;
+  gap: var(--spacing-row-horizontal);
+  align-items: center;
+}
+
+/* Blog Mockup */
+.blog-mockup {
+  background-color: var(--color-primary-dark);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-card);
+  min-width: var(--width-mockup);
+  height: var(--height-mockup);
+}
+
+/* Blog Content */
+.blog-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-column-vertical);
+  flex: 1;
+}
+
+/* Blog Title */
+.blog-title {
+  font-family: var(--font-family-default);
+  font-size: var(--font-size-title);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: var(--letter-spacing-title);
+  line-height: var(--line-height-title);
+  color: var(--color-text-primary);
+}
+
+/* Blog Body */
+.blog-body {
+  font-family: var(--font-family-default);
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-body);
+  color: var(--color-text-secondary);
+}
+
+/* Blog Button Container */
+.blog-button {
+  display: flex;
+  flex-direction: row;
+  gap: var(--spacing-button-item);
+  align-items: center;
+  padding: var(--spacing-button-padding-y) var(--spacing-button-padding-x);
+  border-radius: var(--border-radius-lg);
+  border: 1px solid var(--color-border);
+  width: fit-content;
+  cursor: pointer;
+}
+
+/* Blog Button Text */
+.blog-button-text {
+  font-family: var(--font-family-default);
+  font-size: var(--font-size-button);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+}
+
+/* Blog Button Icon */
+.blog-button-icon {
+  width: var(--width-icon);
+  height: var(--height-icon);
+  background-color: var(--color-secondary-dark);
+}

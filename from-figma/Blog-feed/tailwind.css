@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Design Tokens from Figma */
+:root {
+  /* Colors */
+  --color-primary-dark: #111928;
+  --color-secondary-dark: #1f2a37;
+  --color-text-primary: #111928;
+  --color-text-secondary: #6b7280;
+  --color-border: #e5e7eb;
+  
+  /* Spacing */
+  --spacing-container: 64px;
+  --spacing-row: 80px;
+  --spacing-column: 24px;
+  --spacing-button: 8px;
+  
+  /* Border Radius */
+  --border-radius-lg: 8px;
+  
+  /* Shadows */
+  --shadow-card: 0px 4px 6px rgba(0, 0, 0, 0.05), 0px 10px 15px rgba(0, 0, 0, 0.10);
+}
+
+/* Typography */
+.blog-title {
+  @apply text-blog-title text-text-primary;
+}
+
+.blog-body {
+  @apply text-blog-body text-text-secondary;
+}
+
+.blog-button {
+  @apply text-blog-button text-text-primary;
+}
+
+/* Component Styles */
+.blog-container {
+  @apply flex flex-col gap-container-gap;
+}
+
+.blog-row {
+  @apply flex flex-row gap-row-gap items-center;
+}
+
+.blog-mockup {
+  @apply w-full h-auto rounded-blog-lg bg-dark-primary;
+  box-shadow: var(--shadow-card);
+}
+
+.blog-content {
+  @apply flex flex-col gap-column-gap flex-1;
+}
+
+.blog-button-group {
+  @apply flex flex-row gap-button-gap items-center px-5 py-3 rounded-blog-lg border border-border;
+}
+
+.blog-button-icon {
+  @apply w-3 h-2 fill-dark-secondary;
+}

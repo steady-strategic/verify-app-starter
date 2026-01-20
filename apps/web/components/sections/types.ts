@@ -156,3 +156,25 @@ export interface BlogHeroSectionProps extends BaseSectionProps {
     }[]; // Array of 3 chart images
     cards: BlogCard[]; // Array of 3 blog cards
 }
+
+// Blog Feed Post item
+export interface BlogFeedPost {
+    id: string;
+    title: string;
+    description: string;
+    cta: {
+        label: string;
+        href: string;
+        iconSrc: string; // Arrow icon SVG path
+    };
+    imageMockup?: {
+        src: string; // Optional image overlay if design evolves, currently just a dark box
+        alt?: string;
+    };
+}
+
+// BlogFeed section props
+export interface BlogFeedSectionProps extends BaseSectionProps {
+    variant?: "default";
+    posts: BlogFeedPost[];
+}

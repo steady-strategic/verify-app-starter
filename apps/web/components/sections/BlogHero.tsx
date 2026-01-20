@@ -32,7 +32,7 @@ export const BlogHero: React.FC<BlogHeroSectionProps> = ({
                         >
                             {/* Card Header */}
                             <div
-                                className="h-[180px] relative flex items-end justify-start overflow-hidden bg-white pl-[20px]"
+                                className="h-[180px] relative flex items-end justify-start overflow-hidden bg-white px-8"
                             >
                                 {charts[index] && (
                                     <img

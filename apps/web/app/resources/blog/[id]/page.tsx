@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
-import { Navbar } from "../../../components/layout/Navbar";
-import { Footer } from "../../../components/layout/Footer";
-import { StoryDetail } from "../../../components/blog/StoryDetail";
+import { Navbar } from "../../../../components/layout/Navbar";
+import { Footer } from "../../../../components/layout/Footer";
+import { StoryDetail } from "../../../../components/blog/StoryDetail";
 
 // Sample stories data (will be replaced with database query in Phase 7)
 const SAMPLE_STORIES = [

@@ -37,7 +37,7 @@ export const StoriesPage: React.FC<StoriesPageProps> = ({ stories }) => {
                         {stories.map((story) => (
                             <Link
                                 key={story.id}
-                                href={`/stories/${story.id}`}
+                                href={`/resources/blog/${story.id}`}
                                 className="group cursor-pointer grid md:grid-cols-12 gap-8 items-center"
                             >
                                 <div className="md:col-span-5 rounded-[2rem] overflow-hidden aspect-[4/3] shadow-lg">

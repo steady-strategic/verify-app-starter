@@ -1,6 +1,6 @@
-import { Navbar } from "../../components/layout/Navbar";
-import { Footer } from "../../components/layout/Footer";
-import { StoriesPage } from "../../components/blog/StoriesPage";
+import { Navbar } from "../../../components/layout/Navbar";
+import { Footer } from "../../../components/layout/Footer";
+import { StoriesPage } from "../../../components/blog/StoriesPage";
 
 // Sample stories data (will be replaced with database query in Phase 7)
 const SAMPLE_STORIES = [

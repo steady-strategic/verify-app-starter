@@ -10,7 +10,7 @@ export default function TestVideoPage() {
                     src: "/assets/images/video-background.png",
                     alt: "Video demonstration of MORE in action",
                 }}
-                videoUrl="https://www.youtube.com/watch?v=example"
+                videoUrl="https://www.youtube.com/watch?v=LXb3EKWsInQ"
                 variant="default"
             />
         </main>

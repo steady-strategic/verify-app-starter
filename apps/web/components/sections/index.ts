@@ -10,6 +10,7 @@ export { DownloadApp } from "./DownloadApp";
 export { TextHowItWorks } from "./TextHowItWorks";
 export { BlogHero } from "./BlogHero";
 export { BlogFeed } from "./BlogFeed";
+export { ContactHero } from "./ContactHero";
 
 
 

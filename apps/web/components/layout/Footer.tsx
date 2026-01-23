@@ -10,7 +10,7 @@ export const Footer: React.FC = () => {
                         <div className="flex items-center space-x-2">
                             <img src="/assets/images/LOGO_Magenta_1.svg" alt="MORE Logo" className="h-10" />
                         </div>
-                        <p className="text-stone-500 text-sm font-light leading-relaxed max-w-xs">
+                        <p className="text-stone-500 text-sm leading-relaxed max-w-xs">
                             Mindfulness-Oriented Recovery Enhancement
                             <br />
                             Breakthrough evidence-based therapy for pain,
@@ -51,7 +51,7 @@ export const Footer: React.FC = () => {
                         <h4 className="font-bold text-stone-900 mb-6 uppercase text-xs tracking-widest">
                             For Clinicians
                         </h4>
-                        <ul className="space-y-4 text-sm text-stone-500 font-light">
+                        <ul className="space-y-4 text-sm text-stone-500">
                             <li>
                                 <a href="#" className="hover:text-stone-900 transition-colors">
                                     MORE™ for Clinicians
@@ -70,7 +70,7 @@ export const Footer: React.FC = () => {
                         <h4 className="font-bold text-stone-900 mb-6 uppercase text-xs tracking-widest">
                             For Patients
                         </h4>
-                        <ul className="space-y-4 text-sm text-stone-500 font-light">
+                        <ul className="space-y-4 text-sm text-stone-500">
                             <li>
                                 <a href="#" className="hover:text-stone-900 transition-colors">
                                     MORE™ for Patients
@@ -89,10 +89,10 @@ export const Footer: React.FC = () => {
                         <h4 className="font-bold text-stone-900 mb-6 uppercase text-xs tracking-widest">
                             Resources
                         </h4>
-                        <ul className="space-y-4 text-sm text-stone-500 font-light">
+                        <ul className="space-y-4 text-sm text-stone-500">
                             <li>
                                 <a href="#" className="hover:text-stone-900 transition-colors">
-                                    About Us
+                                    Research
                                 </a>
                             </li>
                             <li>
@@ -102,24 +102,26 @@ export const Footer: React.FC = () => {
                             </li>
                             <li>
                                 <a href="#" className="hover:text-stone-900 transition-colors">
-                                    Research
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" className="hover:text-stone-900 transition-colors">
-                                    FAQ's
+                                    FAQ
                                 </a>
                             </li>
                         </ul>
                     </div>
 
-                    {/* Misc Links (No Header) */}
+                    {/* About */}
                     <div className="col-span-1 md:col-span-2">
-                        <div className="hidden md:block h-10 mb-6"></div> {/* Spacer for desktop alignment */}
-                        <ul className="space-y-4 text-sm text-stone-500 font-light">
+                        <h4 className="font-bold text-stone-900 mb-6 uppercase text-xs tracking-widest">
+                            About
+                        </h4>
+                        <ul className="space-y-4 text-sm text-stone-500">
                             <li>
                                 <a href="#" className="hover:text-stone-900 transition-colors">
                                     How it Works
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" className="hover:text-stone-900 transition-colors">
+                                    About Us
                                 </a>
                             </li>
                             <li>
@@ -129,7 +131,6 @@ export const Footer: React.FC = () => {
                             </li>
                         </ul>
                     </div>
-
                 </div>
 
                 <div className="pt-12 border-t border-stone-50 flex justify-center text-[10px] text-stone-400 font-medium uppercase tracking-widest">

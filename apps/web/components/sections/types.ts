@@ -178,3 +178,22 @@ export interface BlogFeedSectionProps extends BaseSectionProps {
     variant?: "default";
     posts: BlogFeedPost[];
 }
+
+// ContactHero section props
+export interface ContactHeroSectionProps extends BaseSectionProps {
+    variant?: "default";
+    title: string;
+    description: string;
+    backgroundImage: {
+        src: string;
+        alt: string;
+    };
+    form?: {
+        firstNameLabel: string;
+        lastNameLabel: string;
+        emailLabel: string;
+        phoneLabel: string;
+        messageLabel: string;
+        buttonText: string;
+    }
+}

@@ -4,28 +4,26 @@ export const Footer: React.FC = () => {
     return (
         <footer className="bg-white border-t border-stone-100 pt-24 pb-12">
             <div className="container mx-auto px-6">
-                <div className="grid md:grid-cols-4 gap-12 mb-20">
-                    <div className="col-span-1 md:col-span-1 space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-20">
+                    {/* Brand Column */}
+                    <div className="col-span-1 md:col-span-4 space-y-6">
                         <div className="flex items-center space-x-2">
-                            <div className="w-8 h-8 rounded-full bg-stone-900 flex items-center justify-center">
-                                <span className="text-white font-bold text-xs">M</span>
-                            </div>
-                            <span className="text-xl font-bold tracking-tighter text-stone-900">
-                                MORE
-                            </span>
+                            <img src="/assets/images/LOGO_Magenta_1.svg" alt="MORE Logo" className="h-10" />
                         </div>
-                        <p className="text-stone-500 text-sm font-light leading-relaxed">
-                            Advancing the science of human flourishing through evidence-based
-                            mindfulness and cognitive therapy.
+                        <p className="text-stone-500 text-sm leading-relaxed max-w-xs">
+                            Mindfulness-Oriented Recovery Enhancement
+                            <br />
+                            Breakthrough evidence-based therapy for pain,
+                            addiction and emotional distress
                         </p>
                         <div className="flex space-x-4">
                             <a
                                 href="#"
-                                className="w-8 h-8 flex items-center justify-center rounded-full bg-stone-50 text-stone-400 hover:text-stone-900 transition-colors"
+                                className="text-stone-400 hover:text-stone-900 transition-colors"
                             >
                                 <span className="sr-only">Twitter</span>
                                 <svg
-                                    className="w-4 h-4"
+                                    className="w-5 h-5"
                                     fill="currentColor"
                                     viewBox="0 0 24 24"
                                 >
@@ -34,118 +32,109 @@ export const Footer: React.FC = () => {
                             </a>
                             <a
                                 href="#"
-                                className="w-8 h-8 flex items-center justify-center rounded-full bg-stone-50 text-stone-400 hover:text-stone-900 transition-colors"
+                                className="text-stone-400 hover:text-stone-900 transition-colors"
                             >
-                                <span className="sr-only">LinkedIn</span>
+                                <span className="sr-only">Facebook</span>
                                 <svg
-                                    className="w-4 h-4"
+                                    className="w-5 h-5"
                                     fill="currentColor"
                                     viewBox="0 0 24 24"
                                 >
-                                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
                                 </svg>
                             </a>
                         </div>
                     </div>
 
-                    <div>
+                    {/* For Clinicians */}
+                    <div className="col-span-1 md:col-span-2">
+                        <h4 className="font-bold text-stone-900 mb-6 uppercase text-xs tracking-widest">
+                            For Clinicians
+                        </h4>
+                        <ul className="space-y-4 text-sm text-stone-500">
+                            <li>
+                                <a href="#" className="hover:text-stone-900 transition-colors">
+                                    MORE™ for Clinicians
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" className="hover:text-stone-900 transition-colors">
+                                    MORE™ Institute
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    {/* For Patients */}
+                    <div className="col-span-1 md:col-span-2">
+                        <h4 className="font-bold text-stone-900 mb-6 uppercase text-xs tracking-widest">
+                            For Patients
+                        </h4>
+                        <ul className="space-y-4 text-sm text-stone-500">
+                            <li>
+                                <a href="#" className="hover:text-stone-900 transition-colors">
+                                    MORE™ for Patients
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" className="hover:text-stone-900 transition-colors">
+                                    Find a Clinician
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    {/* Resources */}
+                    <div className="col-span-1 md:col-span-2">
                         <h4 className="font-bold text-stone-900 mb-6 uppercase text-xs tracking-widest">
                             Resources
                         </h4>
-                        <ul className="space-y-4 text-sm text-stone-500 font-light">
+                        <ul className="space-y-4 text-sm text-stone-500">
                             <li>
                                 <a href="#" className="hover:text-stone-900 transition-colors">
-                                    Program Overview
+                                    Research
                                 </a>
                             </li>
                             <li>
                                 <a href="#" className="hover:text-stone-900 transition-colors">
-                                    Scientific Journals
+                                    Blog
                                 </a>
                             </li>
                             <li>
                                 <a href="#" className="hover:text-stone-900 transition-colors">
-                                    For Practitioners
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" className="hover:text-stone-900 transition-colors">
-                                    Workshops
+                                    FAQ
                                 </a>
                             </li>
                         </ul>
                     </div>
 
-                    <div>
+                    {/* About */}
+                    <div className="col-span-1 md:col-span-2">
                         <h4 className="font-bold text-stone-900 mb-6 uppercase text-xs tracking-widest">
-                            Company
+                            About
                         </h4>
-                        <ul className="space-y-4 text-sm text-stone-500 font-light">
+                        <ul className="space-y-4 text-sm text-stone-500">
                             <li>
                                 <a href="#" className="hover:text-stone-900 transition-colors">
-                                    Our Mission
+                                    How it Works
                                 </a>
                             </li>
                             <li>
                                 <a href="#" className="hover:text-stone-900 transition-colors">
-                                    The Lab
+                                    About Us
                                 </a>
                             </li>
                             <li>
                                 <a href="#" className="hover:text-stone-900 transition-colors">
-                                    Careers
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" className="hover:text-stone-900 transition-colors">
-                                    Contact
+                                    Contact Us
                                 </a>
                             </li>
                         </ul>
-                    </div>
-
-                    <div>
-                        <h4 className="font-bold text-stone-900 mb-6 uppercase text-xs tracking-widest">
-                            Subscribe
-                        </h4>
-                        <p className="text-stone-500 text-xs mb-4">
-                            Get the latest research insights on mindfulness and recovery.
-                        </p>
-                        <div className="flex">
-                            <input
-                                type="email"
-                                placeholder="Email address"
-                                className="bg-stone-100 border-none rounded-l-full py-3 px-4 text-xs w-full focus:ring-1 focus:ring-stone-200 outline-none"
-                            />
-                            <button className="bg-stone-900 text-white p-3 rounded-r-full hover:bg-stone-800 transition-colors">
-                                <svg
-                                    className="w-4 h-4"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    viewBox="0 0 24 24"
-                                >
-                                    <path
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        strokeWidth={2}
-                                        d="M14 5l7 7m0 0l-7 7m7-7H3"
-                                    />
-                                </svg>
-                            </button>
-                        </div>
                     </div>
                 </div>
 
-                <div className="pt-12 border-t border-stone-50 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 text-[10px] text-stone-400 font-medium uppercase tracking-widest">
-                    <p>© 2024 MORE Mindfulness. All rights reserved.</p>
-                    <div className="flex space-x-8">
-                        <a href="#" className="hover:text-stone-900 transition-colors">
-                            Privacy Policy
-                        </a>
-                        <a href="#" className="hover:text-stone-900 transition-colors">
-                            Terms of Service
-                        </a>
-                    </div>
+                <div className="pt-12 border-t border-stone-50 flex justify-center text-[10px] text-stone-400 font-medium uppercase tracking-widest">
+                    <p>© 2026 MORE™ All rights reserved</p>
                 </div>
             </div>
         </footer>

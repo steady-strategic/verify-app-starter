@@ -168,15 +168,7 @@ export const Navbar: React.FC<NavbarProps> = ({ scrolled = false, variant = "lig
                             isActive={isActive}
                             variant={variant}
                         />
-                        <Link
-                            href="/about"
-                            className={`transition-colors ${variant === "dark"
-                                ? `hover:text-primary-1 ${isActive("/about") ? "font-bold" : ""}`
-                                : `hover:text-stone-900 ${isActive("/about") ? "text-stone-900 font-bold" : ""}`
-                                }`}
-                        >
-                            About Us
-                        </Link>
+
                     </div>
 
                     {/* Auth Button - Right */}
@@ -326,17 +318,7 @@ export const Navbar: React.FC<NavbarProps> = ({ scrolled = false, variant = "lig
                             ))}
                         </div>
 
-                        {/* About Us */}
-                        <Link
-                            href="/about"
-                            onClick={() => setMobileMenuOpen(false)}
-                            className={`text-sm font-medium ${isActive("/about")
-                                ? "text-stone-900 font-bold"
-                                : "text-stone-600"
-                                }`}
-                        >
-                            About Us
-                        </Link>
+
 
                         <div className="h-[1px] bg-stone-200"></div>
 

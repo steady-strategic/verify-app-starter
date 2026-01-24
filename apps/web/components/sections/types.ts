@@ -199,3 +199,18 @@ export interface ContactHeroSectionProps extends BaseSectionProps {
     };
     formId?: string;
 }
+
+// FAQ Item
+export interface FAQItem {
+    id: string;
+    question: string;
+    answer: string; // HTML string allowed
+}
+
+// FAQ section props
+export interface FAQSectionProps extends BaseSectionProps {
+    variant?: "default";
+    title: string;
+    items: FAQItem[];
+}
+

@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* FAQ Component Styles */
+
+.faq-container {
+  @apply flex flex-col gap-[48px];
+}
+
+.faq-heading {
+  @apply text-[50px] font-[800] text-[#111928] tracking-[-1px];
+}
+
+.faq-accordion {
+  @apply flex flex-col;
+}
+
+.faq-accordion-item {
+  @apply border-b border-[#e5e7eb] last:border-b-0;
+}
+
+.faq-accordion-item:first-child {
+  @apply rounded-t-[8px];
+}
+
+.faq-accordion-item:last-child {
+  @apply rounded-b-[8px];
+}
+
+.faq-button {
+  @apply flex items-center justify-between w-full px-[24px] py-[16px] gap-[8px] cursor-pointer hover:bg-gray-50 transition-colors;
+}
+
+.faq-button-content {
+  @apply flex items-center gap-[8px];
+}
+
+.faq-button-icon {
+  @apply w-[16px] h-[16px] flex-shrink-0;
+  background-color: #d80ada;
+}
+
+.faq-button-text {
+  @apply text-[18px] font-[400] text-[#111928];
+}
+
+.faq-toggle-icon {
+  @apply w-[11px] h-[6px] flex-shrink-0 transition-transform;
+  background-color: #6b7280;
+}
+
+.faq-content {
+  @apply px-[24px] py-[16px] bg-white;
+}
+
+.faq-content-hidden {
+  @apply hidden;
+}
+
+.faq-answer-paragraph {
+  @apply text-[16px] font-[400] text-[#6b7280] leading-[24px] mb-[6px];
+}
+
+.faq-answer-paragraph:last-child {
+  @apply mb-0;
+}
+
+.faq-answer-link {
+  @apply text-blue-500 hover:underline;
+}

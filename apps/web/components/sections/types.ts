@@ -195,5 +195,6 @@ export interface ContactHeroSectionProps extends BaseSectionProps {
         phoneLabel: string;
         messageLabel: string;
         buttonText: string;
-    }
+    };
+    formId?: string;
 }

@@ -37,6 +37,7 @@ export default function BecomeCertifiedPage() {
                         src: "/assets/images/therapist-client.png",
                         alt: "Therapist and Client",
                     }}
+                    formId="79e58945-7e43-4027-b3f8-170488062559"
                 />
 
                 <div className="container mx-auto px-6 max-w-4xl pt-24">

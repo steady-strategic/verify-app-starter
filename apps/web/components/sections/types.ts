@@ -57,6 +57,7 @@ export interface PageBannerSectionProps extends BaseSectionProps {
         src: string;
         alt: string;
     };
+    formId?: string;
 }
 
 // Video section props

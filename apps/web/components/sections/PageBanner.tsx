@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { PageBannerSectionProps } from "./types";
+import { HubspotForm } from "../ui/HubspotForm";
 
 export const PageBanner: React.FC<PageBannerSectionProps> = ({
     title,
@@ -11,6 +12,7 @@ export const PageBanner: React.FC<PageBannerSectionProps> = ({
     variant = "default",
     className = "",
     id,
+    formId = "fdb9ed11-ff4f-4c8c-9eea-e34704b4b8df", // Default fallback if needed
 }) => {
     // Variant: For Clinicians
     if (variant === "forClinicians") {
@@ -119,56 +121,10 @@ export const PageBanner: React.FC<PageBannerSectionProps> = ({
                         {/* Right: Registration Form (50%) */}
                         <div className="w-full lg:w-1/2 py-20 lg:pt-32 lg:pb-24 px-4 md:px-8 xl:pl-40 flex flex-col gap-figma-8">
                             <div className="w-full max-w-[480px] text-colors-white">
-                                <div className="flex flex-col gap-figma-2 mb-figma-12">
-                                    <h2 className="font-sans text-3xl font-bold leading-tight text-colors-white">
-                                        No commitment today
-                                    </h2>
-                                    <p className="font-sans text-lg text-colors-white opacity-90">
-                                        Pre-register and you'll save 15% off the cost of $895.
-                                    </p>
+                                {/* Form: Replacing manual form with HubspotForm */}
+                                <div className="p-4 bg-white/5 rounded-figma-lg border border-white/10">
+                                    <HubspotForm formId={formId} />
                                 </div>
-
-                                {/* Form */}
-                                <form className="flex flex-col gap-figma-5">
-                                    <div>
-                                        <label className="block font-sans text-sm font-semibold mb-figma-1.5">Name</label>
-                                        <input
-                                            type="text"
-                                            className="w-full px-4 py-3.5 rounded-figma-lg bg-white/10 border border-white/20 text-colors-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-white/50 transition-all font-sans"
-                                            placeholder="Your name"
-                                        />
-                                    </div>
-                                    <div>
-                                        <label className="block font-sans text-sm font-semibold mb-figma-1.5">Email</label>
-                                        <input
-                                            type="email"
-                                            className="w-full px-4 py-3.5 rounded-figma-lg bg-white/10 border border-white/20 text-colors-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-white/50 transition-all font-sans"
-                                            placeholder="name@company.com"
-                                        />
-                                    </div>
-                                    <div>
-                                        <label className="block font-sans text-sm font-semibold mb-1.5">Topic</label>
-                                        <div className="relative">
-                                            <select className="w-full px-4 py-3.5 rounded-figma-lg bg-white/10 border border-white/20 text-colors-white focus:outline-none focus:ring-2 focus:ring-white/50 appearance-none cursor-pointer font-sans">
-                                                <option className="text-colors-gray-900">Select a topic</option>
-                                            </select>
-                                            <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none">
-                                                <svg className="w-4 h-4 text-colors-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                                                </svg>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div className="flex justify-end mt-figma-4">
-                                        <button
-                                            type="button"
-                                            className="px-10 py-4 rounded-figma-lg font-sans font-bold text-center bg-primary-1 hover:brightness-110 text-colors-white transition-all shadow-elevation-1 active:scale-[0.98]"
-                                        >
-                                            Pre-Register
-                                        </button>
-                                    </div>
-                                </form>
                             </div>
                         </div>
                     </div>

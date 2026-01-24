@@ -21,21 +21,27 @@ export const HubspotForm: React.FC<HubspotFormProps> = ({
     region = "na2",
     target
 }) => {
-    const containerRef = useRef<HTMLDivElement>(null);
+    // Generate a unique ID for this form instance if one isn't provided via target
+    // We use a stable ID based on formId to prevent hydration mismatches if possible, 
+    // or just a simple string if uniqueness across same-page instances is needed.
+    const containerId = target ? target.replace('#', '') : `hs-form-${formId}`;
 
     useEffect(() => {
         const scriptId = 'hubspot-form-script';
 
         const createForm = () => {
-            if (window.hbspt && containerRef.current) {
-                // Clear container to prevent duplicates
-                containerRef.current.innerHTML = '';
+            // Check if element exists by ID to be sure
+            const container = document.getElementById(containerId);
+
+            if (window.hbspt && container) {
+                // Clear container specific content safely
+                container.innerHTML = '';
 
                 window.hbspt.forms.create({
                     region: region,
                     portalId: portalId,
                     formId: formId,
-                    target: containerRef.current,
+                    target: `#${containerId}`,
                 });
             }
         };
@@ -50,28 +56,26 @@ export const HubspotForm: React.FC<HubspotFormProps> = ({
             script.charset = 'utf-8';
             script.type = 'text/javascript';
             script.defer = true;
-
-            script.onload = () => {
-                createForm();
-            };
-
             document.body.appendChild(script);
-        } else {
-            // Script exists, if hbspt is ready, create form
-            if (window.hbspt) {
-                createForm();
-            } else {
-                // Script exists but maybe not fully loaded (rare race condition), 
-                // or previously loaded but hbspt not ready?
-                // Append a listener just in case
-                script.addEventListener('load', createForm);
-                // Cleanup listener
-                return () => script.removeEventListener('load', createForm);
-            }
         }
-    }, [portalId, formId, region]);
+
+        // If hubspot is already ready, create immediately
+        if (window.hbspt) {
+            createForm();
+        } else {
+            // Otherwise wait for load
+            script.addEventListener('load', createForm);
+        }
+
+        // Cleanup: remove listener to prevent duplicated calls on unmount/remount
+        return () => {
+            if (script) {
+                script.removeEventListener('load', createForm);
+            }
+        };
+    }, [portalId, formId, region, containerId]);
 
     return (
-        <div ref={containerRef} className="hubspot-form-container w-full" />
+        <div id={containerId} className="hubspot-form-container w-full" />
     );
 };

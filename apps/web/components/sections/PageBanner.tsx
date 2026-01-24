@@ -73,7 +73,7 @@ export const PageBanner: React.FC<PageBannerSectionProps> = ({
     // Variant: More Institute
     if (variant === "more-institute") {
         return (
-            <section id={id} className={`relative w-full max-w-[1440px] mx-auto h-[680px] overflow-hidden ${className}`}>
+            <section id={id} className={`relative w-full max-w-[1440px] mx-auto h-[730px] overflow-hidden ${className}`}>
                 {/* Background Split Layer */}
                 <div className="absolute inset-0 flex flex-col lg:flex-row">
                     <div className="w-full lg:w-1/2 bg-colors-white" />
@@ -119,8 +119,8 @@ export const PageBanner: React.FC<PageBannerSectionProps> = ({
                         </div>
 
                         {/* Right: Registration Form (50%) */}
-                        <div className="w-full lg:w-1/2 py-20 lg:pt-32 lg:pb-24 px-4 md:px-8 xl:pl-40 flex flex-col gap-figma-8">
-                            <div className="w-full max-w-[480px] text-colors-white">
+                        <div className="w-full lg:w-1/2 py-20 lg:pt-32 lg:pb-24 px-4 md:px-8 xl:pl-20 flex flex-col gap-figma-8">
+                            <div className="w-full max-w-[650px] text-colors-white">
                                 {/* Form: Replacing manual form with HubspotForm */}
                                 <div className="p-4 bg-white/5 rounded-figma-lg border border-white/10">
                                     <HubspotForm formId={formId} />

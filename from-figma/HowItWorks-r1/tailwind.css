@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* HowItWorks-r1 Component Styles */
+
+.how-it-works-container {
+  @apply flex flex-col gap-[54px] w-full max-w-[1440px] mx-auto px-5 py-5;
+}
+
+.how-it-works-heading {
+  @apply font-inter text-[28px] font-bold leading-[35px] tracking-[-0.56px] text-[#111928] max-w-[892px];
+}
+
+.how-it-works-card {
+  @apply border border-[#f4f4f4] rounded-[12px] shadow-[0px_0px_9.9px_rgba(0,0,0,0.03)] w-full;
+}
+
+.how-it-works-subheading {
+  @apply font-inter text-[20px] font-semibold leading-[28px] tracking-[-0.40px] text-[#1f2a37];
+}
+
+.steps-wrapper {
+  @apply flex justify-between items-center gap-8 py-8;
+}
+
+.step-item {
+  @apply text-center;
+}
+
+.step-label {
+  @apply font-inter text-[18px] font-medium tracking-[-0.36px] text-[#454a55];
+}
+
+.mindfulness-section {
+  @apply flex flex-col items-center gap-4;
+}
+
+.mindfulness-icon {
+  @apply w-[106px] h-[92px] flex items-center justify-center;
+}
+
+.mindfulness-label {
+  @apply font-inter text-[20px] font-semibold text-[#d80ada];
+}
+
+.features-grid {
+  @apply grid grid-cols-3 gap-12 w-full;
+}
+
+.feature-item {
+  @apply flex flex-col items-center gap-4;
+}
+
+.feature-icon {
+  @apply w-[58px] h-[71px] bg-[#d80ada] flex items-center justify-center;
+}
+
+.feature-label {
+  @apply font-inter text-[16px] font-semibold text-[#454a55];
+}
+
+.research-text {
+  @apply font-inter text-[18px] font-normal leading-[27px] text-[#454a55] text-center;
+}

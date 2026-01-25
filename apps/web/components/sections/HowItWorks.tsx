@@ -25,7 +25,7 @@ export const HowItWorks: React.FC<HowItWorksSectionProps> = ({
                         {/* Header */}
                         <div className="flex flex-col items-center gap-6">
                             <h2
-                                className="text-center font-bold max-w-[559px]"
+                                className={`text-center font-bold ${variant === "r1" ? "max-w-[800px]" : "max-w-[559px]"}`}
                                 style={{
                                     fontFamily: "var(--font-inter), Inter, sans-serif",
                                     fontSize: "28px",
@@ -67,10 +67,10 @@ export const HowItWorks: React.FC<HowItWorksSectionProps> = ({
                             <div className="relative w-full h-[218px] flex items-center justify-center">
                                 <div className="absolute inset-0 w-full h-full">
                                     <Image
-                                        src="/assets/images/step-progress-background.svg"
+                                        src={variant === "r1" ? "/assets/images/bg-vector.svg" : "/assets/images/step-progress-background.svg"}
                                         alt="Step progress"
                                         fill
-                                        className="object-contain"
+                                        className="object-contain" // object-cover might be better for the vector if it's a background shape, but let's stick to contain first.
                                     />
                                 </div>
 

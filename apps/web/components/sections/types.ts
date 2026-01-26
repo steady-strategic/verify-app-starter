@@ -82,6 +82,7 @@ export interface HowItWorksCard {
 export interface HowItWorksSectionProps extends BaseSectionProps {
     variant?: "default" | "r1";
     title: string;
+    description?: string; // Optional text below title
     subtitle: string;  // Text below lotus icon (e.g., "Mindfulness")
     steps: string[];  // Array of step labels (e.g., ["Step 1", "Step 2", "Step 3"])
     cards: HowItWorksCard[];  // Array of 3 cards with icons

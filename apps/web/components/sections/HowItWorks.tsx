@@ -4,6 +4,7 @@ import { HowItWorksSectionProps } from "./types";
 
 export const HowItWorks: React.FC<HowItWorksSectionProps> = ({
     title,
+    description,
     subtitle,
     steps,
     cards,
@@ -25,7 +26,7 @@ export const HowItWorks: React.FC<HowItWorksSectionProps> = ({
                         {/* Header */}
                         <div className="flex flex-col items-center gap-6">
                             <h2
-                                className={`text-center font-bold ${variant === "r1" ? "max-w-[800px]" : "max-w-[559px]"}`}
+                                className={`text-center font-bold ${variant === "r1" ? "max-w-[900px]" : "max-w-[559px]"}`}
                                 style={{
                                     fontFamily: "var(--font-inter), Inter, sans-serif",
                                     fontSize: "28px",
@@ -37,6 +38,21 @@ export const HowItWorks: React.FC<HowItWorksSectionProps> = ({
                             >
                                 {title}
                             </h2>
+
+                            {description && (
+                                <p
+                                    className="text-center max-w-[700px]"
+                                    style={{
+                                        fontFamily: "var(--font-inter), Inter, sans-serif",
+                                        fontSize: "18px",
+                                        fontWeight: 400,
+                                        lineHeight: "27px",
+                                        color: "#4b5563",
+                                    }}
+                                >
+                                    {description}
+                                </p>
+                            )}
 
                             {/* Lotus Icon and Subtitle */}
                             <div className="flex flex-col items-center gap-2">
@@ -70,7 +86,7 @@ export const HowItWorks: React.FC<HowItWorksSectionProps> = ({
                                         src={variant === "r1" ? "/assets/images/bg-vector.svg" : "/assets/images/step-progress-background.svg"}
                                         alt="Step progress"
                                         fill
-                                        className="object-contain" // object-cover might be better for the vector if it's a background shape, but let's stick to contain first.
+                                        className={variant === "r1" ? "object-cover scale-125" : "object-contain"}
                                     />
                                 </div>
 

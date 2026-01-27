@@ -21,12 +21,42 @@ export const HowItWorks: React.FC<HowItWorksSectionProps> = ({
         >
             <div className="container mx-auto px-6">
                 {/* White content container */}
-                <div className="bg-white rounded-xl shadow-sm w-[1280px] mx-auto py-12">
+                <div className="bg-white rounded-xl shadow-sm w-[1280px] mx-auto py-12 relative">
+                    <div className="absolute top-[180px] left-[545px] w-[206px] h-[206px] flex flex-col items-center justify-center z-20">
+                        <div className="absolute inset-0 z-0">
+                            <Image
+                                src="/assets/images/Ellipse33_top.svg"
+                                alt="Background"
+                                fill
+                                className="object-contain"
+                            />
+                        </div>
+                        <div className="relative z-10 flex flex-col items-center gap-2">
+                            <div className="w-[106px] h-[92px] relative">
+                                <Image
+                                    src="/assets/images/lotus-flower.svg"
+                                    alt="Lotus flower"
+                                    fill
+                                    className="object-contain"
+                                />
+                            </div>
+                            <span
+                                style={{
+                                    fontFamily: "var(--font-inter), Inter, sans-serif",
+                                    fontSize: "20px",
+                                    fontWeight: 600,
+                                    color: "#e704e7",
+                                }}
+                            >
+                                {subtitle}
+                            </span>
+                        </div>
+                    </div>
                     <div className="flex flex-col items-center justify-center gap-8">
                         {/* Header */}
                         <div className="flex flex-col items-center gap-6">
                             <h2
-                                className={`text-center font-bold ${variant === "r1" ? "max-w-[900px]" : "max-w-[559px]"}`}
+                                className={`text-center font-bold ${variant === "r1" ? "max-w-[900px]" : "max-w-[660px]"}`}
                                 style={{
                                     fontFamily: "var(--font-inter), Inter, sans-serif",
                                     fontSize: "28px",
@@ -54,31 +84,11 @@ export const HowItWorks: React.FC<HowItWorksSectionProps> = ({
                                 </p>
                             )}
 
-                            {/* Lotus Icon and Subtitle */}
-                            <div className="flex flex-col items-center gap-2">
-                                <div className="w-[106px] h-[92px] relative">
-                                    <Image
-                                        src="/assets/images/lotus-flower.svg"
-                                        alt="Lotus flower"
-                                        fill
-                                        className="object-contain"
-                                    />
-                                </div>
-                                <span
-                                    style={{
-                                        fontFamily: "var(--font-inter), Inter, sans-serif",
-                                        fontSize: "20px",
-                                        fontWeight: 600,
-                                        color: "#e704e7",
-                                    }}
-                                >
-                                    {subtitle}
-                                </span>
-                            </div>
+
                         </div>
 
                         {/* Steps Progress with Cards */}
-                        <div className="relative w-full flex flex-col items-center gap-8">
+                        <div className="relative w-full flex flex-col items-center gap-8 mt-[126px]">
                             {/* Background SVG */}
                             <div className="relative w-full h-[218px] flex items-center justify-center">
                                 <div className="absolute inset-0 w-full h-full">
@@ -91,7 +101,7 @@ export const HowItWorks: React.FC<HowItWorksSectionProps> = ({
                                 </div>
 
                                 {/* Step Labels - Grid Layout */}
-                                <div className="relative z-10 grid grid-cols-5 items-center w-full max-w-2xl">
+                                <div className="relative z-10 grid grid-cols-5 items-center w-full max-w-2xl top-[20px]">
                                     {steps.map((step, index) => (
                                         <React.Fragment key={index}>
                                             <div
@@ -145,7 +155,7 @@ export const HowItWorks: React.FC<HowItWorksSectionProps> = ({
 
                                             {/* Card Title */}
                                             <h3
-                                                className="text-center"
+                                                className="text-center whitespace-nowrap"
                                                 style={{
                                                     fontFamily: "var(--font-inter), Inter, sans-serif",
                                                     fontSize: "16px",

@@ -1,3 +1,4 @@
+import React from "react";
 // Base section props that all sections will extend
 export interface BaseSectionProps {
     variant?: string;
@@ -81,7 +82,7 @@ export interface HowItWorksCard {
 // HowItWorks section props
 export interface HowItWorksSectionProps extends BaseSectionProps {
     variant?: "default" | "r1";
-    title: string;
+    title: string | React.ReactNode;
     description?: string; // Optional text below title
     subtitle: string;  // Text below lotus icon (e.g., "Mindfulness")
     steps: string[];  // Array of step labels (e.g., ["Step 1", "Step 2", "Step 3"])

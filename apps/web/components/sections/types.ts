@@ -81,7 +81,8 @@ export interface HowItWorksCard {
 
 // HowItWorks section props
 export interface HowItWorksSectionProps extends BaseSectionProps {
-    variant?: "default" | "r1";
+    variant?: "default" | "r1" | "home";
+    sectionHeader?: string | React.ReactNode;
     title: string | React.ReactNode;
     description?: string; // Optional text below title
     subtitle: string;  // Text below lotus icon (e.g., "Mindfulness")

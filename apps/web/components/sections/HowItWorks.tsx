@@ -9,6 +9,7 @@ export const HowItWorks: React.FC<HowItWorksSectionProps> = ({
     steps,
     cards,
     research,
+    sectionHeader,
     variant = "default",
     className = "",
     id,
@@ -20,6 +21,16 @@ export const HowItWorks: React.FC<HowItWorksSectionProps> = ({
             id={id}
         >
             <div className="container mx-auto px-6">
+                {sectionHeader && (
+                    <div className="max-w-4xl mx-auto mb-12 text-center">
+                        <h2
+                            className={`font-bold text-stone-900 leading-tight ${variant === 'home' ? 'text-[28px]' : 'text-3xl md:text-4xl'}`}
+                            style={{ fontFamily: "var(--font-inter), Inter, sans-serif" }}
+                        >
+                            {sectionHeader}
+                        </h2>
+                    </div>
+                )}
                 {/* White content container */}
                 <div className="bg-white rounded-xl shadow-sm w-[1280px] mx-auto py-12 relative">
                     <div className="absolute top-[180px] left-[545px] w-[206px] h-[206px] flex flex-col items-center justify-center z-20">
@@ -56,11 +67,11 @@ export const HowItWorks: React.FC<HowItWorksSectionProps> = ({
                         {/* Header */}
                         <div className="flex flex-col items-center gap-6">
                             <h2
-                                className={`text-center font-bold ${variant === "r1" ? "max-w-[900px]" : "max-w-[660px]"}`}
+                                className={`text-center ${variant === 'home' ? 'font-normal' : 'font-bold'} ${variant === "r1" ? "max-w-[900px]" : "max-w-[660px]"}`}
                                 style={{
                                     fontFamily: "var(--font-inter), Inter, sans-serif",
-                                    fontSize: "28px",
-                                    fontWeight: 700,
+                                    fontSize: variant === "home" ? "20px" : "28px",
+                                    fontWeight: variant === "home" ? 400 : 700,
                                     letterSpacing: "-0.56px",
                                     lineHeight: "35px",
                                     color: "#1f2a37",
@@ -88,7 +99,7 @@ export const HowItWorks: React.FC<HowItWorksSectionProps> = ({
                         </div>
 
                         {/* Steps Progress with Cards */}
-                        <div className="relative w-full flex flex-col items-center gap-8 mt-[126px]">
+                        <div className={`relative w-full flex flex-col items-center gap-8 ${variant === 'home' ? 'mt-[156px]' : 'mt-[126px]'}`}>
                             {/* Background SVG */}
                             <div className="relative w-full h-[218px] flex items-center justify-center">
                                 <div className="absolute inset-0 w-full h-full">

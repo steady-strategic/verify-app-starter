@@ -1,16 +1,41 @@
+
 import React from "react";
+import { HowItWorks } from "../sections/HowItWorks";
 
 export default function HomeHowItWorks() {
     return (
-        <section className="py-16 bg-gray-50">
-            <div className="container mx-auto px-4">
-                <h2 className="text-3xl font-bold text-center mb-8">
-                    How It Works Section
-                </h2>
-                <p className="text-center text-gray-600">
-                    Placeholder for how it works content
-                </p>
-            </div>
-        </section>
+        <HowItWorks
+            variant="home"
+            sectionHeader={
+                <>
+                    For those struggling with addiction, chronic pain, or emotional distress, <span style={{ color: "#D80ADA" }}>MORE</span> provides a powerful and proven path forward.
+                </>
+            }
+            title={
+                <>
+                    Over the course of eight weekly sessions, <span style={{ color: "#D80ADA" }}>MORE</span> is delivered as a carefully curated, research-validated, three-step process.
+                </>
+            }
+            subtitle="Mindfulness"
+            steps={["Step 1", "Step 2", "Step 3"]}
+            cards={[
+                {
+                    title: "Guided Meditation",
+                    iconSrc: "/assets/images/meditate3.svg",
+                    iconColor: "#F4F4F4"
+                },
+                {
+                    title: "Reappraisal",
+                    iconSrc: "/assets/images/reappraise3.svg",
+                    iconColor: "#F4F4F4"
+                },
+                {
+                    title: "Savoring",
+                    iconSrc: "/assets/images/heart3.svg",
+                    iconColor: "#F4F4F4"
+                }
+            ]}
+            research="As your prefrontal cortex grows, your cravings decrease and your capacity for joy increases."
+        />
     );
 }

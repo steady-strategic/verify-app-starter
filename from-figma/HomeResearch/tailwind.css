@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* HomeResearch Component Styles */
+
+.home-research-container {
+  @apply flex flex-col gap-[64px] w-full max-w-[1440px] mx-auto;
+}
+
+.research-content {
+  @apply flex flex-col gap-[92px];
+}
+
+.research-heading {
+  @apply font-inter text-[28px] font-bold leading-[35px] tracking-[-0.56px] text-[#111928] max-w-[636px] mx-auto;
+}
+
+.features-row {
+  @apply grid grid-cols-3 gap-[48px] w-full;
+}
+
+.feature-column {
+  @apply flex flex-col gap-[16px];
+}
+
+.feature-icon {
+  @apply w-[32px] h-[32px] rounded-full bg-[#d80ada] flex items-center justify-center;
+}
+
+.feature-title {
+  @apply font-inter text-[20px] font-bold text-[#111928];
+}
+
+.feature-text {
+  @apply font-inter text-[18px] font-normal leading-[27px] text-[#374151];
+}
+
+.highlight-magenta {
+  @apply text-[#d80ada] font-bold;
+}
+
+.cta-button {
+  @apply bg-[#d80ada] text-white px-6 py-3 rounded-lg font-inter font-bold text-[18px];
+}
+
+.superscript {
+  @apply text-[12px] align-super;
+}

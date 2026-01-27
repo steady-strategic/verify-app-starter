@@ -4,10 +4,12 @@ import { HowItWorksSectionProps } from "./types";
 
 export const HowItWorks: React.FC<HowItWorksSectionProps> = ({
     title,
+    description,
     subtitle,
     steps,
     cards,
     research,
+    sectionHeader,
     variant = "default",
     className = "",
     id,
@@ -19,17 +21,57 @@ export const HowItWorks: React.FC<HowItWorksSectionProps> = ({
             id={id}
         >
             <div className="container mx-auto px-6">
+                {sectionHeader && (
+                    <div className="max-w-4xl mx-auto mb-12 text-center">
+                        <h2
+                            className={`font-bold text-stone-900 leading-tight ${variant === 'home' ? 'text-[28px]' : 'text-3xl md:text-4xl'}`}
+                            style={{ fontFamily: "var(--font-inter), Inter, sans-serif" }}
+                        >
+                            {sectionHeader}
+                        </h2>
+                    </div>
+                )}
                 {/* White content container */}
-                <div className="bg-white rounded-xl shadow-sm w-[1280px] mx-auto py-12">
+                <div className="bg-white rounded-xl shadow-sm w-[1280px] mx-auto py-12 relative">
+                    <div className="absolute top-[180px] left-[545px] w-[206px] h-[206px] flex flex-col items-center justify-center z-20">
+                        <div className="absolute inset-0 z-0">
+                            <Image
+                                src="/assets/images/Ellipse33_top.svg"
+                                alt="Background"
+                                fill
+                                className="object-contain"
+                            />
+                        </div>
+                        <div className="relative z-10 flex flex-col items-center gap-2">
+                            <div className="w-[106px] h-[92px] relative">
+                                <Image
+                                    src="/assets/images/lotus-flower.svg"
+                                    alt="Lotus flower"
+                                    fill
+                                    className="object-contain"
+                                />
+                            </div>
+                            <span
+                                style={{
+                                    fontFamily: "var(--font-inter), Inter, sans-serif",
+                                    fontSize: "20px",
+                                    fontWeight: 600,
+                                    color: "#e704e7",
+                                }}
+                            >
+                                {subtitle}
+                            </span>
+                        </div>
+                    </div>
                     <div className="flex flex-col items-center justify-center gap-8">
                         {/* Header */}
                         <div className="flex flex-col items-center gap-6">
                             <h2
-                                className="text-center font-bold max-w-[559px]"
+                                className={`text-center ${variant === 'home' ? 'font-normal' : 'font-bold'} ${variant === "r1" ? "max-w-[900px]" : "max-w-[660px]"}`}
                                 style={{
                                     fontFamily: "var(--font-inter), Inter, sans-serif",
-                                    fontSize: "28px",
-                                    fontWeight: 700,
+                                    fontSize: variant === "home" ? "20px" : "28px",
+                                    fontWeight: variant === "home" ? 400 : 700,
                                     letterSpacing: "-0.56px",
                                     lineHeight: "35px",
                                     color: "#1f2a37",
@@ -38,44 +80,39 @@ export const HowItWorks: React.FC<HowItWorksSectionProps> = ({
                                 {title}
                             </h2>
 
-                            {/* Lotus Icon and Subtitle */}
-                            <div className="flex flex-col items-center gap-2">
-                                <div className="w-[106px] h-[92px] relative">
-                                    <Image
-                                        src="/assets/images/lotus-flower.svg"
-                                        alt="Lotus flower"
-                                        fill
-                                        className="object-contain"
-                                    />
-                                </div>
-                                <span
+                            {description && (
+                                <p
+                                    className="text-center max-w-[700px]"
                                     style={{
                                         fontFamily: "var(--font-inter), Inter, sans-serif",
-                                        fontSize: "20px",
-                                        fontWeight: 600,
-                                        color: "#e704e7",
+                                        fontSize: "18px",
+                                        fontWeight: 400,
+                                        lineHeight: "27px",
+                                        color: "#4b5563",
                                     }}
                                 >
-                                    {subtitle}
-                                </span>
-                            </div>
+                                    {description}
+                                </p>
+                            )}
+
+
                         </div>
 
                         {/* Steps Progress with Cards */}
-                        <div className="relative w-full flex flex-col items-center gap-8">
+                        <div className={`relative w-full flex flex-col items-center gap-8 ${variant === 'home' ? 'mt-[156px]' : 'mt-[126px]'}`}>
                             {/* Background SVG */}
                             <div className="relative w-full h-[218px] flex items-center justify-center">
                                 <div className="absolute inset-0 w-full h-full">
                                     <Image
-                                        src="/assets/images/step-progress-background.svg"
+                                        src={variant === "r1" ? "/assets/images/bg-vector.svg" : "/assets/images/step-progress-background.svg"}
                                         alt="Step progress"
                                         fill
-                                        className="object-contain"
+                                        className={variant === "r1" ? "object-cover scale-125" : "object-contain"}
                                     />
                                 </div>
 
                                 {/* Step Labels - Grid Layout */}
-                                <div className="relative z-10 grid grid-cols-5 items-center w-full max-w-2xl">
+                                <div className="relative z-10 grid grid-cols-5 items-center w-full max-w-2xl top-[20px]">
                                     {steps.map((step, index) => (
                                         <React.Fragment key={index}>
                                             <div
@@ -129,7 +166,7 @@ export const HowItWorks: React.FC<HowItWorksSectionProps> = ({
 
                                             {/* Card Title */}
                                             <h3
-                                                className="text-center"
+                                                className="text-center whitespace-nowrap"
                                                 style={{
                                                     fontFamily: "var(--font-inter), Inter, sans-serif",
                                                     fontSize: "16px",

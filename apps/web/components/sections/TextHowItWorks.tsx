@@ -10,6 +10,7 @@ export const TextHowItWorks: React.FC<TextHowItWorksSectionProps> = ({
     id,
 }) => {
     const isClinicians = variant === "clinicians";
+    const isR1 = variant === "r1";
 
     return (
         <section
@@ -17,10 +18,10 @@ export const TextHowItWorks: React.FC<TextHowItWorksSectionProps> = ({
             className={`w-full py-16 px-6 ${className}`}
             style={{ backgroundColor: "#FFFFFF" }}
         >
-            <div className={`container mx-auto max-w-7xl flex flex-col ${isClinicians ? "gap-[48px]" : "gap-[92px]"}`}>
+            <div className={`container mx-auto max-w-7xl flex flex-col ${isR1 ? "items-center text-center" : ""} ${isClinicians ? "gap-[48px]" : "gap-[92px]"}`}>
                 {/* Header */}
                 <h2
-                    className="max-w-4xl"
+                    className={`max-w-4xl ${isR1 ? "text-center" : ""}`}
                     style={{
                         fontFamily: "var(--font-inter), Inter, sans-serif",
                         fontSize: "28px",

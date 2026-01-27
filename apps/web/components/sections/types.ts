@@ -1,3 +1,4 @@
+import React from "react";
 // Base section props that all sections will extend
 export interface BaseSectionProps {
     variant?: string;
@@ -81,8 +82,10 @@ export interface HowItWorksCard {
 
 // HowItWorks section props
 export interface HowItWorksSectionProps extends BaseSectionProps {
-    variant?: "default";
-    title: string;
+    variant?: "default" | "r1" | "home";
+    sectionHeader?: string | React.ReactNode;
+    title: string | React.ReactNode;
+    description?: string; // Optional text below title
     subtitle: string;  // Text below lotus icon (e.g., "Mindfulness")
     steps: string[];  // Array of step labels (e.g., ["Step 1", "Step 2", "Step 3"])
     cards: HowItWorksCard[];  // Array of 3 cards with icons
@@ -122,7 +125,7 @@ export interface TextHowItWorksFeature {
 
 // TextHowItWorks section props
 export interface TextHowItWorksSectionProps extends BaseSectionProps {
-    variant?: "default" | "clinicians";
+    variant?: "default" | "clinicians" | "r1";
     header: string; // Main heading text
     features: TextHowItWorksFeature[]; // Array of 3 or 6 features
 }
@@ -214,3 +217,41 @@ export interface FAQSectionProps extends BaseSectionProps {
     items: FAQItem[];
 }
 
+
+// HomeResearch content item
+export interface HomeResearchFeature {
+    title: string;
+    text: string;
+}
+
+// HomeResearch section props
+export interface HomeResearchSectionProps extends BaseSectionProps {
+    variant?: "default";
+    heading: string;
+    features: HomeResearchFeature[];
+    cta: {
+        text: string;
+        href: string;
+    };
+}
+
+// ContentDblStack item
+export interface ContentDblStackItem {
+    heading: string;
+    description: string;
+    features: string[];
+    image: {
+        src: string;
+        alt: string;
+    };
+    cta?: {
+        text: string;
+        href: string;
+    };
+    reverse?: boolean;
+}
+
+// ContentDblStack section props
+export interface ContentDblStackSectionProps extends BaseSectionProps {
+    items: ContentDblStackItem[];
+}

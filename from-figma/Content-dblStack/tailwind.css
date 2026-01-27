@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Content-dblStack Component Styles */
+
+.content-dbl-stack-container {
+  @apply flex flex-col gap-[96px] w-full max-w-[1440px] mx-auto px-5 py-5;
+}
+
+.content-row {
+  @apply flex gap-[64px] items-stretch w-full;
+}
+
+.content-left {
+  @apply flex flex-col gap-[32px] flex-1;
+}
+
+.content-right {
+  @apply flex-1;
+}
+
+.section-heading {
+  @apply font-inter text-[28px] font-bold leading-[35px] tracking-[-0.56px] text-[#111928];
+}
+
+.section-description {
+  @apply font-inter text-[20px] font-semibold leading-[28px] tracking-[-0.40px] text-[#374151];
+}
+
+.separator-line {
+  @apply w-full h-[1px] bg-[#e5e7eb];
+}
+
+.features-list {
+  @apply flex flex-col gap-[24px];
+}
+
+.feature-item {
+  @apply flex gap-[10px] items-start;
+}
+
+.feature-icon {
+  @apply w-[8px] h-[7px] flex-shrink-0 mt-[10px];
+}
+
+.feature-text {
+  @apply font-inter text-[18px] font-normal text-[#111928];
+}
+
+.hero-image {
+  @apply w-full h-auto rounded-[12px] object-cover;
+}
+
+.cta-link {
+  @apply font-inter text-[14px] font-medium text-[#111928];
+}
+
+.highlight-magenta {
+  @apply text-[#d80ada] font-semibold;
+}
+
+@media (max-width: 768px) {
+  .content-row {
+    @apply flex-col;
+  }
+  
+  .content-left, .content-right {
+    @apply w-full;
+  }
+}

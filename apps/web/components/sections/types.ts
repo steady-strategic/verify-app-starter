@@ -222,7 +222,7 @@ export interface FAQSectionProps extends BaseSectionProps {
 export interface HomeResearchFeature {
     title: string;
     text?: string;
-    stats: {
+    stats?: {
         value: string;
         label: string;
     }[];

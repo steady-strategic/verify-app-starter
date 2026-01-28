@@ -11,7 +11,7 @@ export const ContentDblStack: React.FC<ContentDblStackSectionProps> = ({
 }) => {
     return (
         <section
-            className={`flex flex-col gap-[96px] w-full max-w-[1440px] mx-auto px-5 py-16 ${className}`}
+            className={`flex flex-col gap-[96px] w-full max-w-[1280px] mx-auto px-5 py-16 ${className}`}
             id={id}
         >
             {items.map((item, index) => {
@@ -25,10 +25,10 @@ export const ContentDblStack: React.FC<ContentDblStackSectionProps> = ({
                         {/* Content Side */}
                         <div className="flex flex-col gap-[32px] flex-1 w-full justify-center">
                             <div className="flex flex-col gap-4">
-                                <h2 className="font-inter text-[28px] font-bold leading-[35px] tracking-[-0.56px] text-[#111928]"
+                                <h2 className="font-sans text-[28px] font-bold leading-[35px] tracking-[-0.56px] text-[#111928]"
                                     dangerouslySetInnerHTML={{ __html: item.heading }}
                                 />
-                                <div className="font-inter text-[20px] font-semibold leading-[28px] tracking-[-0.40px] text-[#374151]"
+                                <div className="font-sans text-[20px] font-normal leading-[28px] tracking-[-0.40px] text-[#374151]"
                                     dangerouslySetInnerHTML={{ __html: item.description }}
                                 />
                             </div>
@@ -38,13 +38,16 @@ export const ContentDblStack: React.FC<ContentDblStackSectionProps> = ({
                             <div className="flex flex-col gap-[24px]">
                                 {item.features.map((feature, fIndex) => (
                                     <div key={fIndex} className="flex gap-[10px] items-start">
-                                        <div className="w-[8px] h-[7px] flex-shrink-0 mt-[10px] relative">
-                                            <Image
-                                                src="/assets/images/checkmark-bullet.svg"
-                                                alt="bullet"
-                                                fill
-                                                className="object-contain"
-                                            />
+                                        <div className="w-[24px] h-[24px] rounded-full bg-[#D80ADA] flex items-center justify-center flex-shrink-0 mt-[1.5px]">
+                                            <div className="w-[10px] h-[10px] relative">
+                                                <Image
+                                                    src="/assets/images/checkmark-bullet.svg"
+                                                    alt="bullet"
+                                                    fill
+                                                    className="object-contain"
+                                                    style={{ filter: "brightness(0) invert(1)" }}
+                                                />
+                                            </div>
                                         </div>
                                         <p className="font-inter text-[18px] font-normal text-[#111928] leading-[27px]">
                                             {feature}

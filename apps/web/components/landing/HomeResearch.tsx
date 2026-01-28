@@ -1,51 +1,67 @@
 import React from "react";
-import { Cards } from "../sections";
+import { HomeResearch } from "../sections";
 
 const homeResearchContent = {
-    headline: {
-        text: "Backed by $90M in federal research grants and 16+ clinical trials, MORE is proven to be 3x as effective as standard therapy",
-        highlight: "MORE",
-    },
-    cards: [
+    heading: "Backed by $90M in federal research grants and 16+ clinical trials, <span class='text-[#d80ada]'>MORE</span> is proven to be 3x as effective as standard therapy",
+    features: [
+        {
+            title: "Dramatically reduces addiction and misuse",
+            stats: [
+                {
+                    value: "50%",
+                    label: "reduction in drug craving",
+                },
+                {
+                    value: "59%",
+                    label: "reduction in treatment dropout",
+                },
+                {
+                    value: "42%",
+                    label: "reduction in drug relapse",
+                },
+            ],
+        },
         {
             title: "Clinically significant pain relief",
             stats: [
-                "30% reduction in acute pain",
-                "45% reduction in post-operative pain",
-                "59% success rate in treating chronic pain",
-            ],
-        },
-        {
-            title: "Proven reductions in opioid misuse",
-            stats: [
-                "45% reduction in opioid misuse",
-                "59% reduction in treatment dropout",
-                "31% reduction in opioid dose",
-            ],
-        },
-        {
-            title: "Fewer cravings, greater resilience",
-            stats: [
-                "50% reduction in drug craving",
-                "27% reduction in alcohol craving",
-                "30% reduction in cigarette craving",
+                {
+                    value: "30%",
+                    label: "reduction in acute pain",
+                },
+                {
+                    value: "45%",
+                    label: "reduction in post-operative pain",
+                },
+                {
+                    value: "59%",
+                    label: "success rate in treating chronic pain",
+                },
             ],
         },
         {
             title: "Measurable improvements in emotional well-being",
             stats: [
-                "43% reduction in anxiety",
-                "38% improvement in depression",
-                "2.75× greater increase in positive emotion vs. standard therapy",
+                {
+                    value: "43%",
+                    label: "reduction in anxiety",
+                },
+                {
+                    value: "38%",
+                    label: "improvement in depression",
+                },
+                {
+                    value: "59%",
+                    label: "success rate in treating PTSD",
+                },
             ],
         },
     ],
     cta: {
-        label: "See the Research",
+        text: "Read the Research",
         href: "/resources/research",
     },
 };
 
-export default function HomeResearch() {
-    return <Cards {...homeResearchContent} />;
+export default function HomeResearchLanding() {
+    return <HomeResearch {...homeResearchContent} />;
 }

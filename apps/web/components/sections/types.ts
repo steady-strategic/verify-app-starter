@@ -221,7 +221,11 @@ export interface FAQSectionProps extends BaseSectionProps {
 // HomeResearch content item
 export interface HomeResearchFeature {
     title: string;
-    text: string;
+    text?: string;
+    stats: {
+        value: string;
+        label: string;
+    }[];
 }
 
 // HomeResearch section props

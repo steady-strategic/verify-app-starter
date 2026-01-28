@@ -5,7 +5,7 @@ const homeResearchContent = {
     heading: "Backed by $90M in federal research grants and 16+ clinical trials, <span class='text-[#d80ada]'>MORE</span> is proven to be 3x as effective as standard therapy",
     features: [
         {
-            title: "Dramatically reduces addiction and misuse",
+            title: "Dramatically reduces addiction <br />and misuse",
             stats: [
                 {
                     value: "50%",
@@ -22,7 +22,7 @@ const homeResearchContent = {
             ],
         },
         {
-            title: "Clinically significant pain relief",
+            title: "Clinically significant pain relief <br />for patients",
             stats: [
                 {
                     value: "30%",
@@ -39,7 +39,7 @@ const homeResearchContent = {
             ],
         },
         {
-            title: "Measurable improvements in emotional well-being",
+            title: "Measurable improvements in <br />emotional well-being",
             stats: [
                 {
                     value: "43%",

@@ -29,7 +29,7 @@ export const HomeResearch: React.FC<HomeResearchSectionProps> = ({
                             {/* Icon */}
                             <div className="w-[32px] h-[32px] rounded-full bg-[#d80ada] flex items-center justify-center flex-shrink-0">
                                 <Image
-                                    src="/assets/images/home-research-checkmark.svg"
+                                    src="/assets/images/check-icon.svg"
                                     alt="Checkmark"
                                     width={16}
                                     height={16}
@@ -39,9 +39,10 @@ export const HomeResearch: React.FC<HomeResearchSectionProps> = ({
 
                             <div className="flex flex-col gap-[16px]">
                                 {/* Title */}
-                                <h3 className="font-inter text-[20px] leading-[1.4] font-bold text-[#111928]">
-                                    {feature.title}
-                                </h3>
+                                <h3
+                                    className="font-inter text-[20px] leading-[1.4] font-bold text-[#111928]"
+                                    dangerouslySetInnerHTML={{ __html: feature.title }}
+                                />
 
                                 {/* Stats List */}
                                 <div className="flex flex-col gap-[12px]">

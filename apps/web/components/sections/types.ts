@@ -255,3 +255,19 @@ export interface ContentDblStackItem {
 export interface ContentDblStackSectionProps extends BaseSectionProps {
     items: ContentDblStackItem[];
 }
+
+// HomeAbout section props
+export interface HomeAboutSectionProps extends BaseSectionProps {
+    variant?: "default";
+    title: string | React.ReactNode;
+    subtitle: string;
+    description: string;
+    profileImage: {
+        src: string;
+        alt: string;
+    };
+    socialLinks: {
+        linkedin?: string;
+        x?: string;
+    };
+}

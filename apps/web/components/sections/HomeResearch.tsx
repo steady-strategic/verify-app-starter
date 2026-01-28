@@ -40,7 +40,7 @@ export const HomeResearch: React.FC<HomeResearchSectionProps> = ({
                             <div className="flex flex-col gap-[16px]">
                                 {/* Title */}
                                 <h3
-                                    className="font-inter text-[20px] leading-[1.4] font-bold text-[#111928]"
+                                    className="font-sans text-[20px] leading-[1.4] font-bold text-[#111928]"
                                     dangerouslySetInnerHTML={{ __html: feature.title }}
                                 />
 

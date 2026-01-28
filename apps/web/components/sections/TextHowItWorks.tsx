@@ -37,7 +37,7 @@ export const TextHowItWorks: React.FC<TextHowItWorksSectionProps> = ({
                 {/* Features Row */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-[48px]">
                     {features.map((feature, index) => (
-                        <div key={index} className="flex flex-col gap-4">
+                        <div key={index} className="flex flex-col gap-4 text-left items-start">
                             {/* Icon Container */}
                             <div
                                 className="rounded-full flex items-center justify-center w-12 h-12 mb-2"

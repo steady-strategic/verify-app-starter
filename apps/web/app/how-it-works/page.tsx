@@ -5,6 +5,7 @@ import { Footer } from "@/components/layout/Footer";
 import { PageBanner } from "@/components/sections/PageBanner";
 import { HowItWorks } from "@/components/sections/HowItWorks";
 import { Content } from "@/components/sections/Content";
+import { TextHowItWorks } from "@/components/sections/TextHowItWorks";
 
 export default function HowItWorksPage() {
     return (
@@ -59,6 +60,31 @@ export default function HowItWorksPage() {
                 id="how-it-works-section"
             />
 
+            <TextHowItWorks
+                variant="r1"
+                header={<><span style={{ color: "#D80ADA" }}>MORE</span> is a structured, rigorously-tested therapeutic protocol. Patients engage in mind-body training, delivered individually or in a group setting, to learn unique mindfulness, reappraisal, and savoring skills to strengthen recovery and generate well-being.</>}
+                features={[
+                    {
+                        title: "Mindfulness",
+                        description: "A form of mental training focused on strengthening self-awareness and self-regulation to help people observe their thoughts, emotions, and sensations without being swept away by them. Through practice, patients learn to transform addictive habits, craving, and chronic pain by exercising neural networks involved in attention, emotion regulation, and pain processing.",
+                        iconSrc: "/assets/images/lotus-flower-white.svg",
+                        iconBgColor: "#E879F9",
+                    },
+                    {
+                        title: "Reappraisal",
+                        description: "A cognitive strategy used to reframe distressing thoughts, negative core beliefs, or unhelpful interpretations of challenging life situations. Instead of suppressing or ignoring difficult emotions, patients learn to efficiently engage prefrontal brain resources to shift their perspective in ways that reduce suffering and create healthier patterns of behavior.",
+                        iconSrc: "/assets/images/lotus-flower-white.svg",
+                        iconBgColor: "#E879F9",
+                    },
+                    {
+                        title: "Savoring",
+                        description: "A deliberate practice of amplifying positive emotions, reconnecting with natural rewards, and restoring the capacity to feel healthy pleasure, meaning, and joy. Because addiction, pain, depression, and trauma can disrupt the brain’s reward system, savoring helps heal this dysfunction by directing attention toward positive experiences and retraining the mind to appreciate life.",
+                        iconSrc: "/assets/images/lotus-flower-white.svg",
+                        iconBgColor: "#E879F9",
+                    },
+                ]}
+            />
+
             {/* Content-HowItWorks Section */}
             <div className="mb-24">
                 <Content
@@ -66,9 +92,10 @@ export default function HowItWorksPage() {
                     title="MORE isn't just about reducing symptoms"
                     subtitle="it's about helping people flourish. Most mindfulness programs stop at awareness. MORE goes further, guiding patients to:"
                     features={[
-                        { text: "Transform negative emotions into positive growth" },
-                        { text: "Reclaim a sense of meaning and purpose in life" },
-                        { text: "Experience deep, restorative states of well-being" }
+                        { text: "Break free from unhealthy patterns with MINDFULNESS" },
+                        { text: "Reframe distressing thoughts and negative core beliefs" },
+                        { text: "Amplify positive emotions and reconnect with natural rewards" },
+                        { text: "Experience powerful and lasting change with just 8 weekly sessions" }
                     ]}
                     image={{
                         src: "/assets/images/content-how-it-works.png",

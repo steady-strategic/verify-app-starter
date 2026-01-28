@@ -126,7 +126,7 @@ export interface TextHowItWorksFeature {
 // TextHowItWorks section props
 export interface TextHowItWorksSectionProps extends BaseSectionProps {
     variant?: "default" | "clinicians" | "r1";
-    header: string; // Main heading text
+    header: string | React.ReactNode; // Main heading text
     features: TextHowItWorksFeature[]; // Array of 3 or 6 features
 }
 

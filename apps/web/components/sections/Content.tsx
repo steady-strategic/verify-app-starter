@@ -141,7 +141,7 @@ export const Content: React.FC<ContentSectionProps> = ({
 
     return (
         <section
-            className={`flex flex-col items-center gap-14 py-16 px-4 ${className}`}
+            className={`flex flex-col items-center gap-14 py-16 px-4 mx-auto ${isHowItWorks ? "max-w-[1280px] h-[762px]" : ""} ${className}`}
             id={id}
         >
             {/* Content Row */}

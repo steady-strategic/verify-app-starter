@@ -19,7 +19,7 @@ export const HomeAboutSection: React.FC<HomeAboutSectionProps> = ({
             className={`w-full bg-[#fafafa] flex justify-center py-12 ${className}`}
             id={id}
         >
-            <div className="w-full max-w-[1480px] px-6 md:px-12 flex flex-col md:flex-row gap-12 items-center">
+            <div className="w-full max-w-[1062px] px-6 md:px-12 flex flex-col md:flex-row gap-12 items-center">
                 {/* Profile Image */}
                 <div className="relative w-[280px] h-[280px] flex-shrink-0">
                     <Image
@@ -34,10 +34,10 @@ export const HomeAboutSection: React.FC<HomeAboutSectionProps> = ({
                 <div className="flex-1 flex flex-col gap-4 text-center md:text-left">
                     {/* Title & Subtitle */}
                     <div>
-                        <h1 className="font-sans text-[28px] font-bold leading-[35px] tracking-[-0.56px] text-[#111928]">
+                        <h1 className="font-sans text-[26px] font-normal leading-[35px] tracking-[-0.56px] text-[#D80ADA]">
                             {title}
                         </h1>
-                        <h2 className="font-sans text-[28px] font-bold leading-[35px] text-[#111928]">
+                        <h2 className="font-sans text-[24px] font-bold leading-[35px] text-[#111928]">
                             {subtitle}
                         </h2>
                     </div>

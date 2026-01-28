@@ -4,71 +4,45 @@ import Image from "next/image";
 export default function HomeBrands() {
     const logos = [
         {
-            src: "/assets/logos/Johns-Hopkins-University-Logo_1.png",
-            alt: "Johns Hopkins University",
+            src: "/assets/images/brands/brand1.svg",
+            alt: "Partner Brand 1",
         },
         {
-            src: "/assets/logos/hms-logo-final-rgb_1.png",
-            alt: "Harvard Medical School",
+            src: "/assets/images/brands/brand2.svg",
+            alt: "Partner Brand 2",
         },
         {
-            src: "/assets/logos/University_of_California,_San_Diego_logo.svg_2.png",
-            alt: "UC San Diego",
+            src: "/assets/images/brands/brand3.svg",
+            alt: "Partner Brand 3",
         },
         {
-            src: "/assets/logos/pngegg_1.png",
-            alt: "Partner Institution",
+            src: "/assets/images/brands/brand4.svg",
+            alt: "Partner Brand 4",
         },
         {
-            src: "/assets/logos/kaiser-permanente-eastmoreland-dental-office-kaiser-westside-medical-center-health-insurance-health-care-others-d924d53548165cd067655983122df683_1.png",
-            alt: "Kaiser Permanente",
+            src: "/assets/images/brands/brand5.svg",
+            alt: "Partner Brand 5",
         },
     ];
 
     return (
-        <section className="py-12 bg-colors-gray-200 overflow-hidden">
-            <div className="relative">
-                {/* Marquee Container */}
-                <div
-                    className="flex animate-marquee"
-                    style={{
-                        '--duration': '30s',
-                        '--gap': '4rem',
-                    } as React.CSSProperties}
-                >
-                    {/* First set of logos */}
-                    <div className="flex items-center gap-16 shrink-0">
-                        {logos.map((logo, index) => (
-                            <div
-                                key={`logo-1-${index}`}
-                                className="relative h-12 w-48 flex items-center justify-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
-                            >
-                                <Image
-                                    src={logo.src}
-                                    alt={logo.alt}
-                                    fill
-                                    className="object-contain"
-                                />
-                            </div>
-                        ))}
-                    </div>
-
-                    {/* Duplicate set for seamless loop */}
-                    <div className="flex items-center gap-16 shrink-0">
-                        {logos.map((logo, index) => (
-                            <div
-                                key={`logo-2-${index}`}
-                                className="relative h-12 w-48 flex items-center justify-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
-                            >
-                                <Image
-                                    src={logo.src}
-                                    alt={logo.alt}
-                                    fill
-                                    className="object-contain"
-                                />
-                            </div>
-                        ))}
-                    </div>
+        <section className="py-12 bg-colors-gray-200">
+            <div className="w-full max-w-[1280px] mx-auto px-4 md:px-8">
+                {/* Static Logo Grid */}
+                <div className="flex flex-wrap justify-center md:justify-between items-center gap-8 md:gap-12 w-full">
+                    {logos.map((logo, index) => (
+                        <div
+                            key={index}
+                            className="relative h-12 w-32 md:w-48 flex items-center justify-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+                        >
+                            <Image
+                                src={logo.src}
+                                alt={logo.alt}
+                                fill
+                                className="object-contain"
+                            />
+                        </div>
+                    ))}
                 </div>
             </div>
         </section>

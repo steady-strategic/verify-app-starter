@@ -72,7 +72,7 @@ export const DownloadApp: React.FC<DownloadAppSectionProps> = ({
                 <div className={`flex flex-col gap-8 flex-1 w-full max-w-[640px] ${isDark ? "pt-[60px] md:pt-[20px]" : "pt-[60px] md:pt-[120px]"}`}>
                     {/* Heading Section */}
                     <div className="flex flex-col gap-4">
-                        <h2 className={`font-['Inter'] font-light tracking-[-0.36px] leading-[1.2] ${isDark ? "text-[64px] tracking-[-3.2px] text-white" : "text-[36px] text-[#111928]"
+                        <h2 className={`font-sans font-light tracking-[-0.36px] leading-[1.2] ${isDark ? "text-[64px] tracking-[-3.2px] text-white" : "text-[36px] text-[#111928]"
                             }`}>
                             {isDark ? (
                                 title.includes("MORE") ? (
@@ -89,7 +89,7 @@ export const DownloadApp: React.FC<DownloadAppSectionProps> = ({
                                 title
                             )}
                         </h2>
-                        <p className={`font-['Inter'] text-[20px] font-normal leading-[30px] ${isDark ? "text-white" : "text-[#454a55]"
+                        <p className={`font-sans text-[20px] font-normal leading-[30px] ${isDark ? "text-white" : "text-[#454a55]"
                             }`}>
                             {description}
                         </p>
@@ -138,7 +138,7 @@ export const DownloadApp: React.FC<DownloadAppSectionProps> = ({
                                             />
                                         </svg>
                                     )}
-                                    <p className={`font-['Inter'] text-[16px] font-bold leading-[1.5] ${isDark ? "text-white" : "text-[#454a55]"
+                                    <p className={`font-sans text-[16px] font-bold leading-[1.5] ${isDark ? "text-white" : "text-[#454a55]"
                                         }`}>
                                         {feature}
                                     </p>
@@ -149,7 +149,7 @@ export const DownloadApp: React.FC<DownloadAppSectionProps> = ({
 
                     {/* CTA Section */}
                     <div className="flex flex-col gap-4">
-                        <span className={`font-['Inter'] text-[20px] font-normal ${isDark ? "text-[#6b7280]" : "text-[#6b7280]"
+                        <span className={`font-sans text-[20px] font-normal ${isDark ? "text-[#6b7280]" : "text-[#6b7280]"
                             }`}>
                             {downloadLabel}
                         </span>

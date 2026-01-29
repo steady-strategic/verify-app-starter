@@ -122,7 +122,10 @@ export function DirectoryClient({ initialClinicians }: DirectoryClientProps) {
                                             }`}
                                     >
                                         {expandedCardId === clinician.id ? (
-                                            <ContactClinicianForm onClose={() => setExpandedCardId(null)} />
+                                            <ContactClinicianForm
+                                                onClose={() => setExpandedCardId(null)}
+                                                clinicianEmail={clinician.email}
+                                            />
                                         ) : (
                                             <>
                                                 <div className="relative w-[220px] h-full bg-stone-100 overflow-hidden shrink-0">

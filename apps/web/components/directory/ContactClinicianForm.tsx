@@ -4,25 +4,62 @@ import { useEffect, useRef } from "react";
 
 interface ContactClinicianFormProps {
     onClose: () => void;
+    clinicianEmail?: string | null;
 }
 
-export function ContactClinicianForm({ onClose }: ContactClinicianFormProps) {
+export function ContactClinicianForm({ onClose, clinicianEmail }: ContactClinicianFormProps) {
+    const containerRef = useRef<HTMLDivElement>(null);
+
     useEffect(() => {
-        // Create script element
-        const script = document.createElement("script");
-        script.src = "https://js-na2.hsforms.net/forms/embed/243662289.js";
-        script.defer = true;
+        const scriptSrc = "https://js-na2.hsforms.net/forms/embed/243662289.js";
+        let script = document.querySelector(`script[src="${scriptSrc}"]`) as HTMLScriptElement;
 
-        // Append to document body
-        document.body.appendChild(script);
+        const createForm = () => {
+            if ((window as any).hbspt && containerRef.current) {
+                // Clear any existing form
+                containerRef.current.innerHTML = "";
 
-        // Cleanup: Remove script when component unmounts to ensure it re-runs/re-initializes if mounted again
-        return () => {
-            if (document.body.contains(script)) {
-                document.body.removeChild(script);
+                (window as any).hbspt.forms.create({
+                    region: "na2",
+                    portalId: "243662289",
+                    formId: "54e4bb6a-b0f0-4595-9506-cc483ba0b97a",
+                    target: containerRef.current,
+                    onFormReady: ($form: any) => {
+                        if (clinicianEmail) {
+                            // Try to find the field by likely internal names
+                            // HubSpot usually converts "Clinician Email" to "clinician_email"
+                            const input = $form.find('input[name="clinician_email"]');
+                            if (input.length) {
+                                input.val(clinicianEmail).change();
+                            } else {
+                                console.warn("Could not find 'clinician_email' field in HubSpot form");
+                            }
+                        }
+                    }
+                });
             }
         };
-    }, []);
+
+        if (!script) {
+            script = document.createElement("script");
+            script.src = scriptSrc;
+            script.defer = true;
+            document.body.appendChild(script);
+            script.onload = createForm;
+        } else {
+            if ((window as any).hbspt) {
+                createForm();
+            } else {
+                script.addEventListener('load', createForm);
+            }
+        }
+
+        return () => {
+            if (script) {
+                script.removeEventListener('load', createForm);
+            }
+        };
+    }, [clinicianEmail]);
 
     return (
         <div className="relative w-full h-full bg-white p-6 overflow-y-auto">
@@ -47,12 +84,7 @@ export function ContactClinicianForm({ onClose }: ContactClinicianFormProps) {
                     <p className="text-xs text-stone-500">Fill out the form below to get in touch</p>
                 </div>
 
-                <div
-                    className="hs-form-frame w-full"
-                    data-region="na2"
-                    data-form-id="54e4bb6a-b0f0-4595-9506-cc483ba0b97a"
-                    data-portal-id="243662289"
-                ></div>
+                <div ref={containerRef} className="w-full min-h-[400px]"></div>
             </div>
         </div>
     );

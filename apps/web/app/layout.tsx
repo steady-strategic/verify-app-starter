@@ -18,6 +18,7 @@ export default function RootLayout({
             <body>
                 <ThemeInit />
                 <SessionProvider>{children}</SessionProvider>
+                <script type="text/javascript" id="hs-script-loader" async defer src="//js-na2.hs-scripts.com/243662289.js"></script>
             </body>
         </html>
     );

@@ -11,7 +11,7 @@ export async function adminLogin(formData: FormData) {
         await signIn("admin-credentials", {
             email,
             password,
-            redirectTo: "/admin",
+            redirectTo: "https://more-website-dev.vercel.app/admin",
         });
     } catch (error) {
         // NextAuth throws NEXT_REDIRECT for successful logins

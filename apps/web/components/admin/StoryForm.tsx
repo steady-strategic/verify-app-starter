@@ -1,5 +1,7 @@
 "use client";
 
+import { RichTextEditor } from "./RichTextEditor";
+
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
@@ -140,6 +142,32 @@ export function StoryForm({ initialData, mode }: StoryFormProps) {
         } finally {
             setIsGeneratingImage(false);
         }
+    };
+
+    const handleEditorImageUpload = async (file: File): Promise<string> => {
+        if (!file.type.startsWith("image/")) {
+            throw new Error("Please upload an image file");
+        }
+
+        if (file.size > 5 * 1024 * 1024) {
+            throw new Error("Image size must be less than 5MB");
+        }
+
+        const formData = new FormData();
+        formData.append("file", file);
+
+        const response = await fetch("/api/admin/upload-image", {
+            method: "POST",
+            body: formData,
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+            throw new Error(data.error || "Failed to upload image");
+        }
+
+        return data.imageUrl;
     };
 
     const handleSubmit = async (e: React.FormEvent) => {
@@ -348,18 +376,11 @@ export function StoryForm({ initialData, mode }: StoryFormProps) {
                 <label className="text-[10px] font-bold uppercase tracking-widest text-stone-400">
                     Content
                 </label>
-                <textarea
-                    name="content"
-                    value={formData.content}
-                    onChange={handleChange}
-                    required
-                    rows={15}
-                    className="w-full bg-stone-50 border-none rounded-2xl py-3 px-4 focus:ring-2 focus:ring-amber-200 outline-none text-stone-900 resize-none font-mono text-sm"
-                    placeholder="Write your post content here... (Supports plain text and line breaks)"
+                <RichTextEditor
+                    content={formData.content}
+                    onChange={(html) => setFormData((prev) => ({ ...prev, content: html }))}
+                    onUploadImage={handleEditorImageUpload}
                 />
-                <p className="text-xs text-stone-400">
-                    Content will be displayed with preserved line breaks
-                </p>
             </div>
 
             {/* Media URL */}

@@ -9,15 +9,12 @@ interface ContactClinicianFormProps {
 
 export function ContactClinicianForm({ onClose, clinicianEmail }: ContactClinicianFormProps) {
     useEffect(() => {
-        // Create script element
-        const script = document.createElement("script");
-        script.src = "//js.hsforms.net/forms/embed/v2.js";
-        script.charset = "utf-8";
-        script.type = "text/javascript";
+        const scriptSrc = "//js.hsforms.net/forms/embed/v2.js";
 
-        script.onload = () => {
-            // @ts-ignore - window.hbspt is not typed
+        const initializeForm = () => {
+            // @ts-ignore
             if (window.hbspt) {
+                console.log("DEBUG: hbspt found. Creating form...");
                 // @ts-ignore
                 window.hbspt.forms.create({
                     region: "na2",
@@ -25,41 +22,64 @@ export function ContactClinicianForm({ onClose, clinicianEmail }: ContactClinici
                     formId: "54e4bb6a-b0f0-4595-9506-cc483ba0b97a",
                     target: "#hs-contact-form-container",
                     onFormReady: function ($form: any) {
+                        console.log("DEBUG: onFormReady fired. Email:", clinicianEmail);
+
                         if (clinicianEmail) {
                             setTimeout(() => {
+                                console.log("DEBUG: Timeout fired. Searching for input...");
                                 const input = $form.find('input[name="work_title"]');
+                                console.log("DEBUG: Input found?", input.length > 0);
+
                                 if (input.length) {
                                     const domInput = input[0];
 
-                                    // 1. Set value
+                                    console.log("DEBUG: Injecting value...");
                                     input.val(clinicianEmail);
-
-                                    // 2. Dispatch native events for React/Framework tracking
                                     domInput.dispatchEvent(new Event('input', { bubbles: true }));
                                     domInput.dispatchEvent(new Event('change', { bubbles: true }));
-
-                                    // 3. Trigger jQuery change for legacy support
                                     input.trigger('change');
 
-                                    // 4. Hide UI
                                     input.hide();
                                     input.closest('.hs-form-field').hide();
+                                } else {
+                                    console.warn("DEBUG: Input 'work_title' NOT found in form.");
                                 }
-                            }, 200);
+                            }, 500);
+                        } else {
+                            console.warn("DEBUG: No clinicianEmail provided to inject.");
                         }
                     }
                 });
+            } else {
+                console.warn("DEBUG: hbspt global not found even after load.");
             }
         };
 
-        // Append to document body
-        document.body.appendChild(script);
+        // Check if script already exists
+        let script = document.querySelector(`script[src="${scriptSrc}"]`) as HTMLScriptElement;
 
-        // Cleanup: Remove script when component unmounts
-        return () => {
-            if (document.body.contains(script)) {
-                document.body.removeChild(script);
+        if (!script) {
+            console.log("DEBUG: Script not found, appending...");
+            script = document.createElement("script");
+            script.src = scriptSrc;
+            script.charset = "utf-8";
+            script.type = "text/javascript";
+            document.body.appendChild(script);
+        } else {
+            console.log("DEBUG: Script already exists.");
+        }
+
+        // Wait for script to actually execute and define window.hbspt
+        const interval = setInterval(() => {
+            // @ts-ignore
+            if (window.hbspt) {
+                clearInterval(interval);
+                initializeForm();
             }
+        }, 100);
+
+        return () => {
+            clearInterval(interval);
         };
     }, [clinicianEmail]);
 

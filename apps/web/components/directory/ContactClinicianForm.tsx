@@ -26,7 +26,7 @@ export function ContactClinicianForm({ onClose, clinicianEmail }: ContactClinici
                     target: "#hs-contact-form-container",
                     onFormReady: function ($form: any) {
                         if (clinicianEmail) {
-                            const input = $form.find('input[name="jobtitle"]');
+                            const input = $form.find('input[name="work_email"]');
                             if (input.length) {
                                 input.val(clinicianEmail).trigger("change").hide();
                                 // Also hide the label container if possible to make it cleaner

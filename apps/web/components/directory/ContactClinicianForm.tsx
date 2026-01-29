@@ -4,14 +4,39 @@ import { useEffect } from "react";
 
 interface ContactClinicianFormProps {
     onClose: () => void;
+    clinicianEmail: string | null;
 }
 
-export function ContactClinicianForm({ onClose }: ContactClinicianFormProps) {
+export function ContactClinicianForm({ onClose, clinicianEmail }: ContactClinicianFormProps) {
     useEffect(() => {
         // Create script element
         const script = document.createElement("script");
-        script.src = "https://js-na2.hsforms.net/forms/embed/243662289.js";
-        script.defer = true;
+        script.src = "//js.hsforms.net/forms/embed/v2.js";
+        script.charset = "utf-8";
+        script.type = "text/javascript";
+
+        script.onload = () => {
+            // @ts-ignore - window.hbspt is not typed
+            if (window.hbspt) {
+                // @ts-ignore
+                window.hbspt.forms.create({
+                    region: "na2",
+                    portalId: "243662289",
+                    formId: "54e4bb6a-b0f0-4595-9506-cc483ba0b97a",
+                    target: "#hs-contact-form-container",
+                    onFormReady: function ($form: any) {
+                        if (clinicianEmail) {
+                            const input = $form.find('input[name="jobtitle"]');
+                            if (input.length) {
+                                input.val(clinicianEmail).trigger("change").hide();
+                                // Also hide the label container if possible to make it cleaner
+                                input.closest('.hs-form-field').hide();
+                            }
+                        }
+                    }
+                });
+            }
+        };
 
         // Append to document body
         document.body.appendChild(script);
@@ -22,7 +47,7 @@ export function ContactClinicianForm({ onClose }: ContactClinicianFormProps) {
                 document.body.removeChild(script);
             }
         };
-    }, []);
+    }, [clinicianEmail]);
 
     return (
         <div className="relative w-full h-full bg-white p-6 overflow-y-auto">
@@ -47,12 +72,7 @@ export function ContactClinicianForm({ onClose }: ContactClinicianFormProps) {
                     <p className="text-xs text-stone-500">Fill out the form below to get in touch</p>
                 </div>
 
-                <div
-                    className="hs-form-frame w-full"
-                    data-region="na2"
-                    data-form-id="54e4bb6a-b0f0-4595-9506-cc483ba0b97a"
-                    data-portal-id="243662289"
-                ></div>
+                <div id="hs-contact-form-container" className="w-full"></div>
             </div>
         </div>
     );

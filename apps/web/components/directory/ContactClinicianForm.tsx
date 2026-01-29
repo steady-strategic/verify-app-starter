@@ -26,12 +26,26 @@ export function ContactClinicianForm({ onClose, clinicianEmail }: ContactClinici
                     target: "#hs-contact-form-container",
                     onFormReady: function ($form: any) {
                         if (clinicianEmail) {
-                            const input = $form.find('input[name="Clinician Email"]');
-                            if (input.length) {
-                                input.val(clinicianEmail).trigger("change").hide();
-                                // Also hide the label container if possible to make it cleaner
-                                input.closest('.hs-form-field').hide();
-                            }
+                            setTimeout(() => {
+                                const input = $form.find('input[name="work_title"]');
+                                if (input.length) {
+                                    const domInput = input[0];
+
+                                    // 1. Set value
+                                    input.val(clinicianEmail);
+
+                                    // 2. Dispatch native events for React/Framework tracking
+                                    domInput.dispatchEvent(new Event('input', { bubbles: true }));
+                                    domInput.dispatchEvent(new Event('change', { bubbles: true }));
+
+                                    // 3. Trigger jQuery change for legacy support
+                                    input.trigger('change');
+
+                                    // 4. Hide UI
+                                    input.hide();
+                                    input.closest('.hs-form-field').hide();
+                                }
+                            }, 200);
                         }
                     }
                 });

@@ -64,7 +64,7 @@ export function DirectoryClient({ initialClinicians }: DirectoryClientProps) {
             <Navbar scrolled={scrolled} />
 
             <main className="pt-32 pb-24">
-                <div className="container mx-auto px-6 max-w-6xl">
+                <div className="container mx-auto px-6 max-w-7xl">
                     <span className="inline-block px-3 py-1 bg-amber-100 text-amber-700 rounded-full text-[10px] uppercase tracking-widest font-bold mb-6">
                         Clinician Directory
                     </span>
@@ -112,10 +112,10 @@ export function DirectoryClient({ initialClinicians }: DirectoryClientProps) {
                         </h2>
 
                         {filteredClinicians.length > 0 ? (
-                            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            <div className="grid md:grid-cols-2 gap-6 justify-items-center">
                                 {filteredClinicians.map((clinician) => (
-                                    <div key={clinician.id} className="bg-white border border-stone-100 rounded-2xl hover:shadow-lg transition-all duration-300 flex flex-col overflow-hidden group">
-                                        <div className="relative h-64 bg-stone-100 overflow-hidden">
+                                    <div key={clinician.id} className="bg-white border border-stone-100 rounded-2xl hover:shadow-lg transition-all duration-300 flex flex-row overflow-hidden group w-full max-w-[592px] h-[309px]">
+                                        <div className="relative w-[220px] h-full bg-stone-100 overflow-hidden shrink-0">
                                             {clinician.image ? (
                                                 <img
                                                     src={clinician.image}
@@ -124,44 +124,44 @@ export function DirectoryClient({ initialClinicians }: DirectoryClientProps) {
                                                 />
                                             ) : (
                                                 <div className="w-full h-full flex items-center justify-center text-stone-300 bg-stone-50">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-20 w-20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                                                     </svg>
                                                 </div>
                                             )}
-                                            <div className="absolute top-4 right-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider text-amber-700 shadow-sm">
+                                            <div className="absolute top-4 left-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider text-amber-700 shadow-sm">
                                                 {clinician.title}
                                             </div>
                                         </div>
 
-                                        <div className="p-6 flex-1 flex flex-col">
-                                            <div className="mb-4">
-                                                <h3 className="text-xl font-serif font-bold text-stone-900 mb-1 group-hover:text-amber-700 transition-colors">
+                                        <div className="p-6 flex-1 flex flex-col min-w-0">
+                                            <div className="mb-3">
+                                                <h3 className="text-xl font-serif font-bold text-stone-900 mb-1 group-hover:text-amber-700 transition-colors truncate">
                                                     {clinician.firstName} {clinician.lastName}
                                                 </h3>
-                                                <p className="text-sm font-medium text-stone-500 flex items-center">
+                                                <p className="text-sm font-medium text-stone-500 flex items-center truncate">
                                                     <span className="mr-1">📍</span>
                                                     {clinician.city}, {clinician.state}
                                                 </p>
                                             </div>
 
                                             {clinician.specialties.length > 0 && (
-                                                <div className="flex flex-wrap gap-2 mb-6">
-                                                    {clinician.specialties.slice(0, 3).map((tag, idx) => (
-                                                        <span key={idx} className="px-2 py-1 bg-stone-100 text-stone-600 text-[10px] uppercase tracking-wider font-semibold rounded-md">
+                                                <div className="flex flex-wrap gap-2 mb-4 h-[26px] overflow-hidden">
+                                                    {clinician.specialties.slice(0, 2).map((tag, idx) => (
+                                                        <span key={idx} className="px-2 py-1 bg-stone-100 text-stone-600 text-[10px] uppercase tracking-wider font-semibold rounded-md whitespace-nowrap">
                                                             {tag}
                                                         </span>
                                                     ))}
-                                                    {clinician.specialties.length > 3 && (
-                                                        <span className="px-2 py-1 bg-stone-50 text-stone-400 text-[10px] uppercase tracking-wider font-semibold rounded-md">
-                                                            +{clinician.specialties.length - 3}
+                                                    {clinician.specialties.length > 2 && (
+                                                        <span className="px-2 py-1 bg-stone-50 text-stone-400 text-[10px] uppercase tracking-wider font-semibold rounded-md whitespace-nowrap">
+                                                            +{clinician.specialties.length - 2}
                                                         </span>
                                                     )}
                                                 </div>
                                             )}
 
                                             {clinician.bio && (
-                                                <p className="text-stone-600 text-sm mb-6 line-clamp-3">
+                                                <p className="text-stone-600 text-sm mb-4 line-clamp-3">
                                                     {clinician.bio}
                                                 </p>
                                             )}

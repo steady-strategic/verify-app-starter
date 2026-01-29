@@ -11,7 +11,7 @@ interface Clinician {
     title: string;
     city: string;
     state: string;
-    published: boolean;
+
 }
 
 interface ClinicianListProps {

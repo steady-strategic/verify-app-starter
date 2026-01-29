@@ -112,65 +112,89 @@ export function DirectoryClient({ initialClinicians }: DirectoryClientProps) {
                         </h2>
 
                         {filteredClinicians.length > 0 ? (
-                            filteredClinicians.map((clinician) => (
-                                <div key={clinician.id} className="p-6 bg-white border border-stone-100 rounded-lg hover:shadow-md transition-shadow">
-                                    <div className="flex flex-col md:flex-row md:items-start justify-between gap-4">
-                                        <div className="flex gap-4">
-                                            {clinician.image && (
+                            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                {filteredClinicians.map((clinician) => (
+                                    <div key={clinician.id} className="bg-white border border-stone-100 rounded-2xl hover:shadow-lg transition-all duration-300 flex flex-col overflow-hidden group">
+                                        <div className="relative h-64 bg-stone-100 overflow-hidden">
+                                            {clinician.image ? (
                                                 <img
                                                     src={clinician.image}
                                                     alt={`${clinician.firstName} ${clinician.lastName}`}
-                                                    className="w-20 h-20 rounded-full object-cover border border-stone-100 hidden md:block"
+                                                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                                                 />
-                                            )}
-                                            <div>
-                                                <h3 className="text-xl font-bold text-stone-900 mb-1">
-                                                    {clinician.firstName} {clinician.lastName}
-                                                </h3>
-                                                <p className="text-stone-600 font-medium mb-1">
-                                                    {clinician.title}
-                                                </p>
-                                                <p className="text-stone-500 text-sm mb-4">
-                                                    📍 {clinician.city}, {clinician.state} {clinician.zipCode}
-                                                </p>
-                                                <div className="flex flex-wrap gap-2">
-                                                    {clinician.specialties.map((specialty, idx) => (
-                                                        <span key={idx} className="px-3 py-1 bg-amber-100 text-amber-700 rounded-full text-xs font-semibold">
-                                                            {specialty}
-                                                        </span>
-                                                    ))}
+                                            ) : (
+                                                <div className="w-full h-full flex items-center justify-center text-stone-300 bg-stone-50">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-20 w-20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                                                    </svg>
                                                 </div>
+                                            )}
+                                            <div className="absolute top-4 right-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider text-amber-700 shadow-sm">
+                                                {clinician.title}
                                             </div>
                                         </div>
 
-                                        <div className="flex flex-col gap-2 min-w-[140px]">
-                                            {(clinician.website || clinician.email) && (
-                                                <a
-                                                    href={clinician.website || `mailto:${clinician.email}`}
-                                                    target={clinician.website ? "_blank" : undefined}
-                                                    rel="noopener noreferrer"
-                                                    className="px-4 py-2 bg-stone-900 text-white text-sm font-semibold rounded-full hover:bg-stone-800 transition-all active:scale-95 text-center"
-                                                >
-                                                    Contact
-                                                </a>
+                                        <div className="p-6 flex-1 flex flex-col">
+                                            <div className="mb-4">
+                                                <h3 className="text-xl font-serif font-bold text-stone-900 mb-1 group-hover:text-amber-700 transition-colors">
+                                                    {clinician.firstName} {clinician.lastName}
+                                                </h3>
+                                                <p className="text-sm font-medium text-stone-500 flex items-center">
+                                                    <span className="mr-1">📍</span>
+                                                    {clinician.city}, {clinician.state}
+                                                </p>
+                                            </div>
+
+                                            {clinician.specialties.length > 0 && (
+                                                <div className="flex flex-wrap gap-2 mb-6">
+                                                    {clinician.specialties.slice(0, 3).map((tag, idx) => (
+                                                        <span key={idx} className="px-2 py-1 bg-stone-100 text-stone-600 text-[10px] uppercase tracking-wider font-semibold rounded-md">
+                                                            {tag}
+                                                        </span>
+                                                    ))}
+                                                    {clinician.specialties.length > 3 && (
+                                                        <span className="px-2 py-1 bg-stone-50 text-stone-400 text-[10px] uppercase tracking-wider font-semibold rounded-md">
+                                                            +{clinician.specialties.length - 3}
+                                                        </span>
+                                                    )}
+                                                </div>
                                             )}
-                                            {clinician.phone && (
-                                                <p className="text-sm text-stone-500 text-center mt-1">
-                                                    {clinician.phone}
+
+                                            {clinician.bio && (
+                                                <p className="text-stone-600 text-sm mb-6 line-clamp-3">
+                                                    {clinician.bio}
                                                 </p>
                                             )}
+
+                                            <div className="mt-auto pt-4 border-t border-stone-100 flex items-center justify-between">
+                                                {(clinician.website || clinician.email) && (
+                                                    <a
+                                                        href={clinician.website || `mailto:${clinician.email}`}
+                                                        target={clinician.website ? "_blank" : undefined}
+                                                        rel="noopener noreferrer"
+                                                        className="text-stone-900 hover:text-amber-700 font-semibold text-sm flex items-center group/link transition-colors"
+                                                    >
+                                                        Contact
+                                                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1 group-hover/link:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                                        </svg>
+                                                    </a>
+                                                )}
+                                                {clinician.phone && (
+                                                    <span className="text-xs text-stone-400 font-mono">
+                                                        {clinician.phone}
+                                                    </span>
+                                                )}
+                                            </div>
                                         </div>
                                     </div>
-                                    {clinician.bio && (
-                                        <p className="mt-4 text-stone-600 text-sm border-t border-stone-50 pt-4">
-                                            {clinician.bio}
-                                        </p>
-                                    )}
-                                </div>
-                            ))
+                                ))}
+                            </div>
                         ) : (
-                            <div className="text-center py-12 bg-stone-50 rounded-lg border border-stone-100">
-                                <p className="text-stone-500">No clinicians found matching your search.</p>
+                            <div className="text-center py-20 bg-stone-50 rounded-2xl border border-stone-100 border-dashed">
+                                <div className="text-4xl mb-4 opacity-50">🔍</div>
+                                <h3 className="text-lg font-bold text-stone-900 mb-1">No clinicians found</h3>
+                                <p className="text-stone-500 text-sm">Try adjusting your search or filters.</p>
                             </div>
                         )}
                     </div>

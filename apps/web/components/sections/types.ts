@@ -46,7 +46,7 @@ export interface ContentSectionProps extends BaseSectionProps {
 
 // PageBanner section props
 export interface PageBannerSectionProps extends BaseSectionProps {
-    variant?: "default" | "more-institute" | "forClinicians" | "Research" | "researchBrain";
+    variant?: "default" | "more-institute" | "forClinicians" | "Research" | "researchBrain" | "directory";
     subtitle?: string; // Optional secondary heading for forClinicians and Research variants
     title: string;
     description: string[];  // Array of description paragraphs
@@ -54,7 +54,7 @@ export interface PageBannerSectionProps extends BaseSectionProps {
         src: string;
         alt: string;
     };
-    foregroundImage: {
+    foregroundImage?: {
         src: string;
         alt: string;
     };
@@ -274,4 +274,20 @@ export interface HomeAboutSectionProps extends BaseSectionProps {
         linkedin?: string;
         x?: string;
     };
+}
+
+// Clinician data structure
+export interface ClinicianData {
+    name: string;
+    phone: string;
+    trainingLevel: string;
+    city: string;
+    state: string;
+    contactUrl: string; // URL for the Contact button
+}
+
+// ClinicianCard section props
+export interface ClinicianCardSectionProps extends BaseSectionProps {
+    variant?: "default";
+    clinician: ClinicianData;
 }

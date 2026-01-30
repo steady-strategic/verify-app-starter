@@ -16,6 +16,7 @@ export const PageBanner: React.FC<PageBannerSectionProps> = ({
 }) => {
     // Variant: For Clinicians
     if (variant === "forClinicians") {
+        if (!foregroundImage) return null;
         return (
             <section id={id} className={`relative w-full max-w-[1440px] mx-auto h-[680px] overflow-hidden ${className}`}>
                 <div className="absolute inset-0 flex flex-col lg:flex-row">
@@ -135,6 +136,7 @@ export const PageBanner: React.FC<PageBannerSectionProps> = ({
 
     // Variant: Research
     if (variant === "Research") {
+        if (!foregroundImage) return null;
         return (
             <section
                 id={id}
@@ -224,6 +226,7 @@ export const PageBanner: React.FC<PageBannerSectionProps> = ({
 
     // Variant: researchBrain
     if (variant === "researchBrain") {
+        if (!foregroundImage) return null;
         return (
             <section
                 id={id}
@@ -311,6 +314,104 @@ export const PageBanner: React.FC<PageBannerSectionProps> = ({
         );
     }
 
+    // Variant: directory
+    if (variant === "directory") {
+        return (
+            <section
+                id={id}
+                className={`relative w-full max-w-[1440px] mx-auto h-[680px] overflow-hidden ${className}`}
+                style={{
+                    background: "linear-gradient(90deg, #7C3AED 0%, #1A0A2E 100%)",
+                }}
+            >
+                {/* Background Image Layer */}
+                <div className="absolute inset-0 z-0">
+                    <Image
+                        src={backgroundImage.src}
+                        alt={backgroundImage.alt}
+                        fill
+                        className="object-cover"
+                        priority
+                    />
+                </div>
+
+                {/* Content Container */}
+                <div className="relative z-10 w-full h-full flex items-center justify-center">
+                    <div className="w-full max-w-[469px] flex flex-col gap-16">
+                        {/* Title & Description */}
+                        <div className="flex flex-col gap-6 text-center">
+                            <h1
+                                className="text-white"
+                                style={{
+                                    fontFamily: "var(--font-inter), Inter, sans-serif",
+                                    fontSize: "50px",
+                                    fontWeight: 800,
+                                    letterSpacing: "-1px",
+                                    lineHeight: "55px",
+                                }}
+                            >
+                                {title}
+                            </h1>
+                            <div className="flex flex-col gap-4">
+                                {description.map((paragraph, index) => (
+                                    <p
+                                        key={index}
+                                        className="text-white"
+                                        style={{
+                                            fontFamily: "var(--font-inter), Inter, sans-serif",
+                                            fontSize: "18px",
+                                            fontWeight: 400,
+                                            lineHeight: "27px",
+                                        }}
+                                    >
+                                        {paragraph}
+                                    </p>
+                                ))}
+                            </div>
+                        </div>
+
+                        {/* Form */}
+                        <form className="flex w-full gap-[10px]">
+                            <div className="relative flex-1">
+                                <select
+                                    className="w-full h-[52px] pl-4 pr-10 bg-white rounded-lg appearance-none text-[#111928] font-sans text-[16px] focus:outline-none cursor-pointer"
+                                    defaultValue=""
+                                >
+                                    <option value="" disabled>California</option>
+                                    <option value="CA">California</option>
+                                    <option value="NY">New York</option>
+                                    <option value="TX">Texas</option>
+                                </select>
+                                <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none">
+                                    <Image
+                                        src="/assets/images/dropdown-icon.svg"
+                                        alt="Dropdown"
+                                        width={12}
+                                        height={12}
+                                    />
+                                </div>
+                            </div>
+
+                            <button
+                                type="button"
+                                className="flex items-center justify-center gap-2 h-[52px] bg-[#d80ada] rounded-lg hover:brightness-110 transition-all text-white font-sans font-bold text-[16px]"
+                                style={{ width: "127px" }}
+                            >
+                                <Image
+                                    src="/assets/images/search-icon.svg"
+                                    alt="Search"
+                                    width={16}
+                                    height={16}
+                                />
+                                Search
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        );
+    }
+
     return (
         <section
             className={`relative w-full max-w-[1440px] mx-auto h-[680px] overflow-hidden ${className}`}
@@ -368,15 +469,17 @@ export const PageBanner: React.FC<PageBannerSectionProps> = ({
                 </div>
 
                 {/* Right: Foreground Image */}
-                <div className="absolute right-20 top-1/2 -translate-y-1/2 w-[656px] h-[492px]">
-                    <Image
-                        src={foregroundImage.src}
-                        alt={foregroundImage.alt}
-                        fill
-                        className="object-cover rounded-3xl"
-                        priority
-                    />
-                </div>
+                {foregroundImage && (
+                    <div className="absolute right-20 top-1/2 -translate-y-1/2 w-[656px] h-[492px]">
+                        <Image
+                            src={foregroundImage.src}
+                            alt={foregroundImage.alt}
+                            fill
+                            className="object-cover rounded-3xl"
+                            priority
+                        />
+                    </div>
+                )}
             </div>
         </section>
     );

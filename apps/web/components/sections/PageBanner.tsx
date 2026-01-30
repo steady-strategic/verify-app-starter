@@ -37,7 +37,7 @@ export const PageBanner: React.FC<PageBannerSectionProps> = ({
                 <div className="relative z-10 container mx-auto h-full">
                     <div className="flex flex-col lg:flex-row h-full">
                         {/* Left: Content (50%) */}
-                        <div className="w-full lg:w-1/2 py-20 px-4 md:px-8 xl:pr-24 flex flex-col justify-center h-full">
+                        <div className="w-full lg:w-1/2 py-20 px-4 md:px-8 xl:pr-24 flex flex-col justify-left h-full">
                             {/* Heading */}
                             <h1 className="font-sans text-[46px] font-extrabold leading-[130%] tracking-[-0.92px] text-colors-gray-900 mb-2">
                                 <span className="text-primary-1">MORE</span> {title.replace("MORE ", "")}

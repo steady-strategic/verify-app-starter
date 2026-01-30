@@ -18,3 +18,4 @@ export { FAQ } from "./FAQ";
 export { HomeResearch } from "./HomeResearch";
 export { ContentDblStack } from "./ContentDblStack";
 export { HomeAboutSection } from "./HomeAboutSection";
+export { ClinicianCard } from "./ClinicianCard";

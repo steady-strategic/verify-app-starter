@@ -37,7 +37,7 @@ export const PageBanner: React.FC<PageBannerSectionProps> = ({
                 <div className="relative z-10 container mx-auto h-full">
                     <div className="flex flex-col lg:flex-row h-full">
                         {/* Left: Content (50%) */}
-                        <div className="w-full lg:w-1/2 py-20 px-4 md:px-8 xl:pr-24 flex flex-col justify-left h-full">
+                        <div className="w-full lg:w-1/2 py-20 px-4 md:px-8 xl:pr-24 flex flex-col justify-center h-full">
                             {/* Heading */}
                             <h1 className="font-sans text-[46px] font-extrabold leading-[130%] tracking-[-0.92px] text-colors-gray-900 mb-2">
                                 <span className="text-primary-1">MORE</span> {title.replace("MORE ", "")}
@@ -319,7 +319,7 @@ export const PageBanner: React.FC<PageBannerSectionProps> = ({
         return (
             <section
                 id={id}
-                className={`relative w-full max-w-[1440px] mx-auto h-[680px] overflow-hidden ${className}`}
+                className={`relative w-full max-w-[1440px] mx-auto h-[561px] overflow-hidden ${className}`}
                 style={{
                     background: "linear-gradient(90deg, #7C3AED 0%, #1A0A2E 100%)",
                 }}
@@ -336,10 +336,10 @@ export const PageBanner: React.FC<PageBannerSectionProps> = ({
                 </div>
 
                 {/* Content Container */}
-                <div className="relative z-10 w-full h-full flex items-center justify-center">
+                <div className="relative z-10 w-full h-full flex items-center px-10 md:px-20">
                     <div className="w-full max-w-[469px] flex flex-col gap-16">
                         {/* Title & Description */}
-                        <div className="flex flex-col gap-6 text-center">
+                        <div className="flex flex-col gap-6 text-left">
                             <h1
                                 className="text-white"
                                 style={{

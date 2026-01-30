@@ -3,9 +3,7 @@ description:
 ---
 
 IMPORTANT RULES
-1. Before starting this workflow, switch to the section-components-setup branch
-
-2. Run this workflow sequentially, for each link provided by the user.
+Run this workflow sequentially, for each link provided by the user.
 For example:
 - First link: run the workflow all the way through to completion
 - Second link: run the workflow again all the way to completion

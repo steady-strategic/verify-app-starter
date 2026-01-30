@@ -2,6 +2,7 @@
 
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { PageBanner } from "@/components/sections/PageBanner";
 import { useState, useEffect } from "react";
 
 interface Clinician {
@@ -63,20 +64,18 @@ export function DirectoryClient({ initialClinicians }: DirectoryClientProps) {
         <div className="min-h-screen text-stone-700 overflow-x-hidden selection:bg-amber-100 selection:text-amber-900">
             <Navbar scrolled={scrolled} />
 
-            <main className="pt-32 pb-24">
-                <div className="container mx-auto px-6 max-w-6xl">
-                    <span className="inline-block px-3 py-1 bg-amber-100 text-amber-700 rounded-full text-[10px] uppercase tracking-widest font-bold mb-6">
-                        Clinician Directory
-                    </span>
+            <main className="pt-20">
+                <PageBanner
+                    variant="directory"
+                    title="Find a Clinician"
+                    description={["Looking to receive MORE therapy? Find a certified clinician near you."]}
+                    backgroundImage={{
+                        src: "/assets/images/page-banner-directory-bg.png",
+                        alt: "Directory Background",
+                    }}
+                />
 
-                    <h1 className="text-5xl md:text-6xl font-bold text-stone-900 mb-6">
-                        Find a MORE Clinician
-                    </h1>
-
-                    <p className="text-xl text-stone-600 leading-relaxed mb-12">
-                        Connect with certified MORE practitioners in your area.
-                    </p>
-
+                <div className="container mx-auto px-6 max-w-6xl mt-12">
                     {/* Search Section */}
                     <div className="mb-12 p-8 bg-stone-50 rounded-lg border border-stone-100">
                         <h2 className="text-2xl font-bold text-stone-900 mb-4">

@@ -1,0 +1,243 @@
+# Figma-Locofy Complete Design Overhaul Plan
+
+## Decisions (Locked)
+
+| Decision | Answer |
+|----------|--------|
+| Global CSS | **Replace** `:root` entirely with new Locofy palette |
+| Layout components | **Include** Header/Footer in overhaul |
+| Content location | **Centralized** `content/pages/` folder |
+| from-figma folder | **Clear** and re-download fresh |
+
+---
+
+## Phases
+
+### Phase 0: Pre-Flight
+- Create backup branch `design-overhaul-backup`
+- Clear `from-figma/` folder
+- Export fresh Locofy designs from Figma
+
+### Phase 1: Teardown
+- Delete section components, test pages, assets
+- Reset [types.ts](file:///Users/taylormartyr/Documents/Steady%20Strategic/Clients/MORE/_development/MORE-website/apps/web/components/sections/types.ts), [index.ts](file:///Users/taylormartyr/Documents/Steady%20Strategic/Clients/MORE/_development/MORE-website/apps/web/components/sections/index.ts)
+- Stub page imports
+
+### Phase 2: Foundation Reset
+- Replace [globals.css](file:///Users/taylormartyr/Documents/Steady%20Strategic/Clients/MORE/_development/MORE-website/apps/web/app/globals.css) `:root` with new Locofy tokens
+- Simplify [tailwind.config.ts](file:///Users/taylormartyr/Documents/Steady%20Strategic/Clients/MORE/_development/MORE-website/apps/web/tailwind.config.ts)
+- Update Header/Footer components
+
+### Phase 3: Create Workflows (see below)
+
+### Phase 4: Reconstruction
+- Batch import all sections
+- Create content layer
+- Rebuild all pages
+
+### Phase 5: Verification
+- Build, lint, pixel-perfect checks
+
+---
+
+## Pages to Rebuild
+
+| Route | Status |
+|-------|--------|
+| `/` (home) | Rebuild |
+| `/how-it-works` | Rebuild |
+| `/clinicians` | Rebuild |
+| `/clinicians/certified` | Rebuild |
+| `/patients` | Rebuild |
+| `/contact` | Rebuild |
+| `/directory` | Rebuild |
+| `/blog` | Rebuild |
+| `/blog/[slug]` | Rebuild |
+| `/about` | Rebuild |
+| `/resources/research` | Rebuild |
+| `/resources/faq` | Rebuild |
+
+---
+
+## Batch Import Strategy
+
+### Workflow Architecture
+
+```
+/batch-import  (orchestrator)
+    ├── /import-new-section   (new component)
+    ├── /import-variant       (add variant)
+    └── /import-content-only  (content extraction)
+```
+
+### Batch Import Workflow: `/batch-import.md`
+
+```markdown
+---
+description: Batch import multiple Figma-Locofy sections in one run
+---
+
+// turbo-all
+
+USER INPUT FORMAT:
+Provide a list of imports in this format:
+
+[
+  { "type": "new", "name": "PageBanner", "folder": "PageBanner" },
+  { "type": "variant", "component": "PageBanner", "variant": "research", "folder": "PageBanner-Research" },
+  { "type": "content", "page": "home", "section": "hero", "folder": "HomeHero" }
+]
+
+EXECUTION:
+1. VALIDATE all folders exist in from-figma/
+2. SORT imports: new → variant → content
+3. FOR EACH import:
+   - new → run /import-new-section workflow
+   - variant → run /import-variant workflow  
+   - content → run /import-content-only workflow
+4. REPORT summary of all imports
+```
+
+---
+
+### Workflow 1: `/import-new-section.md`
+
+```markdown
+---
+description: Create new section component from Figma-Locofy export
+---
+
+// turbo-all
+
+INPUTS:
+- [section-name]: PascalCase component name
+- [locofy-folder]: Path relative to from-figma/
+
+STEPS:
+1. READ from-figma/[locofy-folder]/
+   - Parse design-tokens.json (colors, typography)
+   - List asset files (SVG, PNG)
+
+2. MAP colors to fixed palette
+   - #e704e7 → primary-1
+   - #1f2a37 → gray-900
+   - (use lookup table)
+
+3. CREATE component
+   - File: components/sections/[section-name].tsx
+   - Use Flowbite React primitives
+   - Tailwind classes from fixed palette only
+
+4. UPDATE types.ts
+   - Add [SectionName]SectionProps interface
+   - Extend BaseSectionProps
+   - Default variant = "default"
+
+5. EXPORT in index.ts
+
+6. COPY assets
+   - To: public/assets/images/[section-name]/
+   - Skip duplicates
+
+7. VERIFY
+   - pnpm build --filter=web
+```
+
+---
+
+### Workflow 2: `/import-variant.md`
+
+```markdown
+---
+description: Add variant to existing section component
+---
+
+// turbo-all
+
+INPUTS:
+- [component-name]: Existing component
+- [variant-name]: New variant identifier
+- [locofy-folder]: Locofy export folder
+
+STEPS:
+1. ANALYZE from-figma/[locofy-folder]/
+   - Diff against base component structure
+   - Identify layout/style changes
+
+2. UPDATE types.ts
+   - Add variant to union: `variant?: "default" | "[variant-name]"`
+
+3. UPDATE component
+   - Add conditional rendering block
+   - Extract shared logic to helpers
+
+4. COPY variant assets (if any)
+
+5. VERIFY build
+```
+
+---
+
+### Workflow 3: `/import-content-only.md`
+
+```markdown
+---
+description: Extract content for existing section (no code changes)
+---
+
+// turbo-all
+
+INPUTS:
+- [page-name]: Target page (e.g., "home")
+- [section-name]: Section to populate
+- [locofy-folder]: Content source
+
+STEPS:
+1. EXTRACT text/images from Locofy files
+
+2. CREATE/UPDATE content file
+   - File: content/pages/[page-name].ts
+   - Use content.sectionName.field pattern
+
+3. VERIFY types match section props
+```
+
+---
+
+## Color Mapping Table
+
+| Locofy Hex | Tailwind Token |
+|------------|----------------|
+| `#e704e7` | `primary-1` |
+| `#670b6c` | `primary-2` |
+| `#48d8fd` | `primary-3` |
+| `#ffb726` | `primary-4` |
+| `#1f2a37` | `gray-900` |
+| `#454a55` | `gray-700` / `paragraph` |
+| `#6b7280` | `gray-500` |
+| `#e5e7eb` | `gray-200` |
+| `#ffffff` | `white` |
+
+> **Rule**: Any color not in this table → flag for manual review, do NOT add to Tailwind config.
+
+---
+
+## File Structure After Overhaul
+
+```
+apps/web/
+├── components/
+│   ├── sections/          # Rebuilt from Locofy
+│   │   ├── types.ts
+│   │   ├── index.ts
+│   │   └── [Section].tsx
+│   ├── layout/            # Updated Header/Footer
+│   └── ui/                # Flowbite wrappers (preserved)
+├── content/
+│   └── pages/             # Centralized content
+│       ├── home.ts
+│       ├── clinicians.ts
+│       └── ...
+├── public/assets/images/  # Fresh assets organized by section
+└── app/globals.css        # New Locofy palette
+```

@@ -1,0 +1,36 @@
+/* Design Tokens for PageBanner-directory Component */
+
+:root {
+  /* Colors */
+  --color-primary: #d80ada; /* Button background */
+  --color-text-white: #ffffff;
+  --color-text-dark: #111928; /* Text in dropdown */
+  --color-text-secondary: #6f6f6f; /* Icon color */
+  
+  /* Typography */
+  --font-family-base: "Inter", sans-serif;
+  
+  --font-size-title: 50px;
+  --font-weight-title: 800;
+  --line-height-title: 55px;
+  --letter-spacing-title: -1px;
+  
+  --font-size-description: 18px;
+  --font-weight-description: 400;
+  --line-height-description: 27px;
+  
+  --font-size-label: 16px;
+  --font-weight-label: 400;
+  
+  --font-size-button: 16px;
+  --font-weight-button: 700;
+  
+  /* Spacing */
+  --gap-content: 64px;
+  --gap-section: 24px;
+  --gap-form: 10px;
+  --gap-button-content: 8px;
+  
+  /* Border Radius */
+  --border-radius-form: 8px;
+}

@@ -433,7 +433,7 @@ export const PageBanner: React.FC<PageBannerSectionProps> = ({
                 <div className="relative z-10 h-[426px] w-[571px] flex flex-col items-start text-left text-white font-sans">
                     <div className="self-stretch flex flex-col items-start gap-6 shrink-0">
                         <div className="self-stretch flex flex-col items-start">
-                            <h1 className="m-0 w-[563px] relative text-[50px] tracking-[-0.02em] leading-[110%] font-extrabold flex items-center">
+                            <h1 className="m-0 w-[563px] relative font-sans text-[46px] font-extrabold leading-[130%] tracking-[-0.92px] text-colors-gray-900 flex items-center">
                                 {title}
                             </h1>
                         </div>

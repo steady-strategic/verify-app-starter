@@ -48,6 +48,15 @@ export function ContactClinicianForm({ onClose, clinicianEmail }: ContactClinici
                         } else {
                             console.warn("DEBUG: No clinicianEmail provided to inject.");
                         }
+                    },
+                    onFormSubmit: function ($form: any) {
+                        console.log("DEBUG: onFormSubmit fired. Re-injecting email to sure...");
+                        if (clinicianEmail) {
+                            const input = $form.find('input[name="work_title"]');
+                            if (input.length) {
+                                input.val(clinicianEmail).trigger('change');
+                            }
+                        }
                     }
                 });
             } else {

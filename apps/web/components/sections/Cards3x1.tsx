@@ -19,7 +19,16 @@ const Feature: React.FC<{
                 src={iconSrc}
             />
             <div className="self-stretch flex flex-col items-start gap-2">
-                <h3 className="m-0 self-stretch relative text-[length:inherit] leading-[125%] font-bold font-inherit">
+                <h3
+                    className="m-0 self-stretch relative font-bold"
+                    style={{
+                        fontFamily: "var(--content-header-2-font-family)",
+                        fontSize: "var(--content-header-2-font-size)",
+                        fontWeight: "var(--content-header-2-font-weight)",
+                        letterSpacing: "var(--content-header-2-letter-spacing)",
+                        lineHeight: "var(--content-header-2-line-height)",
+                    }}
+                >
                     <span>MORE</span>
                     <span className="text-colors-gray-900"> Mindfulness</span>
                 </h3>
@@ -43,7 +52,16 @@ export const Cards3x1: React.FC<Cards3x1SectionProps> = ({
         >
             <div className="w-full max-w-[1280px] px-4 md:px-0 flex flex-col items-center gap-[92px]">
                 <div className="self-stretch flex flex-col items-center justify-center">
-                    <h3 className="m-0 max-w-[928px] relative text-[length:inherit] tracking-[-0.02em] leading-[125%] font-bold font-inherit inline-block">
+                    <h3
+                        className="m-0 max-w-[928px] relative text-[#d80ada] font-bold inline-block"
+                        style={{
+                            fontFamily: "var(--content-header-2-font-family)",
+                            fontSize: "var(--content-header-2-font-size)",
+                            fontWeight: "var(--content-header-2-font-weight)",
+                            letterSpacing: "var(--content-header-2-letter-spacing)",
+                            lineHeight: "var(--content-header-2-line-height)",
+                        }}
+                    >
                         <span>MORE</span>
                         <span className="text-colors-gray-700">
                             {" "}

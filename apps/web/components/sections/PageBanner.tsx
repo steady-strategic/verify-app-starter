@@ -416,7 +416,7 @@ export const PageBanner: React.FC<PageBannerSectionProps> = ({
         return (
             <section
                 id={id}
-                className={`relative w-full max-w-[1440px] mx-auto h-[680px] overflow-hidden flex items-center justify-between py-[70px] px-20 box-border gap-[20px] ${className}`}
+                className={`relative w-full h-[680px] overflow-hidden ${className}`}
             >
                 {/* Background Image Layer */}
                 <div className="absolute inset-0 z-0">
@@ -429,44 +429,47 @@ export const PageBanner: React.FC<PageBannerSectionProps> = ({
                     />
                 </div>
 
-                {/* Content Section */}
-                <div className="relative z-10 h-[426px] w-[571px] flex flex-col items-start text-left text-white font-sans">
-                    <div className="self-stretch flex flex-col items-start gap-6 shrink-0">
-                        <div className="self-stretch flex flex-col items-start">
-                            <h1 className="m-0 w-[563px] relative font-sans text-[46px] font-extrabold leading-[130%] tracking-[-0.92px] text-colors-gray-900 flex items-center">
-                                {title}
-                            </h1>
-                        </div>
-                        <div className="self-stretch relative inline-block text-[28px]">
-                            {subtitle && (
-                                <b className="tracking-[-0.02em] leading-[125%] block mb-4">
-                                    {subtitle}
-                                </b>
-                            )}
-                            <div className="text-lg leading-[150%]">
-                                {description.map((paragraph, index) => (
-                                    <p key={index} className="mb-4 last:mb-0">
-                                        {paragraph}
-                                    </p>
-                                ))}
+                {/* Content Container */}
+                <div className="relative z-10 w-full max-w-[1440px] mx-auto h-full flex items-center justify-between px-20 box-border gap-[20px]">
+                    {/* Content Section */}
+                    <div className="h-[426px] w-[571px] flex flex-col items-start text-left text-white font-sans">
+                        <div className="self-stretch flex flex-col items-start gap-6 shrink-0">
+                            <div className="self-stretch flex flex-col items-start">
+                                <h1 className="m-0 w-[563px] relative font-sans text-[46px] font-extrabold leading-[130%] tracking-[-0.92px] text-white flex items-center">
+                                    {title}
+                                </h1>
+                            </div>
+                            <div className="self-stretch relative inline-block text-[28px]">
+                                {subtitle && (
+                                    <b className="tracking-[-0.02em] leading-[125%] block mb-4">
+                                        {subtitle}
+                                    </b>
+                                )}
+                                <div className="text-lg leading-[150%]">
+                                    {description.map((paragraph, index) => (
+                                        <p key={index} className="mb-4 last:mb-0">
+                                            {paragraph}
+                                        </p>
+                                    ))}
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                {/* Foreground Image */}
-                {foregroundImage && (
-                    <div className="relative z-10">
-                        <Image
-                            className="h-[492px] w-[656px] object-cover"
-                            src={foregroundImage.src}
-                            alt={foregroundImage.alt}
-                            width={656}
-                            height={492}
-                            priority
-                        />
-                    </div>
-                )}
+                    {/* Foreground Image */}
+                    {foregroundImage && (
+                        <div className="relative z-10">
+                            <Image
+                                className="h-[492px] w-[656px] object-cover"
+                                src={foregroundImage.src}
+                                alt={foregroundImage.alt}
+                                width={656}
+                                height={492}
+                                priority
+                            />
+                        </div>
+                    )}
+                </div>
             </section>
         );
     }

@@ -291,3 +291,14 @@ export interface ClinicianCardSectionProps extends BaseSectionProps {
     variant?: "default";
     clinician: ClinicianData;
 }
+
+// Cards3x1 Feature item
+export interface Cards3x1Feature {
+    iconSrc: string;
+    body: string;
+}
+
+// Cards3x1 section props
+export interface Cards3x1SectionProps extends BaseSectionProps {
+    features: Cards3x1Feature[];
+}

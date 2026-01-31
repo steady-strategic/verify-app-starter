@@ -19,3 +19,4 @@ export { HomeResearch } from "./HomeResearch";
 export { ContentDblStack } from "./ContentDblStack";
 export { HomeAboutSection } from "./HomeAboutSection";
 export { ClinicianCard } from "./ClinicianCard";
+export { Cards3x1 } from "./Cards3x1";

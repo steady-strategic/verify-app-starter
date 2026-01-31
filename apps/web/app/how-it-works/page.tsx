@@ -3,9 +3,8 @@
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { PageBanner } from "@/components/sections/PageBanner";
-import { HowItWorks } from "@/components/sections/HowItWorks";
-import { Content } from "@/components/sections/Content";
-import { TextHowItWorks } from "@/components/sections/TextHowItWorks";
+import { Cards3x1 } from "@/components/sections/Cards3x1";
+
 
 export default function HowItWorksPage() {
     return (
@@ -31,165 +30,23 @@ export default function HowItWorksPage() {
                 id="how-it-works-banner"
             />
 
-            <HowItWorks
-                title={
-                    <>
-                        Over eight weekly sessions, <span style={{ color: "#D80ADA" }}>MORE</span> supports lasting change through a carefully designed, research‑validated three‑step process.
-                    </>
-                }
-                subtitle="Mindfulness"
-                steps={["Step 1", "Step 2", "Step 3"]}
-                cards={[
-                    {
-                        title: "Guided Meditation",
-                        iconSrc: "/assets/images/meditate3.svg",
-                        iconColor: "#F4F4F4",
-                    },
-                    {
-                        title: "Reappraisal",
-                        iconSrc: "/assets/images/reappraise3.svg",
-                        iconColor: "#F4F4F4",
-                    },
-                    {
-                        title: "Savoring",
-                        iconSrc: "/assets/images/heart3.svg",
-                        iconColor: "#F4F4F4",
-                    },
-                ]}
-                research="As your prefrontal cortex grows - your cravings decrease and your capacity for joy increases"
-                variant="default"
-                id="how-it-works-section"
-            />
-
-            <TextHowItWorks
-                variant="r1"
-                header={<><span style={{ color: "#D80ADA" }}>MORE</span> is a structured, rigorously-tested therapeutic protocol. Patients engage in mind-body training, delivered individually or in a group setting, to learn unique mindfulness, reappraisal, and savoring skills to strengthen recovery and generate well-being.</>}
+            <Cards3x1
                 features={[
                     {
-                        title: "Mindfulness",
-                        description: "A form of mental training focused on strengthening self-awareness and self-regulation to help people observe their thoughts, emotions, and sensations without being swept away by them. Through practice, patients learn to transform addictive habits, craving, and chronic pain by exercising neural networks involved in attention, emotion regulation, and pain processing.",
-                        iconSrc: "/assets/images/lotus-flower-white.svg",
-                        iconBgColor: "#E879F9",
+                        iconSrc: "/assets/images/cards-3x1/mindfulness.svg",
+                        body: "A form of mental training focused on strengthening self-awareness and self-regulation to help people observe their thoughts, emotions, and sensations without being swept away by them. Through practice, patients learn to transform addictive habits, craving, and chronic pain by exercising neural networks involved in attention, emotion regulation, and pain processing."
                     },
                     {
-                        title: "Reappraisal",
-                        description: "A cognitive strategy used to reframe distressing thoughts, negative core beliefs, or unhelpful interpretations of challenging life situations. Instead of suppressing or ignoring difficult emotions, patients learn to efficiently engage prefrontal brain resources to shift their perspective in ways that reduce suffering and create healthier patterns of behavior.",
-                        iconSrc: "/assets/images/lotus-flower-white.svg",
-                        iconBgColor: "#E879F9",
+                        iconSrc: "/assets/images/cards-3x1/reappraisal.svg",
+                        body: "A cognitive strategy integrating mindfulness used to reframe distressing thoughts, negative core beliefs, or unhelpful interpretations of challenging life situations. Instead of suppressing or ignoring difficult emotions, patients learn to efficiently engage prefrontal brain resources to shift their perspective in ways that reduce suffering and create healthier patterns of behavior."
                     },
                     {
-                        title: "Savoring",
-                        description: "A deliberate practice of amplifying positive emotions, reconnecting with natural rewards, and restoring the capacity to feel healthy pleasure, meaning, and joy. Because addiction, pain, depression, and trauma can disrupt the brain’s reward system, savoring helps heal this dysfunction by directing attention toward positive experiences and retraining the mind to appreciate life.",
-                        iconSrc: "/assets/images/lotus-flower-white.svg",
-                        iconBgColor: "#E879F9",
-                    },
+                        iconSrc: "/assets/images/cards-3x1/savoring.svg",
+                        body: "A deliberate midfulness practice of amplifying positive emotions, reconnecting with natural rewards, and restoring the capacity to feel healthy pleasure, meaning, and joy. Because addiction, pain, depression, and trauma can disrupt the brain’s reward system, savoring helps heal this dysfunction by directing attention toward positive experiences and retraining the mind to appreciate life."
+                    }
                 ]}
+                id="how-it-works-cards"
             />
-
-            {/* Content-HowItWorks Section */}
-            <div className="mb-24">
-                <Content
-                    variant="Content-HowItWorks"
-                    title="MORE isn't just about reducing symptoms"
-                    subtitle="it's about helping people flourish. Most mindfulness programs stop at awareness. MORE goes further, guiding patients to:"
-                    features={[
-                        { text: "Break free from unhealthy patterns with MINDFULNESS" },
-                        { text: "Reframe distressing thoughts and negative core beliefs" },
-                        { text: "Amplify positive emotions and reconnect with natural rewards" },
-                        { text: "Experience powerful and lasting change with just 8 weekly sessions" }
-                    ]}
-                    image={{
-                        src: "/assets/images/content-how-it-works.png",
-                        alt: "Mindfulness hero"
-                    }}
-                />
-            </div>
-
-            <main className="pb-24">
-                <div className="container mx-auto px-6 max-w-4xl">
-                    <h2 className="text-3xl font-bold text-stone-900 mb-4">
-                        The MORE Approach
-                    </h2>
-                    <p className="text-stone-600 leading-relaxed mb-8">
-                        MORE integrates three core therapeutic mechanisms to address addiction, chronic pain, and emotional distress.
-                    </p>
-
-                    {/* Three Pillars */}
-                    <div className="space-y-6 mb-12">
-                        <div className="p-6 bg-stone-50 rounded-lg border border-stone-100">
-                            <div className="flex items-start space-x-4">
-                                <div className="w-12 h-12 rounded-full bg-amber-100 flex items-center justify-center flex-shrink-0">
-                                    <span className="text-2xl font-bold text-amber-700">1</span>
-                                </div>
-                                <div>
-                                    <h3 className="text-xl font-bold text-stone-900 mb-2">
-                                        Mindfulness
-                                    </h3>
-                                    <p className="text-stone-600">
-                                        Learn to observe thoughts, sensations, and emotions without judgment, creating space between stimulus and response.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="p-6 bg-stone-50 rounded-lg border border-stone-100">
-                            <div className="flex items-start space-x-4">
-                                <div className="w-12 h-12 rounded-full bg-amber-100 flex items-center justify-center flex-shrink-0">
-                                    <span className="text-2xl font-bold text-amber-700">2</span>
-                                </div>
-                                <div>
-                                    <h3 className="text-xl font-bold text-stone-900 mb-2">
-                                        Reappraisal
-                                    </h3>
-                                    <p className="text-stone-600">
-                                        Develop new perspectives on challenging experiences, transforming how you relate to pain and cravings.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="p-6 bg-stone-50 rounded-lg border border-stone-100">
-                            <div className="flex items-start space-x-4">
-                                <div className="w-12 h-12 rounded-full bg-amber-100 flex items-center justify-center flex-shrink-0">
-                                    <span className="text-2xl font-bold text-amber-700">3</span>
-                                </div>
-                                <div>
-                                    <h3 className="text-xl font-bold text-stone-900 mb-2">
-                                        Savoring
-                                    </h3>
-                                    <p className="text-stone-600">
-                                        Rediscover natural sources of pleasure and meaning, enhancing positive emotions and life satisfaction.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-
-                    <h2 className="text-3xl font-bold text-stone-900 mb-4 mt-12">
-                        The Treatment Process
-                    </h2>
-                    <p className="text-stone-600 leading-relaxed mb-6">
-                        MORE is typically delivered in 8-week group sessions or individual therapy format, with each session building on core skills.
-                    </p>
-
-                    <div className="mt-12 p-8 bg-amber-50 rounded-lg border border-amber-100">
-                        <h3 className="text-2xl font-bold text-stone-900 mb-4">
-                            Learn More
-                        </h3>
-                        <p className="text-stone-600 mb-6">
-                            Explore our research library to dive deeper into the evidence supporting MORE therapy.
-                        </p>
-                        <a
-                            href="/resources/research"
-                            className="inline-block px-6 py-3 bg-stone-900 text-white font-semibold rounded-full hover:bg-stone-800 transition-all active:scale-95"
-                        >
-                            View Research
-                        </a>
-                    </div>
-                </div>
-            </main>
 
             <Footer />
         </div>

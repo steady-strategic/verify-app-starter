@@ -363,9 +363,9 @@ export const PageBanner: React.FC<PageBannerSectionProps> = ({
         return (
             <section
                 id={id}
-                className={`relative w-full max-w-[1440px] mx-auto overflow-hidden ${className}`}
+                className={`relative w-full max-w-[1440px] mx-auto h-[680px] overflow-hidden ${className}`}
                 style={{
-                    height: "720px", // Approximate height based on Content + Padding, or auto if preferred, but keeping explicit height for hero consistency often good. The reference doesn't specify section height, only content. Let's use auto or a min-height. I'll stick to a reasonable hero height or auto. Let's try to match the "hero" feel. Existing variants are 680px.
+                    background: "linear-gradient(90deg, #7C3AED 0%, #1A0A2E 100%)",
                 }}
             >
                 {/* Background Image Layer */}
@@ -380,26 +380,27 @@ export const PageBanner: React.FC<PageBannerSectionProps> = ({
                 </div>
 
                 {/* Content Container */}
-                <div className="relative z-10 w-full h-full flex items-center px-4 md:px-20 py-20">
-                    <div className="flex flex-col gap-[64px] w-full max-w-[768px]">
+                <div className="relative z-10 w-full h-full flex items-center justify-center">
+                    <div className="w-full max-w-[469px] flex flex-col gap-16">
                         {/* Title & Description */}
-                        <div className="flex flex-col gap-[24px]">
+                        <div className="flex flex-col gap-6 text-center">
                             <h1
-                                className="text-white font-sans"
+                                className="text-white"
                                 style={{
                                     fontFamily: "var(--font-inter), Inter, sans-serif",
                                     fontSize: "50px",
                                     fontWeight: 800,
-                                    lineHeight: "55px",
                                     letterSpacing: "-1px",
+                                    lineHeight: "55px",
                                 }}
                             >
                                 {title}
                             </h1>
-                            <div className="text-white font-sans">
+                            <div className="flex flex-col gap-4">
                                 {description.map((paragraph, index) => (
                                     <p
                                         key={index}
+                                        className="text-white"
                                         style={{
                                             fontFamily: "var(--font-inter), Inter, sans-serif",
                                             fontSize: "18px",
@@ -413,39 +414,32 @@ export const PageBanner: React.FC<PageBannerSectionProps> = ({
                             </div>
                         </div>
 
-                        {/* Form Section */}
-                        <div className="flex gap-[10px] bg-white rounded-[8px] w-fit p-[10px] items-center h-[72px]">
-                            {/* Dropdown Input */}
-                            <div className="relative flex items-center gap-[10px] px-4 w-[252px]">
+                        {/* Form */}
+                        <form className="flex w-full gap-[10px]">
+                            <div className="relative flex-1">
                                 <select
-                                    className="w-full bg-transparent appearance-none text-[#111928] font-sans text-[16px] focus:outline-none cursor-pointer"
+                                    className="w-full h-[52px] pl-4 pr-10 bg-white rounded-lg appearance-none text-[#111928] font-sans text-[16px] focus:outline-none cursor-pointer"
                                     defaultValue=""
-                                    style={{ fontFamily: "var(--font-inter), Inter, sans-serif" }}
                                 >
                                     <option value="" disabled>California</option>
                                     <option value="CA">California</option>
                                     <option value="NY">New York</option>
                                     <option value="TX">Texas</option>
                                 </select>
-                                <div className="absolute right-4 pointer-events-none">
+                                <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none">
                                     <Image
-                                        src="/assets/images/dropdown-chevron.svg"
+                                        src="/assets/images/dropdown-icon.svg"
                                         alt="Dropdown"
-                                        width={18}
+                                        width={12}
                                         height={12}
                                     />
                                 </div>
                             </div>
 
-                            {/* Search Button */}
                             <button
                                 type="button"
-                                className="flex gap-[8px] items-center justify-center bg-[#d80ada] rounded-[8px] hover:brightness-110 transition-all text-white font-sans font-bold text-[16px]"
-                                style={{
-                                    width: "127px",
-                                    height: "52px",
-                                    fontFamily: "var(--font-inter), Inter, sans-serif"
-                                }}
+                                className="flex items-center justify-center gap-2 h-[52px] bg-[#d80ada] rounded-lg hover:brightness-110 transition-all text-white font-sans font-bold text-[16px]"
+                                style={{ width: "127px" }}
                             >
                                 <Image
                                     src="/assets/images/search-icon.svg"
@@ -455,7 +449,7 @@ export const PageBanner: React.FC<PageBannerSectionProps> = ({
                                 />
                                 Search
                             </button>
-                        </div>
+                        </form>
                     </div>
                 </div>
             </section>

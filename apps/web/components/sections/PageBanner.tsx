@@ -411,6 +411,66 @@ export const PageBanner: React.FC<PageBannerSectionProps> = ({
             </section>
         );
     }
+    // Variant: how-it-works
+    if (variant === "how-it-works") {
+        return (
+            <section
+                id={id}
+                className={`relative w-full max-w-[1440px] mx-auto h-[680px] overflow-hidden flex items-center justify-between py-[70px] px-20 box-border gap-[20px] ${className}`}
+            >
+                {/* Background Image Layer */}
+                <div className="absolute inset-0 z-0">
+                    <Image
+                        src={backgroundImage.src}
+                        alt={backgroundImage.alt}
+                        fill
+                        className="object-cover object-top"
+                        priority
+                    />
+                </div>
+
+                {/* Content Section */}
+                <div className="relative z-10 h-[426px] w-[571px] flex flex-col items-start text-left text-white font-sans">
+                    <div className="self-stretch flex flex-col items-start gap-6 shrink-0">
+                        <div className="self-stretch flex flex-col items-start">
+                            <h1 className="m-0 w-[563px] relative text-[50px] tracking-[-0.02em] leading-[110%] font-extrabold flex items-center">
+                                {title}
+                            </h1>
+                        </div>
+                        <div className="self-stretch relative inline-block text-[28px]">
+                            {subtitle && (
+                                <b className="tracking-[-0.02em] leading-[125%] block mb-4">
+                                    {subtitle}
+                                </b>
+                            )}
+                            <div className="text-lg leading-[150%]">
+                                {description.map((paragraph, index) => (
+                                    <p key={index} className="mb-4 last:mb-0">
+                                        {paragraph}
+                                    </p>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Foreground Image */}
+                {foregroundImage && (
+                    <div className="relative z-10">
+                        <Image
+                            className="h-[492px] w-[656px] object-cover"
+                            src={foregroundImage.src}
+                            alt={foregroundImage.alt}
+                            width={656}
+                            height={492}
+                            priority
+                        />
+                    </div>
+                )}
+            </section>
+        );
+    }
+
 
     return (
         <section

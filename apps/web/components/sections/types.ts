@@ -46,7 +46,7 @@ export interface ContentSectionProps extends BaseSectionProps {
 
 // PageBanner section props
 export interface PageBannerSectionProps extends BaseSectionProps {
-    variant?: "default" | "more-institute" | "forClinicians" | "Research" | "researchBrain" | "directory";
+    variant?: "default" | "more-institute" | "forClinicians" | "Research" | "researchBrain" | "directory" | "how-it-works";
     subtitle?: string; // Optional secondary heading for forClinicians and Research variants
     title: string;
     description: string[];  // Array of description paragraphs

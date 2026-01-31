@@ -13,20 +13,21 @@ export default function HowItWorksPage() {
             <Navbar scrolled={true} />
 
             <PageBanner
-                title="How It Works"
+                title="How it Works"
+                subtitle="Mindfulness-Oriented Recovery Enhancement"
                 description={[
-                    "Understanding the science and practice behind Mindfulness-Oriented Recovery Enhancement.",
-                    "Discover how MORE integrates mindfulness, reappraisal, and savoring to address addiction, chronic pain, and emotional distress."
+                    "An evidence‑based, neuroscience‑informed therapy—backed by more than 16 clinical trials and over $90 million in federal research—that unites innovative mindfulness, reappraisal, and savoring techniques into a powerful, sequenced mind‑body approach.",
+                    "Hailed as one of the biggest breakthroughs in psychotherapy in the past 30 years, MORE has the strongest evidence base of any therapy for co-occurring addiction, chronic pain, and emotional distress."
                 ]}
                 backgroundImage={{
-                    src: "/assets/images/photo-1710166755608-58b3d62db3a81.svg",
+                    src: "/assets/images/page-banner/bg-how-it-works.png",
                     alt: "Background pattern"
                 }}
                 foregroundImage={{
-                    src: "/assets/images/brain-image.jpg",
+                    src: "/assets/images/page-banner/right-how-it-works.png",
                     alt: "How It Works Process Illustration"
                 }}
-                variant="default"
+                variant="how-it-works"
                 id="how-it-works-banner"
             />
 

@@ -1,22 +1,6 @@
+// Section components export
 export * from "./types";
-export { SectionWrapper } from "./SectionWrapper";
-export { Cards } from "./Cards";
-export { Content } from "./Content";
-export { PageBanner } from "./PageBanner";
-export { Video } from "./Video";
-export { HowItWorks } from "./HowItWorks";
-export { DownloadApp } from "./DownloadApp";
-
-export { TextHowItWorks } from "./TextHowItWorks";
-export { BlogHero } from "./BlogHero";
-export { BlogFeed } from "./BlogFeed";
-export { ContactHero } from "./ContactHero";
-export { FAQ } from "./FAQ";
-
-
-
-export { HomeResearch } from "./HomeResearch";
-export { ContentDblStack } from "./ContentDblStack";
-export { HomeAboutSection } from "./HomeAboutSection";
-export { ClinicianCard } from "./ClinicianCard";
-export { Cards3x1 } from "./Cards3x1";
+export * from "./PageBanner";
+export * from "./Cards";
+export * from "./Content";
+export * from "./KnowMore";

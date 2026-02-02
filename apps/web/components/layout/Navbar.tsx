@@ -9,6 +9,7 @@ import { useSession } from "next-auth/react";
 interface NavbarProps {
     scrolled?: boolean;
     variant?: "light" | "dark";
+    transparent?: boolean;
 }
 
 interface DropdownItem {
@@ -92,7 +93,7 @@ const DropdownMenu: React.FC<{
     );
 };
 
-export const Navbar: React.FC<NavbarProps> = ({ scrolled = false, variant = "light" }) => {
+export const Navbar: React.FC<NavbarProps> = ({ scrolled = false, variant = "light", transparent = true }) => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const pathname = usePathname();
     const { data: session, status } = useSession();
@@ -122,7 +123,9 @@ export const Navbar: React.FC<NavbarProps> = ({ scrolled = false, variant = "lig
                 ? variant === "dark"
                     ? "py-4 bg-black/40 backdrop-blur-md shadow-sm border-b border-white/10"
                     : "py-4 glass shadow-sm border-b border-stone-100"
-                : "py-8 bg-transparent"
+                : transparent
+                    ? "py-8 bg-transparent"
+                    : "py-6 bg-white shadow-sm border-b border-stone-100"
                 }`}
         >
             <div className="container mx-auto px-6">
@@ -130,7 +133,7 @@ export const Navbar: React.FC<NavbarProps> = ({ scrolled = false, variant = "lig
                     {/* Logo - Left */}
                     <Link href="/" className="flex items-center focus:outline-none justify-self-start">
                         <Image
-                            src={variant === "dark" ? "/assets/images/LOGO_white.svg" : "/assets/images/LOGO_Magenta_1.svg"}
+                            src={variant === "dark" ? "/assets/images/LOGO_white.svg" : "/assets/logos/Logo_Primary_1.svg"}
                             alt="MORE Logo"
                             width={100}
                             height={35}

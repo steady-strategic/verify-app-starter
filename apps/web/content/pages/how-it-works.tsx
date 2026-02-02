@@ -24,7 +24,7 @@ export const howItWorksContent = {
     cards: {
         title: (
             <span>
-                MORE <span className="text-gray-700">is a structured, rigorously-tested therapeutic protocol. Patients engage in mind-body training, delivered individually or in a group setting, to learn unique mindfulness, reappraisal, and savoring skills to strengthen recovery and generate well-being.</span>
+                <span className="text-primary-1">MORE</span> <span className="text-gray-700">is a structured, rigorously-tested therapeutic protocol. Patients engage in mind-body training, delivered individually or in a group setting, to learn unique mindfulness, reappraisal, and savoring skills to strengthen recovery and generate well-being.</span>
             </span>
         ),
         items: [

@@ -66,7 +66,7 @@ export const Cards = ({
         >
             <section className="w-full max-w-screen-xl flex flex-col items-center gap-12 lg:gap-[92px] text-center text-3xl font-sans">
                 <div className="self-stretch flex flex-col items-center justify-center">
-                    <h3 className="m-0 max-w-4xl relative text-inherit tracking-tight leading-[1.25] font-serif font-bold inline-block">
+                    <h3 className="m-0 max-w-4xl relative text-inherit tracking-tight leading-[1.25] font-sans font-bold inline-block">
                         {title}
                     </h3>
                 </div>
@@ -81,7 +81,7 @@ export const Cards = ({
                                 src={item.icon.src}
                             />
                             <div className="self-stretch flex flex-col items-start gap-2">
-                                <h3 className="m-0 self-stretch relative text-inherit leading-[1.25] font-serif font-bold">
+                                <h3 className="m-0 self-stretch relative text-inherit leading-[1.25] font-sans font-bold">
                                     {item.title}
                                 </h3>
                                 <div className="self-stretch relative text-lg leading-[1.5] text-gray-900">

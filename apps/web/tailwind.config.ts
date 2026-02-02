@@ -26,7 +26,6 @@ const config: Config = {
             },
             fontFamily: {
                 sans: ["Inter", "sans-serif"],
-                serif: ["Playfair Display", "serif"],
             },
             spacing: {
                 // Common fixed spacings if needed, or rely on arbitrary values for pixel perfection

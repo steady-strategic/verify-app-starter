@@ -21,7 +21,7 @@ export const KnowMore: React.FC<KnowMoreSectionProps> = ({
             />
             <div className="w-full md:w-[534px] flex flex-col items-start gap-8 z-10 relative">
                 <div className="flex flex-col gap-2">
-                    <h2 className="text-[50px] font-serif font-extrabold tracking-[-0.02em] leading-[110%] m-0">
+                    <h2 className="text-[50px] font-sans font-extrabold tracking-[-0.02em] leading-[110%] m-0">
                         {title}
                     </h2>
                     <p className="text-[28px] font-bold tracking-[-0.02em] leading-[125%] m-0">

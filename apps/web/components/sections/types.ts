@@ -30,6 +30,7 @@ export interface CardsSectionProps extends BaseSectionProps {
             src: string;
             alt: string;
         };
+        title: React.ReactNode;
         description: string;
     }[];
 }

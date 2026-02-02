@@ -33,7 +33,7 @@ export const Content: React.FC<ContentSectionProps> = ({
 
             <section className="w-full md:w-[606px] flex flex-col items-start gap-8 md:gap-[73px] text-left text-gray-900 font-sans">
                 <div className="flex flex-col gap-4">
-                    <h2 className="text-[28px] md:text-[32px] font-bold tracking-[-0.02em] leading-[125%] m-0">
+                    <h2 className="text-[28px] md:text-[32px] font-serif font-bold tracking-[-0.02em] leading-[125%] m-0">
                         {title}
                     </h2>
                     {subtitle && (

@@ -1,6 +1,6 @@
-import type { 
-    PageBannerSectionProps, 
-    CardsSectionProps, 
+import type {
+    PageBannerSectionProps,
+    CardsSectionProps,
     ContentSectionProps,
     KnowMoreSectionProps
 } from "@/components/sections/types";
@@ -30,14 +30,32 @@ export const howItWorksContent = {
         items: [
             {
                 icon: { src: "/assets/images/Cards/mindfulness.svg", alt: "Mindfulness" },
+                title: (
+                    <>
+                        <span className="text-primary-1">MORE</span>
+                        <span className="text-gray-900"> Mindfulness</span>
+                    </>
+                ),
                 description: "A form of mental training focused on strengthening self-awareness and self-regulation to help people observe their thoughts, emotions, and sensations without being swept away by them. Through practice, patients learn to transform addictive habits, craving, and chronic pain by exercising neural networks involved in attention, emotion regulation, and pain processing."
             },
             {
                 icon: { src: "/assets/images/Cards/reappraisal.svg", alt: "Reappraisal" },
+                title: (
+                    <>
+                        <span className="text-primary-1">MORE</span>
+                        <span className="text-gray-900"> Reappraisal</span>
+                    </>
+                ),
                 description: "A cognitive strategy integrating mindfulness used to reframe distressing thoughts, negative core beliefs, or unhelpful interpretations of challenging life situations. Instead of suppressing or ignoring difficult emotions, patients learn to efficiently engage prefrontal brain resources to shift their perspective in ways that reduce suffering and create healthier patterns of behavior."
             },
             {
                 icon: { src: "/assets/images/Cards/savoring.svg", alt: "Savoring" },
+                title: (
+                    <>
+                        <span className="text-primary-1">MORE</span>
+                        <span className="text-gray-900"> Savoring</span>
+                    </>
+                ),
                 description: "A deliberate mindfulness practice of amplifying positive emotions, reconnecting with natural rewards, and restoring the capacity to feel healthy pleasure, meaning, and joy. Because addiction, pain, depression, and trauma can disrupt the brain’s reward system, savoring helps heal this dysfunction by directing attention toward positive experiences and retraining the mind to appreciate life."
             }
         ]

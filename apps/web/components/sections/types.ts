@@ -9,7 +9,7 @@ export interface BaseSectionProps {
 
 export interface PageBannerSectionProps extends BaseSectionProps {
     variant?: "default" | "how-it-works" | "research" | "clinicians" | "directory";
-    title: string;
+    title: React.ReactNode;
     subtitle?: React.ReactNode;
     description: React.ReactNode;
     backgroundImage: {
@@ -37,8 +37,8 @@ export interface CardsSectionProps extends BaseSectionProps {
 
 
 export interface ContentSectionProps extends BaseSectionProps {
-    variant?: "default" | "swap" | "split";
-    title: string;
+    variant?: "default" | "swap" | "split" | "simple";
+    title: React.ReactNode;
     subtitle?: string;
     items: string[];
     image: {

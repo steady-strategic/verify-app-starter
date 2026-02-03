@@ -15,11 +15,14 @@ export const Content: React.FC<ContentSectionProps> = ({
     subtitle,
     items,
     image,
-    cta
+    cta,
+    variant
 }) => {
+    const isSimpleVariant = variant === "simple";
+
     return (
         <div
-            className={`w-full max-w-[1440px] mx-auto bg-white overflow-hidden flex flex-col md:flex-row items-center justify-between py-24 px-6 md:px-20 gap-12 ${className}`}
+            className={`w-full max-w-[1440px] mx-auto bg-white overflow-hidden flex flex-col md:flex-row ${isSimpleVariant ? 'md:flex-row-reverse' : ''} items-center justify-between py-24 px-6 md:px-20 gap-12 ${className}`}
         >
             <div className="w-full md:w-[610px] relative h-[400px] md:h-[530px] shrink-0">
                 <Image
@@ -33,7 +36,7 @@ export const Content: React.FC<ContentSectionProps> = ({
 
             <section className="w-full md:w-[606px] flex flex-col items-start gap-8 text-left text-gray-900 font-sans">
                 <div className="flex flex-col gap-4">
-                    <h2 className="text-[28px] md:text-[32px] font-sans font-bold tracking-[-0.02em] leading-[125%] m-0">
+                    <h2 className={`text-[28px] md:text-[32px] font-sans font-bold tracking-[-0.02em] leading-[125%] m-0 ${isSimpleVariant ? 'text-primary-1' : ''}`}>
                         {title}
                     </h2>
                     {subtitle && (
@@ -44,7 +47,7 @@ export const Content: React.FC<ContentSectionProps> = ({
                 </div>
 
                 <div className="w-full border-t border-gray-200">
-                    <ul className="flex flex-col gap-6">
+                    <ul className="flex flex-col gap-6 mt-8">
                         {items.map((item, index) => (
                             <li key={index} className="flex gap-4 items-start text-lg leading-[150%]">
                                 <span className="shrink-0 mt-1"><CheckIcon /></span>
@@ -65,6 +68,6 @@ export const Content: React.FC<ContentSectionProps> = ({
                     </Link>
                 )}
             </section>
-        </div>
+        </div >
     );
 };

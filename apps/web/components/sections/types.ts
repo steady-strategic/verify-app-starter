@@ -55,12 +55,8 @@ export interface Cards2x3SectionProps extends BaseSectionProps {
     title: React.ReactNode;
     subtitle: React.ReactNode;
     items: {
-        icon: {
-            src: string;
-            alt: string;
-        };
         title: string;
-        description: string; // The "name1" prop seems to be the description/body
+        body: string;
     }[];
     cta?: {
         text: string;

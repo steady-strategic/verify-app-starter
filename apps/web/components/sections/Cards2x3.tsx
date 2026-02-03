@@ -35,21 +35,12 @@ export const Cards2x3: React.FC<Cards2x3SectionProps> = ({
 
                         return (
                             <div key={index} className={`flex flex-col items-start p-8 md:p-12 gap-6 ${borderClass}`}>
-                                <div className="w-[88px] h-[88px] relative flex shadow-[0px_10px_30px_rgba(216,_10,_218,_0.2)] rounded-full items-center justify-center bg-white border border-gray-100">
-                                    <Image
-                                        src={item.icon.src}
-                                        alt={item.icon.alt}
-                                        width={48}
-                                        height={48}
-                                        className="object-contain"
-                                    />
-                                </div>
                                 <div className="flex flex-col gap-3 text-left">
                                     <h4 className="text-xl font-bold font-sans text-gray-900 leading-[125%]">
                                         {item.title}
                                     </h4>
                                     <p className="text-base text-gray-700 leading-[150%]">
-                                        {item.description}
+                                        {item.body}
                                     </p>
                                 </div>
                             </div>

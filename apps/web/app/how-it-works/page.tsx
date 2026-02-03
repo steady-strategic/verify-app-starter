@@ -1,6 +1,6 @@
 "use client";
 
-import { PageBanner, Cards, Content, KnowMore } from "@/components/sections";
+import { PageBanner, Cards } from "@/components/sections";
 import { howItWorksContent } from "@/content/pages/how-it-works";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
@@ -12,8 +12,6 @@ export default function HowItWorksPage() {
             <main className="pt-24">
                 <PageBanner {...howItWorksContent.pageBanner} />
                 <Cards {...howItWorksContent.cards} />
-                <Content {...howItWorksContent.content} />
-                <KnowMore {...howItWorksContent.knowMore} />
             </main>
             <Footer />
         </div>

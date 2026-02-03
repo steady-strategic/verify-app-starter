@@ -35,30 +35,4 @@ export interface CardsSectionProps extends BaseSectionProps {
     }[];
 }
 
-export interface ContentSectionProps extends BaseSectionProps {
-    variant?: "default" | "swap" | "split";
-    title: string;
-    subtitle?: string;
-    items: string[];
-    image: {
-        src: string;
-        alt: string;
-    };
-    cta?: {
-        text: string;
-        href: string;
-    }
-}
 
-export interface KnowMoreSectionProps extends BaseSectionProps {
-    title: React.ReactNode;
-    subtitle: string;
-    cta: {
-        text: string;
-        href: string;
-    };
-    backgroundImage: {
-        src: string;
-        alt: string;
-    };
-}

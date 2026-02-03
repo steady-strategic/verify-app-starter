@@ -45,10 +45,27 @@ export interface ContentSectionProps extends BaseSectionProps {
         src: string;
         alt: string;
     };
-    cta?: {
+    cta: {
         text: string;
         href: string;
     }
+}
+
+export interface Cards2x3SectionProps extends BaseSectionProps {
+    title: React.ReactNode;
+    subtitle: React.ReactNode;
+    items: {
+        icon: {
+            src: string;
+            alt: string;
+        };
+        title: string;
+        description: string; // The "name1" prop seems to be the description/body
+    }[];
+    cta?: {
+        text: string;
+        href: string;
+    };
 }
 
 export interface KnowMoreSectionProps extends BaseSectionProps {

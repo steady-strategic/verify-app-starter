@@ -1,6 +1,8 @@
 import type {
     PageBannerSectionProps,
-    CardsSectionProps
+    CardsSectionProps,
+    ContentSectionProps,
+    KnowMoreSectionProps
 } from "@/components/sections/types";
 import React from "react";
 
@@ -57,6 +59,38 @@ export const howItWorksContent = {
                 description: "A deliberate mindfulness practice of amplifying positive emotions, reconnecting with natural rewards, and restoring the capacity to feel healthy pleasure, meaning, and joy. Because addiction, pain, depression, and trauma can disrupt the brain’s reward system, savoring helps heal this dysfunction by directing attention toward positive experiences and retraining the mind to appreciate life."
             }
         ]
-    } satisfies CardsSectionProps
+    } satisfies CardsSectionProps,
 
+    content: {
+        title: "MORE isn’t just about reducing symptoms",
+        subtitle: "it’s about helping people flourish. Most mindfulness programs stop at acceptance. MORE goes further, guiding patients to:",
+        items: [
+            "Break free from unhealthy habits with mindfulness",
+            "Reframe distressing thoughts and negative core beliefs",
+            "Amplify positive emotions and reconnect with natural rewards",
+            "Experience powerful and lasting change with just 8 weekly sessions",
+            "Relieve physical and emotional pain"
+        ],
+        image: {
+            src: "/assets/images/Content/right-content-image.png",
+            alt: "Person enjoying nature"
+        },
+        cta: {
+            text: "Learn MORE",
+            href: "/resources/research"
+        }
+    } satisfies ContentSectionProps,
+
+    knowMore: {
+        title: "Know MORE",
+        subtitle: "Sign up to receive Dr.Garland's insights",
+        backgroundImage: {
+            src: "/assets/images/KnowMore/background.png",
+            alt: "Footer background"
+        },
+        cta: {
+            text: "Know MORE",
+            href: "/sign-up"
+        }
+    } satisfies KnowMoreSectionProps
 };

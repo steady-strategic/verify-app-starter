@@ -31,7 +31,7 @@ export const Content: React.FC<ContentSectionProps> = ({
                 />
             </div>
 
-            <section className="w-full md:w-[606px] flex flex-col items-start gap-8 md:gap-[73px] text-left text-gray-900 font-sans">
+            <section className="w-full md:w-[606px] flex flex-col items-start gap-8 text-left text-gray-900 font-sans">
                 <div className="flex flex-col gap-4">
                     <h2 className="text-[28px] md:text-[32px] font-sans font-bold tracking-[-0.02em] leading-[125%] m-0">
                         {title}
@@ -43,7 +43,7 @@ export const Content: React.FC<ContentSectionProps> = ({
                     )}
                 </div>
 
-                <div className="w-full border-t border-gray-200 pt-8">
+                <div className="w-full border-t border-gray-200">
                     <ul className="flex flex-col gap-6">
                         {items.map((item, index) => (
                             <li key={index} className="flex gap-4 items-start text-lg leading-[150%]">

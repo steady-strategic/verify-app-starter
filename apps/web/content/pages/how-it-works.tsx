@@ -82,7 +82,12 @@ export const howItWorksContent = {
     } satisfies ContentSectionProps,
 
     knowMore: {
-        title: "Know MORE",
+        title: (
+            <>
+                <span className="text-white">Know </span>
+                <span className="text-primary-1">MORE</span>
+            </>
+        ),
         subtitle: "Sign up to receive Dr.Garland's insights",
         backgroundImage: {
             src: "/assets/images/KnowMore/background.png",

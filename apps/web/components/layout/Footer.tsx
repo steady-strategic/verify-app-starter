@@ -8,7 +8,7 @@ export const Footer: React.FC = () => {
                     {/* Brand Column */}
                     <div className="col-span-1 md:col-span-4 space-y-6">
                         <div className="flex items-center space-x-2">
-                            <img src="/assets/images/LOGO_Magenta_1.svg" alt="MORE Logo" className="h-10" />
+                            <img src="/assets/logos/Logo_Primary_1.svg" alt="MORE Logo" className="h-10" />
                         </div>
                         <p className="text-stone-500 text-sm leading-relaxed max-w-xs">
                             Mindfulness-Oriented Recovery Enhancement

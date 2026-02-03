@@ -133,7 +133,7 @@ export const Navbar: React.FC<NavbarProps> = ({ scrolled = false, variant = "lig
                     {/* Logo - Left */}
                     <Link href="/" className="flex items-center focus:outline-none justify-self-start">
                         <Image
-                            src={variant === "dark" ? "/assets/images/LOGO_white.svg" : "/assets/logos/Logo_Primary_1.svg"}
+                            src="/assets/logos/Logo_Primary_1.svg"
                             alt="MORE Logo"
                             width={100}
                             height={35}

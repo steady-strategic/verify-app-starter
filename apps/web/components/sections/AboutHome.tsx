@@ -6,7 +6,7 @@ import { BaseSectionProps, AboutHomeSectionProps } from "./types";
 export const AboutHome: React.FC<AboutHomeSectionProps> = ({ className = "" }) => {
     return (
         <div
-            className={`w-full bg-white flex flex-wrap items-center justify-center py-[120px] px-4 lg:px-20 box-border gap-[20px] ${className}`}
+            className={`w-full bg-white flex flex-wrap items-center justify-center py-[120px] px-4 lg:px-20 box-border gap-20 ${className}`}
         >
             <Image
                 className="h-[318px] w-[318px] object-cover"
@@ -19,7 +19,7 @@ export const AboutHome: React.FC<AboutHomeSectionProps> = ({ className = "" }) =
             />
             <section className="w-full max-w-2xl flex flex-col items-start gap-[25.5px] text-left text-[28px] text-primary-1 font-sans">
                 <h1 className="m-[0px] self-stretch relative text-[length:inherit] tracking-[-0.02em] leading-[125%] font-[inherit]">
-                    <span>
+                    <span className="text-primary-1">
                         <span className="font-extrabold font-sans">MORE:</span>
                         <span>
                             {" "}

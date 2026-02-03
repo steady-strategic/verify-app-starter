@@ -20,19 +20,19 @@ export const Hero: React.FC<HeroSectionProps> = ({ className = "" }) => {
                 <section className="self-stretch h-[369px] flex flex-col items-center gap-[22px] text-center text-[85px] text-white font-sans">
                     <div className="self-stretch flex items-center justify-center shrink-0">
                         <h1 className="m-[0px] relative text-[length:inherit] tracking-[-0.02em] leading-[130%] font-extrabold font-[inherit]">
-                            <span>{`Get `}</span>
+                            <span className="text-white">{`Get `}</span>
                             <span className="text-primary-1">MORE</span>
-                            <span> out of therapy</span>
+                            <span className="text-white"> out of therapy</span>
                         </h1>
                     </div>
                     <div className="w-[768px] h-[70px] overflow-hidden shrink-0 flex items-center py-1.5 px-[243px] box-border relative isolate gap-2.5 text-[64px]">
-                        <h2 className="!!m-[0 important] h-[70px] w-[768px] absolute top-[0px] left-[0px] text-[length:inherit] tracking-[-0.02em] leading-[64px] font-light font-[inherit] inline-block z-[0] shrink-0">
+                        <h2 className="!!m-[0 important] h-[70px] w-[768px] absolute top-[0px] left-[0px] text-[length:inherit] tracking-[-0.02em] leading-[64px] font-light font-[inherit] inline-block z-[0] shrink-0 text-white">
                             More joy
                         </h2>
                         <div className="h-[58px] w-[7px] relative bg-primary-1 z-[1] shrink-0" />
                     </div>
                     <div className="flex items-center justify-center py-2.5 px-[0px] shrink-0 text-[28px]">
-                        <div className="w-[562px] relative tracking-[-0.02em] leading-[125%] font-medium inline-block shrink-0">
+                        <div className="w-[562px] relative tracking-[-0.02em] leading-[125%] font-medium inline-block shrink-0 text-white">
                             Breakthrough evidence-based therapy for addiction, pain, and
                             emotional distress
                         </div>
@@ -61,9 +61,9 @@ export const Hero: React.FC<HeroSectionProps> = ({ className = "" }) => {
                         />
                     </button>
                 </section>
-                <section className="self-stretch h-[109px] flex items-center gap-[127px] text-center text-[50px] text-primary-1 font-sans">
+                <section className="self-stretch h-[109px] flex items-center gap-[127px] text-center text-[50px] font-sans">
                     <div className="w-[170px] flex flex-col items-center gap-[8px]">
-                        <h2 className="m-[0px] self-stretch relative text-[length:inherit] tracking-[-0.02em] leading-[110%] font-extrabold font-[inherit]">
+                        <h2 className="m-[0px] self-stretch relative text-[length:inherit] tracking-[-0.02em] leading-[110%] font-extrabold font-[inherit] text-primary-1">
                             3X
                         </h2>
                         <div className="self-stretch relative text-lg leading-[125%] text-white">
@@ -71,7 +71,7 @@ export const Hero: React.FC<HeroSectionProps> = ({ className = "" }) => {
                         </div>
                     </div>
                     <div className="w-[170px] flex flex-col items-center gap-[8px]">
-                        <h2 className="m-[0px] self-stretch relative text-[length:inherit] tracking-[-0.02em] leading-[110%] font-extrabold font-[inherit]">
+                        <h2 className="m-[0px] self-stretch relative text-[length:inherit] tracking-[-0.02em] leading-[110%] font-extrabold font-[inherit] text-primary-1">
                             42%
                         </h2>
                         <div className="self-stretch relative text-lg leading-[125%] text-white">
@@ -79,7 +79,7 @@ export const Hero: React.FC<HeroSectionProps> = ({ className = "" }) => {
                         </div>
                     </div>
                     <div className="w-[170px] flex flex-col items-center gap-[8px]">
-                        <h2 className="m-[0px] self-stretch relative text-[length:inherit] tracking-[-0.02em] leading-[110%] font-extrabold font-[inherit]">
+                        <h2 className="m-[0px] self-stretch relative text-[length:inherit] tracking-[-0.02em] leading-[110%] font-extrabold font-[inherit] text-primary-1">
                             50%
                         </h2>
                         <div className="self-stretch relative text-lg leading-[125%] text-white">
@@ -87,7 +87,7 @@ export const Hero: React.FC<HeroSectionProps> = ({ className = "" }) => {
                         </div>
                     </div>
                     <div className="w-[170px] flex flex-col items-center gap-[8px]">
-                        <h2 className="m-[0px] self-stretch relative text-[length:inherit] tracking-[-0.02em] leading-[110%] font-extrabold font-[inherit]">
+                        <h2 className="m-[0px] self-stretch relative text-[length:inherit] tracking-[-0.02em] leading-[110%] font-extrabold font-[inherit] text-primary-1">
                             30%
                         </h2>
                         <div className="self-stretch relative text-lg leading-[125%] text-white">

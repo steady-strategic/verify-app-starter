@@ -56,7 +56,7 @@ export interface Cards2x3SectionProps extends BaseSectionProps {
     subtitle: React.ReactNode;
     items: {
         title: string;
-        body: string;
+        body: React.ReactNode;
     }[];
     cta?: {
         text: string;

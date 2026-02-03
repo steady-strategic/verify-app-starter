@@ -54,15 +54,9 @@ export const Cards2x3: React.FC<Cards2x3SectionProps> = ({
                     href={cta.href}
                     className="cursor-pointer py-3 px-6 bg-primary-1 rounded-lg flex items-center justify-center gap-2 hover:bg-opacity-90 transition-opacity no-underline"
                 >
-                    <div className="relative w-3.5 h-3.5">
-                        <Image src="/assets/images/Cards2x3/cart-plus.svg" alt="" fill className="object-contain" />
-                    </div>
                     <span className="text-lg font-semibold text-white">
                         {cta.text}
                     </span>
-                    <div className="relative w-3.5 h-3.5">
-                        <Image src="/assets/images/Cards2x3/cart-plus.svg" alt="" fill className="object-contain" />
-                    </div>
                 </Link>
             )}
         </div>

@@ -76,3 +76,15 @@ export interface KnowMoreSectionProps extends BaseSectionProps {
         alt: string;
     };
 }
+
+export interface HeroSectionProps extends BaseSectionProps {
+}
+
+export interface BrandsSectionProps extends BaseSectionProps {
+}
+
+export interface ResearchHomeSectionProps extends BaseSectionProps {
+}
+
+export interface AboutHomeSectionProps extends BaseSectionProps {
+}

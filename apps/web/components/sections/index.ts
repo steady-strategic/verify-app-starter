@@ -4,3 +4,7 @@ export * from "./Cards";
 export * from "./Content";
 export * from "./KnowMore";
 export * from "./Cards2x3";
+export * from "./Hero";
+export * from "./Brands";
+export * from "./ResearchHome";
+export * from "./AboutHome";

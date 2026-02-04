@@ -85,19 +85,24 @@ const MenuBar = ({ editor, onUploadImage }: { editor: Editor; onUploadImage?: (f
 
             <div className="w-px h-6 bg-stone-200 mx-1 self-center" />
 
-            {/* Headings H1 - H6 */}
+            {/* Headings H2 & H4 */}
             <div className="flex gap-0.5">
-                {[1, 2, 3, 4, 5, 6].map((level) => (
-                    <button
-                        key={level}
-                        type="button"
-                        onClick={() => editor.chain().focus().toggleHeading({ level: level as 1 | 2 | 3 | 4 | 5 | 6 }).run()}
-                        className={`${baseClass} text-xs font-serif px-2 ${editor.isActive("heading", { level }) ? activeClass : ""}`}
-                        title={`Heading ${level}`}
-                    >
-                        H{level}
-                    </button>
-                ))}
+                <button
+                    type="button"
+                    onClick={() => editor.chain().focus().toggleHeading({ level: 2 }).run()}
+                    className={`${baseClass} text-xs font-serif px-2 ${editor.isActive("heading", { level: 2 }) ? activeClass : ""}`}
+                    title="Heading 2"
+                >
+                    H2
+                </button>
+                <button
+                    type="button"
+                    onClick={() => editor.chain().focus().setParagraph().run()}
+                    className={`${baseClass} text-xs font-serif px-2 ${editor.isActive("paragraph") ? activeClass : ""}`}
+                    title="Paragraph"
+                >
+                    H4
+                </button>
             </div>
 
             <div className="w-px h-6 bg-stone-200 mx-1 self-center" />

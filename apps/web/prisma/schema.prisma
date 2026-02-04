@@ -154,7 +154,7 @@ enum MemberStatus {
 }
 
 model Clinician {
-  id          String   @id @default(cuid())
+  id          String   @id @default(dbgenerated("gen_random_uuid()"))
   firstName   String
   lastName    String
   title       String   // e.g. "LCSW", "MD"

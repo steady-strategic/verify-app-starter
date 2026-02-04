@@ -2,6 +2,7 @@ import type { NextPage } from "next";
 import Image from "next/image";
 import React from "react";
 import { HeroSectionProps } from "./types";
+import { TypingAnimation } from "../ui/TypingAnimation";
 
 export const Hero: React.FC<HeroSectionProps> = ({ className = "" }) => {
     return (
@@ -25,11 +26,15 @@ export const Hero: React.FC<HeroSectionProps> = ({ className = "" }) => {
                             <span className="text-white"> out of therapy</span>
                         </h1>
                     </div>
-                    <div className="w-[768px] h-[70px] overflow-hidden shrink-0 flex items-center py-1.5 px-[243px] box-border relative isolate gap-2.5 text-[64px]">
-                        <h2 className="!!m-[0 important] h-[70px] w-[768px] absolute top-[0px] left-[0px] text-[length:inherit] tracking-[-0.02em] leading-[64px] font-light font-[inherit] inline-block z-[0] shrink-0 text-white">
-                            More joy
-                        </h2>
-                        <div className="h-[58px] w-[7px] relative bg-primary-1 z-[1] shrink-0" />
+                    <div className="h-[70px] shrink-0 flex items-center justify-center relative font-light text-white text-[64px]">
+                        <TypingAnimation
+                            phrases={["More joy", "More healing", "More freedom", "More purpose", "More out of life"]}
+                            typingSpeed={100}
+                            pauseTime={2000}
+                            className="text-white"
+                            cursorClassName="border-primary-1"
+                            WrapperTag="h2"
+                        />
                     </div>
                     <div className="flex items-center justify-center py-2.5 px-[0px] shrink-0 text-[28px]">
                         <div className="w-[562px] relative tracking-[-0.02em] leading-[125%] font-medium inline-block shrink-0 text-white">

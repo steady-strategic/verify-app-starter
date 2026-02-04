@@ -112,14 +112,14 @@ const MenuBar = ({ editor, onUploadImage }: { editor: Editor; onUploadImage?: (f
                 <button
                     type="button"
                     onClick={() => editor.chain().focus().setColor("var(--colors-gray-900)").run()}
-                    className={`w-5 h-5 rounded-full border border-stone-200 ${editor.isActive("textStyle", { color: "var(--colors-gray-900)" }) ? "ring-2 ring-stone-400" : ""}`}
+                    className={`w-6 h-6 rounded-full border border-stone-200 transition-transform hover:scale-110 ${editor.isActive("textStyle", { color: "var(--colors-gray-900)" }) ? "ring-2 ring-stone-400 ring-offset-1" : ""}`}
                     style={{ backgroundColor: "var(--colors-gray-900)" }}
                     title="Gray 900"
                 />
                 <button
                     type="button"
                     onClick={() => editor.chain().focus().setColor("var(--primary-1)").run()}
-                    className={`w-5 h-5 rounded-full border border-stone-200 ${editor.isActive("textStyle", { color: "var(--primary-1)" }) ? "ring-2 ring-stone-400" : ""}`}
+                    className={`w-6 h-6 rounded-full border border-stone-200 transition-transform hover:scale-110 ${editor.isActive("textStyle", { color: "var(--primary-1)" }) ? "ring-2 ring-stone-400 ring-offset-1" : ""}`}
                     style={{ backgroundColor: "var(--primary-1)" }}
                     title="Primary 1"
                 />
@@ -133,16 +133,6 @@ const MenuBar = ({ editor, onUploadImage }: { editor: Editor; onUploadImage?: (f
                 onClick={() => editor.chain().focus().toggleBulletList().run()}
                 className={`${baseClass} ${editor.isActive("bulletList") ? activeClass : ""}`}
                 title="Bullet List"
-            >
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-            </button>
-            <button
-                type="button"
-                onClick={() => editor.chain().focus().toggleOrderedList().run()}
-                className={`${baseClass} ${editor.isActive("orderedList") ? activeClass : ""}`}
-                title="Ordered List"
             >
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 7h12M7 12h12M7 17h12M3 7h.01M3 12h.01M3 17h.01" />
@@ -168,7 +158,7 @@ const MenuBar = ({ editor, onUploadImage }: { editor: Editor; onUploadImage?: (f
                 className={`${baseClass} ${editor.isActive("link") ? activeClass : ""}`}
                 title="Link"
             >
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-4 h-4 text-[var(--primary-1)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
                 </svg>
             </button>

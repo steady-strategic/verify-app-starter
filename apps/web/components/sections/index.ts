@@ -8,3 +8,7 @@ export * from "./Hero";
 export * from "./Brands";
 export * from "./ResearchHome";
 export * from "./AboutHome";
+export * from "./ContentHome";
+export * from "./Testimonials";
+export * from "./Video";
+export * from "./HowItWorks";

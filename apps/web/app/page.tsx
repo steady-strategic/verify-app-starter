@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
-import { Hero, Brands, ResearchHome, AboutHome } from "@/components/sections";
+import { Hero, Brands, ResearchHome, AboutHome, ContentHome, Testimonials } from "@/components/sections";
 
 export default function Page() {
     const [scrolled, setScrolled] = useState(false);
@@ -29,6 +29,8 @@ export default function Page() {
                 <Brands />
                 <ResearchHome />
                 <AboutHome />
+                <ContentHome />
+                <Testimonials />
             </main>
             <Footer />
         </div>

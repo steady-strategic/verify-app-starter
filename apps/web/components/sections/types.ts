@@ -86,5 +86,12 @@ export interface BrandsSectionProps extends BaseSectionProps {
 export interface ResearchHomeSectionProps extends BaseSectionProps {
 }
 
-export interface AboutHomeSectionProps extends BaseSectionProps {
-}
+export interface AboutHomeSectionProps extends BaseSectionProps { }
+
+export interface ContentHomeSectionProps extends BaseSectionProps { }
+
+export interface TestimonialsSectionProps extends BaseSectionProps { }
+
+export interface VideoSectionProps extends BaseSectionProps { }
+
+export interface HowItWorksSectionProps extends BaseSectionProps { }

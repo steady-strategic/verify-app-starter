@@ -15,7 +15,7 @@ export const ProfileAbout: React.FC<ProfileAboutSectionProps> = ({
             <section className="w-full max-w-[1280px] grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 items-start">
 
                 {/* Image Column */}
-                <div className="relative w-full aspect-[3/4] md:aspect-auto md:h-[600px] rounded-2xl overflow-hidden shadow-lg">
+                <div className="relative w-full max-w-[626px] h-auto aspect-[626/840] md:h-[840px] rounded-2xl overflow-hidden shadow-lg mx-auto md:mx-0">
                     <Image
                         src={image.src}
                         alt={image.alt}

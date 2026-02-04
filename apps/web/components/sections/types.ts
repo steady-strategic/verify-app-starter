@@ -166,3 +166,17 @@ export interface TextAboutSectionProps extends BaseSectionProps {
     subtitle: React.ReactNode;
     body: React.ReactNode;
 }
+
+export interface VideoAboutSectionProps extends BaseSectionProps {
+    title: React.ReactNode;
+    description: React.ReactNode;
+    backgroundImage: {
+        src: string;
+        alt: string;
+    };
+    videoPreviewImage: {
+        src: string;
+        alt: string;
+    };
+    // Assuming simple play functionality or just visual for now
+}

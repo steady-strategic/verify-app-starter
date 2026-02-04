@@ -19,3 +19,4 @@ export * from "./ProviderList";
 export * from "./TextClinicians";
 export * from "./ProfileAbout";
 export * from "./TextAbout";
+export * from "./VideoAbout";

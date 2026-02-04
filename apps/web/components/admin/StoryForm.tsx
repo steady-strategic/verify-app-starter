@@ -321,11 +321,9 @@ export function StoryForm({ initialData, mode }: StoryFormProps) {
                                             className="hidden"
                                         />
                                     </label>
-                                    <div className="text-xs text-stone-400 space-y-1">
-                                        <p>Image type: PNG</p>
-                                        <p>Dimensions: 1440 x 560</p>
-                                        <p>Max size: 5MB</p>
-                                    </div>
+                                    <p className="text-xs text-stone-400 mt-2">
+                                        Image file format: PNG  |  Dimensions: 1440 x 560px
+                                    </p>
                                 </>
                             )}
                         </div>

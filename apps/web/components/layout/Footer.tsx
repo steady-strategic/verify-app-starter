@@ -46,38 +46,38 @@ export const Footer: React.FC = () => {
                         </div>
                     </div>
 
-                    {/* For Clinicians */}
+                    {/* Clinicians */}
                     <div className="col-span-1 md:col-span-2">
                         <h4 className="font-bold text-stone-900 mb-6 uppercase text-xs tracking-widest">
-                            For Clinicians
+                            Clinicians
                         </h4>
                         <ul className="space-y-4 text-sm text-stone-500">
                             <li>
-                                <a href="#" className="hover:text-stone-900 transition-colors">
-                                    MORE™ for Clinicians
+                                <a href="/clinicians" className="hover:text-stone-900 transition-colors">
+                                    Why MORE
                                 </a>
                             </li>
                             <li>
-                                <a href="#" className="hover:text-stone-900 transition-colors">
-                                    MORE™ Institute
+                                <a href="/clinicians/certified" className="hover:text-stone-900 transition-colors">
+                                    MORE Training
                                 </a>
                             </li>
                         </ul>
                     </div>
 
-                    {/* For Patients */}
+                    {/* Patients */}
                     <div className="col-span-1 md:col-span-2">
                         <h4 className="font-bold text-stone-900 mb-6 uppercase text-xs tracking-widest">
-                            For Patients
+                            Patients
                         </h4>
                         <ul className="space-y-4 text-sm text-stone-500">
                             <li>
-                                <a href="#" className="hover:text-stone-900 transition-colors">
-                                    MORE™ for Patients
+                                <a href="/patients" className="hover:text-stone-900 transition-colors">
+                                    MORE for Patients
                                 </a>
                             </li>
                             <li>
-                                <a href="#" className="hover:text-stone-900 transition-colors">
+                                <a href="/directory" className="hover:text-stone-900 transition-colors">
                                     Find a Clinician
                                 </a>
                             </li>
@@ -91,37 +91,34 @@ export const Footer: React.FC = () => {
                         </h4>
                         <ul className="space-y-4 text-sm text-stone-500">
                             <li>
-                                <a href="#" className="hover:text-stone-900 transition-colors">
-                                    Research
+                                <a href="/research" className="hover:text-stone-900 transition-colors">
+                                    The Science
                                 </a>
                             </li>
                             <li>
-                                <a href="#" className="hover:text-stone-900 transition-colors">
-                                    Blog
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" className="hover:text-stone-900 transition-colors">
-                                    FAQ
+                                <a href="/blog" className="hover:text-stone-900 transition-colors">
+                                    Insights from Dr. Garland
                                 </a>
                             </li>
                         </ul>
                     </div>
 
-                    {/* About */}
+                    {/* Fourth Column (No Title) */}
                     <div className="col-span-1 md:col-span-2">
-                        <h4 className="font-bold text-stone-900 mb-6 uppercase text-xs tracking-widest">
-                            About
-                        </h4>
                         <ul className="space-y-4 text-sm text-stone-500">
                             <li>
-                                <a href="#" className="hover:text-stone-900 transition-colors">
+                                <a href="/how-it-works" className="hover:text-stone-900 transition-colors">
                                     How it Works
                                 </a>
                             </li>
                             <li>
                                 <a href="/about" className="hover:text-stone-900 transition-colors">
                                     About Us
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/faq" className="hover:text-stone-900 transition-colors">
+                                    FAQ's
                                 </a>
                             </li>
                             <li>

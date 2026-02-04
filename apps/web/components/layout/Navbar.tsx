@@ -102,19 +102,18 @@ export const Navbar: React.FC<NavbarProps> = ({ scrolled = false, variant = "lig
     const isLoggedIn = status === "authenticated";
 
     const cliniciansItems: DropdownItem[] = [
-        { label: "MORE for Clinicians", href: "/clinicians" },
-        { label: "Become MORE Certified", href: "/clinicians/certified" },
+        { label: "Why MORE", href: "/clinicians" },
+        { label: "MORE Training", href: "/clinicians/certified" },
     ];
 
     const patientsItems: DropdownItem[] = [
         { label: "MORE for Patients", href: "/patients" },
-        { label: "Find a MORE Clinician", href: "/directory" },
+        { label: "Find a Clinician", href: "/directory" },
     ];
 
     const resourcesItems: DropdownItem[] = [
-        { label: "Research", href: "/resources/research" },
-        { label: "Blog", href: "/resources/blog" },
-        { label: "FAQ", href: "/resources/faq" },
+        { label: "The Science", href: "/research" },
+        { label: "Insights from Dr. Garland", href: "/blog" },
     ];
 
     return (
@@ -154,13 +153,13 @@ export const Navbar: React.FC<NavbarProps> = ({ scrolled = false, variant = "lig
                             How it Works
                         </Link>
                         <DropdownMenu
-                            label="For Clinicians"
+                            label="Clinicians"
                             items={cliniciansItems}
                             isActive={isActive}
                             variant={variant}
                         />
                         <DropdownMenu
-                            label="For Patients"
+                            label="Patients"
                             items={patientsItems}
                             isActive={isActive}
                             variant={variant}
@@ -264,7 +263,7 @@ export const Navbar: React.FC<NavbarProps> = ({ scrolled = false, variant = "lig
                         {/* For Clinicians Section */}
                         <div className="space-y-2">
                             <p className="text-xs font-bold text-stone-400 uppercase tracking-wider">
-                                For Clinicians
+                                Clinicians
                             </p>
                             {cliniciansItems.map((item) => (
                                 <Link
@@ -284,7 +283,7 @@ export const Navbar: React.FC<NavbarProps> = ({ scrolled = false, variant = "lig
                         {/* For Patients Section */}
                         <div className="space-y-2">
                             <p className="text-xs font-bold text-stone-400 uppercase tracking-wider">
-                                For Patients
+                                Patients
                             </p>
                             {patientsItems.map((item) => (
                                 <Link

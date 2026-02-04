@@ -11,7 +11,7 @@ export const KnowMore: React.FC<KnowMoreSectionProps> = ({
     backgroundImage,
 }) => {
     return (
-        <div className={`w-full max-w-[1440px] mx-auto h-[400px] flex items-center px-6 md:px-[117px] relative isolate text-left text-white font-sans overflow-hidden ${className}`}>
+        <div className={`w-full h-[400px] flex items-center px-6 md:px-[117px] relative isolate text-left text-white font-sans overflow-hidden ${className}`}>
             <Image
                 src={backgroundImage.src}
                 alt={backgroundImage.alt}

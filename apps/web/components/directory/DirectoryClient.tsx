@@ -25,10 +25,33 @@ interface DirectoryClientProps {
 
 export function DirectoryClient({ initialClinicians }: DirectoryClientProps) {
     const [scrolled, setScrolled] = useState(false);
-    const [searchQuery, setSearchQuery] = useState("");
-    const [selectedState, setSelectedState] = useState("All States");
+    const [selectedLocation, setSelectedLocation] = useState("Select Location");
     const [filteredClinicians, setFilteredClinicians] = useState(initialClinicians);
     const [expandedCardId, setExpandedCardId] = useState<string | null>(null);
+
+    // Prepare location data
+    const locationOptions = (() => {
+        const usStates = new Map<string, number>();
+        const otherCountries = new Map<string, number>();
+
+        initialClinicians.forEach(c => {
+            const country = c.country?.trim() || "United States";
+            const isUS = ["united states", "usa", "us", "u.s.", "u.s.a."].includes(country.toLowerCase());
+
+            if (isUS) {
+                const count = usStates.get(c.state) || 0;
+                usStates.set(c.state, count + 1);
+            } else {
+                const count = otherCountries.get(country) || 0;
+                otherCountries.set(country, count + 1);
+            }
+        });
+
+        const sortedUSStates = Array.from(usStates.entries()).sort((a, b) => a[0].localeCompare(b[0]));
+        const sortedCountries = Array.from(otherCountries.entries()).sort((a, b) => a[0].localeCompare(b[0]));
+
+        return { usStates: sortedUSStates, otherCountries: sortedCountries };
+    })();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -39,25 +62,27 @@ export function DirectoryClient({ initialClinicians }: DirectoryClientProps) {
     }, []);
 
     useEffect(() => {
-        const query = searchQuery.toLowerCase();
+        if (selectedLocation === "Select Location") {
+            setFilteredClinicians(initialClinicians);
+            return;
+        }
+
+        const [type, value] = selectedLocation.split(":");
+
         const filtered = initialClinicians.filter((clinician) => {
-            const matchesSearch =
-                clinician.firstName.toLowerCase().includes(query) ||
-                clinician.lastName.toLowerCase().includes(query) ||
-                clinician.city.toLowerCase().includes(query) ||
-                (clinician.country && clinician.country.toLowerCase().includes(query));
-
-            const matchesState =
-                selectedState === "All States" ||
-                clinician.state === selectedState;
-
-            return matchesSearch && matchesState;
+            if (type === "State") {
+                const country = clinician.country?.trim() || "United States";
+                const isUS = ["united states", "usa", "us", "u.s.", "u.s.a."].includes(country.toLowerCase());
+                return isUS && clinician.state === value;
+            } else if (type === "Country") {
+                const country = clinician.country?.trim() || "United States";
+                return country === value;
+            }
+            return true;
         });
-        setFilteredClinicians(filtered);
-    }, [searchQuery, selectedState, initialClinicians]);
 
-    // Unique states for dropdown
-    const states = ["All States", ...Array.from(new Set(initialClinicians.map(c => c.state).filter(Boolean))).sort()];
+        setFilteredClinicians(filtered);
+    }, [selectedLocation, initialClinicians]);
 
     return (
         <div className="min-h-screen text-stone-700 overflow-x-hidden selection:bg-amber-100 selection:text-amber-900">
@@ -80,26 +105,34 @@ export function DirectoryClient({ initialClinicians }: DirectoryClientProps) {
                         <h2 className="text-2xl font-bold text-stone-900 mb-4">
                             Search for a Clinician
                         </h2>
-                        <div className="grid md:grid-cols-3 gap-4">
-                            <input
-                                type="text"
-                                placeholder="Name, City or Country"
-                                value={searchQuery}
-                                onChange={(e) => setSearchQuery(e.target.value)}
-                                className="px-4 py-3 border border-stone-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500"
-                            />
+                        <div className="max-w-xl mx-auto">
                             <select
-                                value={selectedState}
-                                onChange={(e) => setSelectedState(e.target.value)}
-                                className="px-4 py-3 border border-stone-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500"
+                                value={selectedLocation}
+                                onChange={(e) => setSelectedLocation(e.target.value)}
+                                className="w-full px-4 py-4 border border-stone-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-500 text-lg bg-white shadow-sm cursor-pointer"
                             >
-                                {states.map(state => (
-                                    <option key={state} value={state}>{state}</option>
-                                ))}
+                                <option value="Select Location">Select Location</option>
+
+                                {locationOptions.usStates.length > 0 && (
+                                    <optgroup label="United States" className="font-bold text-stone-900">
+                                        {locationOptions.usStates.map(([state, count]) => (
+                                            <option key={`State:${state}`} value={`State:${state}`} className="font-normal">
+                                                {state} ({count})
+                                            </option>
+                                        ))}
+                                    </optgroup>
+                                )}
+
+                                {locationOptions.otherCountries.length > 0 && (
+                                    <>
+                                        {locationOptions.otherCountries.map(([country, count]) => (
+                                            <option key={`Country:${country}`} value={`Country:${country}`} className="font-bold text-stone-900">
+                                                {country} ({count})
+                                            </option>
+                                        ))}
+                                    </>
+                                )}
                             </select>
-                            <button className="px-6 py-3 bg-stone-900 text-white font-semibold rounded-lg hover:bg-stone-800 transition-all active:scale-95">
-                                Search
-                            </button>
                         </div>
                     </div>
 

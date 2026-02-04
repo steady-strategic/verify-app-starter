@@ -1,4 +1,4 @@
-import { PageBanner, Content, Cards2x3, TextClinicians, ProviderList } from "@/components/sections";
+import { PageBanner, Content, Cards2x3, TextClinicians, ProviderList, KnowMoreTall } from "@/components/sections";
 import { cliniciansContent } from "@/content/pages/clinicians";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
@@ -13,6 +13,7 @@ export default function Page() {
                 <Content {...cliniciansContent.content} />
                 <TextClinicians {...cliniciansContent.textClinicians} />
                 <ProviderList {...cliniciansContent.providerList} />
+                <KnowMoreTall {...cliniciansContent.knowMoreTall} />
             </main>
             <Footer />
         </div>

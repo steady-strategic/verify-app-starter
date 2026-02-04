@@ -10,7 +10,7 @@ export const KnowMoreTall: React.FC<KnowMoreTallSectionProps> = ({
     backgroundImage
 }) => {
     return (
-        <div className={`w-full min-h-[550px] relative flex flex-col items-center justify-center py-24 px-6 md:px-20 box-border text-center overflow-hidden ${className}`}>
+        <div className={`w-full min-h-[550px] relative flex flex-col items-start justify-center py-24 px-6 md:px-20 box-border text-left overflow-hidden ${className}`}>
             <Image
                 className="absolute top-0 left-0 w-full h-full object-cover z-0"
                 src={backgroundImage.src}
@@ -20,8 +20,8 @@ export const KnowMoreTall: React.FC<KnowMoreTallSectionProps> = ({
             />
             {/* Overlay for better text readability if needed, standard is usually none or built into image */}
 
-            <section className="relative z-10 w-full max-w-[855px] flex flex-col items-start md:items-center text-white gap-8 font-sans">
-                <h2 className="text-3xl md:text-[50px] font-extrabold tracking-[-0.02em] leading-[110%] text-left md:text-center">
+            <section className="relative z-10 w-full max-w-[855px] flex flex-col items-start gap-8 font-sans text-white">
+                <h2 className="text-3xl md:text-[50px] font-extrabold tracking-[-0.02em] leading-[110%] text-left text-white">
                     {title}
                 </h2>
 

@@ -3,7 +3,8 @@ import type {
     ContentSectionProps,
     Cards2x3SectionProps,
     TextCliniciansSectionProps,
-    ProviderListSectionProps
+    ProviderListSectionProps,
+    KnowMoreTallSectionProps
 } from "@/components/sections/types";
 import React from "react";
 
@@ -112,6 +113,22 @@ export const cliniciansContent = {
             href: "/program"
         }
     } satisfies ProviderListSectionProps,
+
+    knowMoreTall: {
+        title: (
+            <span>
+                Join the 1000+ providers nationwide who are bringing powerful relief to their clients.
+            </span>
+        ),
+        cta: {
+            text: "Pre-register Today",
+            href: "/register"
+        },
+        backgroundImage: {
+            src: "/assets/images/KnowMoreTall/Background3@2x.png",
+            alt: "Background"
+        }
+    } satisfies KnowMoreTallSectionProps,
 
     cards2x3: {
         title: (

@@ -17,7 +17,12 @@ export const Cards3x2: React.FC<Cards3x2SectionProps> = ({
 
                 <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
                     {items.map((item, index) => (
-                        <div key={index} className="flex flex-col items-start text-left gap-4 bg-gray-50 p-8 rounded-2xl h-full">
+                        <div key={index} className="flex flex-col items-start text-left gap-4 h-full">
+                            <div className="w-8 h-8 rounded-full bg-primary-1 flex items-center justify-center shrink-0 mb-2">
+                                <svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12.3333 1L5 8.33333L1.66667 5" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                </svg>
+                            </div>
                             <h3 className="text-xl font-bold text-gray-900 leading-[125%]">
                                 {item.title}
                             </h3>

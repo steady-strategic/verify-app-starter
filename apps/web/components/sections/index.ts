@@ -13,3 +13,5 @@ export * from "./Testimonials";
 export * from "./Video";
 export * from "./HowItWorks";
 export * from "./ContentTraining";
+export * from "./Cards3x2";
+export * from "./KnowMoreTall";

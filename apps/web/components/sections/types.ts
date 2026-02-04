@@ -108,3 +108,23 @@ export interface ContentTrainingSectionProps extends BaseSectionProps {
         href: string;
     };
 }
+
+export interface Cards3x2SectionProps extends BaseSectionProps {
+    title: React.ReactNode;
+    items: {
+        title: string;
+        body: string;
+    }[];
+}
+
+export interface KnowMoreTallSectionProps extends BaseSectionProps {
+    title: React.ReactNode;
+    cta: {
+        text: string;
+        href: string;
+    };
+    backgroundImage: {
+        src: string;
+        alt: string;
+    };
+}

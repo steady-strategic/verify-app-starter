@@ -1,4 +1,4 @@
-import { PageBannerSectionProps, ContentTrainingSectionProps } from "@/components/sections/types";
+import { PageBannerSectionProps, ContentTrainingSectionProps, Cards3x2SectionProps, KnowMoreTallSectionProps } from "@/components/sections/types";
 import React from "react";
 
 export const cliniciansCertifiedContent = {
@@ -73,4 +73,50 @@ export const cliniciansCertifiedContent = {
             href: "/register"
         }
     } satisfies ContentTrainingSectionProps,
+
+    cards3x2: {
+        title: "Over the course of 13 hours of training, you can expect to learn:",
+        items: [
+            {
+                title: "Understand the Science Behind Suffering",
+                body: "Dive into the latest theoretical frameworks connecting pain, emotional dysregulation, and addiction through transdiagnostic neurobehavioral mechanisms."
+            },
+            {
+                title: "Master Innovative Techniques",
+                body: "Learn to deliver powerful mindfulness, cognitive reappraisal, and savoring techniques that go beyond traditional approaches."
+            },
+            {
+                title: "Treat Craving at Its Core",
+                body: "Implement targeted mindfulness techniques shown to reduce craving and support recovery from addictive behavior."
+            },
+            {
+                title: "Deliver Relief That Lasts",
+                body: "Apply science-backed mindfulness methods proven to alleviate chronic pain and emotional distress."
+            },
+            {
+                title: "Stay Ahead of the Curve",
+                body: "Review the latest neuroscience and clinical research validating the efficacy of MORE™ in diverse populations."
+            },
+            {
+                title: "Break the Cycle of Habitual Suffering",
+                body: "Learn how to guide patients in de-automatizing destructive behaviors through mindfulness and metacognitive awareness."
+            }
+        ]
+    } satisfies Cards3x2SectionProps,
+
+    knowMoreTall: {
+        title: (
+            <span>
+                Join the 1000+ providers nationwide who are bringing powerful relief to their clients.
+            </span>
+        ),
+        cta: {
+            text: "Pre-register Today",
+            href: "/register"
+        },
+        backgroundImage: {
+            src: "/assets/images/KnowMoreTall/Background3@2x.png",
+            alt: "Background"
+        }
+    } satisfies KnowMoreTallSectionProps
 };

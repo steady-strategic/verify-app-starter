@@ -1,4 +1,4 @@
-import { PageBannerSectionProps } from "@/components/sections/types";
+import { PageBannerSectionProps, ContentTrainingSectionProps } from "@/components/sections/types";
 import React from "react";
 
 export const cliniciansCertifiedContent = {
@@ -37,4 +37,40 @@ export const cliniciansCertifiedContent = {
             alt: "MORE Training Illustration"
         }
     } satisfies PageBannerSectionProps,
+
+    contentTraining: {
+        title: "What to expect:",
+        body: (
+            <span>
+                <span>{`This training provides comprehensive instruction in the core mindfulness practices and clinical skills central to MORE. Participants will `}</span>
+                <b>
+                    learn the theoretical foundations of the MORE model, review
+                    current research evidence, and explore recent advances
+                </b>
+                <span>{` in neuroscience and biobehavioral science related to mindfulness, addiction, stress, and chronic pain.`}</span>
+                <br /><br />
+                <span>{`The training includes `}</span>
+                <b>guided demonstrations</b>
+                <span>{` of the therapeutic techniques outlined in the MORE treatment manual and `}</span>
+                <b>structured opportunities for applied practice</b>
+                <span>{`. Participants will observe expert delivery of MORE interventions and receive clear guidance for implementing these methods with fidelity.`}</span>
+                <br /><br />
+                <span>{`Upon completion, participants will `}</span>
+                <b>
+                    gain a solid introductory level of competency in delivering MORE
+                </b>
+                <span>
+                    {` and will be prepared to begin applying these techniques with individuals experiencing addictive behaviors, chronic pain conditions, or emotional distress.`}
+                </span>
+            </span>
+        ),
+        image: {
+            src: "/assets/images/ContentTraining/Left-Image3@2x.png",
+            alt: "Training Session"
+        },
+        cta: {
+            text: "Pre-Register Today",
+            href: "/register"
+        }
+    } satisfies ContentTrainingSectionProps,
 };

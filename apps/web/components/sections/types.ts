@@ -95,3 +95,16 @@ export interface TestimonialsSectionProps extends BaseSectionProps { }
 export interface VideoSectionProps extends BaseSectionProps { }
 
 export interface HowItWorksSectionProps extends BaseSectionProps { }
+
+export interface ContentTrainingSectionProps extends BaseSectionProps {
+    title: React.ReactNode;
+    body: React.ReactNode;
+    image: {
+        src: string;
+        alt: string;
+    };
+    cta: {
+        text: string;
+        href: string;
+    };
+}

@@ -12,3 +12,4 @@ export * from "./ContentHome";
 export * from "./Testimonials";
 export * from "./Video";
 export * from "./HowItWorks";
+export * from "./ContentTraining";

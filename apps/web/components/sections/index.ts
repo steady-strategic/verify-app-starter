@@ -17,3 +17,5 @@ export * from "./Cards3x2";
 export * from "./KnowMoreTall";
 export * from "./ProviderList";
 export * from "./TextClinicians";
+export * from "./ProfileAbout";
+export * from "./TextAbout";

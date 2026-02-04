@@ -146,3 +146,23 @@ export interface TextCliniciansSectionProps extends BaseSectionProps {
     title: React.ReactNode;
     body: React.ReactNode;
 }
+
+export interface ProfileAboutSectionProps extends BaseSectionProps {
+    image: {
+        src: string;
+        alt: string;
+    };
+    title: React.ReactNode;
+    subtitle?: React.ReactNode;
+    body: React.ReactNode;
+    cta?: {
+        text: string;
+        href: string;
+    };
+}
+
+export interface TextAboutSectionProps extends BaseSectionProps {
+    title: React.ReactNode;
+    subtitle: React.ReactNode;
+    body: React.ReactNode;
+}

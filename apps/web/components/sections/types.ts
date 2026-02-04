@@ -8,7 +8,7 @@ export interface BaseSectionProps {
 }
 
 export interface PageBannerSectionProps extends BaseSectionProps {
-    variant?: "default" | "how-it-works" | "research" | "clinicians" | "directory";
+    variant?: "default" | "how-it-works" | "research" | "clinicians" | "directory" | "training";
     title: React.ReactNode;
     subtitle?: React.ReactNode;
     description: React.ReactNode;

@@ -1,7 +1,18 @@
-export default function Page() {
+"use client";
+
+import { PageBanner } from "@/components/sections";
+import { cliniciansCertifiedContent } from "@/content/pages/clinicians-certified";
+import { Navbar } from "@/components/layout/Navbar";
+import { Footer } from "@/components/layout/Footer";
+
+export default function CertifiedPage() {
     return (
-        <div className="min-h-screen flex items-center justify-center">
-            <h1 className="text-2xl font-bold text-gray-400">Under Construction</h1>
+        <div className="min-h-screen bg-white">
+            <Navbar variant="light" transparent={false} />
+            <main className="pt-24">
+                <PageBanner {...cliniciansCertifiedContent.pageBanner} />
+            </main>
+            <Footer />
         </div>
     );
 }

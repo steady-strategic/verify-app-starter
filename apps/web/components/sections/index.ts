@@ -20,3 +20,4 @@ export * from "./TextClinicians";
 export * from "./ProfileAbout";
 export * from "./TextAbout";
 export * from "./VideoAbout";
+export * from "./FaqAccordion";

@@ -180,3 +180,11 @@ export interface VideoAboutSectionProps extends BaseSectionProps {
     };
     // Assuming simple play functionality or just visual for now
 }
+
+export interface FaqAccordionSectionProps extends BaseSectionProps {
+    title: string;
+    items: {
+        question: string;
+        answer: React.ReactNode;
+    }[];
+}

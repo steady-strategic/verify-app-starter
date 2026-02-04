@@ -1,7 +1,9 @@
 import type {
     PageBannerSectionProps,
     ContentSectionProps,
-    Cards2x3SectionProps
+    Cards2x3SectionProps,
+    TextCliniciansSectionProps,
+    ProviderListSectionProps
 } from "@/components/sections/types";
 import React from "react";
 
@@ -61,6 +63,55 @@ export const cliniciansContent = {
             href: "/program"
         }
     } satisfies ContentSectionProps,
+
+    textClinicians: {
+        title: "You, too, can bring this kind of relief to your clients.",
+        body: (
+            <span>
+                Through engaging asynchronous training, <span className="text-primary-1 font-bold">MORE Institute</span> will teach you how to deliver this powerful therapy to your own clients who are struggling with addiction, chronic pain and emotional distress.
+            </span>
+        )
+    } satisfies TextCliniciansSectionProps,
+
+    providerList: {
+        title: (
+            <span>
+                Implementing <span className="text-primary-1">MORE</span> in Health Care
+            </span>
+        ),
+        description: "1000+ Providers and health care systems nationwide have implemented MORE in a range of settings, including medical centers, addiction treatment, behavioral health, community-based clinics, higher education institutions, state and local government, and the military health system.",
+        items: [
+            { name: "Kaiser Permanente", location: "Washington" },
+            { name: "John Hopkins Medical School", location: "Maryland" },
+            { name: "Mt. Sinai Hospital", location: "New York" },
+            { name: "Intermountain Health Care", location: "Utah" },
+            { name: "Arkansas Department of Human Services", location: "Arkansas" },
+            { name: "Southwest Care Center", location: "New Mexico" },
+            { name: "New Roads Behavioral Health", location: "Utah" },
+            { name: "Medical University of South Carolina", location: "South Carolina" },
+            { name: "University of Utah Health", location: "Utah" },
+            { name: "Philadelphia Veterans Affairs Medical Center", location: "Pennsylvania" },
+            { name: "Turning Point Center", location: "Utah" },
+            { name: "Ralph H. Johnson Veterans Affairs Medical Center", location: "South Carolina" },
+            { name: "Essentia Health", location: "Minnesota" },
+            { name: "Hennepin Healthcare", location: "Minnesota" },
+            { name: "Neuroscience Associates of New York", location: "New York" },
+            { name: "Triangle Options for Substance Abusers", location: "North Carolina" },
+            { name: "Saint Luke's Cancer Institute", location: "Kansas" },
+            { name: "Brooke Army Medical Center", location: "Texas" },
+            { name: "Darnall Army Medical Center", location: "Texas" },
+            { name: "Madigan Army Medical Center", location: "Washington" },
+            { name: "Wilford Hall Hospital", location: "Texas" },
+            { name: "Tripler Army Medical Center", location: "Hawaii" },
+            { name: "Schofield Barracks", location: "Hawaii" },
+            { name: "The University of Zurich", location: "Switzerland" },
+            { name: "The University of Fribourg", location: "Switzerland" }
+        ],
+        cta: {
+            text: "Learn MORE",
+            href: "/program"
+        }
+    } satisfies ProviderListSectionProps,
 
     cards2x3: {
         title: (

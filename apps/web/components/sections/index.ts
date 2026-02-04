@@ -15,3 +15,5 @@ export * from "./HowItWorks";
 export * from "./ContentTraining";
 export * from "./Cards3x2";
 export * from "./KnowMoreTall";
+export * from "./ProviderList";
+export * from "./TextClinicians";

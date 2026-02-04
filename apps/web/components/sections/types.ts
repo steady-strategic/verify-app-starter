@@ -128,3 +128,21 @@ export interface KnowMoreTallSectionProps extends BaseSectionProps {
         alt: string;
     };
 }
+
+export interface ProviderListSectionProps extends BaseSectionProps {
+    title: React.ReactNode;
+    description: React.ReactNode;
+    items: {
+        name: string;
+        location: string;
+    }[];
+    cta: {
+        text: string;
+        href: string;
+    };
+}
+
+export interface TextCliniciansSectionProps extends BaseSectionProps {
+    title: React.ReactNode;
+    body: React.ReactNode;
+}

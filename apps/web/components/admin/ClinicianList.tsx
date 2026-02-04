@@ -11,7 +11,7 @@ interface Clinician {
     title: string;
     city: string;
     state: string;
-
+    country?: string | null;
 }
 
 interface ClinicianListProps {
@@ -27,7 +27,8 @@ export function ClinicianList({ clinicians }: ClinicianListProps) {
             c.firstName.toLowerCase().includes(term) ||
             c.lastName.toLowerCase().includes(term) ||
             c.state.toLowerCase().includes(term) ||
-            c.city.toLowerCase().includes(term)
+            c.city.toLowerCase().includes(term) ||
+            (c.country && c.country.toLowerCase().includes(term))
         );
     });
 
@@ -36,7 +37,7 @@ export function ClinicianList({ clinicians }: ClinicianListProps) {
             <div className="bg-white rounded-2xl p-4 shadow-sm border border-stone-100">
                 <input
                     type="text"
-                    placeholder="Search by name, city, or state..."
+                    placeholder="Search by name, city, state or country..."
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                     className="w-full bg-stone-50 border-none rounded-xl py-3 px-4 focus:ring-2 focus:ring-amber-200 outline-none text-stone-900"
@@ -63,6 +64,7 @@ export function ClinicianList({ clinicians }: ClinicianListProps) {
                                 </td>
                                 <td className="px-6 py-4 text-sm text-stone-600">
                                     {clinician.city}, {clinician.state}
+                                    {clinician.country && <span className="text-stone-400 ml-1">({clinician.country})</span>}
                                 </td>
                                 <td className="px-6 py-4 text-sm text-stone-600">
                                     {clinician.title}

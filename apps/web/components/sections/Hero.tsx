@@ -30,7 +30,7 @@ export const Hero: React.FC<HeroSectionProps> = ({ className = "" }) => {
                         <TypingAnimation
                             phrases={["More joy", "More healing", "More freedom", "More purpose", "More out of life"]}
                             typingSpeed={100}
-                            pauseTime={2000}
+                            pauseTime={1500}
                             className="text-white"
                             cursorClassName="border-primary-1"
                             WrapperTag="h2"

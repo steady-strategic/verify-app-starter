@@ -34,8 +34,8 @@ export const Cards2x3: React.FC<Cards2x3SectionProps> = ({
                         if (!isEven) borderClass += " md:border-r border-gray-200";
 
                         return (
-                            <div key={index} className={`flex flex-col items-start p-8 md:p-12 gap-6 ${borderClass}`}>
-                                <div className="flex flex-col gap-3 text-left">
+                            <div key={index} className={`flex flex-col items-center p-8 md:p-12 gap-6 ${borderClass}`}>
+                                <div className="flex flex-col gap-3 text-center">
                                     <h4 className="text-xl font-bold font-sans text-gray-900 leading-[125%]">
                                         {item.title}
                                     </h4>

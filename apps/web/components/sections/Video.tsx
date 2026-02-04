@@ -19,7 +19,7 @@ export const Video: React.FC<VideoSectionProps> = ({ className = "" }) => {
 
             <div className="relative z-[1] w-full max-w-7xl flex flex-col items-center gap-12 text-center text-white">
                 <div className="flex flex-col items-center gap-4 max-w-3xl">
-                    <h1 className="m-[0px] w-full relative text-3xl md:text-[50px] tracking-[-0.02em] leading-[110%] font-extrabold font-sans">
+                    <h1 className="m-[0px] w-full relative text-3xl md:text-[50px] tracking-[-0.02em] leading-[110%] font-extrabold font-sans text-white">
                         See MORE in action
                     </h1>
                     <div className="relative text-lg md:text-xl tracking-[-0.02em] leading-[140%] font-semibold font-sans">
@@ -34,7 +34,7 @@ export const Video: React.FC<VideoSectionProps> = ({ className = "" }) => {
                         fill
                         sizes="(max-width: 768px) 100vw, 1020px"
                         alt="MORE in action video thumbnail"
-                        src="/assets/images/Video/Video@2x.png"
+                        src="/assets/images/Video/Vid-preview-comp.png"
                     />
                     {/* Play button overlay could go here if functionality is added later */}
                     <div className="absolute inset-0 flex items-center justify-center bg-black/10 hover:bg-black/20 transition-colors cursor-pointer group">

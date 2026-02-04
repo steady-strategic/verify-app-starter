@@ -89,7 +89,7 @@ const MenuBar = ({ editor, onUploadImage }: { editor: Editor; onUploadImage?: (f
             <div className="flex gap-0.5">
                 <button
                     type="button"
-                    onClick={() => editor.chain().focus().toggleHeading({ level: 2 }).run()}
+                    onClick={() => editor.chain().focus().setHeading({ level: 2 }).run()}
                     className={`${baseClass} text-xs font-serif px-2 ${editor.isActive("heading", { level: 2 }) ? activeClass : ""}`}
                     title="Heading 2"
                 >

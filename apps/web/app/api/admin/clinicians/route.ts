@@ -26,6 +26,7 @@ export async function POST(req: Request) {
                 firstName: data.firstName,
                 lastName: data.lastName,
                 title: data.title,
+                training: data.training,
                 city: data.city,
                 state: data.state,
                 country: data.country,

@@ -9,6 +9,7 @@ interface ClinicianFormProps {
         firstName: string;
         lastName: string;
         title: string;
+        training: string;
         city: string;
         state: string;
         country: string;
@@ -27,6 +28,7 @@ export function ClinicianForm({ initialData, mode }: ClinicianFormProps) {
         firstName: initialData?.firstName || "",
         lastName: initialData?.lastName || "",
         title: initialData?.title || "",
+        training: initialData?.training || "",
         city: initialData?.city || "",
         state: initialData?.state || "",
         country: initialData?.country || "",
@@ -118,6 +120,16 @@ export function ClinicianForm({ initialData, mode }: ClinicianFormProps) {
                         value={formData.title}
                         onChange={handleChange}
                         required
+                        className="w-full bg-stone-50 border-none rounded-2xl py-3 px-4 focus:ring-2 focus:ring-amber-200 outline-none"
+                    />
+                </div>
+                <div className="space-y-2">
+                    <label className="text-[10px] font-bold uppercase tracking-widest text-stone-400">Training</label>
+                    <input
+                        type="text"
+                        name="training"
+                        value={formData.training}
+                        onChange={handleChange}
                         className="w-full bg-stone-50 border-none rounded-2xl py-3 px-4 focus:ring-2 focus:ring-amber-200 outline-none"
                     />
                 </div>

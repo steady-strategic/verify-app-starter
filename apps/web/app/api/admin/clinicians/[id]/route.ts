@@ -21,6 +21,7 @@ export async function PUT(
                 firstName: data.firstName,
                 lastName: data.lastName,
                 title: data.title,
+                training: data.training,
                 city: data.city,
                 state: data.state,
                 country: data.country,

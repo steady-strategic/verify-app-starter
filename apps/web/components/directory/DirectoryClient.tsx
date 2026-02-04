@@ -11,6 +11,7 @@ interface Clinician {
     firstName: string;
     lastName: string;
     title: string;
+    training: string | null;
     city: string;
     state: string;
     country: string | null;
@@ -128,9 +129,16 @@ export function DirectoryClient({ initialClinicians }: DirectoryClientProps) {
                                                         <h3 className="text-xl font-serif font-bold text-stone-900 group-hover:text-amber-700 transition-colors truncate pr-2">
                                                             {clinician.firstName} {clinician.lastName}
                                                         </h3>
-                                                        <span className="bg-stone-100 text-stone-600 px-2 py-1 rounded text-xs font-bold uppercase tracking-wider shrink-0">
-                                                            {clinician.title}
-                                                        </span>
+                                                        <div className="flex flex-col items-end gap-1">
+                                                            <span className="bg-stone-100 text-stone-600 px-2 py-1 rounded text-xs font-bold uppercase tracking-wider shrink-0">
+                                                                {clinician.title}
+                                                            </span>
+                                                            {clinician.training && (
+                                                                <span className="bg-amber-100 text-amber-800 px-2 py-1 rounded text-xs font-bold uppercase tracking-wider shrink-0">
+                                                                    {clinician.training}
+                                                                </span>
+                                                            )}
+                                                        </div>
                                                     </div>
                                                     <p className="text-sm font-medium text-stone-500 flex items-center truncate">
                                                         <span className="mr-1">📍</span>

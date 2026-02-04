@@ -31,6 +31,7 @@ export default async function EditClinicianPage({
                             firstName: clinician.firstName,
                             lastName: clinician.lastName,
                             title: clinician.title,
+                            training: clinician.training || "",
                             city: clinician.city,
                             state: clinician.state,
                             country: clinician.country || "",

@@ -160,13 +160,9 @@ model Clinician {
   title       String   // e.g. "LCSW", "MD"
   city        String
   state       String
-  zipCode     String?
-  image       String?  // URL to profile image
-  bio         String?  @db.Text
-  specialties String[] // Array of strings for tags
+  country     String?
   email       String?
   phone       String?
-  website     String?
   license     String?  // License number/info
   
   // Status

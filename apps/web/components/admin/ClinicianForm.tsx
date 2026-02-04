@@ -11,13 +11,9 @@ interface ClinicianFormProps {
         title: string;
         city: string;
         state: string;
-        zipCode: string;
-        image: string;
-        bio: string;
-        specialties: string[];
+        country: string;
         email: string;
         phone: string;
-        website: string;
     };
     mode: "create" | "edit";
 }
@@ -25,9 +21,7 @@ interface ClinicianFormProps {
 export function ClinicianForm({ initialData, mode }: ClinicianFormProps) {
     const router = useRouter();
     const [isSubmitting, setIsSubmitting] = useState(false);
-    const [isUploadingImage, setIsUploadingImage] = useState(false);
     const [error, setError] = useState<string | null>(null);
-    const [specialtiesInput, setSpecialtiesInput] = useState(initialData?.specialties.join(", ") || "");
 
     const [formData, setFormData] = useState({
         firstName: initialData?.firstName || "",
@@ -35,12 +29,9 @@ export function ClinicianForm({ initialData, mode }: ClinicianFormProps) {
         title: initialData?.title || "",
         city: initialData?.city || "",
         state: initialData?.state || "",
-        zipCode: initialData?.zipCode || "",
-        image: initialData?.image || "",
-        bio: initialData?.bio || "",
+        country: initialData?.country || "",
         email: initialData?.email || "",
         phone: initialData?.phone || "",
-        website: initialData?.website || "",
     });
 
     const handleChange = (
@@ -53,49 +44,10 @@ export function ClinicianForm({ initialData, mode }: ClinicianFormProps) {
         }));
     };
 
-    const handleFileUpload = async (file: File) => {
-        if (!file.type.startsWith("image/")) {
-            setError("Please upload an image file");
-            return;
-        }
-
-        if (file.size > 5 * 1024 * 1024) {
-            setError("Image size must be less than 5MB");
-            return;
-        }
-
-        setIsUploadingImage(true);
-        setError(null);
-
-        try {
-            const formData = new FormData();
-            formData.append("file", file);
-
-            const response = await fetch("/api/admin/upload-image", {
-                method: "POST",
-                body: formData,
-            });
-
-            const data = await response.json();
-
-            if (!response.ok) {
-                throw new Error(data.error || "Failed to upload image");
-            }
-
-            setFormData((prev) => ({ ...prev, image: data.imageUrl }));
-        } catch (err: any) {
-            setError(err.message);
-        } finally {
-            setIsUploadingImage(false);
-        }
-    };
-
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setIsSubmitting(true);
         setError(null);
-
-        const specialties = specialtiesInput.split(",").map(s => s.trim()).filter(Boolean);
 
         try {
             const url =
@@ -107,7 +59,7 @@ export function ClinicianForm({ initialData, mode }: ClinicianFormProps) {
             const response = await fetch(url, {
                 method,
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ ...formData, specialties }),
+                body: JSON.stringify(formData),
             });
 
             const data = await response.json();
@@ -169,16 +121,6 @@ export function ClinicianForm({ initialData, mode }: ClinicianFormProps) {
                         className="w-full bg-stone-50 border-none rounded-2xl py-3 px-4 focus:ring-2 focus:ring-amber-200 outline-none"
                     />
                 </div>
-                <div className="space-y-2">
-                    <label className="text-[10px] font-bold uppercase tracking-widest text-stone-400">Website (Optional)</label>
-                    <input
-                        type="url"
-                        name="website"
-                        value={formData.website}
-                        onChange={handleChange}
-                        className="w-full bg-stone-50 border-none rounded-2xl py-3 px-4 focus:ring-2 focus:ring-amber-200 outline-none"
-                    />
-                </div>
             </div>
 
             <div className="grid md:grid-cols-3 gap-6">
@@ -205,11 +147,11 @@ export function ClinicianForm({ initialData, mode }: ClinicianFormProps) {
                     />
                 </div>
                 <div className="space-y-2">
-                    <label className="text-[10px] font-bold uppercase tracking-widest text-stone-400">Zip Code</label>
+                    <label className="text-[10px] font-bold uppercase tracking-widest text-stone-400">Country</label>
                     <input
                         type="text"
-                        name="zipCode"
-                        value={formData.zipCode}
+                        name="country"
+                        value={formData.country}
                         onChange={handleChange}
                         className="w-full bg-stone-50 border-none rounded-2xl py-3 px-4 focus:ring-2 focus:ring-amber-200 outline-none"
                     />
@@ -218,7 +160,7 @@ export function ClinicianForm({ initialData, mode }: ClinicianFormProps) {
 
             <div className="grid md:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                    <label className="text-[10px] font-bold uppercase tracking-widest text-stone-400">Email (Optional)</label>
+                    <label className="text-[10px] font-bold uppercase tracking-widest text-stone-400">Email</label>
                     <input
                         type="email"
                         name="email"
@@ -228,7 +170,7 @@ export function ClinicianForm({ initialData, mode }: ClinicianFormProps) {
                     />
                 </div>
                 <div className="space-y-2">
-                    <label className="text-[10px] font-bold uppercase tracking-widest text-stone-400">Phone (Optional)</label>
+                    <label className="text-[10px] font-bold uppercase tracking-widest text-stone-400">Phone</label>
                     <input
                         type="tel"
                         name="phone"
@@ -236,50 +178,6 @@ export function ClinicianForm({ initialData, mode }: ClinicianFormProps) {
                         onChange={handleChange}
                         className="w-full bg-stone-50 border-none rounded-2xl py-3 px-4 focus:ring-2 focus:ring-amber-200 outline-none"
                     />
-                </div>
-            </div>
-
-            <div className="space-y-2">
-                <label className="text-[10px] font-bold uppercase tracking-widest text-stone-400">Specialties</label>
-                <input
-                    type="text"
-                    value={specialtiesInput}
-                    onChange={(e) => setSpecialtiesInput(e.target.value)}
-                    placeholder="Addiction, Anxiety, Trauma (Comma separated)"
-                    className="w-full bg-stone-50 border-none rounded-2xl py-3 px-4 focus:ring-2 focus:ring-amber-200 outline-none"
-                />
-            </div>
-
-            <div className="space-y-2">
-                <label className="text-[10px] font-bold uppercase tracking-widest text-stone-400">Bio</label>
-                <textarea
-                    name="bio"
-                    value={formData.bio}
-                    onChange={handleChange}
-                    rows={4}
-                    className="w-full bg-stone-50 border-none rounded-2xl py-3 px-4 focus:ring-2 focus:ring-amber-200 outline-none resize-none"
-                />
-            </div>
-
-            {/* Image Upload */}
-            <div className="space-y-2">
-                <label className="text-[10px] font-bold uppercase tracking-widest text-stone-400">Profile Image</label>
-                <div className="flex items-center space-x-4">
-                    {formData.image && (
-                        <img src={formData.image} alt="Profile" className="w-20 h-20 rounded-full object-cover" />
-                    )}
-                    <label className="px-4 py-2 bg-stone-200 text-stone-700 rounded-lg text-sm font-medium hover:bg-stone-300 transition-colors cursor-pointer">
-                        {isUploadingImage ? "Uploading..." : "Upload Photo"}
-                        <input
-                            type="file"
-                            accept="image/*"
-                            onChange={(e) => {
-                                const file = e.target.files?.[0];
-                                if (file) handleFileUpload(file);
-                            }}
-                            className="hidden"
-                        />
-                    </label>
                 </div>
             </div>
 

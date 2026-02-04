@@ -28,14 +28,9 @@ export async function POST(req: Request) {
                 title: data.title,
                 city: data.city,
                 state: data.state,
-                zipCode: data.zipCode,
-                image: data.image,
-                bio: data.bio,
-                specialties: data.specialties || [], // Ensure array
+                country: data.country,
                 email: data.email,
                 phone: data.phone,
-                website: data.website,
-
             },
         });
 

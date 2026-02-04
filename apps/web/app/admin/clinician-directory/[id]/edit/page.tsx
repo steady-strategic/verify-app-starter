@@ -33,13 +33,9 @@ export default async function EditClinicianPage({
                             title: clinician.title,
                             city: clinician.city,
                             state: clinician.state,
-                            zipCode: clinician.zipCode || "",
-                            image: clinician.image || "",
-                            bio: clinician.bio || "",
-                            specialties: clinician.specialties,
+                            country: clinician.country || "",
                             email: clinician.email || "",
                             phone: clinician.phone || "",
-                            website: clinician.website || "",
                         }}
                     />
                 </div>

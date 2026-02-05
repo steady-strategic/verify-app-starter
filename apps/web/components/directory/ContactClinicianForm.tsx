@@ -21,6 +21,7 @@ export function ContactClinicianForm({ onClose, clinicianEmail }: ContactClinici
                     portalId: "243662289",
                     formId: "54e4bb6a-b0f0-4595-9506-cc483ba0b97a",
                     target: "#hs-contact-form-container",
+                    css: "", // Forces raw HTML rendering
                     onFormReady: function ($form: any) {
                         console.log("DEBUG: onFormReady fired. Email:", clinicianEmail);
 

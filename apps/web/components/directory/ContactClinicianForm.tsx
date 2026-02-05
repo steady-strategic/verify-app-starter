@@ -25,6 +25,7 @@ export function ContactClinicianForm({ onClose, clinicianEmail }: ContactClinici
                         console.log("DEBUG: onFormReady fired!");
 
                         // Log all fields found in the form to verify names
+                        console.log("DEBUG: Form HTML Structure:", $form.html());
                         const fields = $form.serializeArray();
                         console.log("DEBUG: Form fields found:", fields);
 

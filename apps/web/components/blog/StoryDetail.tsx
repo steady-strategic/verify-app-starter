@@ -45,7 +45,9 @@ export const StoryDetail: React.FC<StoryDetailProps> = ({ story }) => {
                             <span className="text-stone-400 font-medium text-xs">{story.date}</span>
                         </div>
                         <h1 className="text-4xl md:text-6xl serif text-stone-900 mb-8 leading-[1.1] font-extrabold tracking-tight">
-                            {story.title}
+                            {story.title.split(/(MORE)/g).map((part, i) => (
+                                part === "MORE" ? <span key={i} className="text-primary-1">{part}</span> : part
+                            ))}
                         </h1>
                     </div>
 

@@ -39,12 +39,12 @@ export default async function BlogPage() {
                 }}
             />
 
-            <section className="py-24 px-6 md:px-12 lg:px-24 container mx-auto max-w-7xl">
+            <section className="py-24 mx-auto max-w-[1440px] px-[80px]">
                 <div className="flex flex-col gap-24">
                     {posts.map((post) => (
-                        <div key={post.id} className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                            {/* Card Image - Spans 5 columns */}
-                            <div className="lg:col-span-5 relative h-[400px] w-full rounded-2xl overflow-hidden shadow-sm">
+                        <div key={post.id} className="flex flex-col lg:flex-row gap-12 items-center">
+                            {/* Card Image - Fixed 540px width on desktop */}
+                            <div className="lg:w-[540px] lg:shrink-0 relative h-[400px] w-full rounded-2xl overflow-hidden shadow-sm">
                                 {post.imageUrl ? (
                                     <Image
                                         src={post.imageUrl}
@@ -59,10 +59,12 @@ export default async function BlogPage() {
                                 )}
                             </div>
 
-                            {/* Card Content - Spans 7 columns */}
-                            <div className="lg:col-span-7 flex flex-col justify-center pl-0 lg:pl-4">
+                            {/* Card Content - Fills remaining space */}
+                            <div className="flex-1 flex flex-col justify-center pl-0 lg:pl-4">
                                 <h2 className="text-3xl md:text-[2rem] font-bold text-stone-900 mb-6 leading-tight">
-                                    {post.title}
+                                    {post.title.split(/(MORE)/g).map((part, i) => (
+                                        part === "MORE" ? <span key={i} className="text-primary-1">{part}</span> : part
+                                    ))}
                                 </h2>
 
                                 <p className="text-stone-600 text-lg leading-relaxed mb-8 font-light">

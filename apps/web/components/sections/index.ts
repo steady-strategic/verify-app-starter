@@ -23,6 +23,7 @@ export * from "./VideoAbout";
 export * from "./ResearchHero";
 export * from "./ResearchContent";
 export * from "./ResearchStats";
+export * from "./ResearchTextList";
 export * from "./ResearchSidebar";
 export * from "./ResearchJumbotron";
 export * from "./FaqAccordion";

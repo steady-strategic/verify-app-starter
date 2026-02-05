@@ -78,6 +78,17 @@ export const ResearchContent: React.FC<BaseSectionProps> = ({ className = "" }) 
                     />
                 </div>
             </div>
+
+            {/* Mark Image */}
+            <div className="w-full flex justify-center py-24">
+                <Image
+                    src="/assets/images/Research/Mark_1.png"
+                    alt="MORE Mark"
+                    width={100}
+                    height={100}
+                    className="object-contain"
+                />
+            </div>
         </div>
     );
 };

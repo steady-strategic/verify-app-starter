@@ -79,14 +79,14 @@ export const ResearchStats: React.FC<BaseSectionProps> = ({ className = "" }) =>
             <div className="w-full grid grid-cols-1 gap-12 lg:gap-y-16">
                 {stats.map((stat, idx) => (
                     <div key={idx} className="flex flex-col gap-4">
-                        <h3 className="font-sans font-bold text-[24px] leading-[1.2] tracking-[-0.48px] text-primary-1">
+                        <h3 className="font-sans font-bold text-[24px] leading-[1.2] tracking-[-0.48px] text-gray-900">
                             <span className="text-primary-1">{stat.value}</span> {stat.description}
                         </h3>
-                        <p className="font-sans text-[16px] leading-[1.5] text-primary-1">
+                        <p className="font-sans text-[16px] leading-[1.5] text-gray-900">
                             {stat.citation}
                         </p>
-                        <Link href={stat.link} className="flex items-center gap-1 group w-fit">
-                            <span className="font-bold text-primary-1 group-hover:text-primary-1 transition-colors">→</span>
+                        <Link href={stat.link} className="flex items-center gap-2 group w-fit">
+                            <span className="font-bold text-gray-900 text-lg">→</span>
                             <span className="font-bold text-primary-1 underline decoration-primary-1 underline-offset-4 text-[16px]">Read Research</span>
                         </Link>
                     </div>

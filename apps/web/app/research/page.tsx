@@ -7,6 +7,7 @@ import {
     Brands,
     ResearchContent,
     ResearchStats,
+    ResearchTextList,
     ResearchSidebar,
     ResearchJumbotron
 } from "../../components/sections";
@@ -15,7 +16,7 @@ export default function ResearchPage() {
     return (
         <main className="w-full min-h-screen bg-white">
             <div className="absolute top-0 w-full z-10">
-                <Navbar variant="transparent" />
+                <Navbar variant="dark" transparent />
             </div>
 
             <ResearchHero />
@@ -40,6 +41,9 @@ export default function ResearchPage() {
 
                         {/* Stats Section embedded in main column flow */}
                         <ResearchStats />
+
+                        {/* Additional Text List Findings */}
+                        <ResearchTextList />
                     </div>
 
                     {/* Right Column: Sidebar */}

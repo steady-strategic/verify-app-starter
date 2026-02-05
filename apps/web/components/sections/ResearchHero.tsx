@@ -5,7 +5,7 @@ import { BaseSectionProps } from './types';
 
 export const ResearchHero: React.FC<BaseSectionProps> = ({ className = "" }) => {
     return (
-        <div className={`relative w-full h-[680px] overflow-hidden ${className}`}>
+        <div className={`relative w-full h-[560px] overflow-hidden ${className}`}>
             {/* Background Image */}
             <div className="absolute inset-0 w-full h-full">
                 <Image
@@ -21,7 +21,7 @@ export const ResearchHero: React.FC<BaseSectionProps> = ({ className = "" }) => 
 
             {/* Content */}
             <div className="absolute inset-0 flex flex-col justify-center px-6 lg:px-20 max-w-7xl mx-auto">
-                <div className="max-w-[600px] mt-32">
+                <div className="max-w-[600px]">
                     {/* Main Title */}
                     <h1 className="font-extrabold text-[50px] lg:text-[70px] leading-[1.1] tracking-[-1px] text-white font-sans mb-8">
                         The Science of <br />
@@ -30,7 +30,7 @@ export const ResearchHero: React.FC<BaseSectionProps> = ({ className = "" }) => 
 
                     {/* Subtitle / Description */}
                     <div className="text-white">
-                        <h2 className="font-bold text-[28px] leading-[1.25] tracking-[-0.56px] mb-6">
+                        <h2 className="font-bold text-[28px] leading-[1.25] tracking-[-0.56px] mb-6 text-white">
                             Science that delivers measurable impact
                         </h2>
                         <p className="text-[20px] leading-[1.4] font-normal opacity-90">

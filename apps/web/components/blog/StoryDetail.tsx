@@ -44,9 +44,50 @@ export const StoryDetail: React.FC<StoryDetailProps> = ({ story }) => {
                     </h1>
 
                     <div
-                        className="prose prose-stone prose-lg max-w-none text-stone-700 font-light leading-loose space-y-8 mb-16"
+                        className="story-content max-w-none text-stone-700 font-light leading-loose space-y-8 mb-16"
                         dangerouslySetInnerHTML={{ __html: story.body }}
                     />
+                    <style jsx global>{`
+                        .story-content h1 {
+                            font-family: sans-serif;
+                            font-size: 28px;
+                            font-weight: 600;
+                            line-height: 1.25;
+                            letter-spacing: -0.56px;
+                            color: #111928;
+                            margin-top: 1.75em;
+                            margin-bottom: 0.75em;
+                        }
+                        .story-content p {
+                            font-family: sans-serif;
+                            font-size: 18px;
+                            font-weight: 400;
+                            line-height: 1.5;
+                            letter-spacing: 0px;
+                            color: #111928;
+                            margin-bottom: 1.25em;
+                        }
+                        .story-content ul {
+                            list-style-type: disc;
+                            padding-left: 1.5em;
+                            margin-bottom: 1.25em;
+                        }
+                        .story-content ol {
+                            list-style-type: decimal;
+                            padding-left: 1.5em;
+                            margin-bottom: 1.25em;
+                        }
+                        .story-content a {
+                            color: #2563eb;
+                            text-decoration: underline;
+                        }
+                        .story-content strong {
+                            font-weight: 700;
+                        }
+                        .story-content em {
+                            font-style: italic;
+                        }
+                    `}</style>
 
                     <div className="mt-20 pt-12 border-t border-stone-100 flex justify-between items-center">
                         <div className="flex items-center space-x-4">

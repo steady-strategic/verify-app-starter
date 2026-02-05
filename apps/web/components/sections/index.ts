@@ -18,6 +18,7 @@ export * from "./KnowMoreTall";
 export * from "./ProviderList";
 export * from "./TextClinicians";
 export * from "./ProfileAbout";
+export * from "./TextAbout";
 export * from "./Video";
 export * from "./VideoAbout";
 export * from "./ResearchHero";

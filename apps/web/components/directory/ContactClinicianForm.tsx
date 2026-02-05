@@ -38,9 +38,8 @@ export function ContactClinicianForm({ onClose, clinicianEmail }: ContactClinici
                                     domInput.dispatchEvent(new Event('input', { bubbles: true }));
                                     domInput.dispatchEvent(new Event('change', { bubbles: true }));
                                     input.trigger('change');
-
-                                    input.hide();
-                                    input.closest('.hs-form-field').hide();
+                                    // input.hide(); // Commented out for debugging
+                                    // input.closest('.hs-form-field').hide(); // Commented out for debugging
                                 } else {
                                     console.warn("DEBUG: Input 'work_title' NOT found in form.");
                                 }

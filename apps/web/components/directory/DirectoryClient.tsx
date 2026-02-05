@@ -26,7 +26,7 @@ interface DirectoryClientProps {
 export function DirectoryClient({ initialClinicians }: DirectoryClientProps) {
     const [scrolled, setScrolled] = useState(false);
     const [selectedLocation, setSelectedLocation] = useState("Select Location");
-    const [filteredClinicians, setFilteredClinicians] = useState(initialClinicians);
+    const [filteredClinicians, setFilteredClinicians] = useState<Clinician[]>([]); // Start empty
     const [expandedCardId, setExpandedCardId] = useState<string | null>(null);
 
     // Prepare location data
@@ -63,7 +63,7 @@ export function DirectoryClient({ initialClinicians }: DirectoryClientProps) {
 
     useEffect(() => {
         if (selectedLocation === "Select Location") {
-            setFilteredClinicians(initialClinicians);
+            setFilteredClinicians([]); // Clear when no location
             return;
         }
 
@@ -92,24 +92,18 @@ export function DirectoryClient({ initialClinicians }: DirectoryClientProps) {
                 <PageBanner
                     variant="directory"
                     title="Find a Clinician"
-                    description={["Looking to receive MORE therapy? Find a certified clinician near you."]}
+                    description={["Looking to receive MORE therapy from a clinician near you? Select your state to begin your search. Each listed clinician has been officially trained and certified in MORE therapy by Dr. Eric Garland."]}
                     backgroundImage={{
-                        src: "/assets/images/page-banner-directory-bg.png",
+                        src: "/assets/images/DirectoryBannerBG.png",
                         alt: "Directory Background",
                     }}
-                />
-
-                <div className="container mx-auto px-6 max-w-6xl mt-12">
-                    {/* Search Section */}
-                    <div className="mb-12 p-8 bg-stone-50 rounded-lg border border-stone-100">
-                        <h2 className="text-2xl font-bold text-stone-900 mb-4">
-                            Search for a Clinician
-                        </h2>
-                        <div className="max-w-xl mx-auto">
+                >
+                    <div className="bg-white p-2 rounded-lg flex gap-2 w-full max-w-[75%] shadow-lg items-center">
+                        <div className="flex-1 relative border border-stone-200 rounded-md">
                             <select
                                 value={selectedLocation}
                                 onChange={(e) => setSelectedLocation(e.target.value)}
-                                className="w-full px-4 py-4 border border-stone-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-500 text-lg bg-white shadow-sm cursor-pointer"
+                                className="w-full appearance-none bg-transparent px-4 py-3 pr-10 border-none focus:ring-0 text-stone-700 text-base cursor-pointer outline-none"
                             >
                                 <option value="Select Location">Select Location</option>
 
@@ -133,8 +127,23 @@ export function DirectoryClient({ initialClinicians }: DirectoryClientProps) {
                                     </>
                                 )}
                             </select>
+                            <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-stone-500">
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
+                                </svg>
+                            </div>
                         </div>
+                        <button className="bg-[#D926D8] text-white px-6 py-3 rounded-md font-semibold flex items-center gap-2 hover:bg-[#c022bf] transition-colors shrink-0">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                            </svg>
+                            Search
+                        </button>
                     </div>
+                </PageBanner>
+
+                <div className="container mx-auto px-6 max-w-6xl mt-12">
+
 
                     {/* Results */}
                     <div className="space-y-6">

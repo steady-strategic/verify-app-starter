@@ -20,6 +20,7 @@ export interface PageBannerSectionProps extends BaseSectionProps {
         src: string;
         alt: string;
     };
+    children?: React.ReactNode;
 }
 
 export interface CardsSectionProps extends BaseSectionProps {

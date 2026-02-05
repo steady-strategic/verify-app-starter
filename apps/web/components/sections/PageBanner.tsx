@@ -9,20 +9,28 @@ export const PageBanner: React.FC<PageBannerSectionProps> = ({
     description,
     backgroundImage,
     foregroundImage,
-    variant
+    variant,
+    children
 }) => {
     const isClinicians = variant === "clinicians";
     const isTraining = variant === "training";
+    const isDirectory = variant === "directory";
     const isLightVariant = isClinicians || isTraining;
+
+    const getHeightClass = () => {
+        if (isDirectory) return 'min-h-[561px]';
+        if (isLightVariant) return 'h-auto md:h-[680px]';
+        return '';
+    };
 
     return (
         <div
-            className={`w-full bg-cover bg-no-repeat bg-top ${isLightVariant ? 'bg-white h-auto md:h-[680px]' : ''} ${className}`}
+            className={`w-full bg-cover bg-no-repeat bg-top flex flex-col justify-center ${isLightVariant ? 'bg-white' : ''} ${getHeightClass()} ${className}`}
             style={!isLightVariant ? { backgroundImage: `url('${backgroundImage.src}')` } : undefined}
         >
             <div className={`w-full max-w-[1440px] mx-auto h-full overflow-hidden flex flex-col md:flex-row items-center justify-between ${isLightVariant ? 'py-16 md:py-[70px]' : 'py-[70px]'} px-6 md:px-20 gap-8 md:gap-[63px] relative`}>
                 <section className={`flex flex-col items-start text-left max-w-lg md:max-w-[571px] z-10 ${isLightVariant ? 'text-gray-900' : 'text-white'}`}>
-                    <div className="flex flex-col items-start gap-6">
+                    <div className={`flex flex-col items-start ${isDirectory ? 'gap-10' : 'gap-6'}`}>
                         <h1 className={`text-4xl md:text-[50px] font-sans font-bold tracking-tight leading-[110%] m-0 ${isLightVariant ? 'text-primary-1' : 'text-white'}`}>
                             {title}
                         </h1>
@@ -32,6 +40,7 @@ export const PageBanner: React.FC<PageBannerSectionProps> = ({
                                 {description}
                             </div>
                         </div>
+                        {children}
                     </div>
                 </section>
 

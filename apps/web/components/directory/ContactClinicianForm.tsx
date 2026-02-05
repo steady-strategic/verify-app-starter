@@ -21,18 +21,25 @@ export function ContactClinicianForm({ onClose, clinicianEmail }: ContactClinici
                     portalId: "243662289",
                     formId: "54e4bb6a-b0f0-4595-9506-cc483ba0b97a",
                     target: "#hs-contact-form-container",
-                    css: "", // Forces raw HTML rendering
                     onFormReady: function ($form: any) {
-                        console.log("DEBUG: onFormReady fired. Email:", clinicianEmail);
+                        console.log("DEBUG: onFormReady fired!");
+
+                        // Log all fields found in the form to verify names
+                        const fields = $form.serializeArray();
+                        console.log("DEBUG: Form fields found:", fields);
 
                         if (clinicianEmail) {
-                            // Simple injection using jQuery context
-                            const input = $form.find('input[name="work_email"]');
-                            if (input.length) {
-                                console.log("DEBUG: Found input. Injecting:", clinicianEmail);
-                                input.val(clinicianEmail).change();
+                            const emailField = $form.find('input[name="work_email"]');
+                            const titleField = $form.find('input[name="work_title"]');
+
+                            if (emailField.length) {
+                                console.log("DEBUG: Found 'work_email'. Injecting:", clinicianEmail);
+                                emailField.val(clinicianEmail).change();
+                            } else if (titleField.length) {
+                                console.log("DEBUG: Found 'work_title'. Injecting:", clinicianEmail);
+                                titleField.val(clinicianEmail).change();
                             } else {
-                                console.warn("DEBUG: Input 'work_email' not found via $form.find().");
+                                console.warn("DEBUG: Neither field found. Available fields:", fields.map((f: any) => f.name));
                             }
                         }
                     },
@@ -44,6 +51,14 @@ export function ContactClinicianForm({ onClose, clinicianEmail }: ContactClinici
                 console.warn("DEBUG: hbspt global not found even after load.");
             }
         };
+
+        // Listen for HubSpot message events
+        const handleMessage = (event: MessageEvent) => {
+            if (event.data.type === 'hsFormCallback' && event.data.eventName === 'onFormReady') {
+                console.log("DEBUG: Global message received - HubSpot form ready!");
+            }
+        };
+        window.addEventListener('message', handleMessage);
 
         // Check if script already exists
         let script = document.querySelector(`script[src="${scriptSrc}"]`) as HTMLScriptElement;
@@ -70,6 +85,7 @@ export function ContactClinicianForm({ onClose, clinicianEmail }: ContactClinici
 
         return () => {
             clearInterval(interval);
+            window.removeEventListener('message', handleMessage);
         };
     }, [clinicianEmail]);
 

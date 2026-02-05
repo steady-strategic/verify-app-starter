@@ -201,11 +201,19 @@ const MenuBar = ({ editor, onUploadImage }: { editor: Editor; onUploadImage?: (f
 
             {/* Colors (Standard Set) */}
             <div className="flex gap-1 items-center px-1">
-                <input
-                    type="color"
-                    onInput={(event) => editor.chain().focus().setColor((event.target as HTMLInputElement).value).run()}
-                    className="w-8 h-8 p-0 border-0 rounded cursor-pointer"
-                    title="Text Color"
+                <button
+                    type="button"
+                    onClick={() => editor.chain().focus().setColor("#111928").run()}
+                    className={`w-6 h-6 rounded-full border border-stone-200 transition-transform hover:scale-110 ${editor.isActive("textStyle", { color: "#111928" }) ? "ring-2 ring-stone-400 ring-offset-1" : ""}`}
+                    style={{ backgroundColor: "#111928" }}
+                    title="Default Text"
+                />
+                <button
+                    type="button"
+                    onClick={() => editor.chain().focus().setColor("#D80ADA").run()}
+                    className={`w-6 h-6 rounded-full border border-stone-200 transition-transform hover:scale-110 ${editor.isActive("textStyle", { color: "#D80ADA" }) ? "ring-2 ring-stone-400 ring-offset-1" : ""}`}
+                    style={{ backgroundColor: "#D80ADA" }}
+                    title="Primary Highlight"
                 />
             </div>
         </div>

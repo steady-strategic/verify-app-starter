@@ -37,54 +37,49 @@ export default async function BlogPage() {
                 }}
             />
 
-            <section className="py-24 px-6 md:px-12 lg:px-24 container mx-auto">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <section className="py-24 px-6 md:px-12 lg:px-24 container mx-auto max-w-7xl">
+                <div className="flex flex-col gap-24">
                     {posts.map((post) => (
-                        <Link
-                            key={post.id}
-                            href={`/blog/${post.slug}`}
-                            className="group flex flex-col bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-stone-100"
-                        >
-                            {/* Card Image */}
-                            <div className="relative h-64 w-full overflow-hidden">
+                        <div key={post.id} className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                            {/* Card Image - Spans 5 columns */}
+                            <div className="lg:col-span-5 relative h-[340px] w-full rounded-[2.5rem] overflow-hidden shadow-sm">
                                 {post.imageUrl ? (
                                     <Image
                                         src={post.imageUrl}
                                         alt={post.title}
                                         fill
-                                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                                        className="object-cover hover:scale-105 transition-transform duration-700"
                                     />
                                 ) : (
-                                    <div className="w-full h-full bg-stone-200 flex items-center justify-center text-stone-400">
-                                        <span className="text-4xl">📝</span>
+                                    <div className="w-full h-full bg-stone-100 flex items-center justify-center text-stone-300">
+                                        <span className="text-4xl">📷</span>
                                     </div>
                                 )}
                             </div>
 
-                            {/* Card Content */}
-                            <div className="p-8 flex flex-col flex-grow">
-                                <div className="mb-4 flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-amber-600">
-                                    <span>{new Date(post.createdAt).toLocaleDateString()}</span>
-                                </div>
-
-                                {/* Title - Content Header 2 Style */}
-                                <h2 className="mb-4 text-2xl font-serif font-bold text-stone-900 group-hover:text-amber-700 transition-colors line-clamp-2">
+                            {/* Card Content - Spans 7 columns */}
+                            <div className="lg:col-span-7 flex flex-col justify-center pl-0 lg:pl-4">
+                                <h2 className="text-3xl md:text-[2rem] font-bold text-stone-900 mb-6 leading-tight">
                                     {post.title}
                                 </h2>
 
-                                {/* Excerpt - Paragraph Style */}
-                                <p className="text-stone-600 font-light leading-relaxed mb-6 line-clamp-3 flex-grow">
+                                <p className="text-stone-600 text-lg leading-relaxed mb-8 font-light">
                                     {post.excerpt}
                                 </p>
 
-                                <div className="flex items-center text-amber-600 text-sm font-bold uppercase tracking-widest mt-auto">
-                                    Read Article
-                                    <svg className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                                    </svg>
+                                <div>
+                                    <Link
+                                        href={`/blog/${post.slug}`}
+                                        className="inline-flex items-center px-6 py-3 border border-stone-200 rounded-full text-stone-900 text-sm font-bold hover:bg-stone-50 hover:border-amber-200 transition-all group"
+                                    >
+                                        Read more
+                                        <svg className="w-4 h-4 ml-2 text-stone-400 group-hover:text-amber-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                        </svg>
+                                    </Link>
                                 </div>
                             </div>
-                        </Link>
+                        </div>
                     ))}
                 </div>
 

@@ -25,37 +25,19 @@ export function ContactClinicianForm({ onClose, clinicianEmail }: ContactClinici
                         console.log("DEBUG: onFormReady fired. Email:", clinicianEmail);
 
                         if (clinicianEmail) {
-                            setTimeout(() => {
-                                console.log("DEBUG: Timeout fired. Searching for input...");
-                                const input = $form.find('input[name="work_title"]');
-                                console.log("DEBUG: Input found?", input.length > 0);
+                            // Use jQuery provided by HubSpot callback to bypass iframe restrictions
+                            const input = $form.find('input[name="work_title"]');
 
-                                if (input.length) {
-                                    const domInput = input[0];
-
-                                    console.log("DEBUG: Injecting value...");
-                                    input.val(clinicianEmail);
-                                    domInput.dispatchEvent(new Event('input', { bubbles: true }));
-                                    domInput.dispatchEvent(new Event('change', { bubbles: true }));
-                                    input.trigger('change');
-                                    // input.hide(); // Commented out for debugging
-                                    // input.closest('.hs-form-field').hide(); // Commented out for debugging
-                                } else {
-                                    console.warn("DEBUG: Input 'work_title' NOT found in form.");
-                                }
-                            }, 500);
-                        } else {
-                            console.warn("DEBUG: No clinicianEmail provided to inject.");
+                            if (input.length) {
+                                console.log("DEBUG: Found input via $form. Injecting:", clinicianEmail);
+                                input.val(clinicianEmail).change();
+                            } else {
+                                console.warn("DEBUG: Input 'work_title' not found in $form context.");
+                            }
                         }
                     },
                     onFormSubmit: function ($form: any) {
-                        console.log("DEBUG: onFormSubmit fired. Re-injecting email to sure...");
-                        if (clinicianEmail) {
-                            const input = $form.find('input[name="work_title"]');
-                            if (input.length) {
-                                input.val(clinicianEmail).trigger('change');
-                            }
-                        }
+                        // Optional: Ensure it's populated on submit
                     }
                 });
             } else {

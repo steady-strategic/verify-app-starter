@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { prisma } from "../../../lib/db";
+import { StoryActions } from "../../../components/admin/StoryActions";
 
 export default async function StoriesPage() {
     const stories = await prisma.story.findMany({
@@ -93,12 +94,7 @@ export default async function StoriesPage() {
                                             {new Date(story.createdAt).toLocaleDateString()}
                                         </td>
                                         <td className="px-6 py-4 text-right">
-                                            <Link
-                                                href={`/admin/stories/${story.id}/edit`}
-                                                className="text-amber-600 hover:text-amber-700 font-medium text-sm"
-                                            >
-                                                Edit
-                                            </Link>
+                                            <StoryActions story={story} />
                                         </td>
                                     </tr>
                                 ))}

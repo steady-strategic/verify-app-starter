@@ -170,8 +170,7 @@ export function StoryForm({ initialData, mode }: StoryFormProps) {
         return data.imageUrl;
     };
 
-    const handleSubmit = async (e: React.FormEvent) => {
-        e.preventDefault();
+    const handleSubmit = async (shouldPublish: boolean) => {
         setIsSubmitting(true);
         setError(null);
 
@@ -182,10 +181,15 @@ export function StoryForm({ initialData, mode }: StoryFormProps) {
                     : `/api/admin/stories/${initialData?.id}`;
             const method = mode === "create" ? "POST" : "PUT";
 
+            const dataToSubmit = {
+                ...formData,
+                published: shouldPublish
+            };
+
             const response = await fetch(url, {
                 method,
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(formData),
+                body: JSON.stringify(dataToSubmit),
             });
 
             const data = await response.json();
@@ -203,7 +207,7 @@ export function StoryForm({ initialData, mode }: StoryFormProps) {
     };
 
     return (
-        <form onSubmit={handleSubmit} className="space-y-8">
+        <form onSubmit={(e) => e.preventDefault()} className="space-y-8">
             {error && (
                 <div className="bg-rose-50 border border-rose-200 text-rose-700 px-6 py-4 rounded-2xl text-sm">
                     {error}
@@ -343,56 +347,32 @@ export function StoryForm({ initialData, mode }: StoryFormProps) {
                 />
             </div>
 
-            {/* Media URL */}
-            <div className="space-y-2">
-                <label className="text-[10px] font-bold uppercase tracking-widest text-stone-400">
-                    Media URL (Optional)
-                </label>
-                <input
-                    type="url"
-                    name="mediaUrl"
-                    value={formData.mediaUrl}
-                    onChange={handleChange}
-                    className="w-full bg-stone-50 border-none rounded-2xl py-3 px-4 focus:ring-2 focus:ring-amber-200 outline-none text-stone-900"
-                    placeholder="https://youtube.com/watch?v=... or https://vimeo.com/..."
-                />
-                <p className="text-xs text-stone-400">
-                    Add a YouTube, Vimeo, or external media link to display below the post content
-                </p>
-            </div>
-
-            {/* Published */}
-            <div className="flex items-center space-x-3">
-                <input
-                    type="checkbox"
-                    name="published"
-                    id="published"
-                    checked={formData.published}
-                    onChange={handleChange}
-                    className="w-5 h-5 rounded border-stone-300 text-amber-600 focus:ring-2 focus:ring-amber-200"
-                />
-                <label htmlFor="published" className="text-sm font-medium text-stone-700">
-                    Publish immediately
-                </label>
-            </div>
-
             {/* Actions */}
             <div className="flex items-center space-x-4 pt-4 border-t border-stone-100">
                 <button
-                    type="submit"
+                    type="button"
+                    onClick={() => handleSubmit(false)}
+                    disabled={isSubmitting}
+                    className="px-8 py-3 bg-stone-100 text-stone-700 rounded-full font-semibold text-sm hover:bg-stone-200 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                    Save as Draft
+                </button>
+                <button
+                    type="button"
+                    onClick={() => handleSubmit(true)}
                     disabled={isSubmitting}
                     className="px-8 py-3 bg-stone-900 text-white rounded-full font-semibold text-sm hover:bg-stone-800 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                     {isSubmitting
                         ? "Saving..."
-                        : mode === "create"
-                            ? "Create Post"
-                            : "Update Post"}
+                        : "Publish Post"}
                 </button>
+            </div>
+            <div className="flex justify-start">
                 <button
                     type="button"
-                    onClick={() => router.back()}
-                    className="px-8 py-3 bg-stone-100 text-stone-700 rounded-full font-semibold text-sm hover:bg-stone-200 transition-all"
+                    onClick={() => router.push("/admin/stories")}
+                    className="text-stone-400 text-xs hover:text-stone-600 transition-colors"
                 >
                     Cancel
                 </button>

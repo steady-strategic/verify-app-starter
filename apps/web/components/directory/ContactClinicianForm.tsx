@@ -26,13 +26,26 @@ export function ContactClinicianForm({ onClose, clinicianEmail }: ContactClinici
 
                         if (clinicianEmail) {
                             // Use jQuery provided by HubSpot callback to bypass iframe restrictions
-                            const input = $form.find('input[name="work_title"]');
+                            // User specified internal name: work_email
+                            console.log("DEBUG: Investigating $form inputs...");
+
+                            // Try user requested 'work_email'
+                            let input = $form.find('input[name="work_email"]');
 
                             if (input.length) {
-                                console.log("DEBUG: Found input via $form. Injecting:", clinicianEmail);
-                                input.val(clinicianEmail).change();
+                                console.log("DEBUG: Found 'work_email'. Injecting:", clinicianEmail);
+                                input.val(clinicianEmail).trigger('input').trigger('change');
                             } else {
-                                console.warn("DEBUG: Input 'work_title' not found in $form context.");
+                                console.warn("DEBUG: 'work_email' not found. Trying 'work_title' fallback...");
+                                // Try 'work_title' fallback
+                                input = $form.find('input[name="work_title"]');
+
+                                if (input.length) {
+                                    console.log("DEBUG: Found 'work_title' fallback. Injecting:", clinicianEmail);
+                                    input.val(clinicianEmail).trigger('input').trigger('change');
+                                } else {
+                                    console.warn("DEBUG: Neither 'work_email' nor 'work_title' found in form.");
+                                }
                             }
                         }
                     },

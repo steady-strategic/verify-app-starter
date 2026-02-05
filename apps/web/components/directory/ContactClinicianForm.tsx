@@ -25,27 +25,13 @@ export function ContactClinicianForm({ onClose, clinicianEmail }: ContactClinici
                         console.log("DEBUG: onFormReady fired. Email:", clinicianEmail);
 
                         if (clinicianEmail) {
-                            // Use jQuery provided by HubSpot callback to bypass iframe restrictions
-                            // User specified internal name: work_email
-                            console.log("DEBUG: Investigating $form inputs...");
-
-                            // Try user requested 'work_email'
-                            let input = $form.find('input[name="work_email"]');
-
+                            // Simple injection using jQuery context
+                            const input = $form.find('input[name="work_email"]');
                             if (input.length) {
-                                console.log("DEBUG: Found 'work_email'. Injecting:", clinicianEmail);
-                                input.val(clinicianEmail).trigger('input').trigger('change');
+                                console.log("DEBUG: Found input. Injecting:", clinicianEmail);
+                                input.val(clinicianEmail).change();
                             } else {
-                                console.warn("DEBUG: 'work_email' not found. Trying 'work_title' fallback...");
-                                // Try 'work_title' fallback
-                                input = $form.find('input[name="work_title"]');
-
-                                if (input.length) {
-                                    console.log("DEBUG: Found 'work_title' fallback. Injecting:", clinicianEmail);
-                                    input.val(clinicianEmail).trigger('input').trigger('change');
-                                } else {
-                                    console.warn("DEBUG: Neither 'work_email' nor 'work_title' found in form.");
-                                }
+                                console.warn("DEBUG: Input 'work_email' not found via $form.find().");
                             }
                         }
                     },

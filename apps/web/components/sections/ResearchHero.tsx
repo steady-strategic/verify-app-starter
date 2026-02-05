@@ -23,7 +23,7 @@ export const ResearchHero: React.FC<BaseSectionProps> = ({ className = "" }) => 
             <div className="absolute inset-0 flex flex-col justify-center px-6 lg:px-20 max-w-7xl mx-auto">
                 <div className="max-w-[600px]">
                     {/* Main Title */}
-                    <h1 className="font-extrabold text-[50px] lg:text-[70px] leading-[1.1] tracking-[-1px] text-white font-sans mb-8">
+                    <h1 className="font-extrabold text-[36px] lg:text-[48px] leading-[1.2] tracking-[-1px] text-white font-sans mb-6">
                         The Science of <br />
                         <span className="text-primary-1">MORE</span>
                     </h1>

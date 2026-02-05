@@ -275,9 +275,18 @@ export function RichTextEditor({ content, onChange, onUploadImage }: RichTextEdi
                     font-weight: 600;
                     line-height: 1.25;
                     letter-spacing: -0.56px;
-                    color: #111827;
+                    color: #111928;
                     margin-top: 1.75em;
                     margin-bottom: 0.75em;
+                }
+                .ProseMirror p {
+                    font-family: sans-serif;
+                    font-size: 18px;
+                    font-weight: 400;
+                    line-height: 1.5;
+                    letter-spacing: 0px;
+                    color: #111928;
+                    margin-bottom: 1.25em;
                 }
             `}</style>
         </div>

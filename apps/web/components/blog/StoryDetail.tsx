@@ -26,38 +26,22 @@ export const StoryDetail: React.FC<StoryDetailProps> = ({ story }) => {
     };
 
     return (
-        <div className="bg-cream pt-32 pb-24 min-h-screen">
+        <article className="bg-white min-h-screen pt-[65px]">
+            <div className="w-full h-[600px] relative">
+                <img
+                    src={story.image || "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=1200"}
+                    alt={story.title}
+                    className="w-full h-full object-cover"
+                />
+            </div>
+
             <div className="container mx-auto px-6">
                 <div className="max-w-3xl mx-auto">
-                    <Link
-                        href="/resources/blog"
-                        className="text-amber-800 text-xs font-bold uppercase tracking-widest hover:text-amber-600 transition-colors flex items-center mb-12"
-                    >
-                        <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-                        </svg>
-                        View All Stories
-                    </Link>
-
-                    <div className="mb-12">
-                        <div className="flex items-center space-x-2 mb-6">
-                            <span className="text-xs font-bold text-amber-600 uppercase tracking-widest px-3 py-1 bg-amber-50 rounded-full">{story.category}</span>
-                            <span className="text-stone-400 font-medium text-xs">{story.date}</span>
-                        </div>
-                        <h1 className="text-4xl md:text-6xl serif text-stone-900 mb-8 leading-[1.1] font-extrabold tracking-tight">
-                            {story.title.split(/(MORE)/g).map((part, i) => (
-                                part === "MORE" ? <span key={i} className="text-primary-1">{part}</span> : part
-                            ))}
-                        </h1>
-                    </div>
-
-                    <div className="rounded-[3rem] overflow-hidden shadow-2xl mb-16 aspect-video">
-                        <img
-                            src={story.image || "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=1200"}
-                            alt={story.title}
-                            className="w-full h-full object-cover"
-                        />
-                    </div>
+                    <h1 className="py-16 text-4xl md:text-6xl serif text-stone-900 leading-[1.1] font-extrabold tracking-tight">
+                        {story.title.split(/(MORE)/g).map((part, i) => (
+                            part === "MORE" ? <span key={i} className="text-primary-1">{part}</span> : part
+                        ))}
+                    </h1>
 
                     <div
                         className="prose prose-stone prose-lg max-w-none text-stone-700 font-light leading-loose space-y-8 mb-16"
@@ -82,7 +66,7 @@ export const StoryDetail: React.FC<StoryDetailProps> = ({ story }) => {
                         </div>
                     </div>
 
-                    <div className="mt-24 text-center">
+                    <div className="mt-24 text-center pb-24">
                         <Link
                             href="/resources/blog"
                             className="px-8 py-4 bg-stone-900 text-white rounded-full font-bold text-sm hover:bg-stone-800 transition-all uppercase tracking-widest inline-block"
@@ -92,6 +76,6 @@ export const StoryDetail: React.FC<StoryDetailProps> = ({ story }) => {
                     </div>
                 </div>
             </div>
-        </div>
+        </article>
     );
 };

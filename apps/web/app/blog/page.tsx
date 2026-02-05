@@ -44,7 +44,7 @@ export default async function BlogPage() {
                     {posts.map((post) => (
                         <div key={post.id} className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                             {/* Card Image - Spans 5 columns */}
-                            <div className="lg:col-span-5 relative h-[340px] w-full rounded-[2.5rem] overflow-hidden shadow-sm">
+                            <div className="lg:col-span-5 relative h-[400px] w-full rounded-2xl overflow-hidden shadow-sm">
                                 {post.imageUrl ? (
                                     <Image
                                         src={post.imageUrl}
@@ -72,7 +72,7 @@ export default async function BlogPage() {
                                 <div>
                                     <Link
                                         href={`/blog/${post.slug}`}
-                                        className="inline-flex items-center px-6 py-3 border border-stone-200 rounded-full text-stone-900 text-sm font-bold hover:bg-stone-50 hover:border-amber-200 transition-all group"
+                                        className="inline-flex items-center px-6 py-3 border border-stone-200 rounded-lg text-stone-900 text-sm font-bold hover:bg-stone-50 hover:border-amber-200 transition-all group"
                                     >
                                         Read more
                                         <svg className="w-4 h-4 ml-2 text-stone-400 group-hover:text-amber-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">

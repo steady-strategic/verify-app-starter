@@ -17,7 +17,7 @@ export default function ResearchPage() {
         <div className="w-full min-h-screen bg-white">
             <Navbar variant="light" transparent={false} />
 
-            <main className="pt-24">
+            <main className="pt-20">
                 <ResearchHero />
                 <Brands variant="research" />
 

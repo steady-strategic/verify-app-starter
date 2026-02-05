@@ -189,3 +189,12 @@ export interface FaqAccordionSectionProps extends BaseSectionProps {
         answer: React.ReactNode;
     }[];
 }
+
+export interface BlogFeedBannerSectionProps extends BaseSectionProps {
+    title: React.ReactNode;
+    description: React.ReactNode;
+    backgroundImage: {
+        src: string;
+        alt: string;
+    };
+}

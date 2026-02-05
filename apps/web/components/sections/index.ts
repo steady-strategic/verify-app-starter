@@ -21,3 +21,4 @@ export * from "./ProfileAbout";
 export * from "./TextAbout";
 export * from "./VideoAbout";
 export * from "./FaqAccordion";
+export * from "./BlogFeedBanner";

@@ -107,22 +107,6 @@ const MenuBar = ({ editor, onUploadImage }: { editor: Editor; onUploadImage?: (f
                 >
                     H1
                 </button>
-                <button
-                    type="button"
-                    onClick={() => editor.chain().focus().toggleHeading({ level: 2 }).run()}
-                    className={`${baseClass} ${editor.isActive("heading", { level: 2 }) ? activeClass : ""}`}
-                    title="Heading 2"
-                >
-                    H2
-                </button>
-                <button
-                    type="button"
-                    onClick={() => editor.chain().focus().toggleHeading({ level: 3 }).run()}
-                    className={`${baseClass} ${editor.isActive("heading", { level: 3 }) ? activeClass : ""}`}
-                    title="Heading 3"
-                >
-                    H3
-                </button>
             </div>
 
             <div className="w-px h-5 bg-stone-300 mx-1" />
@@ -144,22 +128,6 @@ const MenuBar = ({ editor, onUploadImage }: { editor: Editor; onUploadImage?: (f
                     title="Italic"
                 >
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /><path d="M19 4h-9M14 20H5" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" /></svg>
-                </button>
-                <button
-                    type="button"
-                    onClick={() => editor.chain().focus().toggleStrike().run()}
-                    className={`${baseClass} ${editor.isActive("strike") ? activeClass : ""}`}
-                    title="Strike"
-                >
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /><path d="M4 12h16" strokeWidth={2} /></svg>
-                </button>
-                <button
-                    type="button"
-                    onClick={() => editor.chain().focus().toggleCode().run()}
-                    className={`${baseClass} ${editor.isActive("code") ? activeClass : ""}`}
-                    title="Code"
-                >
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>
                 </button>
             </div>
 
@@ -292,6 +260,18 @@ export function RichTextEditor({ content, onChange, onUploadImage }: RichTextEdi
         <div className="w-full bg-white border border-stone-200 rounded-lg overflow-hidden shadow-sm focus-within:ring-2 focus-within:ring-amber-200 transition-all">
             <MenuBar editor={editor as Editor} onUploadImage={onUploadImage} />
             <EditorContent editor={editor} className="cursor-text" />
+            <style jsx global>{`
+                .ProseMirror h1 {
+                    font-family: sans-serif;
+                    font-size: 28px;
+                    font-weight: 600;
+                    line-height: 1.25;
+                    letter-spacing: -0.56px;
+                    color: #111827;
+                    margin-top: 1.75em;
+                    margin-bottom: 0.75em;
+                }
+            `}</style>
         </div>
     );
 }

@@ -10,7 +10,7 @@ export const BlogFeedBanner: React.FC<BlogFeedBannerSectionProps> = ({
     className,
 }) => {
     return (
-        <section className={`relative w-full h-[560px] flex items-center ${className}`}>
+        <section className={`relative w-full h-[680px] flex items-center ${className}`}>
             {/* Background Image */}
             <div className="absolute inset-0 z-0">
                 <Image
@@ -24,15 +24,15 @@ export const BlogFeedBanner: React.FC<BlogFeedBannerSectionProps> = ({
             </div>
 
             {/* Content Container */}
-            <div className="relative z-10 container mx-auto px-6 md:px-12 lg:px-24">
+            <div className="relative z-10 w-full pl-[40px]">
                 <div className="max-w-2xl">
                     {/* Title */}
-                    <h1 className="text-white text-5xl md:text-6xl font-bold font-serif mb-6 leading-tight">
+                    <h1 className="text-white text-5xl md:text-6xl font-bold font-sans mb-6 leading-tight">
                         {title}
                     </h1>
 
                     {/* Description */}
-                    <div className="text-white text-lg md:text-xl font-light leading-relaxed opacity-90">
+                    <div className="text-white text-lg md:text-xl font-light font-sans leading-relaxed opacity-90">
                         {description}
                     </div>
                 </div>

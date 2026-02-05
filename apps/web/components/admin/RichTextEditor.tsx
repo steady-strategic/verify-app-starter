@@ -113,14 +113,14 @@ const MenuBar = ({ editor, onUploadImage }: { editor: Editor; onUploadImage?: (f
                     type="button"
                     onClick={() => editor.chain().focus().setColor("var(--colors-gray-900)").run()}
                     className={`w-6 h-6 rounded-full border border-stone-200 transition-transform hover:scale-110 ${editor.isActive("textStyle", { color: "var(--colors-gray-900)" }) ? "ring-2 ring-stone-400 ring-offset-1" : ""}`}
-                    style={{ backgroundColor: "var(--colors-gray-900)" }}
+                    style={{ backgroundColor: "rgba(17, 25, 40, 1)" }}
                     title="Gray 900"
                 />
                 <button
                     type="button"
                     onClick={() => editor.chain().focus().setColor("var(--primary-1)").run()}
                     className={`w-6 h-6 rounded-full border border-stone-200 transition-transform hover:scale-110 ${editor.isActive("textStyle", { color: "var(--primary-1)" }) ? "ring-2 ring-stone-400 ring-offset-1" : ""}`}
-                    style={{ backgroundColor: "var(--primary-1)" }}
+                    style={{ backgroundColor: "rgba(231, 4, 231, 1)" }}
                     title="Primary 1"
                 />
             </div>

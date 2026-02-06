@@ -1,48 +1,42 @@
 "use client";
 
 import React from "react";
-import { Label, TextInput, Textarea, Button } from "flowbite-react";
+import { Label, TextInput, Textarea, Button, CustomFlowbiteTheme } from "flowbite-react";
 
 interface ContactFormProps {
     className?: string;
 }
 
 export const ContactForm: React.FC<ContactFormProps> = ({ className = "" }) => {
-    // Custom theme for Flowbite components to match our specific design tokens exactly
-    const inputTheme = {
+    // Highly specific themes to override Flowbite defaults and match the screenshot exactly
+    const customTextInputTheme: CustomFlowbiteTheme["textInput"] = {
         field: {
             input: {
-                base: "block w-full border disabled:cursor-not-allowed disabled:opacity-50 outline-none transition-all rounded-xl h-[56px] px-4",
+                base: "block w-full border disabled:cursor-not-allowed disabled:opacity-50 outline-none transition-all rounded-xl h-[56px] px-4 text-[16px]",
                 colors: {
-                    gray: "bg-[#F9FAFB] border-[#D1D5DB] text-[#111928] focus:border-primary-1 focus:ring-1 focus:ring-primary-1",
-                },
-                sizes: {
-                    sm: "text-sm",
-                    md: "text-sm",
-                    lg: "text-base",
+                    gray: "bg-[#F9FAFB] border-[#D1D5DB] text-[#111928] placeholder-[#9CA3AF] focus:border-[#D80ADA] focus:ring-1 focus:ring-[#D80ADA]",
                 },
             },
         },
     };
 
-    const textareaTheme = {
-        base: "block w-full rounded-xl border text-base disabled:cursor-not-allowed disabled:opacity-50 outline-none transition-all resize-none p-4",
+    const customTextareaTheme: CustomFlowbiteTheme["textarea"] = {
+        base: "block w-full rounded-xl border text-[16px] disabled:cursor-not-allowed disabled:opacity-50 outline-none transition-all resize-none p-4",
         colors: {
-            gray: "bg-[#F9FAFB] border-[#D1D5DB] text-[#111928] focus:border-primary-1 focus:ring-1 focus:ring-primary-1",
+            gray: "bg-[#F9FAFB] border-[#D1D5DB] text-[#111928] placeholder-[#9CA3AF] focus:border-[#D80ADA] focus:ring-1 focus:ring-[#D80ADA]",
         },
     };
 
-    const buttonTheme = {
+    const customButtonTheme: CustomFlowbiteTheme["button"] = {
         base: "group flex h-min items-center justify-center p-0 text-center font-bold focus:z-10 focus:outline-none transition-all active:scale-[0.98]",
-        fullSized: "w-full",
         color: {
-            primary: "bg-primary-1 hover:brightness-110 text-white shadow-lg shadow-primary-1/20 border-none",
+            primary: "bg-[#D80ADA] hover:brightness-110 text-white shadow-lg shadow-[#D80ADA]/20 border-none",
         },
         inner: {
             base: "flex items-center transition-all duration-200 justify-center w-full h-full",
         },
         size: {
-            custom_contact: "h-[56px] w-[156px] text-[16px] rounded-2xl",
+            custom: "h-[56px] w-[156px] text-[16px] rounded-2xl",
         },
     };
 
@@ -51,7 +45,10 @@ export const ContactForm: React.FC<ContactFormProps> = ({ className = "" }) => {
             {/* Row 1: Names */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
                 <div className="space-y-2">
-                    <Label htmlFor="firstName" className="block text-[#111928] font-medium text-[18px]">
+                    <Label
+                        htmlFor="firstName"
+                        className="block text-[#111928] font-medium text-[18px]"
+                    >
                         First name
                     </Label>
                     <TextInput
@@ -59,11 +56,14 @@ export const ContactForm: React.FC<ContactFormProps> = ({ className = "" }) => {
                         type="text"
                         required
                         color="gray"
-                        theme={inputTheme}
+                        theme={customTextInputTheme}
                     />
                 </div>
                 <div className="space-y-2">
-                    <Label htmlFor="lastName" className="block text-[#111928] font-medium text-[18px]">
+                    <Label
+                        htmlFor="lastName"
+                        className="block text-[#111928] font-medium text-[18px]"
+                    >
                         Last name
                     </Label>
                     <TextInput
@@ -71,7 +71,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ className = "" }) => {
                         type="text"
                         required
                         color="gray"
-                        theme={inputTheme}
+                        theme={customTextInputTheme}
                     />
                 </div>
             </div>
@@ -79,7 +79,10 @@ export const ContactForm: React.FC<ContactFormProps> = ({ className = "" }) => {
             {/* Row 2: Contact Info */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
                 <div className="space-y-2">
-                    <Label htmlFor="email" className="block text-[#111928] font-medium text-[18px]">
+                    <Label
+                        htmlFor="email"
+                        className="block text-[#111928] font-medium text-[18px]"
+                    >
                         Email
                     </Label>
                     <TextInput
@@ -87,25 +90,31 @@ export const ContactForm: React.FC<ContactFormProps> = ({ className = "" }) => {
                         type="email"
                         required
                         color="gray"
-                        theme={inputTheme}
+                        theme={customTextInputTheme}
                     />
                 </div>
                 <div className="space-y-2">
-                    <Label htmlFor="phone" className="block text-[#111928] font-medium text-[18px]">
+                    <Label
+                        htmlFor="phone"
+                        className="block text-[#111928] font-medium text-[18px]"
+                    >
                         Phone number
                     </Label>
                     <TextInput
                         id="phone"
                         type="tel"
                         color="gray"
-                        theme={inputTheme}
+                        theme={customTextInputTheme}
                     />
                 </div>
             </div>
 
             {/* Row 3: Message */}
             <div className="space-y-2">
-                <Label htmlFor="message" className="block text-[#111928] font-medium text-[18px]">
+                <Label
+                    htmlFor="message"
+                    className="block text-[#111928] font-medium text-[18px]"
+                >
                     Your message
                 </Label>
                 <Textarea
@@ -113,7 +122,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ className = "" }) => {
                     required
                     rows={6}
                     color="gray"
-                    theme={textareaTheme}
+                    theme={customTextareaTheme}
                 />
             </div>
 
@@ -122,8 +131,8 @@ export const ContactForm: React.FC<ContactFormProps> = ({ className = "" }) => {
                 <Button
                     type="submit"
                     color="primary"
-                    theme={buttonTheme}
-                    size="custom_contact"
+                    theme={customButtonTheme}
+                    size="custom"
                 >
                     Send Message
                 </Button>

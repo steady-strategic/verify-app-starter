@@ -19,6 +19,7 @@ export async function POST(request: NextRequest) {
         const submission = await prisma.contactSubmission.create({
             data: {
                 clinicianEmail,
+                formName: 'Patients',
                 firstName,
                 lastName,
                 email,

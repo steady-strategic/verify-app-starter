@@ -45,82 +45,9 @@ export async function POST(request: NextRequest) {
         // Sync each submission to HubSpot
         for (const submission of unsyncedSubmissions) {
             try {
-                // Step 1: Search for existing contact by email
-                const searchResponse = await fetch(
-                    `https://api.hubapi.com/crm/v3/objects/contacts/search`,
-                    {
-                        method: 'POST',
-                        headers: {
-                            'Authorization': `Bearer ${HUBSPOT_API_KEY}`,
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify({
-                            filterGroups: [{
-                                filters: [{
-                                    propertyName: 'email',
-                                    operator: 'EQ',
-                                    value: submission.email
-                                }]
-                            }]
-                        }),
-                    }
-                );
-
-                const searchData = await searchResponse.json();
-                let contactId: string;
-
-                if (searchData.results && searchData.results.length > 0) {
-                    // Contact exists - get the ID
-                    contactId = searchData.results[0].id;
-
-                    // Update existing contact (only update if fields are empty)
-                    await fetch(
-                        `https://api.hubapi.com/crm/v3/objects/contacts/${contactId}`,
-                        {
-                            method: 'PATCH',
-                            headers: {
-                                'Authorization': `Bearer ${HUBSPOT_API_KEY}`,
-                                'Content-Type': 'application/json',
-                            },
-                            body: JSON.stringify({
-                                properties: {
-                                    phone: submission.phone || '',
-                                }
-                            }),
-                        }
-                    );
-                } else {
-                    // Contact doesn't exist - create new one
-                    const createResponse = await fetch(
-                        'https://api.hubapi.com/crm/v3/objects/contacts',
-                        {
-                            method: 'POST',
-                            headers: {
-                                'Authorization': `Bearer ${HUBSPOT_API_KEY}`,
-                                'Content-Type': 'application/json',
-                            },
-                            body: JSON.stringify({
-                                properties: {
-                                    firstname: submission.firstName,
-                                    lastname: submission.lastName,
-                                    email: submission.email,
-                                    phone: submission.phone || '',
-                                },
-                            }),
-                        }
-                    );
-
-                    if (!createResponse.ok) {
-                        throw new Error(`Failed to create contact: ${await createResponse.text()}`);
-                    }
-
-                    const createData = await createResponse.json();
-                    contactId = createData.id;
-                }
-
-                // Step 2: Create a note on the contact for this form submission
-                const noteResponse = await fetch(
-                    'https://api.hubapi.com/crm/v3/objects/notes',
+                // Create contact in HubSpot with all properties
+                const hubspotResponse = await fetch(
+                    'https://api.hubapi.com/crm/v3/objects/contacts',
                     {
                         method: 'POST',
                         headers: {
@@ -129,40 +56,35 @@ export async function POST(request: NextRequest) {
                         },
                         body: JSON.stringify({
                             properties: {
-                                hs_timestamp: new Date(submission.createdAt).getTime(),
-                                hs_note_body: `**Form Submission: ${submission.formName}**\n\n` +
-                                    `**Clinician Email:** ${submission.clinicianEmail}\n` +
-                                    `**Message:**\n${submission.message}\n\n` +
-                                    `**Contact Info:**\n` +
-                                    `Name: ${submission.firstName} ${submission.lastName}\n` +
-                                    `Email: ${submission.email}\n` +
-                                    `Phone: ${submission.phone || 'N/A'}`,
+                                firstname: submission.firstName,
+                                lastname: submission.lastName,
+                                email: submission.email,
+                                phone: submission.phone || '',
+                                // Custom properties - must be created in HubSpot first
+                                form_name: submission.formName,
+                                clinician_email: submission.clinicianEmail,
+                                message: submission.message,
                             },
-                            associations: [{
-                                to: { id: contactId },
-                                types: [{
-                                    associationCategory: 'HUBSPOT_DEFINED',
-                                    associationTypeId: 202 // Note to Contact association
-                                }]
-                            }]
                         }),
                     }
                 );
 
-                if (noteResponse.ok) {
+                if (hubspotResponse.ok) {
+                    const hubspotData = await hubspotResponse.json();
+
                     // Update submission as synced
                     await prisma.contactSubmission.update({
                         where: { id: submission.id },
                         data: {
                             syncedToHubspot: true,
-                            hubspotContactId: contactId,
+                            hubspotContactId: hubspotData.id,
                         },
                     });
 
                     results.synced++;
                 } else {
-                    const errorText = await noteResponse.text();
-                    console.error(`Failed to create note for submission ${submission.id}:`, errorText);
+                    const errorText = await hubspotResponse.text();
+                    console.error(`Failed to sync submission ${submission.id}:`, errorText);
                     results.failed++;
                     results.errors.push(`Submission ${submission.id}: ${errorText}`);
                 }

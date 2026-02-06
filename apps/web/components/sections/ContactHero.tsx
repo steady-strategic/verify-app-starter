@@ -37,91 +37,70 @@ export const ContactHero: React.FC<ContactHeroProps> = () => {
                 </div>
 
                 {/* Form Card */}
-                <div className="w-full max-w-[811px] bg-white rounded-[24px] shadow-[0px_0px_9.9px_0px_rgba(0,0,0,0.03)] border border-[#f4f4f4] p-[32px] flex flex-col gap-6">
-                    <form className="flex flex-col gap-8">
+                <div className="w-full max-w-[811px] bg-white rounded-[40px] shadow-[0px_10px_30px_rgba(0,0,0,0.04)] border border-gray-100 p-8 md:p-12">
+                    <form className="space-y-8">
                         {/* Row 1: Names */}
-                        <div className="flex flex-col md:flex-row gap-8 w-full">
-                            <div className="flex-1">
-                                <div className="mb-2 block">
-                                    <Label htmlFor="firstName" className="font-medium text-gray-900">First name</Label>
-                                </div>
-                                <TextInput
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
+                            <div className="space-y-2">
+                                <label htmlFor="firstName" className="block text-gray-900 font-bold text-lg">First name</label>
+                                <input
                                     id="firstName"
                                     type="text"
-                                    placeholder=""
                                     required
-                                    theme={{ field: { input: { base: "block w-full border disabled:cursor-not-allowed disabled:opacity-50", colors: { gray: "bg-gray-50 border-gray-300 text-gray-900 focus:border-primary-1 focus:ring-primary-1" } } } }}
-                                    color="gray"
+                                    className="block w-full h-[56px] px-4 bg-[#F9FAFB] border border-gray-200 rounded-xl text-gray-900 focus:border-primary-1 focus:ring-1 focus:ring-primary-1 outline-none transition-all"
                                 />
                             </div>
-                            <div className="flex-1">
-                                <div className="mb-2 block">
-                                    <Label htmlFor="lastName" className="font-medium text-gray-900">Last name</Label>
-                                </div>
-                                <TextInput
+                            <div className="space-y-2">
+                                <label htmlFor="lastName" className="block text-gray-900 font-bold text-lg">Last name</label>
+                                <input
                                     id="lastName"
                                     type="text"
-                                    placeholder=""
                                     required
-                                    theme={{ field: { input: { base: "block w-full border disabled:cursor-not-allowed disabled:opacity-50", colors: { gray: "bg-gray-50 border-gray-300 text-gray-900 focus:border-primary-1 focus:ring-primary-1" } } } }}
-                                    color="gray"
+                                    className="block w-full h-[56px] px-4 bg-[#F9FAFB] border border-gray-200 rounded-xl text-gray-900 focus:border-primary-1 focus:ring-1 focus:ring-primary-1 outline-none transition-all"
                                 />
                             </div>
                         </div>
 
                         {/* Row 2: Contact Info */}
-                        <div className="flex flex-col md:flex-row gap-8 w-full">
-                            <div className="flex-1">
-                                <div className="mb-2 block">
-                                    <Label htmlFor="email" className="font-medium text-gray-900">Email</Label>
-                                </div>
-                                <TextInput
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
+                            <div className="space-y-2">
+                                <label htmlFor="email" className="block text-gray-900 font-bold text-lg">Email</label>
+                                <input
                                     id="email"
                                     type="email"
-                                    placeholder=""
                                     required
-                                    theme={{ field: { input: { base: "block w-full border disabled:cursor-not-allowed disabled:opacity-50", colors: { gray: "bg-gray-50 border-gray-300 text-gray-900 focus:border-primary-1 focus:ring-primary-1" } } } }}
-                                    color="gray"
+                                    className="block w-full h-[56px] px-4 bg-[#F9FAFB] border border-gray-200 rounded-xl text-gray-900 focus:border-primary-1 focus:ring-1 focus:ring-primary-1 outline-none transition-all"
                                 />
                             </div>
-                            <div className="flex-1">
-                                <div className="mb-2 block">
-                                    <Label htmlFor="phone" className="font-medium text-gray-900">Phone number</Label>
-                                </div>
-                                <TextInput
+                            <div className="space-y-2">
+                                <label htmlFor="phone" className="block text-gray-900 font-bold text-lg">Phone number</label>
+                                <input
                                     id="phone"
                                     type="tel"
-                                    placeholder=""
-                                    theme={{ field: { input: { base: "block w-full border disabled:cursor-not-allowed disabled:opacity-50", colors: { gray: "bg-gray-50 border-gray-300 text-gray-900 focus:border-primary-1 focus:ring-primary-1" } } } }}
-                                    color="gray"
+                                    className="block w-full h-[56px] px-4 bg-[#F9FAFB] border border-gray-200 rounded-xl text-gray-900 focus:border-primary-1 focus:ring-1 focus:ring-primary-1 outline-none transition-all"
                                 />
                             </div>
                         </div>
 
                         {/* Row 3: Message */}
-                        <div className="w-full">
-                            <div className="mb-2 block">
-                                <Label htmlFor="message" className="font-medium text-gray-900">Your message</Label>
-                            </div>
-                            <Textarea
+                        <div className="space-y-2">
+                            <label htmlFor="message" className="block text-gray-900 font-bold text-lg">Your message</label>
+                            <textarea
                                 id="message"
-                                placeholder=""
                                 required
                                 rows={6}
-                                className="bg-gray-50 border-gray-300 text-gray-900 focus:border-primary-1 focus:ring-primary-1"
-                                theme={{ base: "block w-full rounded-lg border text-sm disabled:cursor-not-allowed disabled:opacity-50", colors: { gray: "bg-gray-50 border-gray-300 text-gray-900 focus:border-primary-1 focus:ring-primary-1 placeholder-gray-400" } }}
-                                color="gray"
+                                className="block w-full p-4 bg-[#F9FAFB] border border-gray-200 rounded-xl text-gray-900 focus:border-primary-1 focus:ring-1 focus:ring-primary-1 outline-none transition-all resize-none"
                             />
                         </div>
 
                         {/* Submit Button */}
-                        <div className="flex justify-center">
-                            <Button
+                        <div className="flex justify-center pt-4">
+                            <button
                                 type="submit"
-                                className="bg-primary-1 hover:bg-[#b008b2] focus:ring-4 focus:ring-purple-300 text-white font-bold rounded-lg px-5 py-0.5"
+                                className="bg-primary-1 hover:brightness-110 active:scale-[0.98] text-white font-bold text-xl py-4 px-12 rounded-2xl transition-all shadow-lg shadow-primary-1/20"
                             >
                                 Send Message
-                            </Button>
+                            </button>
                         </div>
                     </form>
                 </div>

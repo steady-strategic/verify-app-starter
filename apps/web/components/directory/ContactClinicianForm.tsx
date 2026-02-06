@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState, FormEvent } from "react";
 
 interface ContactClinicianFormProps {
     onClose: () => void;
@@ -8,6 +8,55 @@ interface ContactClinicianFormProps {
 }
 
 export function ContactClinicianForm({ onClose, clinicianEmail }: ContactClinicianFormProps) {
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+    const [errorMessage, setErrorMessage] = useState('');
+
+    const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        setIsSubmitting(true);
+        setSubmitStatus('idle');
+        setErrorMessage('');
+
+        const formData = new FormData(e.currentTarget);
+
+        try {
+            const response = await fetch('/api/contact-clinician', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    clinicianEmail,
+                    firstName: formData.get('firstName') as string,
+                    lastName: formData.get('lastName') as string,
+                    email: formData.get('email') as string,
+                    phone: formData.get('phone') as string || null,
+                    message: formData.get('message') as string,
+                }),
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to submit form');
+            }
+
+            setSubmitStatus('success');
+            // Reset form
+            e.currentTarget.reset();
+
+            // Close modal after 2 seconds
+            setTimeout(() => {
+                onClose();
+            }, 2000);
+        } catch (error: any) {
+            console.error('Error submitting form:', error);
+            setSubmitStatus('error');
+            setErrorMessage(error.message || 'Failed to send message. Please try again.');
+        } finally {
+            setIsSubmitting(false);
+        }
+    };
+
     return (
         <div className="relative w-full h-full bg-white p-6 overflow-y-auto">
             {/* Close Button */}
@@ -31,7 +80,21 @@ export function ContactClinicianForm({ onClose, clinicianEmail }: ContactClinici
                     <p className="text-sm text-stone-500 mt-1">Fill out the form below to get in touch</p>
                 </div>
 
-                <form className="space-y-4">
+                {/* Success Message */}
+                {submitStatus === 'success' && (
+                    <div className="mb-4 p-4 bg-green-50 border border-green-200 rounded-lg">
+                        <p className="text-green-800 text-sm font-medium">✓ Message sent successfully!</p>
+                    </div>
+                )}
+
+                {/* Error Message */}
+                {submitStatus === 'error' && (
+                    <div className="mb-4 p-4 bg-red-50 border border-red-200 rounded-lg">
+                        <p className="text-red-800 text-sm font-medium">✗ {errorMessage}</p>
+                    </div>
+                )}
+
+                <form className="space-y-4" onSubmit={handleSubmit}>
                     {/* Row 1: Names */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div className="space-y-1">
@@ -43,6 +106,7 @@ export function ContactClinicianForm({ onClose, clinicianEmail }: ContactClinici
                             </label>
                             <input
                                 id="firstName"
+                                name="firstName"
                                 type="text"
                                 required
                                 className="block w-full h-[44px] px-3 bg-stone-50 border border-stone-300 rounded-lg text-stone-900 placeholder-stone-400 focus:border-amber-500 focus:ring-1 focus:ring-amber-500 outline-none transition-all text-sm"
@@ -57,6 +121,7 @@ export function ContactClinicianForm({ onClose, clinicianEmail }: ContactClinici
                             </label>
                             <input
                                 id="lastName"
+                                name="lastName"
                                 type="text"
                                 required
                                 className="block w-full h-[44px] px-3 bg-stone-50 border border-stone-300 rounded-lg text-stone-900 placeholder-stone-400 focus:border-amber-500 focus:ring-1 focus:ring-amber-500 outline-none transition-all text-sm"
@@ -75,6 +140,7 @@ export function ContactClinicianForm({ onClose, clinicianEmail }: ContactClinici
                             </label>
                             <input
                                 id="email"
+                                name="email"
                                 type="email"
                                 required
                                 className="block w-full h-[44px] px-3 bg-stone-50 border border-stone-300 rounded-lg text-stone-900 placeholder-stone-400 focus:border-amber-500 focus:ring-1 focus:ring-amber-500 outline-none transition-all text-sm"
@@ -89,6 +155,7 @@ export function ContactClinicianForm({ onClose, clinicianEmail }: ContactClinici
                             </label>
                             <input
                                 id="phone"
+                                name="phone"
                                 type="tel"
                                 className="block w-full h-[44px] px-3 bg-stone-50 border border-stone-300 rounded-lg text-stone-900 placeholder-stone-400 focus:border-amber-500 focus:ring-1 focus:ring-amber-500 outline-none transition-all text-sm"
                             />
@@ -105,6 +172,7 @@ export function ContactClinicianForm({ onClose, clinicianEmail }: ContactClinici
                         </label>
                         <textarea
                             id="message"
+                            name="message"
                             required
                             rows={4}
                             className="block w-full p-3 bg-stone-50 border border-stone-300 rounded-lg text-stone-900 placeholder-stone-400 focus:border-amber-500 focus:ring-1 focus:ring-amber-500 outline-none transition-all resize-none text-sm"
@@ -120,9 +188,10 @@ export function ContactClinicianForm({ onClose, clinicianEmail }: ContactClinici
                     <div className="flex justify-center pt-2">
                         <button
                             type="submit"
-                            className="bg-stone-900 hover:bg-stone-800 active:scale-[0.98] text-white font-semibold text-sm h-[44px] px-8 rounded-full transition-all shadow-sm flex items-center justify-center"
+                            disabled={isSubmitting}
+                            className="bg-stone-900 hover:bg-stone-800 active:scale-[0.98] text-white font-semibold text-sm h-[44px] px-8 rounded-full transition-all shadow-sm flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed"
                         >
-                            Send Message
+                            {isSubmitting ? 'Sending...' : 'Send Message'}
                         </button>
                     </div>
                 </form>

@@ -43,7 +43,7 @@ export const ContactHero: React.FC<ContactHeroProps> = () => {
                         <div className="flex flex-col md:flex-row gap-8 w-full">
                             <div className="flex-1">
                                 <div className="mb-2 block">
-                                    <Label htmlFor="firstName" value="First name" className="font-medium text-gray-900" />
+                                    <Label htmlFor="firstName" className="font-medium text-gray-900">First name</Label>
                                 </div>
                                 <TextInput
                                     id="firstName"
@@ -56,7 +56,7 @@ export const ContactHero: React.FC<ContactHeroProps> = () => {
                             </div>
                             <div className="flex-1">
                                 <div className="mb-2 block">
-                                    <Label htmlFor="lastName" value="Last name" className="font-medium text-gray-900" />
+                                    <Label htmlFor="lastName" className="font-medium text-gray-900">Last name</Label>
                                 </div>
                                 <TextInput
                                     id="lastName"
@@ -73,7 +73,7 @@ export const ContactHero: React.FC<ContactHeroProps> = () => {
                         <div className="flex flex-col md:flex-row gap-8 w-full">
                             <div className="flex-1">
                                 <div className="mb-2 block">
-                                    <Label htmlFor="email" value="Email" className="font-medium text-gray-900" />
+                                    <Label htmlFor="email" className="font-medium text-gray-900">Email</Label>
                                 </div>
                                 <TextInput
                                     id="email"
@@ -86,7 +86,7 @@ export const ContactHero: React.FC<ContactHeroProps> = () => {
                             </div>
                             <div className="flex-1">
                                 <div className="mb-2 block">
-                                    <Label htmlFor="phone" value="Phone number" className="font-medium text-gray-900" />
+                                    <Label htmlFor="phone" className="font-medium text-gray-900">Phone number</Label>
                                 </div>
                                 <TextInput
                                     id="phone"
@@ -101,7 +101,7 @@ export const ContactHero: React.FC<ContactHeroProps> = () => {
                         {/* Row 3: Message */}
                         <div className="w-full">
                             <div className="mb-2 block">
-                                <Label htmlFor="message" value="Your message" className="font-medium text-gray-900" />
+                                <Label htmlFor="message" className="font-medium text-gray-900">Your message</Label>
                             </div>
                             <Textarea
                                 id="message"

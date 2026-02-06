@@ -29,3 +29,4 @@ export * from "./ResearchSidebar";
 export * from "./ResearchJumbotron";
 export * from "./FaqAccordion";
 export * from "./BlogFeedBanner";
+export * from "./ContactHero";

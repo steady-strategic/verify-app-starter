@@ -8,34 +8,38 @@ interface ContactFormProps {
 }
 
 export const ContactForm: React.FC<ContactFormProps> = ({ className = "" }) => {
-    // Custom theme for Flowbite components to match our specific design tokens
+    // Custom theme for Flowbite components to match our specific design tokens exactly
     const inputTheme = {
         field: {
             input: {
-                base: "block w-full border disabled:cursor-not-allowed disabled:opacity-50 outline-none transition-all",
+                base: "block w-full border disabled:cursor-not-allowed disabled:opacity-50 outline-none transition-all rounded-xl h-[56px] px-4",
                 colors: {
                     gray: "bg-gray-50 border-gray-300 text-gray-900 focus:border-primary-1 focus:ring-1 focus:ring-primary-1",
                 },
-                withInnerId: "rounded-xl h-[56px] px-4",
+                sizes: {
+                    sm: "text-sm",
+                    md: "text-sm",
+                    lg: "text-base",
+                },
             },
         },
     };
 
     const textareaTheme = {
-        base: "block w-full rounded-xl border text-sm disabled:cursor-not-allowed disabled:opacity-50 outline-none transition-all resize-none",
+        base: "block w-full rounded-xl border text-base disabled:cursor-not-allowed disabled:opacity-50 outline-none transition-all resize-none p-4",
         colors: {
             gray: "bg-gray-50 border-gray-300 text-gray-900 focus:border-primary-1 focus:ring-1 focus:ring-primary-1",
         },
     };
 
     const buttonTheme = {
-        base: "group flex h-min items-center justify-center p-0.5 text-center font-bold focus:z-10 focus:outline-none transition-all active:scale-[0.98]",
+        base: "group flex h-min items-center justify-center p-0 text-center font-bold focus:z-10 focus:outline-none transition-all active:scale-[0.98]",
         fullSized: "w-full",
         color: {
-            primary: "bg-primary-1 hover:brightness-110 text-white shadow-lg shadow-primary-1/20",
+            primary: "bg-primary-1 hover:brightness-110 text-white shadow-lg shadow-primary-1/20 border-none",
         },
         inner: {
-            base: "flex items-center transition-all duration-200 justify-center",
+            base: "flex items-center transition-all duration-200 justify-center w-full h-full",
         },
         size: {
             custom_contact: "h-[56px] w-[156px] text-[16px] rounded-2xl",

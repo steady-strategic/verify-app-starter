@@ -30,3 +30,4 @@ export * from "./ResearchJumbotron";
 export * from "./FaqAccordion";
 export * from "./BlogFeedBanner";
 export * from "./ContactHero";
+export * from "./ContactForm";

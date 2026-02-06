@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Label, TextInput, Textarea, Button, CustomFlowbiteTheme } from "flowbite-react";
+import { Label, TextInput, Textarea, Button } from "flowbite-react";
 
 interface ContactFormProps {
     className?: string;
@@ -9,7 +9,7 @@ interface ContactFormProps {
 
 export const ContactForm: React.FC<ContactFormProps> = ({ className = "" }) => {
     // Custom Flowbite themes using global Tailwind CSS classes
-    const textInputTheme: CustomFlowbiteTheme["textInput"] = {
+    const textInputTheme = {
         field: {
             input: {
                 base: "block w-full border disabled:cursor-not-allowed disabled:opacity-50 outline-none transition-all rounded-xl h-[56px] px-4",
@@ -20,14 +20,14 @@ export const ContactForm: React.FC<ContactFormProps> = ({ className = "" }) => {
         },
     };
 
-    const textareaTheme: CustomFlowbiteTheme["textarea"] = {
+    const textareaTheme = {
         base: "block w-full rounded-xl border text-base disabled:cursor-not-allowed disabled:opacity-50 outline-none transition-all resize-none p-4",
         colors: {
             gray: "bg-gray-50 border-gray-300 text-gray-900 focus:border-primary-1 focus:ring-1 focus:ring-primary-1 placeholder-gray-400",
         },
     };
 
-    const buttonTheme: CustomFlowbiteTheme["button"] = {
+    const buttonTheme = {
         base: "group flex h-min items-center justify-center p-0 text-center font-bold focus:z-10 focus:outline-none transition-all active:scale-[0.98]",
         color: {
             primary: "bg-primary-1 hover:brightness-110 text-white shadow-lg shadow-primary-1/20 border-none",

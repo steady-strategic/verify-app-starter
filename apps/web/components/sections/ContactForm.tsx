@@ -14,7 +14,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ className = "" }) => {
             input: {
                 base: "block w-full border disabled:cursor-not-allowed disabled:opacity-50 outline-none transition-all rounded-xl h-[56px] px-4",
                 colors: {
-                    gray: "bg-gray-50 border-gray-300 text-gray-900 focus:border-primary-1 focus:ring-1 focus:ring-primary-1",
+                    gray: "bg-[#F9FAFB] border-[#D1D5DB] text-[#111928] focus:border-primary-1 focus:ring-1 focus:ring-primary-1",
                 },
                 sizes: {
                     sm: "text-sm",
@@ -28,7 +28,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ className = "" }) => {
     const textareaTheme = {
         base: "block w-full rounded-xl border text-base disabled:cursor-not-allowed disabled:opacity-50 outline-none transition-all resize-none p-4",
         colors: {
-            gray: "bg-gray-50 border-gray-300 text-gray-900 focus:border-primary-1 focus:ring-1 focus:ring-primary-1",
+            gray: "bg-[#F9FAFB] border-[#D1D5DB] text-[#111928] focus:border-primary-1 focus:ring-1 focus:ring-primary-1",
         },
     };
 
@@ -51,7 +51,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ className = "" }) => {
             {/* Row 1: Names */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
                 <div className="space-y-2">
-                    <Label htmlFor="firstName" className="block text-gray-900 font-medium text-[18px]">
+                    <Label htmlFor="firstName" className="block text-[#111928] font-medium text-[18px]">
                         First name
                     </Label>
                     <TextInput
@@ -63,7 +63,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ className = "" }) => {
                     />
                 </div>
                 <div className="space-y-2">
-                    <Label htmlFor="lastName" className="block text-gray-900 font-medium text-[18px]">
+                    <Label htmlFor="lastName" className="block text-[#111928] font-medium text-[18px]">
                         Last name
                     </Label>
                     <TextInput
@@ -79,7 +79,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ className = "" }) => {
             {/* Row 2: Contact Info */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
                 <div className="space-y-2">
-                    <Label htmlFor="email" className="block text-gray-900 font-medium text-[18px]">
+                    <Label htmlFor="email" className="block text-[#111928] font-medium text-[18px]">
                         Email
                     </Label>
                     <TextInput
@@ -91,7 +91,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ className = "" }) => {
                     />
                 </div>
                 <div className="space-y-2">
-                    <Label htmlFor="phone" className="block text-gray-900 font-medium text-[18px]">
+                    <Label htmlFor="phone" className="block text-[#111928] font-medium text-[18px]">
                         Phone number
                     </Label>
                     <TextInput
@@ -105,7 +105,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ className = "" }) => {
 
             {/* Row 3: Message */}
             <div className="space-y-2">
-                <Label htmlFor="message" className="block text-gray-900 font-medium text-[18px]">
+                <Label htmlFor="message" className="block text-[#111928] font-medium text-[18px]">
                     Your message
                 </Label>
                 <Textarea

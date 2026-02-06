@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import React from "react";
 
 interface ContactClinicianFormProps {
     onClose: () => void;
@@ -8,88 +8,6 @@ interface ContactClinicianFormProps {
 }
 
 export function ContactClinicianForm({ onClose, clinicianEmail }: ContactClinicianFormProps) {
-    useEffect(() => {
-        const scriptSrc = "//js.hsforms.net/forms/embed/v2.js";
-
-        const initializeForm = () => {
-            // @ts-ignore
-            if (window.hbspt) {
-                console.log("DEBUG: hbspt found. Creating form...");
-                // @ts-ignore
-                window.hbspt.forms.create({
-                    region: "na2",
-                    portalId: "243662289",
-                    formId: "54e4bb6a-b0f0-4595-9506-cc483ba0b97a",
-                    target: "#hs-contact-form-container",
-                    onFormReady: function ($form: any) {
-                        console.log("DEBUG: onFormReady fired!");
-
-                        // Log all fields found in the form to verify names
-                        console.log("DEBUG: Form HTML Structure:", $form.html());
-                        const fields = $form.serializeArray();
-                        console.log("DEBUG: Form fields found:", fields);
-
-                        if (clinicianEmail) {
-                            const emailField = $form.find('input[name="work_email"]');
-                            const titleField = $form.find('input[name="work_title"]');
-
-                            if (emailField.length) {
-                                console.log("DEBUG: Found 'work_email'. Injecting:", clinicianEmail);
-                                emailField.val(clinicianEmail).change();
-                            } else if (titleField.length) {
-                                console.log("DEBUG: Found 'work_title'. Injecting:", clinicianEmail);
-                                titleField.val(clinicianEmail).change();
-                            } else {
-                                console.warn("DEBUG: Neither field found. Available fields:", fields.map((f: any) => f.name));
-                            }
-                        }
-                    },
-                    onFormSubmit: function ($form: any) {
-                        // Optional: Ensure it's populated on submit
-                    }
-                });
-            } else {
-                console.warn("DEBUG: hbspt global not found even after load.");
-            }
-        };
-
-        // Listen for HubSpot message events
-        const handleMessage = (event: MessageEvent) => {
-            if (event.data.type === 'hsFormCallback' && event.data.eventName === 'onFormReady') {
-                console.log("DEBUG: Global message received - HubSpot form ready!");
-            }
-        };
-        window.addEventListener('message', handleMessage);
-
-        // Check if script already exists
-        let script = document.querySelector(`script[src="${scriptSrc}"]`) as HTMLScriptElement;
-
-        if (!script) {
-            console.log("DEBUG: Script not found, appending...");
-            script = document.createElement("script");
-            script.src = scriptSrc;
-            script.charset = "utf-8";
-            script.type = "text/javascript";
-            document.body.appendChild(script);
-        } else {
-            console.log("DEBUG: Script already exists.");
-        }
-
-        // Wait for script to actually execute and define window.hbspt
-        const interval = setInterval(() => {
-            // @ts-ignore
-            if (window.hbspt) {
-                clearInterval(interval);
-                initializeForm();
-            }
-        }, 100);
-
-        return () => {
-            clearInterval(interval);
-            window.removeEventListener('message', handleMessage);
-        };
-    }, [clinicianEmail]);
-
     return (
         <div className="relative w-full h-full bg-white p-6 overflow-y-auto">
             {/* Close Button */}
@@ -108,12 +26,106 @@ export function ContactClinicianForm({ onClose, clinicianEmail }: ContactClinici
 
             {/* Form Container */}
             <div className="w-full h-full flex flex-col justify-center">
-                <div className="text-center mb-4">
-                    <h3 className="text-lg font-bold text-stone-900">Contact Clinician</h3>
-                    <p className="text-xs text-stone-500">Fill out the form below to get in touch</p>
+                <div className="text-center mb-6">
+                    <h3 className="text-xl font-bold text-stone-900">Contact Clinician</h3>
+                    <p className="text-sm text-stone-500 mt-1">Fill out the form below to get in touch</p>
                 </div>
 
-                <div id="hs-contact-form-container" className="w-full"></div>
+                <form className="space-y-4">
+                    {/* Row 1: Names */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div className="space-y-1">
+                            <label
+                                htmlFor="firstName"
+                                className="block text-stone-900 font-medium text-sm"
+                            >
+                                First name
+                            </label>
+                            <input
+                                id="firstName"
+                                type="text"
+                                required
+                                className="block w-full h-[44px] px-3 bg-stone-50 border border-stone-300 rounded-lg text-stone-900 placeholder-stone-400 focus:border-amber-500 focus:ring-1 focus:ring-amber-500 outline-none transition-all text-sm"
+                            />
+                        </div>
+                        <div className="space-y-1">
+                            <label
+                                htmlFor="lastName"
+                                className="block text-stone-900 font-medium text-sm"
+                            >
+                                Last name
+                            </label>
+                            <input
+                                id="lastName"
+                                type="text"
+                                required
+                                className="block w-full h-[44px] px-3 bg-stone-50 border border-stone-300 rounded-lg text-stone-900 placeholder-stone-400 focus:border-amber-500 focus:ring-1 focus:ring-amber-500 outline-none transition-all text-sm"
+                            />
+                        </div>
+                    </div>
+
+                    {/* Row 2: Contact Info */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div className="space-y-1">
+                            <label
+                                htmlFor="email"
+                                className="block text-stone-900 font-medium text-sm"
+                            >
+                                Email
+                            </label>
+                            <input
+                                id="email"
+                                type="email"
+                                required
+                                className="block w-full h-[44px] px-3 bg-stone-50 border border-stone-300 rounded-lg text-stone-900 placeholder-stone-400 focus:border-amber-500 focus:ring-1 focus:ring-amber-500 outline-none transition-all text-sm"
+                            />
+                        </div>
+                        <div className="space-y-1">
+                            <label
+                                htmlFor="phone"
+                                className="block text-stone-900 font-medium text-sm"
+                            >
+                                Phone number
+                            </label>
+                            <input
+                                id="phone"
+                                type="tel"
+                                className="block w-full h-[44px] px-3 bg-stone-50 border border-stone-300 rounded-lg text-stone-900 placeholder-stone-400 focus:border-amber-500 focus:ring-1 focus:ring-amber-500 outline-none transition-all text-sm"
+                            />
+                        </div>
+                    </div>
+
+                    {/* Row 3: Message */}
+                    <div className="space-y-1">
+                        <label
+                            htmlFor="message"
+                            className="block text-stone-900 font-medium text-sm"
+                        >
+                            Your message
+                        </label>
+                        <textarea
+                            id="message"
+                            required
+                            rows={4}
+                            className="block w-full p-3 bg-stone-50 border border-stone-300 rounded-lg text-stone-900 placeholder-stone-400 focus:border-amber-500 focus:ring-1 focus:ring-amber-500 outline-none transition-all resize-none text-sm"
+                        />
+                    </div>
+
+                    {/* Hidden field for clinician email */}
+                    {clinicianEmail && (
+                        <input type="hidden" name="clinician_email" value={clinicianEmail} />
+                    )}
+
+                    {/* Submit Button */}
+                    <div className="flex justify-center pt-2">
+                        <button
+                            type="submit"
+                            className="bg-stone-900 hover:bg-stone-800 active:scale-[0.98] text-white font-semibold text-sm h-[44px] px-8 rounded-full transition-all shadow-sm flex items-center justify-center"
+                        >
+                            Send Message
+                        </button>
+                    </div>
+                </form>
             </div>
         </div>
     );

@@ -61,6 +61,7 @@ export async function POST(request: NextRequest) {
                                 email: submission.email,
                                 phone: submission.phone || '',
                                 message: submission.message,
+                                form_name: submission.formName,
                                 clinician_email: submission.clinicianEmail,
                             },
                         }),

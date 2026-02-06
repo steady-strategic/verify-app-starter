@@ -18,7 +18,8 @@ export function ContactClinicianForm({ onClose, clinicianEmail }: ContactClinici
         setSubmitStatus('idle');
         setErrorMessage('');
 
-        const formData = new FormData(e.currentTarget);
+        const form = e.currentTarget; // Store reference before async
+        const formData = new FormData(form);
 
         try {
             const response = await fetch('/api/contact-clinician', {
@@ -41,8 +42,8 @@ export function ContactClinicianForm({ onClose, clinicianEmail }: ContactClinici
             }
 
             setSubmitStatus('success');
-            // Reset form
-            e.currentTarget.reset();
+            // Reset form using stored reference
+            form.reset();
 
             // Close modal after 2 seconds
             setTimeout(() => {

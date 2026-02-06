@@ -177,6 +177,7 @@ model Clinician {
 model ContactSubmission {
   id                 String   @id @default(cuid())
   clinicianEmail     String
+  formName           String   @default("Patients")
   firstName          String
   lastName           String
   email              String

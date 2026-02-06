@@ -9,14 +9,8 @@ import { prisma } from "@/lib/db";
  */
 export async function POST(request: NextRequest) {
     try {
-        const HUBSPOT_API_KEY = process.env.HUBSPOT_API_KEY;
-
-        if (!HUBSPOT_API_KEY) {
-            return NextResponse.json(
-                { error: "HubSpot API key not configured" },
-                { status: 500 }
-            );
-        }
+        const HUBSPOT_PORTAL_ID = process.env.HUBSPOT_PORTAL_ID || '243662289';
+        const HUBSPOT_FORM_ID = process.env.HUBSPOT_FORM_ID || '54e4bb6a-b0f0-4595-9506-cc483ba0b97a';
 
         // Get all unsynced submissions
         const unsyncedSubmissions = await prisma.contactSubmission.findMany({
@@ -42,29 +36,31 @@ export async function POST(request: NextRequest) {
             errors: [] as string[],
         };
 
-        // Sync each submission to HubSpot
+        // Sync each submission to HubSpot Forms API
         for (const submission of unsyncedSubmissions) {
             try {
-                // Create contact in HubSpot with all properties
+                // Submit to HubSpot Forms API (no auth needed)
                 const hubspotResponse = await fetch(
-                    'https://api.hubapi.com/crm/v3/objects/contacts',
+                    `https://api.hsforms.com/submissions/v3/integration/submit/${HUBSPOT_PORTAL_ID}/${HUBSPOT_FORM_ID}`,
                     {
                         method: 'POST',
                         headers: {
-                            'Authorization': `Bearer ${HUBSPOT_API_KEY}`,
                             'Content-Type': 'application/json',
                         },
                         body: JSON.stringify({
-                            properties: {
-                                firstname: submission.firstName,
-                                lastname: submission.lastName,
-                                email: submission.email,
-                                phone: submission.phone || '',
-                                // Custom properties - must be created in HubSpot first
-                                form_name: submission.formName,
-                                clinician_email: submission.clinicianEmail,
-                                message: submission.message,
-                            },
+                            fields: [
+                                { name: 'firstname', value: submission.firstName },
+                                { name: 'lastname', value: submission.lastName },
+                                { name: 'email', value: submission.email },
+                                { name: 'phone', value: submission.phone || '' },
+                                { name: 'form_name', value: submission.formName },
+                                { name: 'clinician_email', value: submission.clinicianEmail },
+                                { name: 'message', value: submission.message },
+                            ],
+                            context: {
+                                pageUri: 'https://more-website.com/directory',
+                                pageName: 'Clinician Directory'
+                            }
                         }),
                     }
                 );
@@ -77,7 +73,7 @@ export async function POST(request: NextRequest) {
                         where: { id: submission.id },
                         data: {
                             syncedToHubspot: true,
-                            hubspotContactId: hubspotData.id,
+                            hubspotContactId: 'form-submitted',
                         },
                     });
 

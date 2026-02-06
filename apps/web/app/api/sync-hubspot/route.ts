@@ -60,6 +60,13 @@ export async function POST(request: NextRequest) {
                             context: {
                                 pageUri: 'https://more-website.com/directory',
                                 pageName: 'Clinician Directory'
+                            },
+                            skipValidation: true,
+                            legalConsentOptions: {
+                                consent: {
+                                    consentToProcess: true,
+                                    text: 'I agree to allow this website to store and process my personal data.',
+                                }
                             }
                         }),
                     }

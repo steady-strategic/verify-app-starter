@@ -27,7 +27,7 @@ export const App: React.FC<AppSectionProps> = ({
             {/* Background Layer */}
             <div className="absolute inset-0 w-full h-full">
                 {/* Background Image */}
-                <div className="absolute top-0 left-0 w-full h-[877px]">
+                <div className="absolute top-0 left-0 w-full h-[901px]">
                     <Image
                         src="/assets/images/App/Background.png"
                         alt="App background"
@@ -154,16 +154,14 @@ export const App: React.FC<AppSectionProps> = ({
                 </div>
 
                 {/* Right Content - Phone Mockup */}
-                <div className="flex items-center justify-center h-[660.575px] w-[363.443px] shrink-0">
-                    <div className="rotate-[3.96deg]">
-                        <div className="relative w-[320px] h-[640px] rounded-lg">
-                            <Image
-                                src="/assets/images/App/Mockup.png"
-                                alt="MORE App Mockup"
-                                fill
-                                className="object-contain rounded-lg"
-                            />
-                        </div>
+                <div className="flex items-center justify-center shrink-0">
+                    <div className="relative w-[320px] h-[640px]">
+                        <Image
+                            src="/assets/images/App/Mockup.png"
+                            alt="MORE App Mockup"
+                            fill
+                            className="object-contain"
+                        />
                     </div>
                 </div>
             </div>

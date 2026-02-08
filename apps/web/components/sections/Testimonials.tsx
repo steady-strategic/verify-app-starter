@@ -54,7 +54,7 @@ const testimonials = [
 export const Testimonials: React.FC<TestimonialsSectionProps> = ({ className = "" }) => {
     return (
         <div className={`w-full bg-white flex flex-col items-center py-24 px-4 box-border ${className}`}>
-            <section className="w-full max-w-[1280px] flex flex-col items-center gap-[28px] text-center font-sans">
+            <section className="w-full max-w-[1280px] flex flex-col items-center gap-7 text-center font-sans">
                 {/* Header */}
                 <div className="flex flex-col items-center gap-4 max-w-[672px]">
                     <h2 className="text-[28px] font-bold leading-[1.25] tracking-[-0.56px] text-gray-900 m-0">

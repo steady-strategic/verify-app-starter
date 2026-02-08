@@ -55,11 +55,11 @@ export const App: React.FC<AppSectionProps> = ({
                 <div className="flex flex-col gap-4 w-[699px] shrink-0">
                     {/* Header */}
                     <div className="flex flex-col">
-                        <h2 className="text-[50px] font-extrabold leading-[1.1] tracking-[-1px] m-0">
+                        <h2 className="text-[50px] font-sans font-extrabold leading-[1.1] tracking-[-1px] m-0">
                             <span className="text-primary-1">MORE</span>
                             <span className="text-white"> Support, Anywhere</span>
                         </h2>
-                        <p className="text-[38px] font-extralight italic leading-[1.3] tracking-[-1.9px] text-[#fafafa] m-0">
+                        <p className="text-[38px] font-sans font-extralight italic leading-[1.3] tracking-[-1.9px] text-[#fafafa] m-0">
                             Coming Soon!
                         </p>
                     </div>
@@ -69,7 +69,7 @@ export const App: React.FC<AppSectionProps> = ({
                         {isDefault && (
                             <>
                                 {/* Description */}
-                                <p className="text-xl text-white leading-[1.5] m-0">
+                                <p className="text-xl font-sans text-white leading-[1.5] m-0">
                                     Take your mindfulness practices on the go. Now you can access MORE meditations anytime, anywhere.
                                 </p>
 
@@ -83,7 +83,7 @@ export const App: React.FC<AppSectionProps> = ({
                                             <div className="w-4 h-4 rounded-full bg-primary-1 flex items-center justify-center shrink-0 mt-1">
                                                 <CheckIcon />
                                             </div>
-                                            <p className="text-base font-bold text-white leading-[1.5] m-0">
+                                            <p className="text-base font-sans font-bold text-white leading-[1.5] m-0">
                                                 Pleasant meditations designed to help ease cravings, pain, and stress
                                             </p>
                                         </div>
@@ -92,7 +92,7 @@ export const App: React.FC<AppSectionProps> = ({
                                             <div className="w-4 h-4 rounded-full bg-primary-1 flex items-center justify-center shrink-0 mt-1">
                                                 <CheckIcon />
                                             </div>
-                                            <p className="text-base font-bold text-white leading-[1.5] m-0">
+                                            <p className="text-base font-sans font-bold text-white leading-[1.5] m-0">
                                                 Learn skills that support healing and a renewed sense of joy in daily life
                                             </p>
                                         </div>
@@ -101,14 +101,14 @@ export const App: React.FC<AppSectionProps> = ({
                                             <div className="w-4 h-4 rounded-full bg-primary-1 flex items-center justify-center shrink-0 mt-1">
                                                 <CheckIcon />
                                             </div>
-                                            <p className="text-base font-bold text-white leading-[1.5] m-0">
+                                            <p className="text-base font-sans font-bold text-white leading-[1.5] m-0">
                                                 Use alongside MORE therapy sessions for the fullest impact
                                             </p>
                                         </div>
                                     </div>
 
                                     {/* Download CTA */}
-                                    <p className="text-xl font-semibold text-white leading-[1.4] tracking-[-0.4px] mb-0">
+                                    <p className="text-xl font-sans font-semibold text-white leading-[1.4] tracking-[-0.4px] mb-0">
                                         Download the App
                                     </p>
                                 </div>
@@ -116,7 +116,7 @@ export const App: React.FC<AppSectionProps> = ({
                                 {/* App Store Button */}
                                 <button className="bg-primary-1 rounded-lg px-4 py-3 flex items-center justify-center gap-2 w-[145px] hover:brightness-110 transition-all">
                                     <AppleIcon />
-                                    <div className="flex flex-col items-start text-white text-left">
+                                    <div className="flex flex-col items-start font-sans text-white text-left">
                                         <span className="text-xs leading-[12px]">Download on the</span>
                                         <span className="text-sm font-bold leading-[1.25]">AppStore</span>
                                     </div>
@@ -130,7 +130,7 @@ export const App: React.FC<AppSectionProps> = ({
                                 <div className="w-full h-px bg-gray-200" />
 
                                 {/* Description */}
-                                <div className="text-xl text-white leading-[1.5]">
+                                <div className="text-xl font-sans text-white leading-[1.5]">
                                     <p className="mb-0">
                                         The MORE Therapy app is designed to support your well-being whether you're working with a therapist or exploring these tools on your own.
                                     </p>
@@ -143,7 +143,7 @@ export const App: React.FC<AppSectionProps> = ({
                                 {/* App Store Button */}
                                 <button className="bg-primary-1 rounded-lg px-4 py-3 flex items-center justify-center gap-2 w-[145px] hover:brightness-110 transition-all">
                                     <AppleIcon />
-                                    <div className="flex flex-col items-start text-white text-left">
+                                    <div className="flex flex-col items-start font-sans text-white text-left">
                                         <span className="text-xs leading-[12px]">Download on the</span>
                                         <span className="text-sm font-bold leading-[1.25]">AppStore</span>
                                     </div>

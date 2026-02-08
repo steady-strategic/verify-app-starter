@@ -23,11 +23,11 @@ export const App: React.FC<AppSectionProps> = ({
     const isPatients = variant === "patients";
 
     return (
-        <div className={`relative w-full h-[877px] overflow-hidden ${className}`}>
+        <div className={`relative w-screen left-1/2 -translate-x-1/2 min-h-[1000px] overflow-hidden ${className}`}>
             {/* Background Layer */}
             <div className="absolute inset-0 w-full h-full">
                 {/* Background Image */}
-                <div className="absolute top-0 left-0 w-full h-[724px]">
+                <div className="absolute top-0 left-0 w-full h-[850px]">
                     <Image
                         src="/assets/images/App/Background.png"
                         alt="App background"
@@ -117,7 +117,7 @@ export const App: React.FC<AppSectionProps> = ({
                                 <button className="bg-primary-1 rounded-lg px-4 py-3 flex items-center justify-center gap-2 w-[145px] hover:brightness-110 transition-all">
                                     <AppleIcon />
                                     <div className="flex flex-col items-start font-sans text-white text-left">
-                                        <span className="text-xs leading-[12px]">Download on the</span>
+                                        <span className="text-xs leading-[12px] whitespace-nowrap">Download on the</span>
                                         <span className="text-sm font-bold leading-[1.25]">AppStore</span>
                                     </div>
                                 </button>
@@ -144,7 +144,7 @@ export const App: React.FC<AppSectionProps> = ({
                                 <button className="bg-primary-1 rounded-lg px-4 py-3 flex items-center justify-center gap-2 w-[145px] hover:brightness-110 transition-all">
                                     <AppleIcon />
                                     <div className="flex flex-col items-start font-sans text-white text-left">
-                                        <span className="text-xs leading-[12px]">Download on the</span>
+                                        <span className="text-xs leading-[12px] whitespace-nowrap">Download on the</span>
                                         <span className="text-sm font-bold leading-[1.25]">AppStore</span>
                                     </div>
                                 </button>

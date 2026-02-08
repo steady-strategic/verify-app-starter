@@ -23,8 +23,8 @@ export default async function BlogPage() {
     });
 
     return (
-        <div className="min-h-screen bg-stone-50">
-            <Navbar scrolled={true} />
+        <div className="min-h-screen bg-stone-50 pt-24">
+            <Navbar transparent={false} />
 
             <BlogFeedBanner
                 title="Insights from Dr. Garland"

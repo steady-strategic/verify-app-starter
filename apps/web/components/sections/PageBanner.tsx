@@ -16,7 +16,8 @@ export const PageBanner: React.FC<PageBannerSectionProps> = ({
     const isClinicians = variant === "clinicians";
     const isTraining = variant === "training";
     const isDirectory = variant === "directory";
-    const isLightVariant = isClinicians || isTraining;
+    const isPatients = variant === "patients";
+    const isLightVariant = isClinicians || isTraining || isPatients;
 
     const getHeightClass = () => {
         if (isDirectory) return 'min-h-[561px]';

@@ -73,7 +73,13 @@ export const Content: React.FC<ContentSectionProps> = ({
                         className="cursor-pointer border border-gray-200 py-3 px-5 bg-white rounded-lg flex items-center justify-center gap-2 hover:bg-gray-50 transition-colors"
                     >
                         <span className="text-sm font-medium text-gray-900">
-                            {cta.text}
+                            {cta.text.split(/(MORE)/g).map((part, index) =>
+                                part === 'MORE' ? (
+                                    <span key={index} className="text-primary-1">MORE</span>
+                                ) : (
+                                    <span key={index}>{part}</span>
+                                )
+                            )}
                         </span>
                     </Link>
                 )}

@@ -100,7 +100,7 @@ export const ContentHome: React.FC<ContentHomeSectionProps> = ({ className = "" 
                     </div>
                     <button className="cursor-pointer border-gray-200 border-solid border-[1px] py-2.5 px-[20px] bg-white rounded-lg flex items-center justify-center">
                         <div className="relative text-sm leading-[150%] font-medium font-sans text-gray-900 text-left">
-                            Learn MORE
+                            Learn <span className="text-primary-1">MORE</span>
                         </div>
                     </button>
                 </section>
@@ -222,7 +222,7 @@ export const ContentHome: React.FC<ContentHomeSectionProps> = ({ className = "" 
                             src="/assets/images/ContentHome/arrow-narrow-right.svg"
                         />
                         <div className="relative text-sm leading-[150%] font-medium font-sans text-gray-900 text-left shrink-0">
-                            Learn MORE
+                            Learn <span className="text-primary-1">MORE</span>
                         </div>
                         <Image
                             className="h-3.5 w-3.5 relative hidden shrink-0"

@@ -213,6 +213,10 @@ export interface BlogFeedBannerSectionProps extends BaseSectionProps {
     };
 }
 
+export interface VideoCliniciansSectionProps extends BaseSectionProps {
+    className?: string;
+}
+
 export interface AppSectionProps extends BaseSectionProps {
     variant?: "default" | "patients";
 }

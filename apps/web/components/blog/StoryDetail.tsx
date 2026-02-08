@@ -50,6 +50,15 @@ export const StoryDetail: React.FC<StoryDetailProps> = ({ story }) => {
                     <style jsx global>{`
                         .story-content h1 {
                             font-family: sans-serif;
+                            font-size: 14px;
+                            font-weight: 500;
+                            line-height: 1.5;
+                            color: #111928;
+                            margin-top: 1.25em;
+                            margin-bottom: 0.25em;
+                        }
+                        .story-content h2 {
+                            font-family: sans-serif;
                             font-size: 28px;
                             font-weight: 600;
                             line-height: 1.25;

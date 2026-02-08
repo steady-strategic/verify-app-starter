@@ -107,6 +107,14 @@ const MenuBar = ({ editor, onUploadImage }: { editor: Editor; onUploadImage?: (f
                 >
                     H1
                 </button>
+                <button
+                    type="button"
+                    onClick={() => editor.chain().focus().toggleHeading({ level: 2 }).run()}
+                    className={`${baseClass} ${editor.isActive("heading", { level: 2 }) ? activeClass : ""}`}
+                    title="Heading 2"
+                >
+                    H2
+                </button>
             </div>
 
             <div className="w-px h-5 bg-stone-300 mx-1" />
@@ -270,6 +278,15 @@ export function RichTextEditor({ content, onChange, onUploadImage }: RichTextEdi
             <EditorContent editor={editor} className="cursor-text" />
             <style jsx global>{`
                 .ProseMirror h1 {
+                    font-family: sans-serif;
+                    font-size: 14px;
+                    font-weight: 500;
+                    line-height: 1.5;
+                    color: #111928;
+                    margin-top: 1.25em;
+                    margin-bottom: 0.25em;
+                }
+                .ProseMirror h2 {
                     font-family: sans-serif;
                     font-size: 28px;
                     font-weight: 600;

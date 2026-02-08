@@ -27,7 +27,7 @@ export const App: React.FC<AppSectionProps> = ({
             {/* Background Layer */}
             <div className="absolute inset-0 w-full h-full">
                 {/* Background Image */}
-                <div className="absolute top-0 left-0 w-full h-[850px]">
+                <div className="absolute top-0 left-0 w-full h-[877px]">
                     <Image
                         src="/assets/images/App/Background.png"
                         alt="App background"

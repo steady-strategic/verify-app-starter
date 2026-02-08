@@ -95,7 +95,21 @@ export interface TestimonialsSectionProps extends BaseSectionProps { }
 
 export interface VideoSectionProps extends BaseSectionProps { }
 
-export interface HowItWorksSectionProps extends BaseSectionProps { }
+// HowItWorks Step definition
+export interface HowItWorksStep {
+    label: string;
+    title: string;
+    icon: string;
+}
+
+export interface HowItWorksSectionProps extends BaseSectionProps {
+    heading?: string;
+    footerText?: string;
+    centerTitle?: string;
+    centerIconSrc?: string;
+    curveBackgroundSrc?: string;
+    steps?: HowItWorksStep[];
+}
 
 export interface ContentTrainingSectionProps extends BaseSectionProps {
     title: React.ReactNode;

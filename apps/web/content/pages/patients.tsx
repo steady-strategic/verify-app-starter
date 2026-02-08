@@ -1,4 +1,4 @@
-import type { PageBannerSectionProps } from "@/components/sections/types";
+import type { PageBannerSectionProps, VideoSectionProps } from "@/components/sections/types";
 import React from "react";
 
 export const patientsContent = {
@@ -29,5 +29,22 @@ export const patientsContent = {
             src: "/assets/images/PageBanner/patients-right-image.png",
             alt: "Patients Healing"
         }
-    } satisfies PageBannerSectionProps
+    } satisfies PageBannerSectionProps,
+    video: {
+        variant: "patients",
+        title: "See MORE in action",
+        subtitle: (
+            <span>
+                Learn how MORE targets the brain's reward processes to restore responsiveness to natural pleasure and reduce opioid cravings.
+            </span>
+        ),
+        backgroundImage: {
+            src: "/assets/images/Video/patients-bg.png",
+            alt: "Video Background"
+        },
+        videoPreviewImage: {
+            src: "/assets/images/Video/Vid-preview-comp.png",
+            alt: "MORE in action"
+        }
+    } satisfies VideoSectionProps
 };

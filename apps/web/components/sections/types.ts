@@ -93,7 +93,20 @@ export interface ContentHomeSectionProps extends BaseSectionProps { }
 
 export interface TestimonialsSectionProps extends BaseSectionProps { }
 
-export interface VideoSectionProps extends BaseSectionProps { }
+export interface VideoSectionProps extends BaseSectionProps {
+    variant?: "default" | "patients" | "clinicians";
+    title?: React.ReactNode;
+    subtitle?: React.ReactNode;
+    description?: React.ReactNode;
+    backgroundImage?: {
+        src: string;
+        alt: string;
+    };
+    videoPreviewImage?: {
+        src: string;
+        alt: string;
+    };
+}
 
 // HowItWorks Step definition
 export interface HowItWorksStep {

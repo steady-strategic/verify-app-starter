@@ -6,8 +6,8 @@ import { Hero, Brands, ResearchHome, AboutHome, ContentHome, Testimonials, App, 
 import { homeContent } from "@/content/pages/home";
 import { prisma } from "@/lib/db";
 
-// Revalidate every hour
-export const revalidate = 3600;
+// Force dynamic rendering to ensure latest blog posts are shown
+export const dynamic = "force-dynamic";
 
 export default async function Page() {
     // Fetch latest 3 blog posts

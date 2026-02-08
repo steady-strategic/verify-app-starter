@@ -198,3 +198,7 @@ export interface BlogFeedBannerSectionProps extends BaseSectionProps {
         alt: string;
     };
 }
+
+export interface AppSectionProps extends BaseSectionProps {
+    variant?: "default" | "patients";
+}

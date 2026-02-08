@@ -1,7 +1,9 @@
-export default function Page() {
+import { App } from "@/components/sections";
+
+export default function PatientsPage() {
     return (
-        <div className="min-h-screen flex items-center justify-center">
-            <h1 className="text-2xl font-bold text-gray-400">Under Construction</h1>
-        </div>
+        <main className="flex flex-col">
+            <App variant="patients" />
+        </main>
     );
 }

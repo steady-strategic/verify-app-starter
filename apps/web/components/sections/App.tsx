@@ -50,7 +50,7 @@ export const App: React.FC<AppSectionProps> = ({
             </div>
 
             {/* Content Layer */}
-            <div className="relative z-10 flex items-start justify-between gap-[101px] px-[111px] py-24 h-full max-w-[1440px] mx-auto">
+            <div className="relative z-10 flex items-start justify-between gap-[101px] px-[111px] py-24 h-full">
                 {/* Left Content */}
                 <div className="flex flex-col gap-4 w-[699px] shrink-0">
                     {/* Header */}

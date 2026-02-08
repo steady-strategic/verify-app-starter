@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { PageBannerSectionProps } from "./types";
+import { TrainingForm } from "./TrainingForm";
 
 export const PageBanner: React.FC<PageBannerSectionProps> = ({
     className = "",
@@ -54,6 +55,19 @@ export const PageBanner: React.FC<PageBannerSectionProps> = ({
                             sizes={isLightVariant ? "50vw" : "(max-width: 768px) 100vw, 656px"}
                             priority
                         />
+                        {isTraining && (
+                            <div className="absolute inset-0 flex items-center justify-center z-10">
+                                <div className="max-w-[340px] flex flex-col gap-4 text-left">
+                                    <h2 className="text-white text-[28px] font-bold leading-[125%] tracking-[-0.02em] font-sans m-0 whitespace-nowrap">
+                                        No commitment today.
+                                    </h2>
+                                    <p className="text-white text-xl font-semibold leading-[140%] tracking-[-0.02em] font-sans m-0">
+                                        Pre-register and you'll save 15% off the cost of $895.
+                                    </p>
+                                    <TrainingForm />
+                                </div>
+                            </div>
+                        )}
                     </div>
                 )}
             </div>

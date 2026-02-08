@@ -1,4 +1,4 @@
-import { PageBanner, App, Video, PatientsText, KnowMoreTall } from "@/components/sections";
+import { PageBanner, App, Video, PatientsText, KnowMoreTall, PatientsForm } from "@/components/sections";
 import { patientsContent } from "@/content/pages/patients";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
@@ -13,6 +13,7 @@ export default function PatientsPage() {
                 <PatientsText {...patientsContent.patientsText} />
                 <KnowMoreTall {...patientsContent.knowMore} />
                 <App variant="patients" />
+                <PatientsForm />
             </main>
             <Footer />
         </div>

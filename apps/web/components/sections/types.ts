@@ -253,3 +253,8 @@ export interface PatientsTextSectionProps extends BaseSectionProps {
     title: React.ReactNode;
     subtitle: React.ReactNode;
 }
+
+export interface PatientsFormSectionProps extends BaseSectionProps {
+    title?: string;
+    subtitle?: string;
+}

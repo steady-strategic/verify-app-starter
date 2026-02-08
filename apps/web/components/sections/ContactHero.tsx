@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import { ContactForm } from "./ContactForm";
+import { ContactHubspotForm } from "./ContactHubspotForm";
 
 interface ContactHeroProps {
     // Props kept for compatibility, though currently unused with the custom form
@@ -38,7 +38,7 @@ export const ContactHero: React.FC<ContactHeroProps> = () => {
 
                 {/* Form Card */}
                 <div className="w-full max-w-[811px] bg-white rounded-[40px] shadow-[0px_10px_30px_rgba(0,0,0,0.04)] border border-gray-100 p-8 md:p-12">
-                    <ContactForm />
+                    <ContactHubspotForm />
                 </div>
             </div>
         </section>

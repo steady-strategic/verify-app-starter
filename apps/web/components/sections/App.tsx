@@ -23,7 +23,7 @@ export const App: React.FC<AppSectionProps> = ({
     const isPatients = variant === "patients";
 
     return (
-        <div className={`relative w-full max-w-[1440px] mx-auto h-[877px] overflow-hidden ${className}`}>
+        <div className={`relative w-full h-[877px] overflow-hidden ${className}`}>
             {/* Background Layer */}
             <div className="absolute inset-0 w-full h-full">
                 {/* Background Image */}
@@ -50,7 +50,7 @@ export const App: React.FC<AppSectionProps> = ({
             </div>
 
             {/* Content Layer */}
-            <div className="relative z-10 flex items-start justify-between gap-[101px] px-[111px] py-24 h-full">
+            <div className="relative z-10 flex items-start justify-between gap-[101px] px-[111px] py-24 h-full max-w-[1440px] mx-auto">
                 {/* Left Content */}
                 <div className="flex flex-col gap-4 w-[699px] shrink-0">
                     {/* Header */}

@@ -31,4 +31,5 @@ export * from "./FaqAccordion";
 export * from "./BlogFeedBanner";
 export * from "./ContactHero";
 export * from "./ContactForm";
+export * from "./ContactHubspotForm";
 export * from "./App";

@@ -279,8 +279,8 @@ export function RichTextEditor({ content, onChange, onUploadImage }: RichTextEdi
             <style jsx global>{`
                 .ProseMirror h1 {
                     font-family: sans-serif;
-                    font-size: 14px;
-                    font-weight: 500;
+                    font-size: 24px;
+                    font-weight: 700;
                     line-height: 1.5;
                     color: #111928;
                     margin-top: 1.25em;

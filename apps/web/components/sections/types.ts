@@ -146,6 +146,7 @@ export interface Cards3x2SectionProps extends BaseSectionProps {
 }
 
 export interface KnowMoreTallSectionProps extends BaseSectionProps {
+    variant?: "default" | "patients";
     title: React.ReactNode;
     cta: {
         text: string;
@@ -246,4 +247,9 @@ export interface BlogHomeSectionProps extends BaseSectionProps {
 
 export interface AppSectionProps extends BaseSectionProps {
     variant?: "default" | "patients";
+}
+
+export interface PatientsTextSectionProps extends BaseSectionProps {
+    title: React.ReactNode;
+    subtitle: React.ReactNode;
 }

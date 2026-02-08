@@ -1,4 +1,4 @@
-import type { PageBannerSectionProps, VideoSectionProps } from "@/components/sections/types";
+import type { PageBannerSectionProps, VideoSectionProps, PatientsTextSectionProps, KnowMoreTallSectionProps } from "@/components/sections/types";
 import React from "react";
 
 export const patientsContent = {
@@ -46,5 +46,29 @@ export const patientsContent = {
             src: "/assets/images/Video/Vid-preview-comp.png",
             alt: "MORE in action"
         }
-    } satisfies VideoSectionProps
+    } satisfies VideoSectionProps,
+    patientsText: {
+        title: (
+            <span>
+                Start on the path <br /> to <span className="text-primary-1">Recovery</span>
+            </span>
+        ),
+        subtitle: (
+            <span>
+                MORE helps you find meaning, connection, and joy again by restoring the brain's natural reward system.
+            </span>
+        )
+    } satisfies PatientsTextSectionProps,
+    knowMore: {
+        variant: "patients",
+        title: "Find a Provider",
+        cta: {
+            text: "See Directory",
+            href: "/directory"
+        },
+        backgroundImage: {
+            src: "/assets/images/KnowMore/patients-bg.png",
+            alt: "Forest Background"
+        }
+    } satisfies KnowMoreTallSectionProps
 };

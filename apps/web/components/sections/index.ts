@@ -34,3 +34,4 @@ export * from "./ContactForm";
 export * from "./ContactHubspotForm";
 export * from "./App";
 export * from "./VideoClinicians";
+export * from "./BlogHome";

@@ -217,6 +217,20 @@ export interface VideoCliniciansSectionProps extends BaseSectionProps {
     className?: string;
 }
 
+export interface BlogHomeSectionProps extends BaseSectionProps {
+    title: string;
+    items: {
+        image: {
+            src: string;
+            alt: string;
+        };
+        category: string;
+        title: string;
+        description: string;
+        href: string;
+    }[];
+}
+
 export interface AppSectionProps extends BaseSectionProps {
     variant?: "default" | "patients";
 }

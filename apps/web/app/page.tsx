@@ -1,29 +1,43 @@
-"use client";
 
-import React, { useState, useEffect } from "react";
-import { Navbar } from "@/components/layout/Navbar";
+import React from "react";
+import { NavbarWrapper } from "@/components/layout/NavbarWrapper";
 import { Footer } from "@/components/layout/Footer";
-import { Hero, Brands, ResearchHome, AboutHome, ContentHome, Testimonials, App } from "@/components/sections";
+import { Hero, Brands, ResearchHome, AboutHome, ContentHome, Testimonials, App, BlogHome } from "@/components/sections";
+import { homeContent } from "@/content/pages/home";
+import { prisma } from "@/lib/db";
 
-export default function Page() {
-    const [scrolled, setScrolled] = useState(false);
+// Revalidate every hour
+export const revalidate = 3600;
 
-    useEffect(() => {
-        const handleScroll = () => {
-            setScrolled(window.scrollY > 50);
-        };
+export default async function Page() {
+    // Fetch latest 3 blog posts
+    const posts = await prisma.story.findMany({
+        take: 3,
+        where: { published: true },
+        orderBy: { createdAt: "desc" }
+    });
 
-        window.addEventListener("scroll", handleScroll);
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
+    // Map posts to BlogHome items format
+    const dynamicBlogItems = posts.map(post => ({
+        image: {
+            src: post.imageUrl || "/assets/images/VideoClinicians/Thumbnail.png",
+            alt: post.title
+        },
+        category: "Blog Post", // Default category or could be improved later
+        title: post.title,
+        description: post.excerpt,
+        href: `/blog/${post.slug}`
+    }));
+
+    // Use dynamic items if available, otherwise fallback to static content
+    const blogHomeProps = {
+        ...homeContent.blogHome,
+        items: dynamicBlogItems.length > 0 ? dynamicBlogItems : homeContent.blogHome.items
+    };
 
     return (
         <div className="min-h-screen bg-white">
-            <Navbar
-                variant={scrolled ? "light" : "dark"}
-                transparent={true}
-                scrolled={scrolled}
-            />
+            <NavbarWrapper />
             <main>
                 <Hero />
                 <Brands />
@@ -32,6 +46,7 @@ export default function Page() {
                 <ContentHome />
                 <App variant="default" />
                 <Testimonials />
+                <BlogHome {...blogHomeProps} />
             </main>
             <Footer />
         </div>

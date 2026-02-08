@@ -65,7 +65,7 @@ export const cliniciansCertifiedContent = {
             </span>
         ),
         image: {
-            src: "/assets/images/ContentTraining/Left-Image3@2x.png",
+            src: "/assets/images/ContentTraining/whatToExpect-new.png",
             alt: "Training Session"
         },
         cta: {

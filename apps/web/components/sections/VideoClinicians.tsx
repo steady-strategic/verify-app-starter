@@ -21,7 +21,7 @@ export const VideoClinicians: React.FC<VideoCliniciansSectionProps> = ({ classNa
 
                 {/* Text Content */}
                 <div className="flex flex-col items-center gap-8 max-w-[836px]">
-                    <h2 className="text-[50px] font-extrabold leading-[1.1] tracking-[-0.02em] font-sans m-0">
+                    <h2 className="text-[50px] font-extrabold leading-[1.1] tracking-[-0.02em] font-sans m-0 text-white">
                         MORE is more than therapy. It’s transforming lives.
                     </h2>
 
@@ -30,7 +30,7 @@ export const VideoClinicians: React.FC<VideoCliniciansSectionProps> = ({ classNa
                             Hear from Dan Kruger—international motorcycle racing champion. After decades of high-impact crashes and countless surgeries, Dan relied on opioids for more than 30 years. Strength and willpower weren’t enough. The cycle felt inescapable.
                         </p>
 
-                        <h3 className="text-[32px] font-bold leading-[1.25] tracking-[-0.02em] font-sans m-0">
+                        <h3 className="text-[32px] font-bold leading-[1.25] tracking-[-0.02em] font-sans m-0 text-white">
                             Then Dan found <span className="text-primary-1">MORE.</span>
                         </h3>
 

@@ -64,7 +64,7 @@ const MenuBar = ({ editor, onUploadImage }: { editor: Editor; onUploadImage?: (f
     const baseClass = "p-1.5 rounded-lg text-stone-500 hover:bg-stone-100 hover:text-stone-700 transition-colors";
 
     return (
-        <div className="flex flex-wrap gap-1 p-2 border-b border-stone-200 bg-stone-50 rounded-t-lg items-center">
+        <div className="sticky top-0 z-10 flex flex-wrap gap-1 p-2 border-b border-stone-200 bg-stone-50 rounded-t-lg items-center">
             {/* History */}
             <div className="flex gap-1 items-center">
                 <button
@@ -273,7 +273,7 @@ export function RichTextEditor({ content, onChange, onUploadImage }: RichTextEdi
     }, [content, editor]);
 
     return (
-        <div className="w-full bg-white border border-stone-200 rounded-lg overflow-hidden shadow-sm focus-within:ring-2 focus-within:ring-amber-200 transition-all">
+        <div className="w-full bg-white border border-stone-200 rounded-lg shadow-sm focus-within:ring-2 focus-within:ring-amber-200 transition-all">
             <MenuBar editor={editor as Editor} onUploadImage={onUploadImage} />
             <EditorContent editor={editor} className="cursor-text" />
             <style jsx global>{`

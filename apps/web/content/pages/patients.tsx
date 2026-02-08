@@ -50,20 +50,24 @@ export const patientsContent = {
     patientsText: {
         title: (
             <span>
-                Start on the path <br /> to <span className="text-primary-1">Recovery</span>
+                <span className="text-primary-1">MORE</span> is delivered over eight weekly sessions and has a lasting impact. During each session, you’ll be carefully guided through a series of mindfulness, reappraisal, and savoring techniques.
             </span>
         ),
         subtitle: (
             <span>
-                MORE helps you find meaning, connection, and joy again by restoring the brain's natural reward system.
+                Learn more about how it works <a href="/how-it-works" className="text-primary-1 hover:underline">here</a>.
             </span>
         )
     } satisfies PatientsTextSectionProps,
     knowMore: {
         variant: "patients",
-        title: "Find a Provider",
+        title: (
+            <span className="max-w-[800px] block">
+                Interested in finding a <span className="text-primary-1">MORE</span> certified provider near you?
+            </span>
+        ),
         cta: {
-            text: "See Directory",
+            text: "Find Providers",
             href: "/directory"
         },
         backgroundImage: {

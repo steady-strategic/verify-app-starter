@@ -44,7 +44,11 @@ export default async function BlogPage() {
                     {posts.map((post) => (
                         <div key={post.id} className="flex flex-col lg:flex-row gap-12 items-center">
                             {/* Card Image - Fixed 540px width on desktop */}
-                            <div className="lg:w-[540px] lg:shrink-0 relative h-[400px] w-full rounded-2xl overflow-hidden shadow-sm">
+                            {/* Card Image - Fixed 540px width on desktop */}
+                            <Link
+                                href={`/blog/${post.slug}`}
+                                className="lg:w-[540px] lg:shrink-0 relative h-[400px] w-full rounded-2xl overflow-hidden shadow-sm block group"
+                            >
                                 {post.imageUrl ? (
                                     <Image
                                         src={post.imageUrl}
@@ -57,7 +61,7 @@ export default async function BlogPage() {
                                         <span className="text-4xl">📷</span>
                                     </div>
                                 )}
-                            </div>
+                            </Link>
 
                             {/* Card Content - Fills remaining space */}
                             <div className="flex-1 flex flex-col justify-center pl-0 lg:pl-4">

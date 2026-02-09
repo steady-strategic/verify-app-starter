@@ -187,8 +187,36 @@ export const Navbar: React.FC<NavbarProps> = ({ scrolled = false, variant = "lig
 
                     </div>
 
-                    {/* Auth Button - Right (Hidden - system disabled) */}
+                    {/* Auth Button - Right */}
                     <div className="hidden md:flex items-center justify-end space-x-4">
+                        {/* DISABLED: User account system disabled - see disable-user-accounts branch */}
+                        {/* {isLoggedIn ? (
+                            <Link
+                                href={
+                                    pathname === "/account/modules"
+                                        ? "/account"
+                                        : pathname === "/account"
+                                            ? "/account/modules"
+                                            : "/account/modules"
+                                }
+                                className="px-5 py-2.5 bg-stone-900 text-white text-xs font-semibold rounded-full hover:bg-stone-800 transition-all active:scale-95"
+                            >
+                                {pathname === "/account/modules"
+                                    ? "Account Settings"
+                                    : pathname === "/account"
+                                        ? "MORE Modules"
+                                        : "Account"}
+                            </Link>
+                        ) : ( */}
+                        <a
+                            href="https://www.learnworlds.com"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="px-5 py-2.5 bg-primary-1 hover:brightness-110 text-white text-xs font-semibold rounded-lg transition-all active:scale-95"
+                        >
+                            Login
+                        </a>
+                        {/* )} */}
                     </div>
 
                     {/* Mobile Hamburger - Right (on mobile only) */}
@@ -322,9 +350,39 @@ export const Navbar: React.FC<NavbarProps> = ({ scrolled = false, variant = "lig
 
 
 
-                        {/* Login/Account (Hidden - system disabled) */}
-                        <div className="hidden md:flex items-center justify-end space-x-4">
-                        </div>
+                        <div className="h-[1px] bg-stone-200"></div>
+
+                        {/* Login/Account */}
+                        {/* DISABLED: User account system disabled - see disable-user-accounts branch */}
+                        {/* {isLoggedIn ? (
+                            <Link
+                                href={
+                                    pathname === "/account/modules"
+                                        ? "/account"
+                                        : pathname === "/account"
+                                            ? "/account/modules"
+                                            : "/account/modules"
+                                }
+                                onClick={() => setMobileMenuOpen(false)}
+                                className="px-5 py-2.5 bg-stone-900 text-white text-xs font-semibold rounded-full hover:bg-stone-800 transition-all text-center"
+                            >
+                                {pathname === "/account/modules"
+                                    ? "Account Settings"
+                                    : pathname === "/account"
+                                        ? "MORE Modules"
+                                        : "Account"}
+                            </Link>
+                        ) : ( */}
+                        <a
+                            href="https://www.learnworlds.com"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={() => setMobileMenuOpen(false)}
+                            className="px-5 py-2.5 bg-primary-1 hover:brightness-110 text-white text-xs font-semibold rounded-full transition-all text-center"
+                        >
+                            Login
+                        </a>
+                        {/* )} */}
                     </div>
                 </div>
             )}

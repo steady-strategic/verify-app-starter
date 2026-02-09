@@ -43,21 +43,27 @@ export const HowItWorksDesktop: React.FC<HowItWorksSectionProps> = ({
         <div className="w-full bg-white flex flex-col items-center py-24 px-4 box-border">
             <section className="w-full max-w-7xl flex flex-col items-center relative text-center text-gray-900 font-sans">
                 {/* Header */}
-                <div className="flex flex-col items-center justify-center mb-16 max-w-2xl z-10 gap-6">
+                <div
+                    className={`flex flex-col items-center justify-center max-w-2xl z-10 ${activeSubtitle ? "mb-6" : "mb-16"
+                        }`}
+                >
                     <h2 className="m-0 relative text-lg md:text-2xl tracking-[-0.02em] leading-relaxed font-bold">
                         {renderMoreHighlightedText(activeHeading)}
                     </h2>
-                    {activeSubtitle && (
+                </div>
+
+                {activeSubtitle && (
+                    <div className="flex flex-col items-center justify-center mb-16 max-w-2xl z-10">
                         <h3
                             className={`m-0 relative tracking-[-0.02em] leading-relaxed ${variant === "home"
-                                    ? "text-[26px] font-semibold"
+                                    ? "text-[20pt] font-semibold"
                                     : "text-lg md:text-2xl font-bold"
                                 }`}
                         >
                             {renderMoreHighlightedText(activeSubtitle)}
                         </h3>
-                    )}
-                </div>
+                    </div>
+                )}
 
                 {/* Central Graphic Area */}
                 <div className="relative w-full max-w-[1280px] flex flex-col items-center mt-12 md:mt-24">

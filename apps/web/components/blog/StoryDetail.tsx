@@ -2,6 +2,16 @@
 
 import React from "react";
 import Link from "next/link";
+import { BlogSidebar } from "./BlogSidebar";
+
+interface BlogPost {
+    slug: string;
+    title: string;
+    excerpt: string;
+    imageUrl: string | null;
+    sidebarTitle?: string | null;
+    sidebarExcerpt?: string | null;
+}
 
 interface Story {
     id: string | number;
@@ -17,9 +27,10 @@ interface Story {
 
 interface StoryDetailProps {
     story: Story;
+    blogPosts?: BlogPost[];
 }
 
-export const StoryDetail: React.FC<StoryDetailProps> = ({ story }) => {
+export const StoryDetail: React.FC<StoryDetailProps> = ({ story, blogPosts = [] }) => {
     const isVideoLink = (url?: string) => {
         if (!url) return false;
         return url.includes('youtube.com') || url.includes('youtu.be') || url.includes('vimeo.com');
@@ -35,79 +46,86 @@ export const StoryDetail: React.FC<StoryDetailProps> = ({ story }) => {
                 />
             </div>
 
-            <div className="container mx-auto px-6">
-                <div className="max-w-3xl mx-auto">
-                    <h1 className="py-16 text-4xl md:text-6xl serif text-stone-900 leading-[1.1] font-extrabold tracking-tight">
-                        {story.title.split(/(MORE)/g).map((part, i) => (
-                            part === "MORE" ? <span key={i} className="text-primary-1">{part}</span> : part
-                        ))}
-                    </h1>
+            <div className="max-w-[1440px] mx-auto px-6 lg:px-20">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                    {/* Left Column - Content */}
+                    <div className="lg:col-span-8">
+                        <h1 className="py-16 text-4xl md:text-6xl serif text-stone-900 leading-[1.1] font-extrabold tracking-tight">
+                            {story.title.split(/(MORE)/g).map((part, i) => (
+                                part === "MORE" ? <span key={i} className="text-primary-1">{part}</span> : part
+                            ))}
+                        </h1>
 
-                    <div
-                        className="story-content max-w-none text-stone-700 font-light leading-loose space-y-8 mb-16"
-                        dangerouslySetInnerHTML={{ __html: story.body }}
-                    />
-                    <style jsx global>{`
-                        .story-content h1 {
-                            font-family: sans-serif;
-                            font-size: 24px;
-                            font-weight: 600;
-                            line-height: 1.5;
-                            color: #111928;
-                            margin-top: 1.25em;
-                            margin-bottom: 0.25em;
-                        }
-                        .story-content h2 {
-                            font-family: sans-serif;
-                            font-size: 28px;
-                            font-weight: 600;
-                            line-height: 1.25;
-                            letter-spacing: -0.56px;
-                            color: #111928;
-                            margin-top: 1.75em;
-                            margin-bottom: 0.75em;
-                        }
-                        .story-content p {
-                            font-family: sans-serif;
-                            font-size: 18px;
-                            font-weight: 400;
-                            line-height: 1.5;
-                            letter-spacing: 0px;
-                            color: #111928;
-                            margin-bottom: 1.25em;
-                        }
-                        .story-content ul {
-                            list-style-type: disc;
-                            padding-left: 1.5em;
-                            margin-bottom: 1.25em;
-                        }
-                        .story-content ol {
-                            list-style-type: decimal;
-                            padding-left: 1.5em;
-                            margin-bottom: 1.25em;
-                        }
-                        .story-content a {
-                            color: #2563eb;
-                            text-decoration: underline;
-                        }
-                        .story-content strong {
-                            font-weight: 700;
-                        }
-                        .story-content em {
-                            font-style: italic;
-                        }
-                    `}</style>
-
-
-
-                    <div className="mt-24 text-center pb-24">
-                        <Link
-                            href="/blog"
-                            className="px-8 py-4 bg-stone-900 text-white rounded-full font-bold text-sm hover:bg-stone-800 transition-all uppercase tracking-widest inline-block"
-                        >
-                            Discover More Stories
-                        </Link>
+                        <div
+                            className="story-content max-w-none text-stone-700 font-light leading-loose space-y-8 mb-16"
+                            dangerouslySetInnerHTML={{ __html: story.body }}
+                        />
+                        <style jsx global>{`
+                            .story-content h1 {
+                                font-family: sans-serif;
+                                font-size: 24px;
+                                font-weight: 600;
+                                line-height: 1.5;
+                                color: #111928;
+                                margin-top: 1.25em;
+                                margin-bottom: 0.25em;
+                            }
+                            .story-content h2 {
+                                font-family: sans-serif;
+                                font-size: 28px;
+                                font-weight: 600;
+                                line-height: 1.25;
+                                letter-spacing: -0.56px;
+                                color: #111928;
+                                margin-top: 1.75em;
+                                margin-bottom: 0.75em;
+                            }
+                            .story-content p {
+                                font-family: sans-serif;
+                                font-size: 18px;
+                                font-weight: 400;
+                                line-height: 1.5;
+                                letter-spacing: 0px;
+                                color: #111928;
+                                margin-bottom: 1.25em;
+                            }
+                            .story-content ul {
+                                list-style-type: disc;
+                                padding-left: 1.5em;
+                                margin-bottom: 1.25em;
+                            }
+                            .story-content ol {
+                                list-style-type: decimal;
+                                padding-left: 1.5em;
+                                margin-bottom: 1.25em;
+                            }
+                            .story-content a {
+                                color: #2563eb;
+                                text-decoration: underline;
+                            }
+                            .story-content strong {
+                                font-weight: 700;
+                            }
+                            .story-content em {
+                                font-style: italic;
+                            }
+                        `}</style>
                     </div>
+
+                    {/* Right Column - Sidebar */}
+                    <div className="hidden lg:block lg:col-span-4">
+                        <BlogSidebar blogPosts={blogPosts} />
+                    </div>
+                </div>
+
+                {/* CTA Button - Below grid, centered */}
+                <div className="mt-24 text-center pb-24">
+                    <Link
+                        href="/blog"
+                        className="px-8 py-4 bg-stone-900 text-white rounded-full font-bold text-sm hover:bg-stone-800 transition-all uppercase tracking-widest inline-block"
+                    >
+                        Discover More Stories
+                    </Link>
                 </div>
             </div>
         </article>

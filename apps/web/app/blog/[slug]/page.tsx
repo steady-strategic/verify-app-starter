@@ -42,10 +42,32 @@ export default async function StoryPage({ params }: { params: { slug: string } }
         mediaLink: story.mediaUrl || undefined
     };
 
+    // Fetch 5 random published posts excluding current one for sidebar
+    const sidebarPosts = await prisma.story.findMany({
+        where: {
+            published: true,
+            slug: { not: slug } // Exclude current post
+        },
+        select: {
+            slug: true,
+            title: true,
+            excerpt: true,
+            imageUrl: true,
+        },
+        take: 5,
+        orderBy: {
+            publishedAt: 'desc'
+        }
+    });
+
+    // Randomly select 4 from the 5 fetched
+    const shuffled = [...sidebarPosts].sort(() => 0.5 - Math.random());
+    const randomPosts = shuffled.slice(0, 4);
+
     return (
         <div className="min-h-screen">
             <Navbar scrolled={true} />
-            <StoryDetail story={adaptedStory} />
+            <StoryDetail story={adaptedStory} blogPosts={randomPosts} />
             <Footer />
         </div>
     );

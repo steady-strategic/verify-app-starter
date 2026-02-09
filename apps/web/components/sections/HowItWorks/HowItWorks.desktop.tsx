@@ -48,7 +48,12 @@ export const HowItWorksDesktop: React.FC<HowItWorksSectionProps> = ({
                         {renderMoreHighlightedText(activeHeading)}
                     </h2>
                     {activeSubtitle && (
-                        <h3 className="m-0 relative text-lg md:text-2xl tracking-[-0.02em] leading-relaxed font-bold">
+                        <h3
+                            className={`m-0 relative tracking-[-0.02em] leading-relaxed ${variant === "home"
+                                    ? "text-[26px] font-semibold"
+                                    : "text-lg md:text-2xl font-bold"
+                                }`}
+                        >
                             {renderMoreHighlightedText(activeSubtitle)}
                         </h3>
                     )}

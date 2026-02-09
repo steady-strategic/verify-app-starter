@@ -116,7 +116,9 @@ export interface HowItWorksStep {
 }
 
 export interface HowItWorksSectionProps extends BaseSectionProps {
+    variant?: "default" | "home";
     heading?: string;
+    subtitle?: string;
     footerText?: string;
     centerTitle?: string;
     centerIconSrc?: string;

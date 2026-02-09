@@ -22,21 +22,36 @@ const DEFAULT_STEPS = [
 ];
 
 export const HowItWorksDesktop: React.FC<HowItWorksSectionProps> = ({
-    heading = `Over eight weekly sessions, MORE promotes neuroplasticity and lasting symptom change through a carefully designed, research-validated, three-step process.`,
+    variant = "default",
+    heading,
+    subtitle,
     footerText = `MORE Research shows: As your prefrontal cortex grows, your cravings decrease and your capacity for joy increases.`,
     centerTitle = "Mindfulness",
     centerIconSrc = "/assets/images/HowItWorks/content-image-src.svg",
     curveBackgroundSrc = "/assets/images/HowItWorks/Background2.svg",
     steps = DEFAULT_STEPS,
 }) => {
+    const activeHeading = heading ?? (variant === "home"
+        ? "For those struggling with addiction, chronic pain, or emotional distress, MORE provides a powerful and proven path forward."
+        : `Over eight weekly sessions, MORE promotes neuroplasticity and lasting symptom change through a carefully designed, research-validated, three-step process.`);
+
+    const activeSubtitle = subtitle ?? (variant === "home"
+        ? "Over the course of eight weekly sessions, MORE is delivered as a carefully curated, research-validated, three-step process."
+        : undefined);
+
     return (
         <div className="w-full bg-white flex flex-col items-center py-24 px-4 box-border">
             <section className="w-full max-w-7xl flex flex-col items-center relative text-center text-gray-900 font-sans">
                 {/* Header */}
-                <div className="flex flex-col items-center justify-center mb-16 max-w-2xl z-10">
+                <div className="flex flex-col items-center justify-center mb-16 max-w-2xl z-10 gap-6">
                     <h2 className="m-0 relative text-lg md:text-2xl tracking-[-0.02em] leading-relaxed font-bold">
-                        {renderMoreHighlightedText(heading)}
+                        {renderMoreHighlightedText(activeHeading)}
                     </h2>
+                    {activeSubtitle && (
+                        <h3 className="m-0 relative text-lg md:text-2xl tracking-[-0.02em] leading-relaxed font-bold">
+                            {renderMoreHighlightedText(activeSubtitle)}
+                        </h3>
+                    )}
                 </div>
 
                 {/* Central Graphic Area */}

@@ -81,19 +81,23 @@ enum AdminRole {
 }
 
 model Story {
-  id          String    @id @default(cuid())
-  title       String
-  slug        String    @unique
-  excerpt     String
-  content     String    @db.Text
-  imageUrl    String?
-  mediaUrl    String?   // External media link (YouTube, etc.)
-  published   Boolean   @default(false)
-  authorId    String
-  author      AdminUser @relation(fields: [authorId], references: [id])
-  createdAt   DateTime  @default(now())
-  updatedAt   DateTime  @updatedAt
-  publishedAt DateTime?
+  id            String    @id @default(cuid())
+  title         String
+  slug          String    @unique
+  excerpt       String
+  content       String    @db.Text
+  imageUrl      String?
+  mediaUrl      String?   // External media link (YouTube, etc.)
+  published     Boolean   @default(false)
+  authorId      String
+  author        AdminUser @relation(fields: [authorId], references: [id])
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  publishedAt   DateTime?
+  
+  // AI-generated sidebar summaries
+  sidebarTitle   String?   // Max 28 chars, condensed title for sidebar cards
+  sidebarExcerpt String?   // Max 75 chars, condensed excerpt for sidebar cards
 
   @@index([published, createdAt])
 }

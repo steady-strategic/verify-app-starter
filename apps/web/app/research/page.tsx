@@ -11,8 +11,26 @@ import {
     ResearchSidebar,
     ResearchJumbotron
 } from "../../components/sections";
+import { prisma } from "../../lib/db";
 
-export default function ResearchPage() {
+export default async function ResearchPage() {
+    // Fetch all published blog posts
+    const allPosts = await prisma.story.findMany({
+        where: { published: true },
+        select: {
+            slug: true,
+            title: true,
+            excerpt: true,
+            imageUrl: true,
+            sidebarTitle: true,
+            sidebarExcerpt: true,
+        },
+    });
+
+    // Randomly select 4 posts
+    const shuffled = [...allPosts].sort(() => 0.5 - Math.random());
+    const randomPosts = shuffled.slice(0, 4);
+
     return (
         <div className="w-full min-h-screen bg-white">
             <Navbar variant="light" transparent={false} />
@@ -47,7 +65,7 @@ export default function ResearchPage() {
 
                         {/* Right Column: Sidebar */}
                         <div className="lg:w-[340px] shrink-0 relative lg:ml-auto">
-                            <ResearchSidebar />
+                            <ResearchSidebar blogPosts={randomPosts} />
                         </div>
                     </div>
                 </div>

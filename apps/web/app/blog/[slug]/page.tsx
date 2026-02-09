@@ -53,6 +53,8 @@ export default async function StoryPage({ params }: { params: { slug: string } }
             title: true,
             excerpt: true,
             imageUrl: true,
+            sidebarTitle: true,
+            sidebarExcerpt: true,
         },
         take: 5,
         orderBy: {

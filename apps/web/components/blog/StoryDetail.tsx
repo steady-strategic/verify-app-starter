@@ -49,8 +49,8 @@ export const StoryDetail: React.FC<StoryDetailProps> = ({ story, blogPosts = [] 
             <div className="max-w-[1440px] mx-auto px-6 lg:px-20">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
                     {/* Left Column - Content */}
-                    <div className="lg:col-span-8">
-                        <h1 className="py-16 text-4xl md:text-6xl serif text-stone-900 leading-[1.1] font-extrabold tracking-tight">
+                    <div className="lg:col-span-8 pt-12 max-w-[672px]">
+                        <h1 className="pt-8 mb-20 text-4xl md:text-6xl serif text-stone-900 leading-[1.1] font-extrabold tracking-tight">
                             {story.title.split(/(MORE)/g).map((part, i) => (
                                 part === "MORE" ? <span key={i} className="text-primary-1">{part}</span> : part
                             ))}
@@ -113,7 +113,7 @@ export const StoryDetail: React.FC<StoryDetailProps> = ({ story, blogPosts = [] 
                     </div>
 
                     {/* Right Column - Sidebar */}
-                    <div className="hidden lg:block lg:col-span-4">
+                    <div className="hidden lg:block lg:col-span-4 pt-20 max-w-[336px]">
                         <BlogSidebar blogPosts={blogPosts} />
                     </div>
                 </div>

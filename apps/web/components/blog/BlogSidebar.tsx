@@ -51,7 +51,7 @@ export const BlogSidebar: React.FC<BlogSidebarProps> = ({ blogPosts = [] }) => {
                 <p className="text-[14px] leading-relaxed text-gray-500">
                     Get access to new insights, MORE exercizes and certified clinicians.
                 </p>
-                <a href="/patients" className="bg-primary-1 text-white text-center font-bold py-2 px-4 rounded-md hover:bg-opacity-90 transition-all">
+                <a href="/patients" className="w-[130px] bg-primary-1 text-white text-center font-bold py-2 px-4 rounded-md hover:bg-opacity-90 transition-all">
                     Pre-Register
                 </a>
             </div>

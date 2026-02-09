@@ -26,11 +26,24 @@ export const HowItWorksMobile: React.FC<HowItWorksSectionProps> = ({
     footerText = `MORE Research shows: As your prefrontal cortex grows, your cravings decrease and your capacity for joy increases.`,
     centerTitle = "Mindfulness",
     centerIconSrc = "/assets/images/HowItWorks/content-image-src.svg",
+    curveBackgroundSrc = "/assets/images/HowItWorks/Background2.svg",
     steps = DEFAULT_STEPS,
 }) => {
     return (
-        <div className="w-full bg-white flex flex-col items-center py-16 px-4 box-border">
-            <section className="w-full max-w-[420px] flex flex-col items-center text-center text-gray-900 font-sans">
+        <div className="w-full bg-white flex flex-col items-center py-16 px-4 box-border relative overflow-hidden">
+            {/* Background Curve Layer */}
+            <div className="absolute top-[120px] left-1/2 -translate-x-1/2 w-[180%] md:w-full pointer-events-none z-0">
+                <Image
+                    src={curveBackgroundSrc}
+                    width={1280}
+                    height={250}
+                    alt=""
+                    className="w-full h-auto object-contain opacity-40"
+                    priority
+                />
+            </div>
+
+            <section className="w-full max-w-[420px] flex flex-col items-center text-center text-gray-900 font-sans relative z-10">
                 {/* Header */}
                 <div className="flex flex-col items-center justify-center mb-10 max-w-[340px]">
                     <h2 className="m-0 text-2xl tracking-[-0.02em] leading-snug font-bold">
@@ -38,74 +51,56 @@ export const HowItWorksMobile: React.FC<HowItWorksSectionProps> = ({
                     </h2>
                 </div>
 
-                {/* Dome background (clipped) + Content */}
-                <div className="relative w-full overflow-hidden">
-                    {/* Giant dome shape (intentionally wider than container, clipped by wrapper) */}
-                    <div
-                        className="
-    pointer-events-none
-    absolute left-1/2 top-[120px]
-    h-full w-[170%]
-    -translate-x-1/2
-    rounded-t-[999px]
-  "
-                        style={{
-                            background:
-                                "linear-gradient(to bottom, rgba(243,243,243,0.85) 0%, rgba(243,243,243,0.85) 30%, rgba(243,243,243,0) 100%)",
-                        }}
-                    />
+                {/* Content Container (Background removed, replaced by SVG layer above) */}
+                <div className="w-full px-4 pt-10 pb-14">
+                    {/* Center icon bubble */}
+                    <div className="mx-auto mb-8 flex flex-col items-center justify-center rounded-full bg-[#f3f3f3] border-8 border-white w-[170px] h-[170px] gap-2 shadow-sm">
+                        <Image
+                            className="w-[92px] h-[80px]"
+                            width={92}
+                            height={80}
+                            alt={centerTitle}
+                            src={centerIconSrc}
+                        />
+                        <h3 className="m-0 text-lg font-semibold text-primary-1">
+                            {centerTitle}
+                        </h3>
+                    </div>
 
-                    {/* Foreground content (normal width) */}
-                    <div className="relative w-full px-4 pt-10 pb-14">
-                        {/* Center icon bubble */}
-                        <div className="mx-auto mb-8 flex flex-col items-center justify-center rounded-full bg-[#f3f3f3] border-8 border-white w-[170px] h-[170px] gap-2 shadow-sm">
-                            <Image
-                                className="w-[92px] h-[80px]"
-                                width={92}
-                                height={80}
-                                alt={centerTitle}
-                                src={centerIconSrc}
-                            />
-                            <h3 className="m-0 text-lg font-semibold text-primary-1">
-                                {centerTitle}
-                            </h3>
-                        </div>
+                    {/* Steps */}
+                    <div className="flex flex-col items-center">
+                        {steps.map((step, i) => (
+                            <React.Fragment key={i}>
+                                {/* Step pill */}
+                                <div className="bg-white rounded-full px-8 py-3 shadow-sm border border-gray-100 min-w-[140px]">
+                                    <span className="font-medium text-gray-900">{step.label}</span>
+                                </div>
 
-                        {/* Steps */}
-                        <div className="flex flex-col items-center">
-                            {steps.map((step, i) => (
-                                <React.Fragment key={i}>
-                                    {/* Step pill */}
-                                    <div className="bg-white rounded-full px-8 py-3 shadow-sm border border-gray-100 min-w-[140px]">
-                                        <span className="font-medium text-gray-900">{step.label}</span>
+                                {/* Icon */}
+                                <div className="mt-8 w-[124px] h-[124px] bg-[#f3f3f3] rounded-full flex items-center justify-center p-6">
+                                    <Image
+                                        src={step.icon}
+                                        width={64}
+                                        height={64}
+                                        alt={step.title}
+                                        className="w-full h-full object-contain"
+                                    />
+                                </div>
+
+                                {/* Title */}
+                                <div className="mt-4 text-sm font-bold text-gray-500">
+                                    {renderMorePrefixedTitle(step.title)}
+                                </div>
+
+                                {/* Connector */}
+                                {i < steps.length - 1 && (
+                                    <div className="mt-6 mb-6 flex flex-col items-center">
+                                        <div className="h-10 border-l-2 border-dashed border-gray-400" />
+                                        <div className="mt-2 w-2.5 h-2.5 border-b-2 border-r-2 border-gray-400 rotate-45" />
                                     </div>
-
-                                    {/* Icon */}
-                                    <div className="mt-8 w-[124px] h-[124px] bg-[#f3f3f3] rounded-full flex items-center justify-center p-6">
-                                        <Image
-                                            src={step.icon}
-                                            width={64}
-                                            height={64}
-                                            alt={step.title}
-                                            className="w-full h-full object-contain"
-                                        />
-                                    </div>
-
-                                    {/* Title */}
-                                    <div className="mt-4 text-sm font-bold text-gray-500">
-                                        {renderMorePrefixedTitle(step.title)}
-                                    </div>
-
-                                    {/* Connector */}
-                                    {i < steps.length - 1 && (
-                                        <div className="mt-6 mb-6 flex flex-col items-center">
-                                            <div className="h-10 border-l-2 border-dashed border-gray-400" />
-                                            <div className="mt-2 w-2.5 h-2.5 border-b-2 border-r-2 border-gray-400 rotate-45" />
-                                        </div>
-                                    )}
-                                </React.Fragment>
-                            ))}
-                        </div>
+                                )}
+                            </React.Fragment>
+                        ))}
                     </div>
                 </div>
 

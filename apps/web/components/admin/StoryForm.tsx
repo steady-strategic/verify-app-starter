@@ -198,6 +198,30 @@ export function StoryForm({ initialData, mode }: StoryFormProps) {
                 throw new Error(data.error || "Failed to save story");
             }
 
+            // Auto-generate sidebar summary if publishing
+            if (shouldPublish && formData.slug) {
+                console.log('🤖 Generating sidebar summary...');
+                try {
+                    const summaryResponse = await fetch('/api/generate-sidebar-summary', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ slug: formData.slug }),
+                    });
+
+                    const summaryData = await summaryResponse.json();
+
+                    if (summaryResponse.ok) {
+                        console.log('✅ Sidebar summary generated:', summaryData.summary);
+                    } else {
+                        console.warn('⚠️ Failed to generate sidebar summary:', summaryData.error);
+                        // Don't block the publish flow if summary generation fails
+                    }
+                } catch (summaryError) {
+                    console.warn('⚠️ Sidebar summary generation error:', summaryError);
+                    // Don't block the publish flow if summary generation fails
+                }
+            }
+
             router.push("/admin/stories");
             router.refresh();
         } catch (err: any) {

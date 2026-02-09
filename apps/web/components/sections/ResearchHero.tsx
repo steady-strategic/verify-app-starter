@@ -21,7 +21,7 @@ export const ResearchHero: React.FC<BaseSectionProps> = ({ className = "" }) => 
 
             {/* Content */}
             <div className="absolute inset-0 flex flex-col justify-center px-6 lg:px-20 max-w-7xl mx-auto">
-                <div className="max-w-[800px]">
+                <div className="max-w-[549px]">
                     {/* Main Title */}
                     <h1 className="font-extrabold text-[36px] lg:text-[48px] leading-[1.2] tracking-[-1px] text-white font-sans mb-6">
                         The Science of <span className="text-primary-1">MORE</span>
@@ -45,7 +45,7 @@ export const ResearchHero: React.FC<BaseSectionProps> = ({ className = "" }) => 
                         alt="MORE Mark"
                         width={202}
                         height={70}
-                        className="opacity-50"
+                        className="opacity-100"
                     />
                 </div>
             </div>

@@ -1,7 +1,7 @@
-import { Navbar } from "@/components/layout/Navbar";
-import { Footer } from "@/components/layout/Footer";
-import { FaqAccordion } from "@/components/sections";
-import { faqContent } from "@/content/pages/faq";
+import { Navbar } from "../../components/layout/Navbar";
+import { Footer } from "../../components/layout/Footer";
+import { FaqAccordion } from "../../components/sections";
+import { faqContent } from "../../content/pages/faq";
 
 export default function Page() {
     return (

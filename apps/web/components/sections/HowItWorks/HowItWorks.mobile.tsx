@@ -26,11 +26,24 @@ export const HowItWorksMobile: React.FC<HowItWorksSectionProps> = ({
     footerText = `MORE Research shows: As your prefrontal cortex grows, your cravings decrease and your capacity for joy increases.`,
     centerTitle = "Mindfulness",
     centerIconSrc = "/assets/images/HowItWorks/content-image-src.svg",
+    curveBackgroundSrc = "/assets/images/HowItWorks/Background2.svg",
     steps = DEFAULT_STEPS,
 }) => {
     return (
-        <div className="w-full bg-white flex flex-col items-center py-16 px-4 box-border">
-            <section className="w-full max-w-[420px] flex flex-col items-center text-center text-gray-900 font-sans">
+        <div className="w-full bg-white flex flex-col items-center py-16 px-4 box-border relative overflow-hidden">
+            {/* Background Curve Layer */}
+            <div className="absolute top-[120px] left-1/2 -translate-x-1/2 w-[180%] md:w-full pointer-events-none z-0">
+                <Image
+                    src={curveBackgroundSrc}
+                    width={1280}
+                    height={250}
+                    alt=""
+                    className="w-full h-auto object-contain opacity-40"
+                    priority
+                />
+            </div>
+
+            <section className="w-full max-w-[420px] flex flex-col items-center text-center text-gray-900 font-sans relative z-10">
                 {/* Header */}
                 <div className="flex flex-col items-center justify-center mb-10 max-w-[340px]">
                     <h2 className="m-0 text-2xl tracking-[-0.02em] leading-snug font-bold">
@@ -38,8 +51,8 @@ export const HowItWorksMobile: React.FC<HowItWorksSectionProps> = ({
                     </h2>
                 </div>
 
-                {/* Curved light background area */}
-                <div className="w-full rounded-t-[999px] bg-[#f3f3f3]/60 px-4 pt-10 pb-14">
+                {/* Content Container (Background removed, replaced by SVG layer above) */}
+                <div className="w-full px-4 pt-10 pb-14">
                     {/* Center icon bubble */}
                     <div className="mx-auto mb-8 flex flex-col items-center justify-center rounded-full bg-[#f3f3f3] border-8 border-white w-[170px] h-[170px] gap-2 shadow-sm">
                         <Image

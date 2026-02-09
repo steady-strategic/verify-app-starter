@@ -11,8 +11,7 @@ export const TrainingForm: React.FC<TrainingFormProps> = ({ className = "" }) =>
     return (
         <>
             <Script
-                src="https://js-na2.hsforms.net/forms/embed/243662289.js"
-                strategy="lazyOnload"
+                src="https://js-na2.hsforms.net/forms/embed/v2.js"
             />
             <div
                 className={`hs-form-frame ${className}`}

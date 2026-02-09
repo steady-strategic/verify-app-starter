@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Script from "next/script";
 
 interface TrainingFormProps {
     className?: string;
@@ -9,10 +10,8 @@ interface TrainingFormProps {
 export const TrainingForm: React.FC<TrainingFormProps> = ({ className = "" }) => {
     return (
         <>
-            <script
+            <Script
                 src="https://js-na2.hsforms.net/forms/embed/243662289.js"
-                async
-                defer
             />
             <div
                 className={`hs-form-frame ${className}`}

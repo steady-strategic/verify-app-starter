@@ -23,13 +23,13 @@ export const App: React.FC<AppSectionProps> = ({
     const isPatients = variant === "patients";
 
     return (
-        <div className={`relative w-screen left-1/2 -translate-x-1/2 min-h-[1030px] overflow-hidden ${className}`}>
+        <div className={`relative w-screen left-1/2 -translate-x-1/2 min-h-[921px] overflow-hidden ${className}`}>
             {/* Background Layer */}
             <div className="absolute inset-0 w-full h-full">
                 {/* Background Image */}
-                <div className="absolute top-0 left-0 w-full h-[901px]">
+                <div className="absolute top-0 left-0 w-full h-[921px]">
                     <Image
-                        src="/assets/images/App/Background.png"
+                        src="/assets/images/App/DownloadApp-BG.png"
                         alt="App background"
                         fill
                         className="object-cover"

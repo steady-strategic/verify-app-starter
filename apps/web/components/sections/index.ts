@@ -37,3 +37,4 @@ export * from "./VideoClinicians";
 export * from "./BlogHome";
 export * from "./PatientsText";
 export * from "./PatientsForm";
+export * from "./VideoMod";

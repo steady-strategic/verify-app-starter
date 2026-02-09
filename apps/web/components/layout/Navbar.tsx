@@ -75,17 +75,31 @@ const DropdownMenu: React.FC<{
             {isOpen && (
                 <div className="absolute top-full left-0 mt-2 w-56 bg-white border border-stone-100 rounded-lg shadow-lg py-2 z-50">
                     {items.map((item) => (
-                        <Link
-                            key={item.href}
-                            href={item.href}
-                            className={`block px-4 py-2 text-sm hover:bg-amber-50 transition-colors ${isActive(item.href)
-                                ? "text-stone-900 font-bold bg-amber-50/50"
-                                : "text-stone-600"
-                                }`}
-                            onClick={() => setIsOpen(false)}
-                        >
-                            {item.label}
-                        </Link>
+                        item.href === "/training" ? (
+                            <a
+                                key={item.href}
+                                href={item.href}
+                                className={`block px-4 py-2 text-sm hover:bg-amber-50 transition-colors ${isActive(item.href)
+                                    ? "text-stone-900 font-bold bg-amber-50/50"
+                                    : "text-stone-600"
+                                    }`}
+                                onClick={() => setIsOpen(false)}
+                            >
+                                {item.label}
+                            </a>
+                        ) : (
+                            <Link
+                                key={item.href}
+                                href={item.href}
+                                className={`block px-4 py-2 text-sm hover:bg-amber-50 transition-colors ${isActive(item.href)
+                                    ? "text-stone-900 font-bold bg-amber-50/50"
+                                    : "text-stone-600"
+                                    }`}
+                                onClick={() => setIsOpen(false)}
+                            >
+                                {item.label}
+                            </Link>
+                        )
                     ))}
                 </div>
             )}
@@ -103,7 +117,7 @@ export const Navbar: React.FC<NavbarProps> = ({ scrolled = false, variant = "lig
 
     const cliniciansItems: DropdownItem[] = [
         { label: "Why MORE", href: "/clinicians" },
-        { label: "MORE Training", href: "/clinicians/certified" },
+        { label: "MORE Training", href: "/training" },
     ];
 
     const patientsItems: DropdownItem[] = [
@@ -266,17 +280,31 @@ export const Navbar: React.FC<NavbarProps> = ({ scrolled = false, variant = "lig
                                 Clinicians
                             </p>
                             {cliniciansItems.map((item) => (
-                                <Link
-                                    key={item.href}
-                                    href={item.href}
-                                    onClick={() => setMobileMenuOpen(false)}
-                                    className={`block text-sm font-medium pl-3 ${isActive(item.href)
-                                        ? "text-stone-900 font-bold"
-                                        : "text-stone-600"
-                                        }`}
-                                >
-                                    {item.label}
-                                </Link>
+                                item.href === "/training" ? (
+                                    <a
+                                        key={item.href}
+                                        href={item.href}
+                                        onClick={() => setMobileMenuOpen(false)}
+                                        className={`block text-sm font-medium pl-3 ${isActive(item.href)
+                                            ? "text-stone-900 font-bold"
+                                            : "text-stone-600"
+                                            }`}
+                                    >
+                                        {item.label}
+                                    </a>
+                                ) : (
+                                    <Link
+                                        key={item.href}
+                                        href={item.href}
+                                        onClick={() => setMobileMenuOpen(false)}
+                                        className={`block text-sm font-medium pl-3 ${isActive(item.href)
+                                            ? "text-stone-900 font-bold"
+                                            : "text-stone-600"
+                                            }`}
+                                    >
+                                        {item.label}
+                                    </Link>
+                                )
                             ))}
                         </div>
 

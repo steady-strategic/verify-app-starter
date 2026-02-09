@@ -1,11 +1,11 @@
 "use client";
 
 import { PageBanner, ContentTraining, Cards3x2, KnowMoreTall } from "@/components/sections";
-import { cliniciansCertifiedContent } from "@/content/pages/clinicians-certified";
+import { cliniciansCertifiedContent } from "@/content/pages/training";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 
-export default function CertifiedPage() {
+export default function TrainingPage() {
     return (
         <div className="min-h-screen bg-white">
             <Navbar variant="light" transparent={false} />

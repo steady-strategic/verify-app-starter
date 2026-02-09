@@ -1,4 +1,5 @@
 import React from "react";
+import Link from 'next/link';
 
 export const Footer: React.FC = () => {
     return (
@@ -58,9 +59,9 @@ export const Footer: React.FC = () => {
                                 </a>
                             </li>
                             <li>
-                                <a href="/clinicians/certified" className="hover:text-stone-900 transition-colors">
-                                    MORE Training
-                                </a>
+                                <Link href="/training" className="text-gray-600 hover:text-primary-1 transition-colors">
+                                    More Training
+                                </Link>
                             </li>
                         </ul>
                     </div>

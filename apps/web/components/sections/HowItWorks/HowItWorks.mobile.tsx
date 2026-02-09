@@ -37,31 +37,21 @@ export const HowItWorksMobile: React.FC<HowItWorksSectionProps> = ({
     const activeSubtitle = subtitle ?? (variant === "home"
         ? "Over the course of eight weekly sessions, MORE is delivered as a carefully curated, research-validated, three-step process."
         : undefined);
+
     return (
         <div className="w-full bg-white flex flex-col items-center py-16 px-4 box-border">
             <section className="w-full max-w-[420px] flex flex-col items-center text-center text-gray-900 font-sans">
                 {/* Header */}
-                <div
-                    className={`flex flex-col items-center justify-center max-w-[340px] ${activeSubtitle ? "mb-4" : "mb-10"
-                        }`}
-                >
-                    <h2 className="m-0 text-2xl tracking-[-0.02em] leading-snug font-bold">
+                <div className="flex flex-col items-center justify-center mb-10 max-w-[340px] gap-4">
+                    <h2 className="m-0 text-2xl tracking-[-0.02em] leading-tight font-bold">
                         {renderMoreHighlightedText(activeHeading)}
                     </h2>
-                </div>
-
-                {activeSubtitle && (
-                    <div className="flex flex-col items-center justify-center mb-10 max-w-[340px]">
-                        <h3
-                            className={`m-0 text-center tracking-[-0.02em] leading-snug ${variant === "home"
-                                    ? "text-[20pt] font-semibold"
-                                    : "text-lg font-bold"
-                                }`}
-                        >
+                    {activeSubtitle && (
+                        <p className="m-0 text-base md:text-lg tracking-tight leading-relaxed font-medium text-gray-800">
                             {renderMoreHighlightedText(activeSubtitle)}
-                        </h3>
-                    </div>
-                )}
+                        </p>
+                    )}
+                </div>
 
                 {/* Dome background (clipped) + Content */}
                 <div className="relative w-full overflow-hidden">

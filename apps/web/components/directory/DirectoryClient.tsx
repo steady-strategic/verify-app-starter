@@ -95,7 +95,7 @@ export function DirectoryClient({ initialClinicians }: DirectoryClientProps) {
                     title="Find a Clinician"
                     description={["Looking to receive MORE therapy from a clinician near you? Select your state to begin your search. Each listed clinician has been officially trained and certified in MORE therapy by Dr. Eric Garland."]}
                     backgroundImage={{
-                        src: "/assets/images/DirectoryBannerBG.png",
+                        src: "/assets/images/DirectoryBannerBG.avif",
                         alt: "Directory Background",
                     }}
                 >

@@ -15,61 +15,61 @@ const stats: ResearchStat[] = [
         value: "3x",
         description: "as effective as standard therapy",
         citation: "Garland EL, Hanley AW, Nakamura Y, et al. Mindfulness-Oriented Recovery Enhancement vs supportive group therapy for co-occurring opioid misuse and chronic pain in primary care: A randomized clinical trial. JAMA internal medicine. 2022;182(4):407-417.",
-        link: "#"
+        link: "https://jamanetwork.com/journals/jamainternalmedicine/fullarticle/2789279"
     },
     {
         value: "50%",
         description: "reduction in drug cravings",
         citation: "Cooperman NA, Hanley AW, Kline A, Garland EL. A pilot randomized clinical trial of mindfulness-oriented recovery enhancement as an adjunct to methadone treatment for people with opioid use disorder and chronic pain: Impact on illicit drug use, health, and well-being. Journal of Substance Abuse Treatment. Published online 2021:108468.",
-        link: "#"
+        link: "https://pmc.ncbi.nlm.nih.gov/articles/PMC8281569/"
     },
     {
         value: "59%",
         description: "reduction in treatment dropout",
         citation: "Cooperman NA, Lu SE, Hanley AW, et al. Telehealth mindfulness-oriented recovery enhancement vs usual care in individuals with opioid use disorder and pain: a randomized clinical trial. JAMA psychiatry. 2024;81(4):338-346.",
-        link: "#"
+        link: "https://pubmed.ncbi.nlm.nih.gov/38061786/"
     },
     {
         value: "42%",
         description: "reduction in drug relapse",
         citation: "Cooperman NA, Lu SE, Hanley AW, et al. Telehealth mindfulness-oriented recovery enhancement vs usual care in individuals with opioid use disorder and pain: a randomized clinical trial. JAMA psychiatry. 2024;81(4):338-346.",
-        link: "#"
+        link: "https://pubmed.ncbi.nlm.nih.gov/38061786/"
     },
     {
         value: "30%",
         description: "reduction in acute pain",
         citation: "Garland EL, Baker AK, Larsen P, et al. Randomized Controlled Trial of Brief Mindfulness Training and Hypnotic Suggestion for Acute Pain Relief in the Hospital Setting. Journal of General Internal Medicine. 2017;32(10):1106-1113",
-        link: "#"
+        link: "https://pubmed.ncbi.nlm.nih.gov/28702870/",
     },
     {
         value: "45%",
         description: "reduction in post-operative pain",
         citation: "Hanley AW, Gililland J, Garland EL. To be mindful of the breath or pain: Comparing two brief preoperative mindfulness techniques for total joint arthroplasty patients. Journal of consulting and clinical psychology. 2021;89(7):590.",
-        link: "#"
+        link: "https://pubmed.ncbi.nlm.nih.gov/34165999/",
     },
     {
         value: "59%",
         description: "success rate in treating chronic pain",
         citation: "Garland EL, Hanley AW, Nakamura Y, et al. Mindfulness-Oriented Recovery Enhancement vs supportive group therapy for co-occurring opioid misuse and chronic pain in primary care: A randomized clinical trial. JAMA internal medicine. 2022;182(4):407-417.",
-        link: "#"
+        link: "https://jamanetwork.com/journals/jamainternalmedicine/fullarticle/2789279",
     },
     {
         value: "43%",
         description: "reduction in anxiety",
         citation: "Hanley AW, Gililland J, Erickson J, et al. Brief preoperative mind–body therapies for total joint arthroplasty patients: a randomized controlled trial. Pain. 2021;162(6):1749-1757.",
-        link: "#"
+        link: "https://pubmed.ncbi.nlm.nih.gov/33449510/"
     },
     {
         value: "38%",
         description: "improvement in depression",
         citation: "Garland EL, Hanley AW, Nakamura Y, et al. Mindfulness-Oriented Recovery Enhancement vs supportive group therapy for co-occurring opioid misuse and chronic pain in primary care: A randomized clinical trial. JAMA internal medicine. 2022;182(4):407-417",
-        link: "#"
+        link: "https://jamanetwork.com/journals/jamainternalmedicine/fullarticle/2789279",
     },
     {
         value: "59%",
         description: "success rate in treating PTSD",
         citation: "Parisi, A., Hudak, J., Froeliger, B., & Garland, E. L. (2023). Mindfulness-Oriented Recovery Enhancement reduces post-traumatic stress via reappraisal among patients with chronic pain and co-occurring opioid misuse. Nature Mental Health, 1(7), 489-500.",
-        link: "#"
+        link: "https://pmc.ncbi.nlm.nih.gov/articles/PMC6764586/",
     }
 ];
 

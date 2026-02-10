@@ -153,7 +153,7 @@ export function DirectoryClient({ initialClinicians }: DirectoryClientProps) {
                         </h2>
 
                         {filteredClinicians.length > 0 ? (
-                            <div className="grid md:grid-cols-2 gap-6 justify-items-center">
+                            <div className="grid md:grid-cols-2 gap-6 justify-items-center items-start">
                                 {filteredClinicians.map((clinician) => (
                                     <div
                                         key={clinician.id}

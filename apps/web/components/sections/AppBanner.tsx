@@ -9,6 +9,7 @@ export const AppBanner: React.FC<AppBannerSectionProps> = ({
     title,
     subtitle,
     description,
+    secondaryDescription,
     features,
     ctaText,
     appStoreLink,
@@ -58,21 +59,27 @@ export const AppBanner: React.FC<AppBannerSectionProps> = ({
                         <div className="w-full h-px bg-white/20 mt-4" />
                     </div>
 
-                    {/* Features List */}
-                    <ul className="flex flex-col gap-4">
-                        {features.map((feature, index) => (
-                            <li key={index} className="flex items-start gap-3">
-                                <div className="mt-1 flex-shrink-0 w-5 h-5 rounded-full bg-[#D80ADA] flex items-center justify-center">
-                                    <svg width="10" height="8" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M1 4L3.5 6.5L9 1" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                                    </svg>
-                                </div>
-                                <span className="font-sans text-base md:text-[16px] font-medium text-white">
-                                    {feature}
-                                </span>
-                            </li>
-                        ))}
-                    </ul>
+                    {/* Features List or Secondary Description */}
+                    {variant === "patients" && secondaryDescription ? (
+                        <p className="font-sans text-lg leading-relaxed text-white/90">
+                            {secondaryDescription}
+                        </p>
+                    ) : (
+                        <ul className="flex flex-col gap-4">
+                            {features?.map((feature, index) => (
+                                <li key={index} className="flex items-start gap-3">
+                                    <div className="mt-1 flex-shrink-0 w-5 h-5 rounded-full bg-[#D80ADA] flex items-center justify-center">
+                                        <svg width="10" height="8" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M1 4L3.5 6.5L9 1" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                                        </svg>
+                                    </div>
+                                    <span className="font-sans text-base md:text-[16px] font-medium text-white">
+                                        {feature}
+                                    </span>
+                                </li>
+                            ))}
+                        </ul>
+                    )}
 
                     {/* CTA & Store Buttons */}
                     <div className="flex flex-col gap-4 mt-4">

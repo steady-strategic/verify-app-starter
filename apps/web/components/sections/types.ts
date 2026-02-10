@@ -277,11 +277,12 @@ export interface VideoModSectionProps extends BaseSectionProps {
 }
 
 export interface AppBannerSectionProps extends BaseSectionProps {
-    variant?: "default";
+    variant?: "default" | "patients";
     title: React.ReactNode;
     subtitle?: string;
     description: string;
-    features: string[];
+    secondaryDescription?: string;
+    features?: string[];
     ctaText?: string;
     appStoreLink?: string;
     playStoreLink?: string;

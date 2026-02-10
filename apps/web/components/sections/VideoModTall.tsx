@@ -35,7 +35,7 @@ export const VideoModTall: React.FC<VideoModTallSectionProps> = ({
             <div className="relative z-10 container mx-auto px-4 md:px-8 flex flex-col items-center gap-12 text-center">
 
                 {/* Text Block 1 */}
-                <div className="max-w-4xl flex flex-col gap-6">
+                <div className="max-w-7xl flex flex-col gap-6">
                     <div className="font-sans text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-tight">
                         {title}
                     </div>

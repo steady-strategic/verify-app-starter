@@ -27,8 +27,7 @@ export const VideoModTall: React.FC<VideoModTallSectionProps> = ({
                     className="object-cover"
                     priority
                 />
-                {/* Overlay gradient if needed, though image likely contains it */}
-                <div className="absolute inset-0 bg-black/40" />
+
             </div>
 
             {/* Content Container */}
@@ -36,7 +35,7 @@ export const VideoModTall: React.FC<VideoModTallSectionProps> = ({
 
                 {/* Text Block 1 */}
                 <div className="max-w-7xl flex flex-col gap-6">
-                    <div className="font-sans text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-tight">
+                    <div className="font-sans text-4xl md:text-5xl lg:text-5xl font-bold text-white tracking-tight leading-tight">
                         {title}
                     </div>
                     <div className="font-sans text-lg md:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed font-light">

@@ -262,7 +262,7 @@ export interface PatientsFormSectionProps extends BaseSectionProps {
 }
 
 export interface VideoModSectionProps extends BaseSectionProps {
-    variant?: "default";
+    variant?: "default" | "patients";
     title: React.ReactNode;
     description: React.ReactNode;
     videoThumbnail: {

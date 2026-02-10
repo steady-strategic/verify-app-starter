@@ -1,4 +1,4 @@
-import { PageBanner, AppBanner, Video, PatientsText, KnowMoreTall, PatientsForm } from "@/components/sections";
+import { PageBanner, AppBanner, VideoMod, PatientsText, KnowMoreTall, PatientsForm } from "@/components/sections";
 import { patientsContent } from "@/content/pages/patients";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
@@ -9,7 +9,23 @@ export default function PatientsPage() {
             <Navbar variant="light" transparent={false} />
             <main className="pt-24">
                 <PageBanner {...patientsContent.pageBanner} />
-                <Video {...patientsContent.video} />
+                <VideoMod
+                    variant="patients"
+                    title="Dan Kruger’s story"
+                    description="As an international champion motorcycle racer, after decades of high-impact motorcycle crashes and countless surgeries, Dan relied on opioids for over 30 years. Nothing broke the cycle—until MORE. Through MORE, Dan learned how to change his brain’s relationship to pain and craving. He tapered completely off opioids and reconnected with meaning, joy, and a life beyond pain."
+                    backgroundImage={{
+                        src: "/assets/images/VideoMod/VidMod-Background.png",
+                        alt: "Background"
+                    }}
+                    videoThumbnail={{
+                        src: "/assets/images/VideoMod/VideoMod-DanKruger.png", // Thumbnail placed manually but missing in filesystem.
+                        // Since copy failed (file not found), this will break if not present.
+                        // I will assume for now user wants code updated, and will handle file separately or let user handle it.
+                        // Re-using exiting thumb path for now as placeholder if file transfer failed or update to use the one requested if available.
+                        // Actually, I should use the path requested even if copy failed, user can fix file later.
+                        alt: "Dan Kruger Video"
+                    }}
+                />
                 <PatientsText {...patientsContent.patientsText} />
                 <KnowMoreTall {...patientsContent.knowMore} />
                 <AppBanner

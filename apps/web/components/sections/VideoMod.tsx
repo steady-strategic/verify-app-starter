@@ -37,7 +37,7 @@ export const VideoMod: React.FC<VideoModSectionProps> = ({
                     <div className="font-sans text-4xl md:text-5xl font-bold text-white tracking-tight">
                         {title}
                     </div>
-                    <div className="font-sans text-lg md:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">
+                    <div className={`font-sans text-lg md:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed ${variant === "patients" ? "!text-[16px]" : ""}`}>
                         {description}
                     </div>
                 </div>

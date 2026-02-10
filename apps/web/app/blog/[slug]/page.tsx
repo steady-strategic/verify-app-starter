@@ -1,5 +1,7 @@
 
 import { notFound } from "next/navigation";
+
+export const dynamic = 'force-dynamic';
 import { Navbar } from "../../../components/layout/Navbar";
 import { Footer } from "../../../components/layout/Footer";
 import { StoryDetail } from "../../../components/blog/StoryDetail";

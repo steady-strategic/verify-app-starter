@@ -1,5 +1,7 @@
 
 import React from 'react';
+
+export const dynamic = 'force-dynamic';
 import { Navbar } from "../../components/layout/Navbar";
 import { Footer } from "../../components/layout/Footer";
 import {

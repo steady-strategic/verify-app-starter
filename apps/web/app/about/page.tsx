@@ -1,6 +1,6 @@
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
-import { VideoAbout, TextAbout, ProfileAbout } from "@/components/sections";
+import { VideoMod, TextAbout, ProfileAbout } from "@/components/sections";
 import { aboutContent } from "@/content/pages/about";
 
 export default function Page() {
@@ -8,7 +8,7 @@ export default function Page() {
         <div className="min-h-screen bg-white">
             <Navbar variant="light" transparent={false} />
             <main className="pt-24">
-                <VideoAbout {...aboutContent.videoAbout} />
+                <VideoMod {...aboutContent.videoAbout} />
                 <TextAbout {...aboutContent.textAbout} />
                 <ProfileAbout {...aboutContent.profileAbout} />
             </main>

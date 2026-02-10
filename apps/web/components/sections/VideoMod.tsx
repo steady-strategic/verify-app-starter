@@ -6,6 +6,7 @@ import { VideoModSectionProps } from "./types";
 export const VideoMod: React.FC<VideoModSectionProps> = ({
     variant = "default",
     title,
+    subtitle,
     description,
     backgroundImage,
     videoThumbnail,
@@ -13,10 +14,12 @@ export const VideoMod: React.FC<VideoModSectionProps> = ({
     className = "",
     id,
 }) => {
+    const isAbout = variant === "about";
+
     return (
         <section
             id={id}
-            className={`relative w-full overflow-hidden py-20 ${className}`}
+            className={`relative w-full overflow-hidden ${isAbout ? 'py-24' : 'py-20'} ${className}`}
         >
             {/* Background Image */}
             <div className="absolute inset-0 z-0">
@@ -33,10 +36,15 @@ export const VideoMod: React.FC<VideoModSectionProps> = ({
             <div className="relative z-10 container mx-auto px-4 md:px-8 flex flex-col items-center gap-12">
 
                 {/* Text Content */}
-                <div className="max-w-4xl text-center flex flex-col gap-6">
-                    <div className="font-sans text-4xl md:text-5xl font-bold text-white tracking-tight">
+                <div className={`max-w-4xl text-center flex flex-col ${isAbout ? 'gap-8' : 'gap-6'}`}>
+                    <div className={`font-sans font-bold text-white tracking-tight ${isAbout ? 'text-4xl md:text-5xl lg:text-6xl' : 'text-4xl md:text-5xl'}`}>
                         {title}
                     </div>
+                    {subtitle && (
+                        <div className={`font-sans text-white/90 max-w-3xl mx-auto leading-relaxed ${isAbout ? 'text-xl md:text-2xl font-bold' : 'text-lg md:text-xl'}`}>
+                            {subtitle}
+                        </div>
+                    )}
                     <div className={`font-sans text-lg md:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed ${variant === "patients" ? "!text-[16px]" : ""}`}>
                         {description}
                     </div>

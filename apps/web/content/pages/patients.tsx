@@ -6,19 +6,20 @@ export const patientsContent = {
         variant: "patients",
         title: (
             <span className="text-gray-900">
-                Healing <span className="text-primary-1">MORE</span>
+                MORE for Patients
             </span>
         ),
         subtitle: (
             <span className="text-gray-900 font-bold">
-                A Proven Path to Recovery
+                MORE isn’t about managing symptoms.<br />
+                It’s about helping you <span className="text-primary-1">reclaim your life.</span>
             </span>
         ),
         description: (
             <span className="text-gray-900">
-                MORE (Mindfulness-Oriented Recovery Enhancement) is an evidence-based therapy designed to help you overcome addiction, manage chronic pain, and reduce stress.
+                If you’re struggling with <strong>addiction, living with chronic pain, or experiencing emotional distress,</strong> MORE gives you a way to retrain how your brain responds so you’re no longer stuck reacting, fighting, or just getting through the day.
                 <br /><br />
-                By combining mindfulness training, cognitive-behavioral strategies, and positive psychology, MORE empowers you to rewire your brain, regain control over your life, and find lasting joy.
+                Let MORE help you reconnect with life’s pleasures and restore your sense of joy and purpose.
             </span>
         ),
         backgroundImage: {

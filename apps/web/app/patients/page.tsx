@@ -18,11 +18,7 @@ export default function PatientsPage() {
                         alt: "Background"
                     }}
                     videoThumbnail={{
-                        src: "/assets/images/VideoMod/VideoMod-DanKruger.png", // Thumbnail placed manually but missing in filesystem.
-                        // Since copy failed (file not found), this will break if not present.
-                        // I will assume for now user wants code updated, and will handle file separately or let user handle it.
-                        // Re-using exiting thumb path for now as placeholder if file transfer failed or update to use the one requested if available.
-                        // Actually, I should use the path requested even if copy failed, user can fix file later.
+                        src: "/assets/images/VideoMod/DanKruger.png",
                         alt: "Dan Kruger Video"
                     }}
                 />

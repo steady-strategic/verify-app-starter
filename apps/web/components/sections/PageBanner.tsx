@@ -27,9 +27,10 @@ export const PageBanner: React.FC<PageBannerSectionProps> = ({
 
     return (
         <div
-            className={`w-full bg-cover bg-no-repeat bg-top flex flex-col justify-center ${isLightVariant ? 'bg-white' : ''} ${getHeightClass()} ${className}`}
+            className={`w-full bg-cover bg-no-repeat bg-top flex flex-col justify-center relative ${isLightVariant ? 'bg-white' : ''} ${getHeightClass()} ${className}`}
             style={!isLightVariant ? { backgroundImage: `url('${backgroundImage.src}')` } : undefined}
         >
+            {/* Content Container */}
             <div className={`w-full max-w-[1440px] mx-auto h-full overflow-hidden flex flex-col md:flex-row items-center justify-between ${isLightVariant ? 'py-16 md:py-[70px]' : 'py-[70px]'} px-6 md:px-20 gap-8 md:gap-[63px] relative`}>
                 <section className={`flex flex-col items-start text-left max-w-lg md:max-w-[571px] z-10 ${isLightVariant ? 'text-gray-900' : 'text-white'}`}>
                     <div className={`flex flex-col items-start ${isDirectory ? 'gap-10' : 'gap-6'}`}>
@@ -46,7 +47,7 @@ export const PageBanner: React.FC<PageBannerSectionProps> = ({
                     </div>
                 </section>
 
-                {foregroundImage && (
+                {foregroundImage && !isPatients && (
                     <div className={`relative shrink-0 ${isLightVariant ? 'w-full md:w-[726px] h-[400px] md:h-full md:absolute md:right-0 md:top-0' : 'w-full md:w-[656px] h-[300px] md:h-[492px]'}`}>
                         <Image
                             src={foregroundImage.src}
@@ -72,6 +73,20 @@ export const PageBanner: React.FC<PageBannerSectionProps> = ({
                     </div>
                 )}
             </div>
+
+            {/* Patients Variant Image (Full Bleed Right) */}
+            {foregroundImage && isPatients && (
+                <div className="relative w-full h-[400px] md:absolute md:top-0 md:right-0 md:w-1/2 md:h-full z-0">
+                    <Image
+                        src={foregroundImage.src}
+                        alt={foregroundImage.alt}
+                        fill
+                        className="object-cover"
+                        sizes="50vw"
+                        priority
+                    />
+                </div>
+            )}
         </div>
     );
 };

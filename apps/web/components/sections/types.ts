@@ -295,3 +295,19 @@ export interface AppBannerSectionProps extends BaseSectionProps {
         alt: string;
     };
 }
+
+export interface VideoModTallSectionProps extends BaseSectionProps {
+    title: React.ReactNode;
+    subtitle: React.ReactNode;
+    highlight: React.ReactNode;
+    description: React.ReactNode;
+    videoThumbnail: {
+        src: string;
+        alt: string;
+    };
+    backgroundImage: {
+        src: string;
+        alt: string;
+    };
+    videoUrl?: string;
+}

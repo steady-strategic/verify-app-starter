@@ -4,11 +4,30 @@ import type {
     Cards2x3SectionProps,
     TextCliniciansSectionProps,
     ProviderListSectionProps,
-    KnowMoreTallSectionProps
+    KnowMoreTallSectionProps,
+    VideoModTallSectionProps
 } from "@/components/sections/types";
 import React from "react";
 
 export const cliniciansContent = {
+    videoModTall: {
+        title: "MORE is more than therapy. It’s transforming lives.",
+        subtitle: "Hear from Dan Kruger—international motorcycle racing champion. After decades of high-impact crashes and countless surgeries, Dan relied on opioids for more than 30 years. Strength and willpower weren’t enough. The cycle felt inescapable.",
+        highlight: (
+            <span>
+                Then Dan found <span className="text-primary-1">MORE.</span>
+            </span>
+        ),
+        description: "Through MORE, Dan retrained his brain’s response to pain and craving, tapered completely off opioids, and rebuilt emotional regulation while connecting with meaning, joy, and a life beyond pain.",
+        backgroundImage: {
+            src: "/assets/images/VideoModTall/VideoModTall-bg.avif",
+            alt: "Video Background"
+        },
+        videoThumbnail: {
+            src: "/assets/images/VideoModTall/DanKruger.avif",
+            alt: "Dan Kruger"
+        }
+    } satisfies VideoModTallSectionProps,
     pageBanner: {
         variant: "clinicians",
         title: (

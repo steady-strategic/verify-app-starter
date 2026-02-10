@@ -3,6 +3,7 @@
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { PageBanner } from "@/components/sections/PageBanner";
+import Link from "next/link";
 import { useState, useEffect } from "react";
 import { ContactClinicianForm } from "./ContactClinicianForm";
 
@@ -85,7 +86,7 @@ export function DirectoryClient({ initialClinicians }: DirectoryClientProps) {
     }, [selectedLocation, initialClinicians]);
 
     return (
-        <div className="min-h-screen text-stone-700 overflow-x-hidden selection:bg-amber-100 selection:text-amber-900">
+        <div className="min-h-screen text-stone-700 overflow-x-hidden selection:bg-amber-100 selection:text-amber-900 bg-stone-50">
             <Navbar scrolled={scrolled} />
 
             <main className="pt-20">
@@ -168,10 +169,10 @@ export function DirectoryClient({ initialClinicians }: DirectoryClientProps) {
                                             <div className="p-6 flex-1 flex flex-col min-w-0">
                                                 <div className="mb-3">
                                                     <div className="flex justify-between items-start mb-1">
-                                                        <h3 className="text-xl font-serif font-bold text-stone-900 group-hover:text-amber-700 transition-colors truncate pr-2">
+                                                        <h3 className="text-xl font-serif font-bold text-stone-900 group-hover:text-primary-1 transition-colors truncate pr-2">
                                                             {clinician.firstName} {clinician.lastName}
                                                         </h3>
-                                                        <div className="flex flex-col items-end gap-1">
+                                                        <div className="flex flex-col items-end gap-4">
                                                             <span className="bg-stone-100 text-stone-600 px-2 py-1 rounded text-xs font-bold uppercase tracking-wider shrink-0">
                                                                 {clinician.title}
                                                             </span>
@@ -189,21 +190,16 @@ export function DirectoryClient({ initialClinicians }: DirectoryClientProps) {
                                                     </p>
                                                 </div>
 
-                                                <div className="mt-auto pt-4 border-t border-stone-100 flex items-center justify-between">
+                                                <div className="mt-auto pt-4 border-t border-stone-100 flex justify-center">
                                                     <button
                                                         onClick={() => setExpandedCardId(clinician.id)}
-                                                        className="text-stone-900 hover:text-amber-700 font-semibold text-sm flex items-center group/link transition-colors focus:outline-none"
+                                                        className="text-stone-900 hover:text-amber-700 font-semibold text-sm flex items-center group/link transition-all focus:outline-none border border-stone-200 px-6 py-2 rounded-full hover:bg-stone-50"
                                                     >
                                                         Contact
                                                         <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1 group-hover/link:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                                                         </svg>
                                                     </button>
-                                                    {clinician.phone && (
-                                                        <span className="text-xs text-stone-400 font-mono">
-                                                            {clinician.phone}
-                                                        </span>
-                                                    )}
                                                 </div>
                                             </div>
                                         )}
@@ -219,16 +215,16 @@ export function DirectoryClient({ initialClinicians }: DirectoryClientProps) {
                         )}
                     </div>
 
-                    <div className="mt-12 p-8 bg-amber-50 rounded-lg border border-amber-100 text-center">
+                    <div className="mt-12 p-8 text-center">
                         <h3 className="text-2xl font-bold text-stone-900 mb-4">
                             Are You a Certified MORE Clinician?
                         </h3>
                         <p className="text-stone-600 mb-6">
                             Join our directory to connect with patients seeking MORE therapy.
                         </p>
-                        <button className="inline-block px-6 py-3 bg-stone-900 text-white font-semibold rounded-full hover:bg-stone-800 transition-all active:scale-95">
-                            Add Your Profile
-                        </button>
+                        <Link href="/contact" className="inline-block px-6 py-3 bg-stone-900 text-white font-semibold rounded-full hover:bg-stone-800 transition-all active:scale-95">
+                            Get in Touch
+                        </Link>
                     </div>
                 </div>
             </main>

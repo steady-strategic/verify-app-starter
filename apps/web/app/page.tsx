@@ -2,7 +2,7 @@
 import React from "react";
 import { NavbarWrapper } from "@/components/layout/NavbarWrapper";
 import { Footer } from "@/components/layout/Footer";
-import { Hero, Brands, ResearchHome, AboutHome, ContentHome, Testimonials, App, BlogHome, HowItWorks } from "@/components/sections";
+import { Hero, Brands, ResearchHome, AboutHome, ContentHome, Testimonials, AppBanner, BlogHome, HowItWorks } from "@/components/sections";
 import { homeContent } from "@/content/pages/home";
 import { prisma } from "@/lib/db";
 
@@ -45,7 +45,30 @@ export default async function Page() {
                 <AboutHome />
                 <HowItWorks variant="home" />
                 <ContentHome />
-                <App variant="default" />
+                <AppBanner
+                    title={
+                        <span>
+                            <span className="text-[#FA45E6]">MORE</span> Support, Anywhere
+                        </span>
+                    }
+                    subtitle="Coming Soon!"
+                    description="Take your mindfulness practices on the go. Now you can access MORE meditations anytime, anywhere."
+                    features={[
+                        "Pleasant meditations designed to help ease cravings, pain, and stress",
+                        "Learn skills that support healing and a renewed sense of joy in daily life",
+                        "Use alongside MORE therapy sessions for the fullest impact"
+                    ]}
+                    ctaText="Download the App"
+                    appStoreLink="#"
+                    backgroundImage={{
+                        src: "/assets/images/AppBanner/AppBanner-BG.png",
+                        alt: "App Banner Background"
+                    }}
+                    phoneImage={{
+                        src: "/assets/images/AppBanner/PhoneMockup.png",
+                        alt: "App Preview"
+                    }}
+                />
                 <Testimonials />
                 <BlogHome {...blogHomeProps} />
             </main>

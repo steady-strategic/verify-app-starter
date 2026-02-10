@@ -21,7 +21,7 @@ export const AppBanner: React.FC<AppBannerSectionProps> = ({
     return (
         <section
             id={id}
-            className={`relative w-full overflow-hidden ${className}`}
+            className={`relative w-full h-[921px] overflow-hidden ${className}`}
         >
             {/* Background Image */}
             <div className="absolute inset-0 z-0 bg-[#1e0b5d]"> {/* Fallback color */}
@@ -29,32 +29,34 @@ export const AppBanner: React.FC<AppBannerSectionProps> = ({
                     src={backgroundImage.src}
                     alt={backgroundImage.alt}
                     fill
-                    className="object-cover object-bottom"
+                    className="object-cover object-center scale-[1.01]"
                     priority
                 />
             </div>
 
             {/* Content Container */}
-            <div className="relative z-10 container mx-auto px-6 md:px-12 py-20 md:py-32 flex flex-col md:flex-row items-center gap-12 md:gap-24">
+            <div className="relative z-10 w-full max-w-[1440px] mx-auto px-6 md:px-0 flex flex-col md:flex-row items-start gap-12 md:gap-[101px] h-full">
 
                 {/* Text Content */}
-                <div className="flex-1 flex flex-col gap-8 text-white max-w-xl">
-                    <div className="flex flex-col gap-4">
-                        <div className="font-sans text-4xl md:text-5xl font-bold tracking-tight leading-tight">
-                            {title}
+                <div className="flex-1 flex flex-col gap-8 text-white max-w-[699px] md:pl-[111px] pt-[96px]">
+                    <div>
+                        <div className="flex flex-col gap-4">
+                            <div className="font-sans text-4xl md:text-5xl font-bold tracking-tight leading-tight">
+                                {title}
+                            </div>
+                            {subtitle && (
+                                <p className="font-sans text-xl md:text-[38px] font-extralight italic text-white/90">
+                                    {subtitle}
+                                </p>
+                            )}
                         </div>
-                        {subtitle && (
-                            <p className="font-sans text-xl md:text-2xl font-light italic text-white/90">
-                                {subtitle}
-                            </p>
-                        )}
+
+                        <p className="font-sans text-lg leading-relaxed text-white/90 mt-8">
+                            {description}
+                        </p>
+
+                        <div className="w-full h-px bg-white/20 mt-4" />
                     </div>
-
-                    <div className="w-full h-px bg-white/20 my-2" />
-
-                    <p className="font-sans text-lg leading-relaxed text-white/90">
-                        {description}
-                    </p>
 
                     {/* Features List */}
                     <ul className="flex flex-col gap-4">
@@ -65,7 +67,7 @@ export const AppBanner: React.FC<AppBannerSectionProps> = ({
                                         <path d="M1 4L3.5 6.5L9 1" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                                     </svg>
                                 </div>
-                                <span className="font-sans text-base md:text-lg font-medium text-white">
+                                <span className="font-sans text-base md:text-[16px] font-medium text-white">
                                     {feature}
                                 </span>
                             </li>
@@ -99,8 +101,8 @@ export const AppBanner: React.FC<AppBannerSectionProps> = ({
                 </div>
 
                 {/* Phone Mockup */}
-                <div className="flex-1 w-full max-w-sm md:max-w-md relative">
-                    <div className="relative w-full aspect-[390/800]"> {/* Approximate aspect ratio of mockup */}
+                <div className="flex-1 w-full max-w-sm md:max-w-md relative flex justify-center self-center md:self-auto pt-[96px]">
+                    <div className="relative w-full h-[640px]">
                         <Image
                             src={phoneImage.src}
                             alt={phoneImage.alt}

@@ -275,3 +275,22 @@ export interface VideoModSectionProps extends BaseSectionProps {
     };
     videoUrl?: string;
 }
+
+export interface AppBannerSectionProps extends BaseSectionProps {
+    variant?: "default";
+    title: React.ReactNode;
+    subtitle?: string;
+    description: string;
+    features: string[];
+    ctaText?: string;
+    appStoreLink?: string;
+    playStoreLink?: string;
+    backgroundImage: {
+        src: string;
+        alt: string;
+    };
+    phoneImage: {
+        src: string;
+        alt: string;
+    };
+}

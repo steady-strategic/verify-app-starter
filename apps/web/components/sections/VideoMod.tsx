@@ -19,7 +19,7 @@ export const VideoMod: React.FC<VideoModSectionProps> = ({
     return (
         <section
             id={id}
-            className={`relative w-full overflow-hidden ${isAbout ? 'py-24' : 'py-20'} ${className}`}
+            className={`relative w-full overflow-hidden flex items-center justify-center ${isAbout ? 'py-24 md:py-0 md:h-[916px]' : 'py-20'} ${className}`}
         >
             {/* Background Image */}
             <div className="absolute inset-0 z-0">
@@ -33,7 +33,7 @@ export const VideoMod: React.FC<VideoModSectionProps> = ({
             </div>
 
             {/* Content Container */}
-            <div className="relative z-10 container mx-auto px-4 md:px-8 flex flex-col items-center gap-12">
+            <div className={`relative z-10 container mx-auto px-4 md:px-8 flex flex-col items-center ${isAbout ? 'gap-8' : 'gap-12'}`}>
 
                 {/* Text Content */}
                 <div className={`max-w-4xl text-center flex flex-col ${isAbout ? 'gap-8' : 'gap-6'}`}>

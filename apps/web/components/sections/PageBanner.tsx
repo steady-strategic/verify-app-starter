@@ -30,8 +30,8 @@ export const PageBanner: React.FC<PageBannerSectionProps> = ({
 
     return (
         <div
-            className={`w-full bg-cover bg-no-repeat bg-top flex flex-col justify-center relative ${isLightVariant && !backgroundImage.src.includes('page-banner') ? 'bg-white' : ''} ${getHeightClass()} ${className}`}
-            style={{ backgroundImage: `url('${backgroundImage.src}')` }}
+            className={`w-full bg-cover bg-no-repeat bg-top flex flex-col justify-center relative ${isClinicians || isPatients || (isLightVariant && !backgroundImage.src.includes('page-banner')) ? 'bg-white' : ''} ${getHeightClass()} ${className}`}
+            style={isClinicians || isPatients ? undefined : { backgroundImage: `url('${backgroundImage.src}')` }}
         >
             {/* Content Container */}
             <div className={`w-full max-w-[1440px] mx-auto h-full overflow-hidden flex flex-col md:flex-row items-center justify-between ${isLightVariant ? 'py-16 md:py-[70px]' : 'py-[70px]'} px-6 md:px-20 gap-8 md:gap-[63px] relative`}>

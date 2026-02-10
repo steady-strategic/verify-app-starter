@@ -8,15 +8,16 @@ import React from "react";
 
 export const howItWorksContent = {
     pageBanner: {
+        variant: "how-it-works",
         title: "How it Works",
         subtitle: "Mindfulness-Oriented Recovery Enhancement",
         description: "An evidence‑based, neuroscience‑informed therapy—backed by more than 16 clinical trials and over $90 million in federal research—that unites innovative mindfulness, reappraisal, and savoring techniques into a powerful, sequenced mind‑body approach.\n\nHailed as one of the biggest breakthroughs in psychotherapy in the past 30 years, MORE has the strongest evidence base of any therapy for co-occurring addiction, chronic pain, and emotional distress.",
         backgroundImage: {
-            src: "/assets/images/PageBanner/page-banner.png",
+            src: "/assets/images/PageBanner/page-banner.avif",
             alt: "Background"
         },
         foregroundImage: {
-            src: "/assets/images/PageBanner/right.png",
+            src: "/assets/images/PageBanner/PageBannerBrain.avif",
             alt: "Brain illustration"
         }
     } satisfies PageBannerSectionProps,
@@ -25,7 +26,7 @@ export const howItWorksContent = {
         title: (
             <span>
                 <span className="text-primary-1">MORE</span> <span className="text-gray-700">is a structured, rigorously-tested therapeutic protocol. Patients engage in mind-body training, delivered individually or in a group setting, to learn unique mindfulness, reappraisal, and savoring skills to strengthen recovery and generate well-being.</span>
-            </span>
+            </span >
         ),
         items: [
             {

@@ -18,7 +18,9 @@ export const PageBanner: React.FC<PageBannerSectionProps> = ({
     const isTraining = variant === "training";
     const isDirectory = variant === "directory";
     const isPatients = variant === "patients";
-    const isLightVariant = isClinicians || isTraining || isPatients;
+    const isHowItWorks = variant === "how-it-works";
+    const isLightVariant = isClinicians || isTraining || isPatients || isHowItWorks;
+    const isFullBleed = isPatients || isHowItWorks;
 
     const getHeightClass = () => {
         if (isDirectory) return 'min-h-[561px]';
@@ -28,14 +30,14 @@ export const PageBanner: React.FC<PageBannerSectionProps> = ({
 
     return (
         <div
-            className={`w-full bg-cover bg-no-repeat bg-top flex flex-col justify-center relative ${isLightVariant ? 'bg-white' : ''} ${getHeightClass()} ${className}`}
-            style={!isLightVariant ? { backgroundImage: `url('${backgroundImage.src}')` } : undefined}
+            className={`w-full bg-cover bg-no-repeat bg-top flex flex-col justify-center relative ${isLightVariant && !backgroundImage.src.includes('page-banner') ? 'bg-white' : ''} ${getHeightClass()} ${className}`}
+            style={{ backgroundImage: `url('${backgroundImage.src}')` }}
         >
             {/* Content Container */}
             <div className={`w-full max-w-[1440px] mx-auto h-full overflow-hidden flex flex-col md:flex-row items-center justify-between ${isLightVariant ? 'py-16 md:py-[70px]' : 'py-[70px]'} px-6 md:px-20 gap-8 md:gap-[63px] relative`}>
-                <section className={`flex flex-col items-start text-left max-w-lg md:max-w-[571px] z-10 ${isLightVariant ? 'text-gray-900' : 'text-white'}`}>
+                <section className={`flex flex-col items-start text-left max-w-lg md:max-w-[571px] z-10 ${isLightVariant && !isHowItWorks ? 'text-gray-900' : 'text-white'}`}>
                     <div className={`flex flex-col items-start ${isDirectory ? 'gap-10' : 'gap-6'}`}>
-                        <h1 className={`text-4xl md:text-[50px] font-sans font-bold tracking-tight leading-[110%] m-0 ${isLightVariant ? 'text-primary-1' : 'text-white'}`}>
+                        <h1 className={`text-4xl md:text-[50px] font-sans font-bold tracking-tight leading-[110%] m-0 ${isLightVariant && !isHowItWorks ? 'text-primary-1' : 'text-white'}`}>
                             {title}
                         </h1>
                         <div className="text-xl md:text-2xl leading-relaxed w-full">
@@ -48,7 +50,7 @@ export const PageBanner: React.FC<PageBannerSectionProps> = ({
                     </div>
                 </section>
 
-                {foregroundImage && !isPatients && (
+                {foregroundImage && !isFullBleed && (
                     <div className={`relative shrink-0 ${isLightVariant ? 'w-full md:w-[726px] h-[400px] md:h-full md:absolute md:right-0 md:top-0' : 'w-full md:w-[656px] h-[300px] md:h-[492px]'}`}>
                         <Image
                             src={foregroundImage.src}
@@ -75,8 +77,8 @@ export const PageBanner: React.FC<PageBannerSectionProps> = ({
                 )}
             </div>
 
-            {/* Patients Variant Image (Full Bleed Right) */}
-            {foregroundImage && isPatients && (
+            {/* Full Bleed Right Image (Patients & How It Works) */}
+            {foregroundImage && isFullBleed && (
                 <div className="relative w-full h-[400px] md:absolute md:top-0 md:right-0 md:w-1/2 md:h-full z-0">
                     <Image
                         src={foregroundImage.src}

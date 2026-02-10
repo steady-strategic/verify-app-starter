@@ -14,7 +14,14 @@ export default async function Page() {
     const posts = await prisma.story.findMany({
         take: 3,
         where: { published: true },
-        orderBy: { createdAt: "desc" }
+        orderBy: { createdAt: "desc" },
+        select: {
+            title: true,
+            slug: true,
+            excerpt: true,
+            imageUrl: true,
+            createdAt: true,
+        }
     });
 
     // Map posts to BlogHome items format

@@ -12,7 +12,15 @@ export async function GET(req: NextRequest) {
         }
 
         const stories = await prisma.story.findMany({
-            include: {
+            select: {
+                id: true,
+                title: true,
+                slug: true,
+                excerpt: true,
+                imageUrl: true,
+                published: true,
+                publishedAt: true,
+                createdAt: true,
                 author: {
                     select: {
                         id: true,

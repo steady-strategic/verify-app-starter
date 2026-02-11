@@ -57,8 +57,7 @@ const DropdownMenu: React.FC<{
             >
                 <span>{label}</span>
                 <svg
-                    className={`w-4 h-4 transition-transform ${isOpen ? "rotate-180" : ""
-                        }`}
+                    className={`w-4 h-4 transition-transform ${isOpen ? "rotate-180" : ""} ${hasActiveItem ? "text-primary-1" : ""}`}
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -79,8 +78,8 @@ const DropdownMenu: React.FC<{
                             <a
                                 key={item.href}
                                 href={item.href}
-                                className={`block px-4 py-2 text-sm hover:bg-amber-50 transition-colors ${isActive(item.href)
-                                    ? "text-stone-900 font-bold bg-amber-50/50"
+                                className={`block px-4 py-2 text-sm transition-colors hover:text-primary-1 ${isActive(item.href)
+                                    ? "text-stone-900 font-bold"
                                     : "text-stone-600"
                                     }`}
                                 onClick={() => setIsOpen(false)}
@@ -91,8 +90,8 @@ const DropdownMenu: React.FC<{
                             <Link
                                 key={item.href}
                                 href={item.href}
-                                className={`block px-4 py-2 text-sm hover:bg-amber-50 transition-colors ${isActive(item.href)
-                                    ? "text-stone-900 font-bold bg-amber-50/50"
+                                className={`block px-4 py-2 text-sm transition-colors hover:text-primary-1 ${isActive(item.href)
+                                    ? "text-stone-900 font-bold"
                                     : "text-stone-600"
                                     }`}
                                 onClick={() => setIsOpen(false)}
@@ -112,7 +111,12 @@ export const Navbar: React.FC<NavbarProps> = ({ scrolled = false, variant = "lig
     const pathname = usePathname();
     const { data: session, status } = useSession();
 
-    const isActive = (path: string) => pathname === path;
+    const isActive = (path: string) => {
+        if (path === "/blog") {
+            return pathname === "/blog" || pathname.startsWith("/blog/");
+        }
+        return pathname === path;
+    };
     const isLoggedIn = status === "authenticated";
 
     const cliniciansItems: DropdownItem[] = [
@@ -148,9 +152,10 @@ export const Navbar: React.FC<NavbarProps> = ({ scrolled = false, variant = "lig
                         <Image
                             src="/assets/logos/Logo_Primary_1.svg"
                             alt="MORE Logo"
-                            width={100}
-                            height={35}
-                            className="h-8 w-auto"
+                            width={140}
+                            height={48}
+                            className="h-[48px] w-auto"
+                            priority
                         />
                     </Link>
 

@@ -33,7 +33,7 @@ export const cliniciansCertifiedContent = {
             alt: ""
         },
         foregroundImage: {
-            src: "/assets/images/PageBanner/training-banner-right-bg.png",
+            src: "/assets/images/PageBanner/trainingbg-round.avif",
             alt: "MORE Training Illustration"
         }
     } satisfies PageBannerSectionProps,

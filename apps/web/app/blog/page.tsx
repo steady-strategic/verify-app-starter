@@ -71,9 +71,11 @@ export default async function BlogPage() {
                             {/* Card Content - Fills remaining space */}
                             <div className="flex-1 flex flex-col justify-center pl-0 lg:pl-4">
                                 <h2 className="text-3xl md:text-[2rem] font-bold text-stone-900 mb-6 leading-tight">
-                                    {post.title.split(/(MORE)/g).map((part, i) => (
-                                        part === "MORE" ? <span key={i} className="text-primary-1">{part}</span> : part
-                                    ))}
+                                    <Link href={`/blog/${post.slug}`}>
+                                        {post.title.split(/(MORE)/g).map((part, i) => (
+                                            part === "MORE" ? <span key={i} className="text-primary-1">{part}</span> : part
+                                        ))}
+                                    </Link>
                                 </h2>
 
                                 <p className="text-stone-600 text-lg leading-relaxed mb-8 font-light">

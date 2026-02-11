@@ -51,7 +51,7 @@ export const ResearchSidebar: React.FC<ResearchSidebarProps> = ({ blogPosts = []
                 <p className="text-[14px] leading-relaxed text-gray-500">
                     Learn how to bring this research-backed therapy to your own patients.
                 </p>
-                <a href="/training" className="bg-primary-1 text-white text-center font-bold py-2 px-4 rounded-md hover:bg-opacity-90 transition-all">
+                <a href="/training" className="bg-primary-1 text-white font-bold py-2 px-6 rounded-md hover:bg-opacity-90 transition-all self-start">
                     Pre-Register Now
                 </a>
             </div>

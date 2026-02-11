@@ -169,7 +169,7 @@ export function DirectoryClient({ initialClinicians }: DirectoryClientProps) {
                                             <div className="p-6 flex-1 flex flex-col min-w-0">
                                                 <div className="mb-3">
                                                     <div className="flex justify-between items-start mb-1">
-                                                        <h3 className="text-xl font-serif font-bold text-stone-900 group-hover:text-primary-1 transition-colors truncate pr-2">
+                                                        <h3 className="text-xl font-sans font-bold text-stone-900 group-hover:text-primary-1 transition-colors truncate pr-2">
                                                             {clinician.firstName} {clinician.lastName}
                                                         </h3>
                                                         <div className="flex flex-col items-end gap-4">
@@ -222,7 +222,7 @@ export function DirectoryClient({ initialClinicians }: DirectoryClientProps) {
                         <p className="text-stone-600 mb-6">
                             Join our directory to connect with patients seeking MORE therapy.
                         </p>
-                        <Link href="/contact" className="inline-block px-6 py-3 bg-stone-900 text-white font-semibold rounded-full hover:bg-stone-800 transition-all active:scale-95">
+                        <Link href="/contact" className="inline-block px-6 py-3 bg-primary-1 text-white font-semibold rounded-[8px] hover:bg-primary-2 transition-all active:scale-95">
                             Get in Touch
                         </Link>
                     </div>

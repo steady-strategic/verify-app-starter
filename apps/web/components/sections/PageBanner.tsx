@@ -20,7 +20,7 @@ export const PageBanner: React.FC<PageBannerSectionProps> = ({
     const isPatients = variant === "patients";
     const isHowItWorks = variant === "how-it-works";
     const isLightVariant = isClinicians || isTraining || isPatients || isHowItWorks;
-    const isFullBleed = isPatients || isHowItWorks;
+    const isFullBleed = isPatients || isHowItWorks || isClinicians || isTraining;
 
     const getHeightClass = () => {
         if (isDirectory) return 'min-h-[561px]';
@@ -35,7 +35,7 @@ export const PageBanner: React.FC<PageBannerSectionProps> = ({
         >
             {/* Content Container */}
             <div className={`w-full max-w-[1440px] mx-auto h-full overflow-hidden flex flex-col md:flex-row items-center justify-between ${isLightVariant ? 'py-16 md:py-[70px]' : 'py-[70px]'} px-6 md:px-20 gap-8 md:gap-[63px] relative`}>
-                <section className={`flex flex-col items-start text-left max-w-lg md:max-w-[571px] z-10 ${isLightVariant && !isHowItWorks ? 'text-gray-900' : 'text-white'}`}>
+                <section className={`flex flex-col items-start text-left w-full max-w-lg md:max-w-[45%] z-10 ${isLightVariant && !isHowItWorks ? 'text-gray-900' : 'text-white'}`}>
                     <div className={`flex flex-col items-start ${isDirectory ? 'gap-10' : 'gap-6'}`}>
                         <h1 className={`text-4xl md:text-[50px] font-sans font-bold tracking-tight leading-[110%] m-0 ${isLightVariant && !isHowItWorks ? 'text-primary-1' : 'text-white'}`}>
                             {title}
@@ -51,7 +51,7 @@ export const PageBanner: React.FC<PageBannerSectionProps> = ({
                 </section>
 
                 {foregroundImage && !isFullBleed && (
-                    <div className={`relative shrink-0 ${isLightVariant ? `w-full md:w-[726px] ${isTraining ? 'h-[850px]' : 'h-[400px]'} md:h-full md:absolute md:right-0 md:top-0` : 'w-full md:w-[656px] h-[300px] md:h-[492px]'}`}>
+                    <div className={`relative shrink-0 ${isLightVariant ? `w-[calc(100%+48px)] mx-[-24px] md:w-[726px] md:mx-0 ${isTraining ? 'h-[850px]' : 'h-[400px]'} md:h-full md:absolute md:right-0 md:top-0` : 'w-full md:w-[656px] h-[300px] md:h-[492px]'}`}>
                         <Image
                             src={foregroundImage.src}
                             alt={foregroundImage.alt}
@@ -79,7 +79,7 @@ export const PageBanner: React.FC<PageBannerSectionProps> = ({
 
             {/* Full Bleed Right Image (Patients & How It Works) */}
             {foregroundImage && isFullBleed && (
-                <div className="relative w-full h-[400px] md:absolute md:top-0 md:right-0 md:w-1/2 md:h-full z-0">
+                <div className={`relative w-full ${isTraining ? 'h-[850px]' : 'h-[400px]'} md:absolute md:top-0 md:right-0 md:w-1/2 md:h-full z-0`}>
                     <Image
                         src={foregroundImage.src}
                         alt={foregroundImage.alt}
@@ -88,6 +88,19 @@ export const PageBanner: React.FC<PageBannerSectionProps> = ({
                         sizes="50vw"
                         priority
                     />
+                    {isTraining && (
+                        <div className="absolute inset-0 flex items-center justify-center z-10">
+                            <div className="max-w-[340px] flex flex-col gap-4 text-left">
+                                <h2 className="text-white text-[28px] font-bold leading-[125%] tracking-[-0.02em] font-sans m-0">
+                                    No commitment today.
+                                </h2>
+                                <p className="text-white text-xl font-semibold leading-[140%] tracking-[-0.02em] font-sans m-0">
+                                    Pre-register and you'll save 15% off the cost of $895.
+                                </p>
+                                <TrainingForm />
+                            </div>
+                        </div>
+                    )}
                 </div>
             )}
         </div>

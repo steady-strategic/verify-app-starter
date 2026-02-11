@@ -44,15 +44,14 @@ export default async function BlogPage() {
                 }}
             />
 
-            <section className="py-24 mx-auto max-w-[1440px] px-[80px]">
-                <div className="flex flex-col gap-24">
+            <section className="py-12 md:py-24 mx-auto max-w-[1440px] px-6 md:px-[80px]">
+                <div className="flex flex-col gap-12 md:gap-24">
                     {posts.map((post) => (
-                        <div key={post.id} className="flex flex-col lg:flex-row gap-12 items-center">
-                            {/* Card Image - Fixed 540px width on desktop */}
-                            {/* Card Image - Fixed 540px width on desktop */}
+                        <div key={post.id} className="flex flex-col lg:flex-row gap-8 md:gap-12 items-center w-full">
+                            {/* Card Image - Full width mobile, fixed 540px desktop */}
                             <Link
                                 href={`/blog/${post.slug}`}
-                                className="lg:w-[540px] lg:shrink-0 relative h-[400px] w-full rounded-2xl overflow-hidden shadow-sm block group"
+                                className="lg:w-[540px] lg:shrink-0 relative h-[300px] md:h-[400px] w-full max-w-full rounded-2xl overflow-hidden shadow-sm block group"
                             >
                                 {post.imageUrl ? (
                                     <Image
@@ -69,7 +68,7 @@ export default async function BlogPage() {
                             </Link>
 
                             {/* Card Content - Fills remaining space */}
-                            <div className="flex-1 flex flex-col justify-center pl-0 lg:pl-4">
+                            <div className="flex-1 flex flex-col justify-center pl-0 lg:pl-4 w-full max-w-full">
                                 <h2 className="text-3xl md:text-[2rem] font-bold text-stone-900 mb-6 leading-tight">
                                     <Link href={`/blog/${post.slug}`}>
                                         {post.title.split(/(MORE)/g).map((part, i) => (
@@ -85,10 +84,10 @@ export default async function BlogPage() {
                                 <div>
                                     <Link
                                         href={`/blog/${post.slug}`}
-                                        className="inline-flex items-center px-6 py-3 border border-stone-200 rounded-lg text-stone-900 text-sm font-bold hover:bg-stone-50 hover:border-amber-200 transition-all group"
+                                        className="inline-flex items-center px-6 py-3 border border-stone-200 rounded-lg text-stone-900 text-sm font-bold hover:bg-white hover:border-stone-400 transition-all group"
                                     >
                                         Read more
-                                        <svg className="w-4 h-4 ml-2 text-stone-400 group-hover:text-amber-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <svg className="w-4 h-4 ml-2 text-stone-400 group-hover:text-primary-1 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                                         </svg>
                                     </Link>

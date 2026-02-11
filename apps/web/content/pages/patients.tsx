@@ -11,8 +11,7 @@ export const patientsContent = {
         ),
         subtitle: (
             <span className="text-gray-900 font-bold">
-                MORE isn’t about managing symptoms.<br />
-                It’s about helping you <span className="text-primary-1">reclaim your life.</span>
+                MORE isn’t about managing symptoms. It’s about helping you <span className="text-primary-1">reclaim your life.</span>
             </span>
         ),
         description: (

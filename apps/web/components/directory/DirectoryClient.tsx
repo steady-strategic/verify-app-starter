@@ -99,7 +99,7 @@ export function DirectoryClient({ initialClinicians }: DirectoryClientProps) {
                         alt: "Directory Background",
                     }}
                 >
-                    <div className="bg-white p-2 rounded-lg flex gap-2 w-full max-w-[75%] shadow-lg items-center">
+                    <div className="bg-white p-2 rounded-lg flex flex-row gap-2 w-full max-w-full md:max-w-[75%] shadow-lg items-center">
                         <div className="flex-1 relative border border-stone-200 rounded-md">
                             <select
                                 value={selectedLocation}
@@ -134,7 +134,7 @@ export function DirectoryClient({ initialClinicians }: DirectoryClientProps) {
                                 </svg>
                             </div>
                         </div>
-                        <button className="bg-[#D926D8] text-white px-6 py-3 rounded-md font-semibold flex items-center gap-2 hover:bg-[#c022bf] transition-colors shrink-0">
+                        <button className="bg-[#D926D8] text-white px-6 py-3 rounded-md font-semibold flex items-center justify-center gap-2 hover:bg-[#c022bf] transition-colors shrink-0">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                             </svg>

@@ -39,7 +39,7 @@ export default async function BlogPage() {
                     </>
                 }
                 backgroundImage={{
-                    src: "/assets/images/BlogFeedBanner/BlogFeedBackground.png",
+                    src: "/assets/images/BlogFeedBanner/BlogFeed-Background2.avif",
                     alt: "Dr. Garland Insights Background"
                 }}
             />

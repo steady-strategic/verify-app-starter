@@ -146,9 +146,9 @@ export const Navbar: React.FC<NavbarProps> = ({ scrolled = false, variant = "lig
                 }`}
         >
             <div className="container mx-auto px-6">
-                <div className="grid grid-cols-3 items-center">
+                <div className="flex justify-between items-center md:grid md:grid-cols-3">
                     {/* Logo - Left */}
-                    <Link href="/" className="flex items-center focus:outline-none justify-self-start">
+                    <Link href="/" className="flex items-center focus:outline-none md:justify-self-start">
                         <Image
                             src="/assets/logos/Logo_Primary_1.svg"
                             alt="MORE Logo"
@@ -200,12 +200,12 @@ export const Navbar: React.FC<NavbarProps> = ({ scrolled = false, variant = "lig
                     {/* Mobile Hamburger - Right (on mobile only) */}
                     <button
                         onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                        className="md:hidden justify-self-end text-stone-900 focus:outline-none"
+                        className={`md:hidden focus:outline-none ${variant === "dark" && !scrolled ? "text-white" : "text-stone-900"}`}
                         aria-label="Toggle menu"
                     >
                         {mobileMenuOpen ? (
                             <svg
-                                className="w-6 h-6"
+                                className="w-8 h-8"
                                 fill="none"
                                 stroke="currentColor"
                                 viewBox="0 0 24 24"
@@ -219,7 +219,7 @@ export const Navbar: React.FC<NavbarProps> = ({ scrolled = false, variant = "lig
                             </svg>
                         ) : (
                             <svg
-                                className="w-6 h-6"
+                                className="w-8 h-8"
                                 fill="none"
                                 stroke="currentColor"
                                 viewBox="0 0 24 24"

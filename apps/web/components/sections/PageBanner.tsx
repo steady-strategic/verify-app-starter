@@ -51,7 +51,7 @@ export const PageBanner: React.FC<PageBannerSectionProps> = ({
                 </section>
 
                 {foregroundImage && !isFullBleed && (
-                    <div className={`relative shrink-0 ${isLightVariant ? 'w-full md:w-[726px] h-[400px] md:h-full md:absolute md:right-0 md:top-0' : 'w-full md:w-[656px] h-[300px] md:h-[492px]'}`}>
+                    <div className={`relative shrink-0 ${isLightVariant ? `w-full md:w-[726px] ${isTraining ? 'h-[850px]' : 'h-[400px]'} md:h-full md:absolute md:right-0 md:top-0` : 'w-full md:w-[656px] h-[300px] md:h-[492px]'}`}>
                         <Image
                             src={foregroundImage.src}
                             alt={foregroundImage.alt}
@@ -63,7 +63,7 @@ export const PageBanner: React.FC<PageBannerSectionProps> = ({
                         {isTraining && (
                             <div className="absolute inset-0 flex items-center justify-center z-10">
                                 <div className="max-w-[340px] flex flex-col gap-4 text-left">
-                                    <h2 className="text-white text-[28px] font-bold leading-[125%] tracking-[-0.02em] font-sans m-0 whitespace-nowrap">
+                                    <h2 className="text-white text-[28px] font-bold leading-[125%] tracking-[-0.02em] font-sans m-0">
                                         No commitment today.
                                     </h2>
                                     <p className="text-white text-xl font-semibold leading-[140%] tracking-[-0.02em] font-sans m-0">

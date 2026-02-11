@@ -53,7 +53,7 @@ const testimonials = [
 
 export const Testimonials: React.FC<TestimonialsSectionProps> = ({ className = "" }) => {
     return (
-        <div className={`w-full bg-white flex flex-col items-center py-24 px-4 box-border ${className}`}>
+        <div className={`w-full bg-white flex flex-col items-center py-24 px-4 box-border overflow-hidden ${className}`}>
             <section className="w-full max-w-[1280px] flex flex-col items-center gap-7 text-center font-sans">
                 {/* Header */}
                 <div className="flex flex-col items-center gap-4 max-w-[672px]">
@@ -93,8 +93,8 @@ export const Testimonials: React.FC<TestimonialsSectionProps> = ({ className = "
                         theme={{
                             root: {
                                 base: "relative h-full w-full",
-                                leftControl: "absolute top-0 left-[-20px] flex h-full items-center justify-start md:justify-center px-0 md:px-4 focus:outline-none",
-                                rightControl: "absolute top-0 right-[-20px] flex h-full items-center justify-end md:justify-center px-0 md:px-4 focus:outline-none"
+                                leftControl: "absolute top-0 left-[-16px] flex h-full items-center justify-start md:justify-center px-0 md:px-4 focus:outline-none",
+                                rightControl: "absolute top-0 right-[-16px] flex h-full items-center justify-end md:justify-center px-0 md:px-4 focus:outline-none"
                             },
                             indicators: {
                                 active: {

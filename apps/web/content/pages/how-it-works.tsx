@@ -47,7 +47,7 @@ export const howItWorksContent = {
                         <span className="text-gray-900"> Reappraisal</span>
                     </>
                 ),
-                description: "A cognitive strategy integrating mindfulness used to reframe distressing thoughts, negative core beliefs, or unhelpful interpretations of challenging life situations. Instead of suppressing or ignoring difficult emotions, patients learn to efficiently engage prefrontal brain resources to shift their perspective in ways that reduce suffering and create healthier patterns of behavior."
+                description: "A cognitive strategy integrating mindfulness to reframe distressing thoughts, negative core beliefs, or unhelpful interpretations of challenging life situations. Instead of suppressing or ignoring difficult emotions, patients learn to efficiently engage prefrontal brain resources to shift their perspective in ways that reduce suffering and create healthier patterns of behavior."
             },
             {
                 icon: { src: "/assets/images/Cards/savoring.svg", alt: "Savoring" },

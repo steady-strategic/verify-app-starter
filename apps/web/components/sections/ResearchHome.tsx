@@ -17,8 +17,8 @@ const ResearchItem: React.FC<ItemProps> = ({ title, list }) => {
     return (
         <div className="flex flex-col items-start gap-4 flex-1 min-w-[300px] h-full">
             {/* Icon */}
-            <div className="w-8 h-8 rounded-full bg-primary-1 flex items-center justify-center shrink-0">
-                <svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <div className="w-5 h-5 md:w-8 md:h-8 rounded-full bg-primary-1 flex items-center justify-center shrink-0">
+                <svg className="w-2.5 h-2.5 md:w-[14px] md:h-[10px]" width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M4.99992 7.58579L1.70703 4.29289L0.292816 5.70711L4.99992 10.4142L13.707 1.70711L12.2928 0.292893L4.99992 7.58579Z" fill="white" />
                 </svg>
             </div>

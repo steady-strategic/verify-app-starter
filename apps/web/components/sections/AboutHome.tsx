@@ -40,27 +40,29 @@ export const AboutHome: React.FC<AboutHomeSectionProps> = ({ className = "" }) =
                     <br />
                     <br />
                 </div>
-                <button className="cursor-pointer border-gray-200 border-solid border-[1px] py-25 px-5 bg-white rounded-lg overflow-hidden flex items-center justify-center gap-2">
-                    <Image
-                        className="h-35 w-35 relative hidden"
-                        width={14}
-                        height={14}
-                        sizes="100vw"
-                        alt=""
-                        src="/assets/images/AboutHome/arrow-narrow-right2.svg"
-                    />
-                    <div className="relative text-sm leading-[150%] font-medium font-sans text-gray-900 text-left">
-                        Read MORE Insights From Dr. Garland
-                    </div>
-                    <Image
-                        className="h-35 w-35 relative hidden"
-                        width={14}
-                        height={14}
-                        sizes="100vw"
-                        alt=""
-                        src="/assets/images/AboutHome/arrow-right-outline.svg"
-                    />
-                </button>
+                <div className="w-full flex items-center justify-center md:justify-start">
+                    <button className="cursor-pointer border-gray-200 border-solid border-[1px] py-2.5 px-5 bg-white rounded-lg overflow-hidden flex items-center justify-center gap-2">
+                        <Image
+                            className="h-3.5 w-3.5 relative hidden"
+                            width={14}
+                            height={14}
+                            sizes="100vw"
+                            alt=""
+                            src="/assets/images/AboutHome/arrow-narrow-right2.svg"
+                        />
+                        <div className="relative text-sm leading-[150%] font-medium font-sans text-gray-900 text-left">
+                            Read MORE Insights From Dr. Garland
+                        </div>
+                        <Image
+                            className="h-3.5 w-3.5 relative hidden"
+                            width={14}
+                            height={14}
+                            sizes="100vw"
+                            alt=""
+                            src="/assets/images/AboutHome/arrow-right-outline.svg"
+                        />
+                    </button>
+                </div>
             </section>
         </div>
     );

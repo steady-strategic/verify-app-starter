@@ -91,9 +91,10 @@ class MobileAuditor:
         # Detect framework
         is_react_native = bool(re.search(r'react-native|@react-navigation|React\.Native', content))
         is_flutter = bool(re.search(r'import \'package:flutter|MaterialApp|Widget\.build', content))
+        is_web = bool(re.search(r'react|next|tailwind|className', content, re.IGNORECASE))
 
-        if not (is_react_native or is_flutter):
-            return  # Skip non-mobile files
+        if not (is_react_native or is_flutter or is_web):
+            return  # Skip non-frontend files
 
         # --- 1. TOUCH PSYCHOLOGY CHECKS ---
 

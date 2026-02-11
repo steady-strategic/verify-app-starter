@@ -154,7 +154,7 @@ export const Navbar: React.FC<NavbarProps> = ({ scrolled = false, variant = "lig
                             alt="MORE Logo"
                             width={140}
                             height={48}
-                            className="h-[48px] w-auto"
+                            className="h-[32px] md:h-[48px] w-auto"
                             priority
                         />
                     </Link>

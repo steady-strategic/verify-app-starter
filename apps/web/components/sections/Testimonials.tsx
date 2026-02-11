@@ -66,7 +66,7 @@ export const Testimonials: React.FC<TestimonialsSectionProps> = ({ className = "
                 </div>
 
                 {/* Carousel */}
-                <div className="w-full max-w-[1216px] h-[280px]">
+                <div className="w-full max-w-[1216px] h-[400px] md:h-[280px]">
                     <Carousel
                         slideInterval={5000}
                         leftControl={
@@ -93,16 +93,16 @@ export const Testimonials: React.FC<TestimonialsSectionProps> = ({ className = "
                         theme={{
                             root: {
                                 base: "relative h-full w-full",
-                                leftControl: "absolute top-0 left-0 flex h-full items-center justify-center px-4 focus:outline-none",
-                                rightControl: "absolute top-0 right-0 flex h-full items-center justify-center px-4 focus:outline-none"
+                                leftControl: "absolute top-0 left-[-20px] flex h-full items-center justify-start md:justify-center px-0 md:px-4 focus:outline-none",
+                                rightControl: "absolute top-0 right-[-20px] flex h-full items-center justify-end md:justify-center px-0 md:px-4 focus:outline-none"
                             },
                             indicators: {
                                 active: {
                                     off: "bg-gray-300 hover:bg-gray-400",
-                                    on: "bg-primary-1"
+                                    on: "!bg-primary-1"
                                 },
                                 base: "h-2 w-2 rounded-full",
-                                wrapper: "absolute bottom-5 left-1/2 flex -translate-x-1/2 space-x-3"
+                                wrapper: "absolute bottom-2 left-1/2 flex -translate-x-1/2 space-x-3"
                             },
                             item: {
                                 base: "absolute top-1/2 left-1/2 block w-full -translate-x-1/2 -translate-y-1/2",
@@ -116,7 +116,7 @@ export const Testimonials: React.FC<TestimonialsSectionProps> = ({ className = "
                                 icon: "h-5 w-5 text-white sm:h-6 sm:w-6"
                             },
                             scrollContainer: {
-                                base: "flex h-full snap-mandatory overflow-y-hidden overflow-x-scroll scroll-smooth rounded-none",
+                                base: "flex h-full snap-mandatory overflow-y-hidden overflow-x-scroll scroll-smooth rounded-none [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']",
                                 snap: "snap-x"
                             }
                         }}

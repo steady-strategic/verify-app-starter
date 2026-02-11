@@ -22,10 +22,10 @@ export const AppBanner: React.FC<AppBannerSectionProps> = ({
     return (
         <section
             id={id}
-            className={`relative w-full h-[921px] overflow-hidden ${className}`}
+            className={`relative w-full min-h-[1200px] md:min-h-[921px] overflow-hidden ${className}`}
         >
             {/* Background Image */}
-            <div className="absolute inset-0 z-0 bg-[#1e0b5d]"> {/* Fallback color */}
+            <div className="absolute inset-0 z-0"> {/* Fallback color removed */}
                 <Image
                     src={backgroundImage.src}
                     alt={backgroundImage.alt}
@@ -108,7 +108,7 @@ export const AppBanner: React.FC<AppBannerSectionProps> = ({
                 </div>
 
                 {/* Phone Mockup */}
-                <div className="flex-1 w-full max-w-sm md:max-w-md relative flex justify-center self-center md:self-auto pt-[96px]">
+                <div className="hidden md:flex flex-1 w-full max-w-sm md:max-w-md relative justify-center self-center md:self-auto pt-[96px]">
                     <div className="relative w-full h-[640px]">
                         <Image
                             src={phoneImage.src}

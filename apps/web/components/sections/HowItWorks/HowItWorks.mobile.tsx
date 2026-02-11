@@ -42,8 +42,8 @@ export const HowItWorksMobile: React.FC<HowItWorksSectionProps> = ({
         <div className="w-full bg-white flex flex-col items-center py-16 px-4 box-border">
             <section className="w-full max-w-[420px] flex flex-col items-center text-center text-gray-900 font-sans">
                 {/* Header */}
-                <div className="flex flex-col items-center justify-center mb-10 max-w-[340px] gap-4">
-                    <h2 className="m-0 text-2xl tracking-[-0.02em] leading-tight font-bold">
+                <div className="flex flex-col items-center justify-center mb-10 w-full max-w-[340px] gap-4">
+                    <h2 className="m-0 text-2xl tracking-[-0.02em] leading-tight font-bold w-full">
                         {renderMoreHighlightedText(activeHeading)}
                     </h2>
                     {activeSubtitle && (

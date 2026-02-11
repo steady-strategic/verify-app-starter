@@ -85,7 +85,7 @@ export const cliniciansContent = {
     } satisfies ContentSectionProps,
 
     textClinicians: {
-        title: "You, too, can bring this kind of relief to your clients.",
+        title: "You too, can bring this kind of relief to your clients.",
         body: (
             <span>
                 Through engaging asynchronous training, <span className="text-primary-1 font-bold">MORE Institute</span> will teach you how to deliver this powerful therapy to your own clients who are struggling with addiction, chronic pain and emotional distress.

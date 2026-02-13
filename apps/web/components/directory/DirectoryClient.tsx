@@ -149,7 +149,7 @@ export function DirectoryClient({ initialClinicians }: DirectoryClientProps) {
                     {/* Results */}
                     <div className="space-y-6">
                         <h2 className="text-2xl font-bold text-stone-900 mb-6">
-                            Certified Practitioners ({filteredClinicians.length})
+                            Certified Clinicians ({filteredClinicians.length})
                         </h2>
 
                         {filteredClinicians.length > 0 ? (
@@ -209,8 +209,7 @@ export function DirectoryClient({ initialClinicians }: DirectoryClientProps) {
                         ) : (
                             <div className="text-center py-20 bg-stone-50 rounded-2xl border border-stone-100 border-dashed">
                                 <div className="text-4xl mb-4 opacity-50">🔍</div>
-                                <h3 className="text-lg font-bold text-stone-900 mb-1">No clinicians found</h3>
-                                <p className="text-stone-500 text-sm">Try adjusting your search or filters.</p>
+                                <h3 className="text-lg font-bold text-stone-900 mb-1">Select a location to begin.</h3>
                             </div>
                         )}
                     </div>

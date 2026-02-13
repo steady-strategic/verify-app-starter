@@ -1,5 +1,6 @@
 import type { NextPage } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 import { BaseSectionProps, AboutHomeSectionProps } from "./types";
 
@@ -41,27 +42,29 @@ export const AboutHome: React.FC<AboutHomeSectionProps> = ({ className = "" }) =
                     <br />
                 </div>
                 <div className="w-full flex items-center justify-center md:justify-start">
-                    <button className="cursor-pointer border-gray-200 border-solid border-[1px] py-2.5 px-5 bg-white rounded-lg overflow-hidden flex items-center justify-center gap-2">
-                        <Image
-                            className="h-3.5 w-3.5 relative hidden"
-                            width={14}
-                            height={14}
-                            sizes="100vw"
-                            alt=""
-                            src="/assets/images/AboutHome/arrow-narrow-right2.svg"
-                        />
-                        <div className="relative text-sm leading-[150%] font-medium font-sans text-gray-900 text-left">
-                            Read MORE Insights From Dr. Garland
-                        </div>
-                        <Image
-                            className="h-3.5 w-3.5 relative hidden"
-                            width={14}
-                            height={14}
-                            sizes="100vw"
-                            alt=""
-                            src="/assets/images/AboutHome/arrow-right-outline.svg"
-                        />
-                    </button>
+                    <Link href="/blog" className="no-underline">
+                        <button className="cursor-pointer border-none py-2.5 px-5 bg-primary-1 rounded-lg overflow-hidden flex items-center justify-center gap-2 hover:bg-primary-2 transition-colors">
+                            <Image
+                                className="h-3.5 w-3.5 relative hidden"
+                                width={14}
+                                height={14}
+                                sizes="100vw"
+                                alt=""
+                                src="/assets/images/AboutHome/arrow-narrow-right2.svg"
+                            />
+                            <div className="relative text-sm leading-[150%] font-bold font-sans text-white text-left">
+                                Read MORE Insights From Dr. Garland
+                            </div>
+                            <Image
+                                className="h-3.5 w-3.5 relative hidden"
+                                width={14}
+                                height={14}
+                                sizes="100vw"
+                                alt=""
+                                src="/assets/images/AboutHome/arrow-right-outline.svg"
+                            />
+                        </button>
+                    </Link>
                 </div>
             </section>
         </div>

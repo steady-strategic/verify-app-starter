@@ -16,8 +16,8 @@ const testimonials = [
     {
         id: 2,
         quote: `"Many report not only relief from physical suffering but also deep emotional healing, enhanced self-awareness, and meaningful recovery. A program evaluation of MORE at Essentia showed statistically significant symptom improvements in my patients."`,
-        name: 'Trish Dooley Budsock, MA, LPC',
-        title: 'Robert Wood Johnson Medical School at Rutgers'
+        name: 'Nancy Sudak, MD, Chief Well-Being Officer, Essentia Health',
+        title: null
     },
     {
         id: 3,

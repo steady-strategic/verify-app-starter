@@ -205,8 +205,7 @@ export const ContentHome: React.FC<ContentHomeSectionProps> = ({ className = "" 
                                 </div>
                                 <div className="flex-1 flex flex-col items-start">
                                     <div className="self-stretch relative leading-[150%]">
-                                        Experience powerful and lasting change with just 8 weekly
-                                        sessions
+                                        Experience powerful and lasting change with just eight weekly sessions
                                     </div>
                                 </div>
                             </div>

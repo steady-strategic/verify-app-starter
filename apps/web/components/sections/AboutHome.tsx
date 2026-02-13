@@ -43,7 +43,7 @@ export const AboutHome: React.FC<AboutHomeSectionProps> = ({ className = "" }) =
                 </div>
                 <div className="w-full flex items-center justify-center md:justify-start">
                     <Link href="/blog" className="no-underline">
-                        <button className="cursor-pointer border-none py-2.5 px-5 bg-primary-1 rounded-lg overflow-hidden flex items-center justify-center gap-2 hover:bg-primary-2 transition-colors">
+                        <button className="cursor-pointer border-none py-2.5 px-5 bg-primary-1 rounded-lg overflow-hidden flex items-center justify-center gap-2 hover:bg-[#BA00B8] transition-colors">
                             <Image
                                 className="h-3.5 w-3.5 relative hidden"
                                 width={14}

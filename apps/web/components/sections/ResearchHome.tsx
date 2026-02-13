@@ -1,5 +1,6 @@
 import type { NextPage } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 import { BaseSectionProps, ResearchHomeSectionProps } from "./types";
 
@@ -90,27 +91,29 @@ export const ResearchHome: React.FC<ResearchHomeSectionProps> = ({ className = "
                         />
                     ))}
                 </section>
-                <button className="cursor-pointer [border:none] py-35 px-6 bg-primary-1 w-[206px] h-[53px] rounded-md overflow-hidden shrink-0 flex items-center justify-center box-border gap-2">
-                    <Image
-                        className="h-4 w-4 relative hidden shrink-0"
-                        width={16}
-                        height={16}
-                        sizes="100vw"
-                        alt=""
-                        src="/assets/images/ResearchHome/cart-plus1.svg"
-                    />
-                    <b className="relative text-lg leading-[150%] font-sans text-white text-left shrink-0">
-                        Read the Research
-                    </b>
-                    <Image
-                        className="h-4 w-4 relative hidden shrink-0"
-                        width={16}
-                        height={16}
-                        sizes="100vw"
-                        alt=""
-                        src="/assets/images/ResearchHome/cart-plus1.svg"
-                    />
-                </button>
+                <Link href="/research" className="no-underline">
+                    <button className="cursor-pointer [border:none] py-3.5 px-6 bg-primary-1 w-[206px] h-[53px] rounded-md overflow-hidden shrink-0 flex items-center justify-center box-border gap-2 hover:bg-[#BA00B8] transition-colors">
+                        <Image
+                            className="h-4 w-4 relative hidden shrink-0"
+                            width={16}
+                            height={16}
+                            sizes="100vw"
+                            alt=""
+                            src="/assets/images/ResearchHome/cart-plus1.svg"
+                        />
+                        <b className="relative text-lg leading-[150%] font-sans text-white text-left shrink-0">
+                            Read the Research
+                        </b>
+                        <Image
+                            className="h-4 w-4 relative hidden shrink-0"
+                            width={16}
+                            height={16}
+                            sizes="100vw"
+                            alt=""
+                            src="/assets/images/ResearchHome/cart-plus1.svg"
+                        />
+                    </button>
+                </Link>
             </section>
         </div>
     );

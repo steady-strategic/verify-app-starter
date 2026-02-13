@@ -1,5 +1,6 @@
 import type { NextPage } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 import { ContentHomeSectionProps } from "./types";
 
@@ -98,11 +99,13 @@ export const ContentHome: React.FC<ContentHomeSectionProps> = ({ className = "" 
                             </div>
                         </div>
                     </div>
-                    <button className="cursor-pointer border-gray-200 border-solid border-[1px] py-2.5 px-[20px] bg-white rounded-lg flex items-center justify-center">
-                        <div className="relative text-sm leading-[150%] font-medium font-sans text-gray-900 text-left">
-                            Learn <span className="text-primary-1">MORE</span>
-                        </div>
-                    </button>
+                    <Link href="/training" className="no-underline">
+                        <button className="cursor-pointer border-gray-200 border-solid border-[1px] py-2.5 px-[20px] bg-white rounded-lg flex items-center justify-center hover:bg-gray-50 transition-colors">
+                            <div className="relative text-sm leading-[150%] font-medium font-sans text-gray-900 text-left">
+                                Learn <span className="text-primary-1">MORE</span>
+                            </div>
+                        </button>
+                    </Link>
                 </section>
                 <Image
                     className="h-[530px] w-full max-w-[610px] object-cover rounded-2xl"
@@ -211,27 +214,29 @@ export const ContentHome: React.FC<ContentHomeSectionProps> = ({ className = "" 
                             </div>
                         </div>
                     </div>
-                    <button className="cursor-pointer border-gray-200 border-solid border-[1px] py-2.5 px-5 bg-white rounded-lg flex items-center justify-center gap-2 mt-4">
-                        <Image
-                            className="h-3.5 w-3.5 relative hidden shrink-0"
-                            width={14}
-                            height={14}
-                            sizes="100vw"
-                            alt=""
-                            src="/assets/images/ContentHome/arrow-narrow-right.svg"
-                        />
-                        <div className="relative text-sm leading-[150%] font-medium font-sans text-gray-900 text-left shrink-0">
-                            Learn <span className="text-primary-1">MORE</span>
-                        </div>
-                        <Image
-                            className="h-3.5 w-3.5 relative hidden shrink-0"
-                            width={14}
-                            height={14}
-                            sizes="100vw"
-                            alt=""
-                            src="/assets/images/ContentHome/arrow-narrow-right.svg"
-                        />
-                    </button>
+                    <Link href="/patients" className="no-underline mt-4">
+                        <button className="cursor-pointer border-gray-200 border-solid border-[1px] py-2.5 px-5 bg-white rounded-lg flex items-center justify-center gap-2 hover:bg-gray-50 transition-colors w-full sm:w-auto">
+                            <Image
+                                className="h-3.5 w-3.5 relative hidden shrink-0"
+                                width={14}
+                                height={14}
+                                sizes="100vw"
+                                alt=""
+                                src="/assets/images/ContentHome/arrow-narrow-right.svg"
+                            />
+                            <div className="relative text-sm leading-[150%] font-medium font-sans text-gray-900 text-left shrink-0">
+                                Learn <span className="text-primary-1">MORE</span>
+                            </div>
+                            <Image
+                                className="h-3.5 w-3.5 relative hidden shrink-0"
+                                width={14}
+                                height={14}
+                                sizes="100vw"
+                                alt=""
+                                src="/assets/images/ContentHome/arrow-narrow-right.svg"
+                            />
+                        </button>
+                    </Link>
                 </section>
             </section>
         </div>

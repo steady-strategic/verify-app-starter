@@ -193,7 +193,7 @@ export function DirectoryClient({ initialClinicians }: DirectoryClientProps) {
                                                 <div className="mt-auto pt-4 border-t border-stone-100 flex justify-center">
                                                     <button
                                                         onClick={() => setExpandedCardId(clinician.id)}
-                                                        className="text-stone-900 hover:text-amber-700 font-semibold text-sm flex items-center group/link transition-all focus:outline-none border border-stone-200 px-6 py-2 rounded-full hover:bg-stone-50"
+                                                        className="text-stone-900 hover:text-primary-1 font-semibold text-sm flex items-center group/link transition-all focus:outline-none border border-stone-200 px-6 py-2 rounded-lg hover:bg-stone-50"
                                                     >
                                                         Contact
                                                         <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1 group-hover/link:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">

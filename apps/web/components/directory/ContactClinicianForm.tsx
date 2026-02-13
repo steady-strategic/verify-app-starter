@@ -110,7 +110,7 @@ export function ContactClinicianForm({ onClose, clinicianEmail }: ContactClinici
                                 name="firstName"
                                 type="text"
                                 required
-                                className="block w-full h-[44px] px-3 bg-stone-50 border border-stone-300 rounded-lg text-stone-900 placeholder-stone-400 focus:border-amber-500 focus:ring-1 focus:ring-amber-500 outline-none transition-all text-sm"
+                                className="block w-full h-[44px] px-3 bg-stone-50 border border-stone-300 rounded-lg text-stone-900 placeholder-stone-400 focus:border-stone-500 focus:ring-1 focus:ring-stone-500 outline-none transition-all text-sm"
                             />
                         </div>
                         <div className="space-y-1">
@@ -125,7 +125,7 @@ export function ContactClinicianForm({ onClose, clinicianEmail }: ContactClinici
                                 name="lastName"
                                 type="text"
                                 required
-                                className="block w-full h-[44px] px-3 bg-stone-50 border border-stone-300 rounded-lg text-stone-900 placeholder-stone-400 focus:border-amber-500 focus:ring-1 focus:ring-amber-500 outline-none transition-all text-sm"
+                                className="block w-full h-[44px] px-3 bg-stone-50 border border-stone-300 rounded-lg text-stone-900 placeholder-stone-400 focus:border-stone-500 focus:ring-1 focus:ring-stone-500 outline-none transition-all text-sm"
                             />
                         </div>
                     </div>
@@ -144,7 +144,7 @@ export function ContactClinicianForm({ onClose, clinicianEmail }: ContactClinici
                                 name="email"
                                 type="email"
                                 required
-                                className="block w-full h-[44px] px-3 bg-stone-50 border border-stone-300 rounded-lg text-stone-900 placeholder-stone-400 focus:border-amber-500 focus:ring-1 focus:ring-amber-500 outline-none transition-all text-sm"
+                                className="block w-full h-[44px] px-3 bg-stone-50 border border-stone-300 rounded-lg text-stone-900 placeholder-stone-400 focus:border-stone-500 focus:ring-1 focus:ring-stone-500 outline-none transition-all text-sm"
                             />
                         </div>
                         <div className="space-y-1">
@@ -158,7 +158,7 @@ export function ContactClinicianForm({ onClose, clinicianEmail }: ContactClinici
                                 id="phone"
                                 name="phone"
                                 type="tel"
-                                className="block w-full h-[44px] px-3 bg-stone-50 border border-stone-300 rounded-lg text-stone-900 placeholder-stone-400 focus:border-amber-500 focus:ring-1 focus:ring-amber-500 outline-none transition-all text-sm"
+                                className="block w-full h-[44px] px-3 bg-stone-50 border border-stone-300 rounded-lg text-stone-900 placeholder-stone-400 focus:border-stone-500 focus:ring-1 focus:ring-stone-500 outline-none transition-all text-sm"
                             />
                         </div>
                     </div>

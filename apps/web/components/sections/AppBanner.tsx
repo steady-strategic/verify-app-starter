@@ -30,8 +30,9 @@ export const AppBanner: React.FC<AppBannerSectionProps> = ({
                     src={backgroundImage.src}
                     alt={backgroundImage.alt}
                     fill
-                    className="object-cover object-center scale-[1.01]"
+                    className="object-cover w-full h-full scale-[1.02]"
                     priority
+                    sizes="100vw"
                 />
             </div>
 

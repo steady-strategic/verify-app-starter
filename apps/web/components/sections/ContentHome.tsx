@@ -99,13 +99,13 @@ export const ContentHome: React.FC<ContentHomeSectionProps> = ({ className = "" 
                             </div>
                         </div>
                     </div>
-                    <Link href="/training" className="no-underline">
+                    <a href="/training" className="no-underline">
                         <button className="cursor-pointer border-gray-200 border-solid border-[1px] py-2.5 px-[20px] bg-white rounded-lg flex items-center justify-center hover:bg-gray-50 transition-colors">
                             <div className="relative text-sm leading-[150%] font-medium font-sans text-gray-900 text-left">
                                 Learn <span className="text-primary-1">MORE</span>
                             </div>
                         </button>
-                    </Link>
+                    </a>
                 </section>
                 <Image
                     className="h-[530px] w-full max-w-[610px] object-cover rounded-2xl"

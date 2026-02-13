@@ -95,7 +95,7 @@ export const PageBanner: React.FC<PageBannerSectionProps> = ({
                                     No commitment today.
                                 </h2>
                                 <p className="text-white text-xl font-semibold leading-[140%] tracking-[-0.02em] font-sans m-0">
-                                    Pre-register and you'll save 15% off the cost of $895.
+                                    Pre-register and you'll save 20% off the cost of $895.
                                 </p>
                                 <TrainingForm />
                             </div>

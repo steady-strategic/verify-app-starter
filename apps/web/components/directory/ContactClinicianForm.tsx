@@ -176,9 +176,9 @@ export function ContactClinicianForm({ onClose, clinicianEmail }: ContactClinici
                         <button
                             type="submit"
                             disabled={isSubmitting}
-                            className="bg-stone-900 hover:bg-stone-800 active:scale-[0.98] text-white font-semibold text-sm h-[44px] px-8 rounded-full transition-all shadow-sm flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed"
+                            className="bg-primary-1 hover:bg-[#BA00B8] active:scale-[0.98] text-white font-semibold text-sm h-[44px] px-8 rounded-lg transition-all shadow-sm flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed"
                         >
-                            {isSubmitting ? 'Sending...' : 'Send Message'}
+                            {isSubmitting ? 'Sending Request...' : 'Send Request'}
                         </button>
                     </div>
                 </form>

@@ -3,6 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { BlogSidebar } from "./BlogSidebar";
+import { KnowMore } from "../sections/KnowMore";
 
 interface BlogPost {
     slug: string;
@@ -118,16 +119,25 @@ export const StoryDetail: React.FC<StoryDetailProps> = ({ story, blogPosts = [] 
                     </div>
                 </div>
 
-                {/* CTA Button - Below grid, centered */}
-                <div className="mt-24 text-center pb-24">
-                    <Link
-                        href="/blog"
-                        className="px-8 py-4 bg-stone-900 text-white rounded-full font-bold text-sm hover:bg-stone-800 transition-all uppercase tracking-widest inline-block"
-                    >
-                        Discover More Stories
-                    </Link>
-                </div>
+
             </div>
+            <KnowMore
+                title={
+                    <span>
+                        <span className="text-white">Know </span>
+                        <span className="text-primary-1">MORE</span>
+                    </span>
+                }
+                subtitle="Sign up to receive Dr. Garland's insights"
+                backgroundImage={{
+                    src: "/assets/images/KnowMore/background.png",
+                    alt: "Footer background"
+                }}
+                cta={{
+                    text: "Sign Up",
+                    href: "/patients#patients-form"
+                }}
+            />
         </article>
     );
 };

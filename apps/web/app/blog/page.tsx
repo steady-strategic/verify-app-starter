@@ -5,6 +5,7 @@ import { BlogFeedBanner } from "../../components/sections/BlogFeedBanner";
 import { prisma } from "../../lib/db";
 import Link from "next/link";
 import Image from "next/image";
+import { KnowMore } from "../../components/sections/KnowMore";
 
 export const dynamic = "force-dynamic";
 
@@ -104,7 +105,25 @@ export default async function BlogPage() {
                 )}
             </section>
 
+            <KnowMore
+                title={
+                    <span>
+                        <span className="text-white">Know </span>
+                        <span className="text-primary-1">MORE</span>
+                    </span>
+                }
+                subtitle="Sign up to receive Dr. Garland's insights"
+                backgroundImage={{
+                    src: "/assets/images/KnowMore/background.png",
+                    alt: "Footer background"
+                }}
+                cta={{
+                    text: "Sign Up",
+                    href: "/patients#patients-form"
+                }}
+            />
+
             <Footer />
-        </div>
+        </div >
     );
 }

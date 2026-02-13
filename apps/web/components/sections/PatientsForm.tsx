@@ -10,7 +10,7 @@ export const PatientsForm: React.FC<PatientsFormSectionProps> = ({
     subtitle = "Inquire to stay informed and be among the first to hear when the app becomes available."
 }) => {
     return (
-        <div className={`w-full bg-gray-50 flex flex-col items-center justify-center py-20 px-6 md:px-20 box-border ${className}`}>
+        <div id="patients-form" className={`w-full bg-gray-50 flex flex-col items-center justify-center py-20 px-6 md:px-20 box-border scroll-mt-24 ${className}`}>
             <div className="w-full max-w-[856px] space-y-12">
 
                 {/* Header */}

@@ -27,14 +27,16 @@ export async function POST(request: NextRequest) {
             },
         });
 
-        // Trigger HubSpot sync in background (non-blocking)
-        // This will attempt to sync immediately but won't block the response
-        fetch(`${request.nextUrl.origin}/api/sync-hubspot`, {
-            method: 'POST',
-        }).catch(error => {
+        // Trigger HubSpot sync in background (but we must await in serverless)
+        // This ensures the request fires before the lambda terminates
+        try {
+            await fetch(`${request.nextUrl.origin}/api/sync-hubspot`, {
+                method: 'POST',
+            });
+        } catch (error) {
             console.error('Background HubSpot sync failed:', error);
             // Don't throw - we already saved to database successfully
-        });
+        }
 
         return NextResponse.json({
             success: true,

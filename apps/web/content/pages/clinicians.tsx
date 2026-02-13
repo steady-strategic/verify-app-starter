@@ -161,7 +161,7 @@ export const cliniciansContent = {
         ),
         subtitle: (
             <span>
-                Rigorously tested in over <span className="font-bold">16 clinical trials and funded by $90M in federal grants</span>, MORE is proven to help patients shift from reactive responses to mindful awareness, self-regulation and natural reward.
+                Rigorously tested in <span className="font-bold">16 clinical trials and funded by $90M in federal grants</span>, MORE is proven to help patients shift from reactive responses to mindful awareness, self-regulation, and natural reward.
             </span>
         ),
         items: [
@@ -207,7 +207,7 @@ export const cliniciansContent = {
             },
             {
                 title: "Rewires the brain for lasting change",
-                body: "Restores healthy reward responses, reduces anhedonia and quiets craving-related brain signals."
+                body: "Restores healthy reward responses, reduces anhedonia, and quiets craving-related brain signals."
             }
         ],
         cta: {

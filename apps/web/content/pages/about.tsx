@@ -74,7 +74,7 @@ export const aboutContent = {
         ),
         cta: {
             text: "Download CV",
-            href: "#"
+            href: "https://drericgarland.com/cv/"
         }
     } satisfies ProfileAboutSectionProps
 };

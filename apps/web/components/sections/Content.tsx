@@ -68,7 +68,7 @@ export const Content: React.FC<ContentSectionProps> = ({
                 </div>
 
                 {cta && (
-                    <Link
+                    <a
                         href={cta.href}
                         className="cursor-pointer border border-gray-200 py-3 px-5 bg-white rounded-lg flex items-center justify-center gap-2 hover:bg-gray-50 transition-colors"
                     >
@@ -81,7 +81,7 @@ export const Content: React.FC<ContentSectionProps> = ({
                                 )
                             )}
                         </span>
-                    </Link>
+                    </a>
                 )}
             </section>
         </div >

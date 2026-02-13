@@ -131,7 +131,7 @@ export const cliniciansContent = {
         ],
         cta: {
             text: "Learn MORE",
-            href: "/program"
+            href: "/research"
         }
     } satisfies ProviderListSectionProps,
 
@@ -212,7 +212,7 @@ export const cliniciansContent = {
         ],
         cta: {
             text: "Read the Research",
-            href: "/resources/research"
+            href: "/research"
         }
     } satisfies Cards2x3SectionProps
 };

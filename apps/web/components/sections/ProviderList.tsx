@@ -54,7 +54,7 @@ export const ProviderList: React.FC<ProviderListSectionProps> = ({
                 {/* CTA */}
                 <Link
                     href={cta.href}
-                    className="cursor-pointer py-3.5 px-8 bg-primary-1 rounded-md text-white border-none hover:bg-primary-1/90 transition-colors inline-flex items-center justify-center mt-4"
+                    className="cursor-pointer py-3.5 px-8 bg-primary-1 rounded-md text-white border-none hover:bg-[#BA00B8] transition-colors inline-flex items-center justify-center mt-4"
                 >
                     <span className="text-lg font-bold font-sans">
                         {cta.text}

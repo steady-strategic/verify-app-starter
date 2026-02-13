@@ -12,7 +12,7 @@ export default function PatientsPage() {
                 <VideoMod
                     variant="patients"
                     title="Dan Kruger’s story"
-                    description="As an international champion motorcycle racer, after decades of high-impact motorcycle crashes and countless surgeries, Dan relied on opioids for over 30 years. Nothing broke the cycle—until MORE. Through MORE, Dan learned how to change his brain’s relationship to pain and craving. He tapered completely off opioids and reconnected with meaning, joy, and a life beyond pain."
+                    description="As an international champion motorcycle racer, Dan endured decades of high-impact crashes and countless surgeries. As a result, Dan relied on opioids for over 30 years."
                     backgroundImage={{
                         src: "/assets/images/VideoMod/VidMod-Background.png",
                         alt: "Background"

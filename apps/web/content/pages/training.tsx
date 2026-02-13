@@ -75,7 +75,7 @@ export const cliniciansCertifiedContent = {
     } satisfies ContentTrainingSectionProps,
 
     cards3x2: {
-        title: "Over the course of 13 hours of training, you can expect to learn:",
+        title: "Over the course of this training, you’ll develop the knowledge and skills to:",
         items: [
             {
                 title: "Understand the Science Behind Suffering",

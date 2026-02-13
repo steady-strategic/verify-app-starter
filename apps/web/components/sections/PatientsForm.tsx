@@ -7,7 +7,7 @@ import Script from "next/script";
 export const PatientsForm: React.FC<PatientsFormSectionProps> = ({
     className = "",
     title = "Curious to learn more?",
-    subtitle = "Inquire to stay informed and be among the first to hear when the app becomes available."
+    subtitle = "Sign up to stay informed and be among the first to hear when the app becomes available."
 }) => {
     return (
         <div id="patients-form" className={`w-full bg-gray-50 flex flex-col items-center justify-center py-20 px-6 md:px-20 box-border scroll-mt-24 ${className}`}>

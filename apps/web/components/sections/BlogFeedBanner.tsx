@@ -35,6 +35,16 @@ export const BlogFeedBanner: React.FC<BlogFeedBannerSectionProps> = ({
                     <div className="text-white text-lg md:text-xl font-light font-sans leading-relaxed opacity-90">
                         {description}
                     </div>
+
+                    {/* CTA Button */}
+                    <div className="mt-8">
+                        <a
+                            href="/patients#patients-form"
+                            className="inline-block px-8 py-3 bg-primary-1 text-white text-lg font-semibold rounded-lg hover:bg-[#BA00B8] transition-all duration-300 shadow-md"
+                        >
+                            Sign Up for Insights
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>

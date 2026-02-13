@@ -80,7 +80,7 @@ export const cliniciansContent = {
         },
         cta: {
             text: "Learn MORE",
-            href: "/program"
+            href: "/training"
         }
     } satisfies ContentSectionProps,
 

@@ -32,7 +32,7 @@ export const Content: React.FC<ContentSectionProps> = ({
 
     return (
         <div
-            className={`w-full max-w-[1440px] mx-auto bg-white overflow-hidden flex flex-col md:flex-row ${isSimpleVariant ? 'md:flex-row-reverse' : ''} items-center justify-between py-24 px-6 md:px-20 gap-12 ${className}`}
+            className={`w-full max-w-[1440px] mx-auto bg-white overflow-hidden flex flex-col md:flex-row items-center justify-between py-24 px-6 md:px-20 gap-12 ${className}`}
         >
             <div className="w-full md:w-[610px] relative h-[400px] md:h-[530px] shrink-0">
                 <Image

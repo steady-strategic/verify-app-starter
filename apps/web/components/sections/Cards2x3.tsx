@@ -52,7 +52,7 @@ export const Cards2x3: React.FC<Cards2x3SectionProps> = ({
             {cta && (
                 <Link
                     href={cta.href}
-                    className="cursor-pointer py-3 px-6 bg-primary-1 rounded-lg flex items-center justify-center gap-2 hover:bg-opacity-90 transition-opacity no-underline"
+                    className="cursor-pointer py-3 px-6 bg-primary-1 rounded-lg flex items-center justify-center gap-2 hover:bg-[#BA00B8] transition-colors no-underline"
                 >
                     <span className="text-lg font-semibold text-white">
                         {cta.text}

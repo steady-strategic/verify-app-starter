@@ -186,7 +186,7 @@ model ContactSubmission {
   lastName           String
   email              String
   phone              String?
-  message            String   @db.Text
+
   hubspotContactId   String?
   syncedToHubspot    Boolean  @default(false)
   createdAt          DateTime @default(now())

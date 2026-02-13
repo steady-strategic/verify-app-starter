@@ -5,10 +5,10 @@ export async function POST(request: NextRequest) {
     try {
         const body = await request.json();
 
-        const { clinicianEmail, firstName, lastName, email, phone, message } = body;
+        const { clinicianEmail, firstName, lastName, email, phone } = body;
 
         // Validate required fields
-        if (!clinicianEmail || !firstName || !lastName || !email || !message) {
+        if (!clinicianEmail || !firstName || !lastName || !email) {
             return NextResponse.json(
                 { error: "Missing required fields" },
                 { status: 400 }
@@ -24,7 +24,6 @@ export async function POST(request: NextRequest) {
                 lastName,
                 email,
                 phone: phone || null,
-                message,
             },
         });
 

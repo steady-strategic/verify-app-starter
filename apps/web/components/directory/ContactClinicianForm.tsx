@@ -33,7 +33,7 @@ export function ContactClinicianForm({ onClose, clinicianEmail }: ContactClinici
                     lastName: formData.get('lastName') as string,
                     email: formData.get('email') as string,
                     phone: formData.get('phone') as string || null,
-                    message: formData.get('message') as string,
+
                 }),
             });
 
@@ -164,21 +164,7 @@ export function ContactClinicianForm({ onClose, clinicianEmail }: ContactClinici
                     </div>
 
                     {/* Row 3: Message */}
-                    <div className="space-y-1">
-                        <label
-                            htmlFor="message"
-                            className="block text-stone-900 font-medium text-sm"
-                        >
-                            Your message
-                        </label>
-                        <textarea
-                            id="message"
-                            name="message"
-                            required
-                            rows={4}
-                            className="block w-full p-3 bg-stone-50 border border-stone-300 rounded-lg text-stone-900 placeholder-stone-400 focus:border-amber-500 focus:ring-1 focus:ring-amber-500 outline-none transition-all resize-none text-sm"
-                        />
-                    </div>
+
 
                     {/* Hidden field for clinician email */}
                     {clinicianEmail && (

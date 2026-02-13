@@ -55,7 +55,7 @@ export async function POST(request: NextRequest) {
                                 { name: 'phone', value: submission.phone || '' },
                                 { name: 'form_name', value: submission.formName },
                                 { name: 'clinician_email', value: submission.clinicianEmail },
-                                { name: 'message', value: submission.message },
+
                             ],
                             context: {
                                 pageUri: 'https://more-website.com/directory',

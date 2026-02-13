@@ -46,12 +46,12 @@ export const BlogSidebar: React.FC<BlogSidebarProps> = ({ blogPosts = [] }) => {
             {/* Subscribe / Certified */}
             <div className="flex flex-col gap-4 p-5 bg-gray-50 rounded-lg">
                 <h4 className="font-bold text-[14px] uppercase text-gray-900 tracking-wider">
-                    Get <span className="text-primary-1">More</span> certified
+                    Get <span className="text-primary-1">More</span> access
                 </h4>
                 <p className="text-[14px] leading-relaxed text-gray-500">
                     Get access to new insights, MORE exercizes and certified clinicians.
                 </p>
-                <a href="/patients" className="bg-primary-1 text-white font-bold py-2 px-6 rounded-md hover:bg-opacity-90 transition-all self-start">
+                <a href="/patients#patients-form" className="bg-primary-1 text-white font-bold py-2 px-6 rounded-md hover:bg-opacity-90 transition-all self-start">
                     Pre-Register
                 </a>
             </div>

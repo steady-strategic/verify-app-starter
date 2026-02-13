@@ -5,7 +5,7 @@ import Link from "@tiptap/extension-link";
 import Placeholder from "@tiptap/extension-placeholder";
 import { TextStyle } from "@tiptap/extension-text-style";
 import { Color } from "@tiptap/extension-color";
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 
 interface RichTextEditorProps {
     content: string;
@@ -229,26 +229,28 @@ const MenuBar = ({ editor, onUploadImage }: { editor: Editor; onUploadImage?: (f
 };
 
 export function RichTextEditor({ content, onChange, onUploadImage }: RichTextEditorProps) {
+    const extensions = useMemo(() => [
+        StarterKit,
+        TextStyle,
+        Color,
+        Image.configure({
+            HTMLAttributes: {
+                class: "max-w-full my-6 py-4 px-1 rounded-lg",
+            },
+        }),
+        Link.configure({
+            openOnClick: false,
+            HTMLAttributes: {
+                class: "text-blue-600 underline hover:opacity-80 transition-opacity",
+            },
+        }),
+        Placeholder.configure({
+            placeholder: "Write your post content here...",
+        }),
+    ], []);
+
     const editor = useEditor({
-        extensions: [
-            StarterKit,
-            TextStyle,
-            Color,
-            Image.configure({
-                HTMLAttributes: {
-                    class: "max-w-full my-6 py-4 px-1 rounded-lg",
-                },
-            }),
-            Link.configure({
-                openOnClick: false,
-                HTMLAttributes: {
-                    class: "text-blue-600 underline hover:opacity-80 transition-opacity",
-                },
-            }),
-            Placeholder.configure({
-                placeholder: "Write your post content here...",
-            }),
-        ],
+        extensions,
         content,
         onUpdate: ({ editor }) => {
             onChange(editor.getHTML());

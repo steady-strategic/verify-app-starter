@@ -18,6 +18,10 @@ export async function POST(req: NextRequest) {
         const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_ANON_KEY;
         const bucketName = "media";
 
+        console.log("Checking Supabase credentials...");
+        console.log("Supabase URL present:", !!supabaseUrl);
+        console.log("Supabase Key present:", !!supabaseKey);
+
         if (!supabaseUrl || !supabaseKey) {
             console.error("Missing Supabase credentials");
             return NextResponse.json({ error: "Server configuration error" }, { status: 500 });

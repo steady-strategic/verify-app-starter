@@ -63,11 +63,11 @@ export const patientsContent = {
         variant: "patients",
         title: (
             <span className="max-w-[800px] block">
-                Interested in finding a <span className="text-primary-1">MORE</span> certified provider near you?
+                Interested in finding a <span className="text-primary-1">MORE</span> certified clinician near you?
             </span>
         ),
         cta: {
-            text: "Find Providers",
+            text: "Find Clinicians",
             href: "/directory"
         },
         backgroundImage: {

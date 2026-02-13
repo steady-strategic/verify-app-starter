@@ -86,7 +86,7 @@ export const howItWorksContent = {
         },
         cta: {
             text: "Learn MORE",
-            href: "/resources/research"
+            href: "/patients"
         }
     } satisfies ContentSectionProps,
 

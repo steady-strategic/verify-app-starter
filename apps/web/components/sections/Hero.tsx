@@ -43,29 +43,31 @@ export const Hero: React.FC<HeroSectionProps> = ({ className = "" }) => {
                             emotional distress
                         </div>
                     </div>
-                    <button className="cursor-pointer [border:none] py-3 md:py-3.5 px-5 md:px-6 bg-primary-1 w-[140px] md:w-[156px] h-[48px] md:h-[53px] rounded-md overflow-hidden shrink-0 hidden md:flex items-center justify-center box-border gap-2">
-                        <div className="h-4 w-4 relative overflow-hidden shrink-0 hidden">
+                    <a href="/training" className="no-underline">
+                        <button className="cursor-pointer [border:none] py-3 md:py-3.5 px-5 md:px-6 bg-primary-1 hover:bg-[#BA00B8] transition-colors w-[140px] md:w-[156px] h-[48px] md:h-[53px] rounded-md overflow-hidden shrink-0 hidden md:flex items-center justify-center box-border gap-2">
+                            <div className="h-4 w-4 relative overflow-hidden shrink-0 hidden">
+                                <Image
+                                    className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] max-w-full overflow-hidden max-h-full hidden"
+                                    width={16}
+                                    height={16}
+                                    sizes="100vw"
+                                    alt=""
+                                    src="/assets/images/Hero/cart-plus1.svg"
+                                />
+                            </div>
+                            <b className="relative text-base md:text-lg leading-[150%] font-sans text-white text-left shrink-0">
+                                Get Certified
+                            </b>
                             <Image
-                                className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] max-w-full overflow-hidden max-h-full hidden"
+                                className="h-4 w-4 relative hidden shrink-0"
                                 width={16}
                                 height={16}
                                 sizes="100vw"
                                 alt=""
                                 src="/assets/images/Hero/cart-plus1.svg"
                             />
-                        </div>
-                        <b className="relative text-base md:text-lg leading-[150%] font-sans text-white text-left shrink-0">
-                            Get Certified
-                        </b>
-                        <Image
-                            className="h-4 w-4 relative hidden shrink-0"
-                            width={16}
-                            height={16}
-                            sizes="100vw"
-                            alt=""
-                            src="/assets/images/Hero/cart-plus1.svg"
-                        />
-                    </button>
+                        </button>
+                    </a>
                 </section>
                 <section className="self-stretch h-auto grid grid-cols-2 md:flex md:flex-row items-center justify-center justify-items-center gap-12 md:gap-[127px] text-center text-5xl md:text-[50px] font-sans pb-0 md:pb-0">
                     <div className="w-auto md:w-[170px] flex flex-col items-center gap-[8px]">
@@ -104,11 +106,13 @@ export const Hero: React.FC<HeroSectionProps> = ({ className = "" }) => {
 
                     {/* Mobile CTA Button - Moved here */}
                     <div className="col-span-2 w-full flex justify-center md:hidden pt-4">
-                        <button className="cursor-pointer [border:none] py-3 px-5 bg-primary-1 w-[140px] h-[48px] rounded-md overflow-hidden shrink-0 flex items-center justify-center box-border gap-2">
-                            <b className="relative text-base leading-[150%] font-sans text-white text-left shrink-0">
-                                Get Certified
-                            </b>
-                        </button>
+                        <a href="/training" className="no-underline">
+                            <button className="cursor-pointer [border:none] py-3 px-5 bg-primary-1 hover:bg-[#BA00B8] transition-colors w-[140px] h-[48px] rounded-md overflow-hidden shrink-0 flex items-center justify-center box-border gap-2">
+                                <b className="relative text-base leading-[150%] font-sans text-white text-left shrink-0">
+                                    Get Certified
+                                </b>
+                            </button>
+                        </a>
                     </div>
                 </section>
             </main>

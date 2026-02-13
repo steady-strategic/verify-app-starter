@@ -221,7 +221,7 @@ export function DirectoryClient({ initialClinicians }: DirectoryClientProps) {
                         <p className="text-stone-600 mb-6">
                             Join our directory to connect with patients seeking MORE therapy.
                         </p>
-                        <Link href="/contact" className="inline-block px-6 py-3 bg-primary-1 text-white font-semibold rounded-[8px] hover:bg-primary-2 transition-all active:scale-95">
+                        <Link href="/contact" className="inline-block px-6 py-3 bg-primary-1 text-white font-semibold rounded-[8px] hover:bg-[#BA00B8] transition-all active:scale-95">
                             Get in Touch
                         </Link>
                     </div>

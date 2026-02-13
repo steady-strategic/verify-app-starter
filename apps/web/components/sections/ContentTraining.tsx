@@ -33,7 +33,7 @@ export const ContentTraining: React.FC<ContentTrainingSectionProps> = ({
                     </div>
                     <Link
                         href={cta.href}
-                        className="cursor-pointer border-none py-3 px-6 bg-primary-1 rounded-lg flex items-center justify-center hover:bg-primary-1/90 transition-colors"
+                        className="cursor-pointer border-none py-3 px-6 bg-primary-1 rounded-lg flex items-center justify-center hover:bg-[#BA00B8] transition-colors"
                     >
                         <span className="relative text-lg leading-[150%] font-medium text-white text-left">
                             {cta.text}

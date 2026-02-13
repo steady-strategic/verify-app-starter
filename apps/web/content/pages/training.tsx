@@ -70,7 +70,7 @@ export const cliniciansCertifiedContent = {
         },
         cta: {
             text: "Pre-Register Today",
-            href: "/register"
+            href: "#"
         }
     } satisfies ContentTrainingSectionProps,
 

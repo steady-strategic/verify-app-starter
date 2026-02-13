@@ -20,7 +20,7 @@ export const ResearchHero: React.FC<BaseSectionProps> = ({ className = "" }) => 
             {/* Overlay - Optional if needed based on the design, handled by image or opacity layers */}
 
             {/* Content */}
-            <div className="absolute inset-0 flex flex-col justify-center px-6 lg:px-20 max-w-7xl mx-auto">
+            <div className="absolute inset-0 flex flex-col justify-center pl-[80px]">
                 <div className="max-w-[549px]">
                     {/* Main Title */}
                     <h1 className="font-extrabold text-[36px] lg:text-[48px] leading-[1.2] tracking-[-1px] text-white font-sans mb-6">
@@ -35,18 +35,16 @@ export const ResearchHero: React.FC<BaseSectionProps> = ({ className = "" }) => 
                         <p className="text-[20px] leading-[1.4] font-normal opacity-90">
                             Grounded in affective neuroscience and gold-standard clinical research, MORE targets the mechanisms that drive suffering—and the pathways that restore wellbeing.
                         </p>
+                        <div className="mt-12">
+                            <Image
+                                src="/assets/images/Research/Mark_white 1.png"
+                                alt="MORE Mark"
+                                width={202}
+                                height={70}
+                                className="opacity-100"
+                            />
+                        </div>
                     </div>
-                </div>
-
-                {/* Scroll Indicator (if present in design) or other elements */}
-                <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2">
-                    <Image
-                        src="/assets/images/Research/Mark_white 1.png"
-                        alt="MORE Mark"
-                        width={202}
-                        height={70}
-                        className="opacity-100"
-                    />
                 </div>
             </div>
         </div>

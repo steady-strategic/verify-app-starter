@@ -30,7 +30,7 @@ export const KnowMoreTall: React.FC<KnowMoreTallSectionProps> = ({
 
                 <Link
                     href={cta.href}
-                    className="cursor-pointer py-3.5 px-6 bg-primary-1 rounded-md text-white border-none hover:bg-primary-1/90 transition-colors inline-flex items-center justify-center"
+                    className="cursor-pointer py-3.5 px-6 bg-primary-1 rounded-md text-white border-none hover:bg-[#BA00B8] transition-colors inline-flex items-center justify-center"
                 >
                     <span className="text-lg font-medium">
                         {cta.text}

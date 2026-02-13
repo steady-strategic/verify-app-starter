@@ -75,7 +75,12 @@ export const cliniciansCertifiedContent = {
     } satisfies ContentTrainingSectionProps,
 
     cards3x2: {
-        title: "Over the course of this training, you’ll develop the knowledge and skills to:",
+        title: (
+            <span>
+                Over the course of this training, you’ll develop <br />
+                the knowledge and skills to:
+            </span>
+        ),
         items: [
             {
                 title: "Understand the Science Behind Suffering",
@@ -107,12 +112,12 @@ export const cliniciansCertifiedContent = {
     knowMoreTall: {
         title: (
             <span>
-                Join the 1000+ providers nationwide who are bringing powerful relief to their clients.
+                Join the 1000+ clinicians nationwide who are bringing powerful relief to their clients.
             </span>
         ),
         cta: {
             text: "Pre-register Today",
-            href: "/register"
+            href: "/training"
         },
         backgroundImage: {
             src: "/assets/images/KnowMoreTall/Background3@2x.png",

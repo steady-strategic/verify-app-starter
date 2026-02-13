@@ -138,7 +138,7 @@ export const cliniciansContent = {
     knowMoreTall: {
         title: (
             <span>
-                Join the 1000+ providers nationwide who are bringing powerful relief to their clients.
+                Join the 1000+ clinicians nationwide who are bringing powerful relief to their clients.
             </span>
         ),
         cta: {

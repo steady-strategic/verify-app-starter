@@ -46,7 +46,7 @@ export const Content: React.FC<ContentSectionProps> = ({
 
             <section className="w-full md:w-[606px] flex flex-col items-start gap-8 text-left text-gray-900 font-sans">
                 <div className="flex flex-col gap-4">
-                    <h2 className={`text-[28px] md:text-[32px] font-sans font-bold tracking-[-0.02em] leading-[125%] m-0 ${isSimpleVariant ? 'text-primary-1' : ''}`}>
+                    <h2 className={`text-2xl md:text-[28px] font-sans font-bold tracking-[-0.02em] leading-[125%] m-0 ${isSimpleVariant ? 'text-primary-1' : ''}`}>
                         {title}
                     </h2>
                     {subtitle && (

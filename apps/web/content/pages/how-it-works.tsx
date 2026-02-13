@@ -11,7 +11,12 @@ export const howItWorksContent = {
         variant: "how-it-works",
         title: "How it Works",
         subtitle: "Mindfulness-Oriented Recovery Enhancement",
-        description: "An evidence‑based, neuroscience‑informed therapy—backed by more than 16 clinical trials and over $90 million in federal research—that unites innovative mindfulness, reappraisal, and savoring techniques into a powerful, sequenced mind‑body approach.\n\nHailed as one of the biggest breakthroughs in psychotherapy in the past 30 years, MORE has the strongest evidence base of any therapy for co-occurring addiction, chronic pain, and emotional distress.",
+        description: (
+            <>
+                <p className="mb-6">An evidence‑based, neuroscience‑informed therapy—backed by more than 16 clinical trials and over $90 million in federal research—that unites innovative mindfulness, reappraisal, and savoring techniques into a powerful, sequenced mind‑body approach.</p>
+                <p>Hailed as one of the biggest breakthroughs in psychotherapy in the past 30 years, MORE has the strongest evidence base of any therapy for co-occurring addiction, chronic pain, and emotional distress.</p>
+            </>
+        ),
         backgroundImage: {
             src: "/assets/images/PageBanner/page-banner.avif",
             alt: "Background"
@@ -63,8 +68,11 @@ export const howItWorksContent = {
     } satisfies CardsSectionProps,
 
     content: {
-        title: "MORE isn’t just about reducing symptoms",
-        subtitle: "it’s about helping people flourish. Most mindfulness programs stop at acceptance. MORE goes further, guiding patients to:",
+        title: (
+            <>
+                <span className="text-primary-1">MORE</span> isn’t just about reducing symptoms. It’s about helping people flourish. Most mindfulness programs stop at acceptance. MORE goes further, guiding patients to:
+            </>
+        ),
         items: [
             "Break free from unhealthy habits with mindfulness",
             "Reframe distressing thoughts and negative core beliefs",

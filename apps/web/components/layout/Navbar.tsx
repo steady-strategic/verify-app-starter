@@ -150,12 +150,13 @@ export const Navbar: React.FC<NavbarProps> = ({ scrolled = false, variant = "lig
                     {/* Logo - Left */}
                     <Link href="/" className="flex items-center focus:outline-none md:justify-self-start">
                         <Image
-                            src="/assets/logos/Logo_Primary_1.svg"
+                            src="/assets/logos/Logo_Primary 1.avif"
                             alt="MORE Logo"
                             width={140}
                             height={48}
                             className="h-[32px] md:h-[48px] w-auto"
                             priority
+                            unoptimized
                         />
                     </Link>
 

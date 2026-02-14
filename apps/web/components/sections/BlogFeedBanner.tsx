@@ -24,7 +24,7 @@ export const BlogFeedBanner: React.FC<BlogFeedBannerSectionProps> = ({
             </div>
 
             {/* Content Container */}
-            <div className="relative z-10 w-full px-6 md:pl-[40px]">
+            <div className="relative z-10 w-full px-6 md:pl-[80px]">
                 <div className="max-w-2xl">
                     {/* Title */}
                     <h1 className="text-white text-4xl md:text-6xl font-bold font-sans mb-6 leading-tight">

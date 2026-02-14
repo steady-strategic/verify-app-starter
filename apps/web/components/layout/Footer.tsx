@@ -11,7 +11,7 @@ export const Footer: React.FC = () => {
                     <div className="col-span-1 md:col-span-4 space-y-6">
                         <div className="flex items-center space-x-2">
                             <Image
-                                src="/assets/logos/Logo_Primary 1.avif"
+                                src="/assets/logos/Logo_TM.avif"
                                 alt="MORE Logo"
                                 width={140}
                                 height={40}

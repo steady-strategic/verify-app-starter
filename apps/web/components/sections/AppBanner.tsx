@@ -22,7 +22,7 @@ export const AppBanner: React.FC<AppBannerSectionProps> = ({
     return (
         <section
             id={id}
-            className={`relative w-full min-h-[900px] md:min-h-[921px] overflow-hidden ${className}`}
+            className={`relative w-full min-h-[1200px] md:min-h-[921px] overflow-hidden ${className}`}
         >
             {/* Background Image */}
             <div className="absolute inset-0 z-0"> {/* Fallback color removed */}
@@ -37,7 +37,7 @@ export const AppBanner: React.FC<AppBannerSectionProps> = ({
             </div>
 
             {/* Content Container */}
-            <div className="relative z-10 w-full max-w-[1440px] mx-auto px-6 md:px-0 flex flex-col md:flex-row items-start gap-12 md:gap-[101px] h-full">
+            <div className="relative z-10 w-full max-w-[1440px] mx-auto px-6 md:px-0 flex flex-col md:flex-row items-start gap-0 md:gap-[101px] h-full">
 
                 {/* Text Content */}
                 <div className="flex-1 flex flex-col gap-8 text-white max-w-[699px] md:pl-[111px] pt-[96px]">
@@ -86,13 +86,13 @@ export const AppBanner: React.FC<AppBannerSectionProps> = ({
                 </div>
 
                 {/* Phone Mockup */}
-                <div className="hidden md:flex flex-1 w-full max-w-sm md:max-w-md relative justify-center self-center md:self-auto pt-[96px]">
-                    <div className="relative w-full h-[640px]">
+                <div className="flex flex-1 w-full max-w-sm md:max-w-md relative justify-center self-center md:self-auto pt-0 md:pt-[96px] mt-8 md:mt-0">
+                    <div className="relative w-full h-[400px] md:h-[640px]">
                         <Image
                             src={phoneImage.src}
                             alt={phoneImage.alt}
                             fill
-                            className="object-contain drop-shadow-2xl"
+                            className="object-contain object-bottom drop-shadow-2xl"
                             priority
                         />
                     </div>

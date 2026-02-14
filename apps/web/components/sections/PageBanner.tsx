@@ -24,6 +24,7 @@ export const PageBanner: React.FC<PageBannerSectionProps> = ({
 
     const getHeightClass = () => {
         if (isDirectory) return 'min-h-[561px]';
+        if (isTraining) return 'h-auto md:h-[800px]';
         if (isLightVariant) return 'h-auto md:h-[680px]';
         return '';
     };

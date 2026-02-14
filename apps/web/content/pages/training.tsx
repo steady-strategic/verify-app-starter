@@ -22,6 +22,8 @@ export const cliniciansCertifiedContent = {
                     <li>Professional videos, interactive exercises, and group supervision sessions</li>
                     <li>Ready-to-use tools including scripts, handouts, and guided mind-body techniques</li>
                     <li>Instruction on delivering MORE to patients over eight weekly sessions</li>
+                    <li>CEUs for training and ongoing education opportunities</li>
+                    <li>Training is an insurance-reimbursable service covered by CPT codes</li>
                 </ul>
                 <p>
                     Our on-demand training follows the same proven format as our 2-day live experience, with interactive check-ins throughout to support focus and learning.

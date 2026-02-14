@@ -21,7 +21,6 @@ export default function PatientsPage() {
                         src: "/assets/images/VideoMod/DanKruger.png",
                         alt: "Dan Kruger Video"
                     }}
-                    videoUrl="https://www.youtube.com/watch?v=Dr5Y5m1lZyQ"
                 />
                 <PatientsText {...patientsContent.patientsText} />
                 <KnowMoreTall {...patientsContent.knowMore} />

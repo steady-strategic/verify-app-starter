@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
 import { VideoModTallSectionProps } from "./types";
@@ -13,6 +15,19 @@ export const VideoModTall: React.FC<VideoModTallSectionProps> = ({
     videoUrl,
     id,
 }) => {
+    const [isVideoOpen, setIsVideoOpen] = React.useState(false);
+
+    // Extract video ID from URL if present
+    const getEmbedUrl = (url?: string) => {
+        if (!url) return "";
+        let embedUrl = url;
+        if (url.includes('youtube.com') || url.includes('youtu.be')) {
+            const videoId = url.split('v=')[1]?.split('&')[0] || url.split('/').pop();
+            embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+        }
+        return embedUrl;
+    };
+
     return (
         <section
             id={id}
@@ -56,7 +71,7 @@ export const VideoModTall: React.FC<VideoModTallSectionProps> = ({
                 {/* Video/Image Container */}
                 <div
                     className="w-full max-w-6xl aspect-video relative rounded-3xl overflow-hidden shadow-2xl border border-white/10 group cursor-pointer mt-8"
-                    onClick={() => videoUrl && window.open(videoUrl, '_blank')}
+                    onClick={() => videoUrl && setIsVideoOpen(true)}
                 >
                     <Image
                         src={videoThumbnail.src}
@@ -76,6 +91,34 @@ export const VideoModTall: React.FC<VideoModTallSectionProps> = ({
                 </div>
 
             </div>
+
+            {/* Video Modal */}
+            {isVideoOpen && videoUrl && (
+                <div
+                    className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4 md:p-8"
+                    onClick={() => setIsVideoOpen(false)}
+                >
+                    <div className="relative w-full max-w-7xl aspect-video bg-black rounded-lg overflow-hidden shadow-2xl">
+                        <button
+                            className="absolute top-4 right-4 z-10 text-white/70 hover:text-white p-2 rounded-full bg-black/50 hover:bg-black/70 transition-all"
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                setIsVideoOpen(false);
+                            }}
+                        >
+                            <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
+                        <iframe
+                            className="w-full h-full"
+                            src={getEmbedUrl(videoUrl)}
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen
+                        />
+                    </div>
+                </div>
+            )}
         </section>
     );
 };

@@ -29,11 +29,11 @@ export const KnowMore: React.FC<KnowMoreSectionProps> = ({
                     </p>
                 </div>
                 <Link
-                    href="/patients#patients-form"
+                    href="/know-more"
                     className="cursor-pointer border-none py-4 px-6 bg-primary-1 rounded-md flex items-center justify-center hover:bg-[#BA00B8] transition-colors"
                 >
                     <span className="text-lg font-bold leading-[150%] text-white">
-                        Sign Up
+                        {cta.text}
                     </span>
                 </Link>
             </div>

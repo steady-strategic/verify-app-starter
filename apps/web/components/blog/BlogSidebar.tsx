@@ -46,10 +46,10 @@ export const BlogSidebar: React.FC<BlogSidebarProps> = ({ blogPosts = [] }) => {
             {/* Subscribe / Certified */}
             <div className="flex flex-col gap-4 p-5 bg-gray-50 rounded-lg">
                 <h4 className="font-bold text-[14px] uppercase text-gray-900 tracking-wider">
-                    Get <span className="text-primary-1">More</span> access
+                    Get <span className="text-primary-1">More</span>
                 </h4>
                 <p className="text-[14px] leading-relaxed text-gray-500">
-                    Get access to new insights, MORE exercizes and certified clinicians.
+                    Access on-demand training to get certified in delivering MORE to your clients.
                 </p>
                 <a href="/patients#patients-form" className="bg-primary-1 text-white font-bold py-2 px-6 rounded-md hover:bg-[#BA00B8] transition-all self-start">
                     Pre-Register

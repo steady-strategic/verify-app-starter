@@ -47,8 +47,8 @@ export const StoryDetail: React.FC<StoryDetailProps> = ({ story, blogPosts = [] 
                 />
             </div>
 
-            <div className="max-w-[1440px] mx-auto px-6 lg:px-20">
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            <div className="max-w-[1440px] mx-auto px-6 lg:px-20 mb-20">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12">
                     {/* Left Column - Content */}
                     <div className="lg:col-span-8 pt-12 max-w-[672px]">
                         <h1 className="pt-8 mb-20 text-4xl md:text-6xl serif text-stone-900 leading-[1.1] font-extrabold tracking-tight">
@@ -58,7 +58,7 @@ export const StoryDetail: React.FC<StoryDetailProps> = ({ story, blogPosts = [] 
                         </h1>
 
                         <div
-                            className="story-content max-w-none text-stone-700 font-light leading-loose space-y-8 mb-16"
+                            className="story-content max-w-none text-stone-700 font-light leading-loose space-y-8 mb-8 lg:mb-16"
                             dangerouslySetInnerHTML={{ __html: story.body }}
                         />
                         <style jsx global>{`
@@ -114,7 +114,7 @@ export const StoryDetail: React.FC<StoryDetailProps> = ({ story, blogPosts = [] 
                     </div>
 
                     {/* Right Column - Sidebar */}
-                    <div className="hidden lg:block lg:col-span-4 pt-20 max-w-[336px]">
+                    <div className="lg:col-span-4 pt-0 lg:pt-20 w-full lg:max-w-[336px]">
                         <BlogSidebar blogPosts={blogPosts} />
                     </div>
                 </div>

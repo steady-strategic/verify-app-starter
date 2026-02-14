@@ -35,7 +35,7 @@ export const Footer: React.FC = () => {
                         </h4>
                         <ul className="space-y-4 text-sm text-stone-500">
                             <li>
-                                <a href="/clinicians" className="hover:text-stone-900 transition-colors">
+                                <a href="/clinicians" className="hover:text-primary-1 transition-colors">
                                     Why MORE
                                 </a>
                             </li>
@@ -54,12 +54,12 @@ export const Footer: React.FC = () => {
                         </h4>
                         <ul className="space-y-4 text-sm text-stone-500">
                             <li>
-                                <a href="/patients" className="hover:text-stone-900 transition-colors">
+                                <a href="/patients" className="hover:text-primary-1 transition-colors">
                                     MORE for Patients
                                 </a>
                             </li>
                             <li>
-                                <a href="/directory" className="hover:text-stone-900 transition-colors">
+                                <a href="/directory" className="hover:text-primary-1 transition-colors">
                                     Find a Clinician
                                 </a>
                             </li>
@@ -69,16 +69,16 @@ export const Footer: React.FC = () => {
                     {/* Resources */}
                     <div className="col-span-1 md:col-span-2">
                         <h4 className="font-bold text-stone-900 mb-6 uppercase text-xs tracking-widest">
-                            Resources
+                            Research
                         </h4>
                         <ul className="space-y-4 text-sm text-stone-500">
                             <li>
-                                <a href="/research" className="hover:text-stone-900 transition-colors">
+                                <a href="/research" className="hover:text-primary-1 transition-colors">
                                     The Science
                                 </a>
                             </li>
                             <li>
-                                <a href="/blog" className="hover:text-stone-900 transition-colors">
+                                <a href="/blog" className="hover:text-primary-1 transition-colors">
                                     Insights from Dr. Garland
                                 </a>
                             </li>
@@ -89,18 +89,18 @@ export const Footer: React.FC = () => {
                     <div className="col-span-1 md:col-span-2">
                         <ul className="space-y-4 text-sm text-stone-500">
                             <li>
-                                <a href="/how-it-works" className="hover:text-stone-900 transition-colors">
+                                <a href="/how-it-works" className="hover:text-primary-1 transition-colors">
                                     How it Works
                                 </a>
                             </li>
                             <li>
-                                <a href="/about" className="hover:text-stone-900 transition-colors">
+                                <a href="/about" className="hover:text-primary-1 transition-colors">
                                     About Us
                                 </a>
                             </li>
 
                             <li>
-                                <a href="/contact" className="hover:text-stone-900 transition-colors">
+                                <a href="/contact" className="hover:text-primary-1 transition-colors">
                                     Contact Us
                                 </a>
                             </li>

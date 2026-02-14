@@ -185,7 +185,7 @@ export const Navbar: React.FC<NavbarProps> = ({ scrolled = false, variant = "lig
                             variant={variant}
                         />
                         <DropdownMenu
-                            label="Resources"
+                            label="Research"
                             items={resourcesItems}
                             isActive={isActive}
                             variant={variant}
@@ -310,7 +310,7 @@ export const Navbar: React.FC<NavbarProps> = ({ scrolled = false, variant = "lig
                         {/* Resources Section */}
                         <div className="space-y-2">
                             <p className="text-xs font-bold text-stone-400 uppercase tracking-wider">
-                                Resources
+                                Research
                             </p>
                             {resourcesItems.map((item) => (
                                 <Link

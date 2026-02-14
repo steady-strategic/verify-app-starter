@@ -25,6 +25,7 @@ export default function HowItWorksPage() {
                         src: "/assets/images/VideoMod/VideoMod-Vid-thumb.png",
                         alt: "Video Thumbnail"
                     }}
+                    videoUrl="https://www.youtube.com/watch?v=O68Eu3faEsg"
                 />
                 <KnowMore {...howItWorksContent.knowMore} />
             </main>

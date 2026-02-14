@@ -15,6 +15,18 @@ export const VideoMod: React.FC<VideoModSectionProps> = ({
     id,
 }) => {
     const isAbout = variant === "about";
+    const [isVideoOpen, setIsVideoOpen] = React.useState(false);
+
+    // Extract video ID from URL if present
+    const getEmbedUrl = (url?: string) => {
+        if (!url) return "";
+        let embedUrl = url;
+        if (url.includes('youtube.com') || url.includes('youtu.be')) {
+            const videoId = url.split('v=')[1]?.split('&')[0] || url.split('/').pop();
+            embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+        }
+        return embedUrl;
+    };
 
     return (
         <section
@@ -51,7 +63,10 @@ export const VideoMod: React.FC<VideoModSectionProps> = ({
                 </div>
 
                 {/* Video/Image Container */}
-                <div className="w-full max-w-5xl aspect-video relative rounded-2xl overflow-hidden shadow-2xl bg-black/20 backdrop-blur-sm border border-white/10 group cursor-pointer">
+                <div
+                    className="w-full max-w-5xl aspect-video relative rounded-2xl overflow-hidden shadow-2xl bg-black/20 backdrop-blur-sm border border-white/10 group cursor-pointer"
+                    onClick={() => videoUrl && setIsVideoOpen(true)}
+                >
                     <Image
                         src={videoThumbnail.src}
                         alt={videoThumbnail.alt}
@@ -59,7 +74,7 @@ export const VideoMod: React.FC<VideoModSectionProps> = ({
                         className="object-cover transition-transform duration-700 group-hover:scale-105"
                     />
 
-                    {/* Play Button Overlay (Visual only or functional if onClick added) */}
+                    {/* Play Button Overlay */}
                     <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/10 transition-colors">
                         <div className="w-20 h-20 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/30 group-hover:scale-110 transition-transform duration-300">
                             <svg width="24" height="28" viewBox="0 0 24 28" fill="none" xmlns="http://www.w3.org/2000/svg" className="ml-1">
@@ -67,9 +82,36 @@ export const VideoMod: React.FC<VideoModSectionProps> = ({
                             </svg>
                         </div>
                     </div>
-
                 </div>
             </div>
+
+            {/* Video Modal */}
+            {isVideoOpen && videoUrl && (
+                <div
+                    className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4 md:p-8"
+                    onClick={() => setIsVideoOpen(false)}
+                >
+                    <div className="relative w-full max-w-7xl aspect-video bg-black rounded-lg overflow-hidden shadow-2xl">
+                        <button
+                            className="absolute top-4 right-4 z-10 text-white/70 hover:text-white p-2 rounded-full bg-black/50 hover:bg-black/70 transition-all"
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                setIsVideoOpen(false);
+                            }}
+                        >
+                            <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
+                        <iframe
+                            className="w-full h-full"
+                            src={getEmbedUrl(videoUrl)}
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen
+                        />
+                    </div>
+                </div>
+            )}
         </section>
     );
 };

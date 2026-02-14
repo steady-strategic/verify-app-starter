@@ -51,7 +51,7 @@ export const BlogSidebar: React.FC<BlogSidebarProps> = ({ blogPosts = [] }) => {
                 <p className="text-[14px] leading-relaxed text-gray-500">
                     Access on-demand training to get certified in delivering MORE to your clients.
                 </p>
-                <a href="/patients#patients-form" className="bg-primary-1 text-white font-bold py-2 px-6 rounded-md hover:bg-[#BA00B8] transition-all self-start">
+                <a href="/training" className="bg-primary-1 text-white font-bold py-2 px-6 rounded-md hover:bg-[#BA00B8] transition-all self-start">
                     Pre-Register
                 </a>
             </div>

@@ -54,7 +54,10 @@ export const VideoModTall: React.FC<VideoModTallSectionProps> = ({
                 </div>
 
                 {/* Video/Image Container */}
-                <div className="w-full max-w-6xl aspect-video relative rounded-3xl overflow-hidden shadow-2xl border border-white/10 group cursor-pointer mt-8">
+                <div
+                    className="w-full max-w-6xl aspect-video relative rounded-3xl overflow-hidden shadow-2xl border border-white/10 group cursor-pointer mt-8"
+                    onClick={() => videoUrl && window.open(videoUrl, '_blank')}
+                >
                     <Image
                         src={videoThumbnail.src}
                         alt={videoThumbnail.alt}

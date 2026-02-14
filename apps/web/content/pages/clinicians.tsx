@@ -26,7 +26,8 @@ export const cliniciansContent = {
         videoThumbnail: {
             src: "/assets/images/VideoModTall/DanKruger.avif",
             alt: "Dan Kruger"
-        }
+        },
+        videoUrl: "https://abc30.com/post/future-addiction-medicine-mindfulness-holistic-care-breakthrough-science/18334146/"
     } satisfies VideoModTallSectionProps,
     pageBanner: {
         variant: "clinicians",

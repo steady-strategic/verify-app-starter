@@ -22,7 +22,7 @@ export const BlogHome: React.FC<BlogHomeSectionProps> = ({
     return (
         <section className={`w-full py-24 px-4 md:px-20 bg-white ${className}`}>
             <div className="max-w-[1440px] mx-auto">
-                <h2 className="text-4xl md:text-[50px] font-bold text-center text-gray-900 mb-16 tracking-tight">
+                <h2 className="text-3xl md:text-[50px] font-bold text-center text-gray-900 mb-16 tracking-tight">
                     {title}
                 </h2>
 

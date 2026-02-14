@@ -1,4 +1,4 @@
-import { BlogHomeSectionProps } from "@/components/sections/types";
+import { BlogHomeSectionProps, KnowMoreSectionProps } from "@/components/sections/types";
 
 export const homeContent = {
     blogHome: {
@@ -35,5 +35,22 @@ export const homeContent = {
                 href: "/blog"
             }
         ]
-    } satisfies BlogHomeSectionProps
+    } satisfies BlogHomeSectionProps,
+    knowMore: {
+        title: (
+            <span>
+                <span className="text-white">Know </span>
+                <span className="text-primary-1">MORE</span>
+            </span>
+        ),
+        subtitle: "Sign up to receive Dr. Garland's insights",
+        backgroundImage: {
+            src: "/assets/images/KnowMore/background.png",
+            alt: "Footer background"
+        },
+        cta: {
+            text: "Sign Up",
+            href: "/patients#patients-form"
+        }
+    } satisfies KnowMoreSectionProps
 };

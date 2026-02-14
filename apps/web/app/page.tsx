@@ -2,7 +2,7 @@
 import React from "react";
 import { NavbarWrapper } from "@/components/layout/NavbarWrapper";
 import { Footer } from "@/components/layout/Footer";
-import { Hero, Brands, ResearchHome, AboutHome, ContentHome, Testimonials, AppBanner, BlogHome, HowItWorks } from "@/components/sections";
+import { Hero, Brands, ResearchHome, AboutHome, ContentHome, Testimonials, AppBanner, BlogHome, HowItWorks, KnowMore } from "@/components/sections";
 import { homeContent } from "@/content/pages/home";
 import { prisma } from "@/lib/db";
 
@@ -78,6 +78,7 @@ export default async function Page() {
                 />
                 <Testimonials />
                 <BlogHome {...blogHomeProps} />
+                <KnowMore {...homeContent.knowMore} />
             </main>
             <Footer />
         </div>

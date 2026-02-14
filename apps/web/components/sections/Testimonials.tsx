@@ -61,7 +61,7 @@ export const Testimonials: React.FC<TestimonialsSectionProps> = ({ className = "
                         Testimonials
                     </h2>
                     <p className="text-lg leading-[1.5] text-gray-700 m-0">
-                        Hear from clinicians who use MORE in their practice
+                        Hear from clinicians who use MORE in their practice:
                     </p>
                 </div>
 

@@ -16,8 +16,8 @@ const testimonials = [
     {
         id: 2,
         quote: `"Many report not only relief from physical suffering but also deep emotional healing, enhanced self-awareness, and meaningful recovery. A program evaluation of MORE at Essentia showed statistically significant symptom improvements in my patients."`,
-        name: 'Nancy Sudak, MD, Chief Well-Being Officer, Essentia Health',
-        title: null
+        name: 'Nancy Sudak, MD, Chief Well-Being Officer',
+        title: 'Essentia Health'
     },
     {
         id: 3,
@@ -28,33 +28,33 @@ const testimonials = [
     {
         id: 4,
         quote: `"MORE has been one of the most meaningful additions to my clinical work. I've seen how it can complement other treatments in profound ways—whether I'm supporting someone through pain management, opioid use recovery, stress, or anxiety."`,
-        name: 'Ivana Micic, LCSW, Project Reality',
-        title: null
+        name: 'Ivana Micic, LCSW',
+        title: 'Project Reality'
     },
     {
         id: 5,
-        quote: `"MORE has profoundly enhanced my work with people facing substance use disorders and chronic pain, giving me practical, evidence-based tools that reliably support healing, growth, and resilience. It has enriched my clients' journeys to wellness and wholeness and deepened my fulfillment as a physician".`,
+        quote: `"MORE has profoundly enhanced my work with people facing substance use disorders and chronic pain, giving me practical, evidence-based tools that reliably support healing, growth, and resilience. It has enriched my clients' journeys to wellness and has deepened my fulfillment as a physician".`,
         name: 'Agustin Castellanos, MD',
         title: null
     },
     {
         id: 6,
         quote: `"MORE has been a treasure chest full of gems that have been beneficial in my clinical practice and in my own well-being."`,
-        name: 'Tina Liu Tom, PhD, VA Medical Center',
-        title: null
+        name: 'Tina Liu Tom, PhD',
+        title: 'VA Medical Center'
     },
     {
         id: 7,
         quote: `"MORE is unique not only in its ability to reduce craving, substance use, and physical and emotional pain, but also its focus on teaching participants how to reconnect with the natural sources of pleasure and joy in their daily lives."`,
-        name: 'Anna Parisi, PhD, LCSW, George Mason University',
-        title: null
+        name: 'Anna Parisi, PhD, LCSW',
+        title: 'George Mason University'
     }
 ];
 
 export const Testimonials: React.FC<TestimonialsSectionProps> = ({ className = "" }) => {
     return (
         <div className={`w-full bg-white flex flex-col items-center py-24 px-4 box-border overflow-hidden ${className}`}>
-            <section className="w-full max-w-[1280px] flex flex-col items-center gap-7 text-center font-sans">
+            <section className="w-full max-w-[1280px] flex flex-col items-center gap-0 text-center font-sans">
                 {/* Header */}
                 <div className="flex flex-col items-center gap-4 max-w-[672px]">
                     <h2 className="text-[28px] font-bold leading-[1.25] tracking-[-0.56px] text-gray-900 m-0">
@@ -66,7 +66,7 @@ export const Testimonials: React.FC<TestimonialsSectionProps> = ({ className = "
                 </div>
 
                 {/* Carousel */}
-                <div className="w-full max-w-[1216px] h-[400px] md:h-[280px]">
+                <div className="w-full max-w-[1216px] h-[400px] md:h-[280px] -mt-4 md:-mt-8">
                     <Carousel
                         slideInterval={5000}
                         leftControl={
@@ -142,7 +142,7 @@ export const Testimonials: React.FC<TestimonialsSectionProps> = ({ className = "
                                                 <p className="text-base font-semibold leading-[1.25] text-gray-900 m-0">
                                                     /
                                                 </p>
-                                                <p className="text-sm leading-[1.25] text-gray-500 m-0">
+                                                <p className="text-base leading-[1.25] text-gray-500 m-0">
                                                     {testimonial.title}
                                                 </p>
                                             </>

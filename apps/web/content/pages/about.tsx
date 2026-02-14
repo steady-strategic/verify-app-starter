@@ -1,26 +1,10 @@
-import type {
-    VideoModSectionProps,
+import {
     TextAboutSectionProps,
     ProfileAboutSectionProps
 } from "@/components/sections/types";
 import React from "react";
 
 export const aboutContent = {
-    videoAbout: {
-        variant: "about",
-        title: "About Us",
-        subtitle: "Together, we are working towards a future where anyone experiencing addiction, pain or emotional distress can find relief.",
-        description: "", // Keep description empty as we use subtitle for the mission statement
-        backgroundImage: {
-            src: "/assets/images/VideoAbout/Vid-background-comp.png",
-            alt: "Background"
-        },
-        videoThumbnail: {
-            src: "/assets/images/VideoAbout/Vid-preview-comp.png",
-            alt: "Video Preview"
-        }
-    } satisfies VideoModSectionProps,
-
     textAbout: {
         title: (
             <span>

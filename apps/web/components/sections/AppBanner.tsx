@@ -22,7 +22,7 @@ export const AppBanner: React.FC<AppBannerSectionProps> = ({
     return (
         <section
             id={id}
-            className={`relative w-full min-h-[1200px] md:min-h-[921px] overflow-hidden ${className}`}
+            className={`relative w-full min-h-[900px] md:min-h-[921px] overflow-hidden ${className}`}
         >
             {/* Background Image */}
             <div className="absolute inset-0 z-0"> {/* Fallback color removed */}

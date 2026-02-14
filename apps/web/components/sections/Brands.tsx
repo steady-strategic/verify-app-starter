@@ -5,8 +5,8 @@ import { BrandsSectionProps } from "./types";
 export const Brands: React.FC<BrandsSectionProps> = ({ variant = "default", className = "" }) => {
     // Determine which image to use based on variant
     const imageSrc = variant === "research"
-        ? "/assets/images/BrandsResearch/brands-research.png"
-        : "/assets/images/Brands/brands-home.png";
+        ? "/assets/images/BrandsResearch/brands-research.avif"
+        : "/assets/images/Brands/BrandLogos-Home2.avif";
 
     // Determine background color based on variant
     const bgColor = variant === "research" ? "bg-white" : "bg-[#ececec]";
@@ -17,9 +17,8 @@ export const Brands: React.FC<BrandsSectionProps> = ({ variant = "default", clas
                 <Image
                     src={imageSrc}
                     alt="Partner Institutions"
-                    width={1440}
-                    height={226}
-                    className="w-full h-full object-contain"
+                    fill
+                    className="object-contain px-4 md:px-0"
                     priority
                 />
             </div>

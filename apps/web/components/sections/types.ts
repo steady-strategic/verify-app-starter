@@ -313,3 +313,10 @@ export interface VideoModTallSectionProps extends BaseSectionProps {
     };
     videoUrl?: string;
 }
+
+export interface CTAStripSectionProps extends BaseSectionProps {
+    cta?: {
+        text: string;
+        href: string;
+    };
+}

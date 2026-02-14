@@ -40,3 +40,4 @@ export * from "./PatientsForm";
 export * from "./VideoMod";
 export * from "./AppBanner";
 export * from "./VideoModTall";
+export * from "./CTAStrip";

@@ -11,7 +11,8 @@ import {
     ResearchStats,
     ResearchTextList,
     ResearchSidebar,
-    ProviderList
+    ProviderList,
+    KnowMore
 } from "../../components/sections";
 import { prisma } from "../../lib/db";
 import { cliniciansContent } from "../../content/pages/clinicians";
@@ -74,6 +75,23 @@ export default async function ResearchPage() {
                 </div>
 
                 <ProviderList {...cliniciansContent.providerList} variant="research" />
+                <KnowMore
+                    title={
+                        <span>
+                            <span className="text-white">Know </span>
+                            <span className="text-primary-1">MORE</span>
+                        </span>
+                    }
+                    subtitle="Sign up to receive Dr. Garland's insights"
+                    backgroundImage={{
+                        src: "/assets/images/KnowMore/background.png",
+                        alt: "Footer background"
+                    }}
+                    cta={{
+                        text: "Sign Up",
+                        href: "/patients#patients-form"
+                    }}
+                />
             </main>
             <Footer />
         </div>

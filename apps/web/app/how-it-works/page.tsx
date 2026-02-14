@@ -1,6 +1,6 @@
 "use client";
 
-import { PageBanner, Cards, Content, KnowMore, HowItWorks, VideoMod } from "@/components/sections";
+import { PageBanner, Cards, Content, KnowMore, HowItWorks, VideoMod, CTAStrip } from "@/components/sections";
 import { howItWorksContent } from "@/content/pages/how-it-works";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
@@ -27,6 +27,7 @@ export default function HowItWorksPage() {
                     }}
                     videoUrl="https://www.youtube.com/watch?v=O68Eu3faEsg"
                 />
+                <CTAStrip />
                 <KnowMore {...howItWorksContent.knowMore} />
             </main>
             <Footer />

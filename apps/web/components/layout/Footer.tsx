@@ -109,7 +109,9 @@ export const Footer: React.FC = () => {
                 </div>
 
                 <div className="pt-12 border-t border-stone-50 flex justify-center text-[10px] text-stone-400 font-medium uppercase tracking-widest">
-                    <p>© 2026 MORE™ All rights reserved</p>
+                    <Link href="/authorized-use" className="hover:text-primary-1 transition-colors">
+                        © 2026 MORE™ All rights reserved
+                    </Link>
                 </div>
             </div>
         </footer>

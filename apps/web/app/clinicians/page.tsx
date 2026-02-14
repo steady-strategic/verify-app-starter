@@ -28,7 +28,7 @@ export default function CliniciansPage() {
                         src: "/assets/images/VideoModTall/DanKruger.avif",
                         alt: "Dan Kruger"
                     }}
-                    videoUrl="https://www.youtube.com/watch?v=Dr5Y5m1lZyQ"
+                    videoUrl="https://www.youtube.com/watch?v=ya_I9TgDWng&feature=youtu.be"
                 />
                 <TextClinicians {...cliniciansContent.textClinicians} />
                 <ProviderList {...cliniciansContent.providerList} />

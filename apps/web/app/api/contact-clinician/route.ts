@@ -1,8 +1,27 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/db";
 
+import rateLimit from "@/lib/rate-limit";
+
+// Limit to 2 requests per hour
+const limiter = rateLimit({
+    interval: 60 * 60 * 1000,
+    uniqueTokenPerInterval: 500,
+});
+
 export async function POST(request: NextRequest) {
     try {
+        // Rate Limiting (IP-based)
+        const ip = request.headers.get("x-forwarded-for") ?? "127.0.0.1";
+        try {
+            await limiter.check(null, 2, ip); // 2 requests per interval
+        } catch {
+            return NextResponse.json(
+                { error: "Too many requests. Please try again later." },
+                { status: 429 }
+            );
+        }
+
         const body = await request.json();
 
         const { clinicianEmail, firstName, lastName, email, phone } = body;

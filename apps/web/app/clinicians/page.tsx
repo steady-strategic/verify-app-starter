@@ -29,6 +29,10 @@ export default function CliniciansPage() {
                         alt: "Dan Kruger"
                     }}
                     videoUrl="https://www.youtube.com/watch?v=ya_I9TgDWng&feature=youtu.be"
+                    cta={{
+                        text: "Pre-Register",
+                        href: "/training"
+                    }}
                 />
                 <TextClinicians {...cliniciansContent.textClinicians} />
                 <ProviderList {...cliniciansContent.providerList} />

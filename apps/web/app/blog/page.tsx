@@ -78,7 +78,8 @@ export default async function BlogPage() {
                                     </Link>
                                 </h2>
 
-                                <p className="text-stone-600 text-lg leading-relaxed mb-8 font-light">
+                                <p className="text-[#111928] text-lg leading-relaxed mb-8 font-light">
+
                                     {post.excerpt}
                                 </p>
 

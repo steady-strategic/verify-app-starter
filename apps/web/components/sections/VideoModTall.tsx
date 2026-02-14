@@ -14,19 +14,33 @@ export const VideoModTall: React.FC<VideoModTallSectionProps> = ({
     videoThumbnail,
     videoUrl,
     id,
+    cta,
 }) => {
     const [isVideoOpen, setIsVideoOpen] = React.useState(false);
 
     // Extract video ID from URL if present
+    const getVideoId = (url?: string) => {
+        if (!url) return null;
+        if (url.includes('youtube.com') || url.includes('youtu.be')) {
+            return url.split('v=')[1]?.split('&')[0] || url.split('/').pop();
+        }
+        return null;
+    };
+
     const getEmbedUrl = (url?: string) => {
         if (!url) return "";
         let embedUrl = url;
-        if (url.includes('youtube.com') || url.includes('youtu.be')) {
-            const videoId = url.split('v=')[1]?.split('&')[0] || url.split('/').pop();
+        const videoId = getVideoId(url);
+        if (videoId) {
             embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
         }
         return embedUrl;
     };
+
+    const videoId = getVideoId(videoUrl);
+    const thumbnailSrc = videoId
+        ? `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`
+        : videoThumbnail.src;
 
     return (
         <section
@@ -66,6 +80,16 @@ export const VideoModTall: React.FC<VideoModTallSectionProps> = ({
                     <div className="font-sans text-lg md:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed font-light">
                         {description}
                     </div>
+                    {cta && (
+                        <div className="mt-4">
+                            <a
+                                href={cta.href}
+                                className="inline-flex items-center justify-center bg-primary-1 text-white font-bold py-3.5 px-8 rounded-md hover:bg-[#BA00B8] transition-colors"
+                            >
+                                {cta.text}
+                            </a>
+                        </div>
+                    )}
                 </div>
 
                 {/* Video/Image Container */}
@@ -74,10 +98,11 @@ export const VideoModTall: React.FC<VideoModTallSectionProps> = ({
                     onClick={() => videoUrl && setIsVideoOpen(true)}
                 >
                     <Image
-                        src={videoThumbnail.src}
+                        src={thumbnailSrc}
                         alt={videoThumbnail.alt}
                         fill
                         className="object-cover transition-transform duration-700 group-hover:scale-105"
+                        unoptimized={!!videoId}
                     />
 
                     {/* Play Button Overlay (Optional visual cue) */}

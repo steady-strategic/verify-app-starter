@@ -48,6 +48,7 @@ export const howItWorksContent = {
                 icon: { src: "/assets/images/Cards/reappraisal.svg", alt: "Reappraisal" },
                 title: (
                     <>
+
                         <span className="text-primary-1">MORE</span>
                         <span className="text-gray-900"> Reappraisal</span>
                     </>
@@ -77,7 +78,7 @@ export const howItWorksContent = {
             "Break free from unhealthy habits with mindfulness",
             "Reframe distressing thoughts and negative core beliefs",
             "Amplify positive emotions and reconnect with natural rewards",
-            "Experience powerful and lasting change with just 8 weekly sessions",
+            "Experience powerful and lasting change with just eight weekly sessions",
             "Relieve physical and emotional pain"
         ],
         image: {

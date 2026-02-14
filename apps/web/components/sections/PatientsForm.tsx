@@ -25,12 +25,8 @@ export const PatientsForm: React.FC<PatientsFormSectionProps> = ({
 
                 {/* HubSpot Form */}
                 <div className="bg-white p-8 md:p-12 rounded-[32px] shadow-sm min-h-[400px]">
-                    <Script
-                        src="https://js-na2.hsforms.net/forms/embed/243662289.js"
-                        strategy="lazyOnload"
-                    />
                     <div
-                        className="hs-form-frame"
+                        className="hs-form-frame min-h-[580px]"
                         data-region="na2"
                         data-form-id="4a0c8e6e-b72b-4fd9-8ce7-1a8ea4de2012"
                         data-portal-id="243662289"

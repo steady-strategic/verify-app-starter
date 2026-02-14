@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { SessionProvider } from "next-auth/react";
 import { ThemeInit } from "../.flowbite-react/init";
 import "./globals.css";
@@ -18,7 +19,8 @@ export default function RootLayout({
             <body>
                 <ThemeInit />
                 <SessionProvider>{children}</SessionProvider>
-                <script type="text/javascript" id="hs-script-loader" async defer src="//js-na2.hs-scripts.com/243662289.js"></script>
+                <Script id="hs-script-loader" strategy="afterInteractive" src="//js-na2.hs-scripts.com/243662289.js" />
+                <Script src="https://js-na2.hsforms.net/forms/embed/243662289.js" strategy="afterInteractive" />
             </body>
         </html>
     );

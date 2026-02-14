@@ -239,7 +239,7 @@ export const Navbar: React.FC<NavbarProps> = ({ scrolled = false, variant = "lig
 
             {/* Mobile Menu */}
             {mobileMenuOpen && (
-                <div className="md:hidden glass border-t border-stone-100 mt-4">
+                <div className="md:hidden bg-white border-t border-stone-100 mt-4">
                     <div className="container mx-auto px-6 py-6 flex flex-col space-y-4">
                         {/* How it Works */}
                         <Link

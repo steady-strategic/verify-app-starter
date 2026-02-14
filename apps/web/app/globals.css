@@ -14,7 +14,7 @@
   }
 
   body {
-    @apply bg-cream text-gray-700 font-sans m-0 leading-normal;
+    @apply bg-cream text-gray-700 font-sans m-0 leading-normal overflow-x-hidden;
   }
 
   h1,

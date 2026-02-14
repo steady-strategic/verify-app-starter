@@ -125,7 +125,7 @@ export const ResearchTextList: React.FC<BaseSectionProps> = ({ className = "" })
 
             <p className="text-[18px] leading-[1.5] text-gray-900 font-semibold font-sans">
                 <a
-                    href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6764586/"
+                    href="https://www.nature.com/articles/s44220-023-00084-2"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="no-underline text-gray-900 hover:text-primary-1 transition-colors"
@@ -136,12 +136,12 @@ export const ResearchTextList: React.FC<BaseSectionProps> = ({ className = "" })
 
             <p className="text-[18px] leading-[1.5] text-gray-900 font-semibold font-sans">
                 <a
-                    href="https://pubmed.ncbi.nlm.nih.gov/28437120/"
+                    href="https://pubmed.ncbi.nlm.nih.gov/20648913/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="no-underline text-gray-900 hover:text-primary-1 transition-colors"
                 >
-                    MORE decreases stress by 31%, about three times as effective as standard group therapy in reducing stress13<ArrowLink />
+                    MORE decreases stress by 31%, about three times as effective as standard group therapy in reducing stress<ArrowLink />
                 </a>
             </p>
 
@@ -169,7 +169,7 @@ export const ResearchTextList: React.FC<BaseSectionProps> = ({ className = "" })
 
             <p className="text-[18px] leading-[1.5] text-gray-900 font-semibold font-sans">
                 <a
-                    href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9476401/"
+                    href="https://youtu.be/f7zKniBGeuU?si=2H2iZMD1MD1fXeJu&t=2921"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="no-underline text-gray-900 hover:text-primary-1 transition-colors"

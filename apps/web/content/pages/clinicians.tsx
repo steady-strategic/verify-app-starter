@@ -108,7 +108,7 @@ export const cliniciansContent = {
             { name: "University of North Carolina at Chapel Hill", location: "North Carolina" },
             { name: "Texas A&M University", location: "Texas" },
             { name: "University of Washington Medicine", location: "Washington" },
-            { name: "Community Counseling and Correction Services", location: "Ohio" },
+            { name: "Community Counseling and Correction Services", location: "Montana" },
             { name: "Emory University School of Medicine", location: "Georgia" }
 
         ],

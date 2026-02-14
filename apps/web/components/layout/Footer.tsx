@@ -1,5 +1,6 @@
 import React from "react";
 import Link from 'next/link';
+import Image from "next/image";
 
 export const Footer: React.FC = () => {
     return (
@@ -9,7 +10,14 @@ export const Footer: React.FC = () => {
                     {/* Brand Column */}
                     <div className="col-span-1 md:col-span-4 space-y-6">
                         <div className="flex items-center space-x-2">
-                            <img src="/assets/logos/Logo_Primary_1.svg" alt="MORE Logo" className="h-10" />
+                            <Image
+                                src="/assets/logos/Logo_Primary 1.avif"
+                                alt="MORE Logo"
+                                width={140}
+                                height={40}
+                                className="h-10 w-auto"
+                                unoptimized
+                            />
                         </div>
                         <p className="text-stone-500 text-sm leading-relaxed max-w-xs">
                             Mindfulness-Oriented Recovery Enhancement

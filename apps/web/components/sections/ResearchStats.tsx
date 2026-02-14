@@ -86,8 +86,8 @@ export const ResearchStats: React.FC<BaseSectionProps> = ({ className = "" }) =>
                             {stat.citation}
                         </p>
                         <Link href={stat.link} className="flex items-center gap-2 group w-fit">
-                            <span className="font-bold text-gray-900 text-lg">→</span>
-                            <span className="font-bold text-primary-1 underline decoration-primary-1 underline-offset-4 text-[16px]">Read Research</span>
+                            <span className="font-bold text-gray-900 text-lg group-hover:text-[#BA00B8] transition-colors">→</span>
+                            <span className="font-bold text-primary-1 underline decoration-primary-1 underline-offset-4 text-[16px] group-hover:text-[#BA00B8] group-hover:decoration-[#BA00B8] transition-colors">Read Research</span>
                         </Link>
                     </div>
                 ))}

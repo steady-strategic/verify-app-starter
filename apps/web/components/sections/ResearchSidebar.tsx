@@ -89,13 +89,13 @@ export const ResearchSidebar: React.FC<ResearchSidebarProps> = ({ blogPosts = []
                                         )}
                                     </div>
                                     <div className="flex flex-col gap-1">
-                                        <h5 className="font-bold text-[16px] leading-[1.25] text-gray-900 group-hover:text-primary-1 transition-colors">
+                                        <h5 className="font-bold text-[16px] leading-[1.25] text-gray-900 group-hover:text-[#BA00B8] transition-colors">
                                             {title}
                                         </h5>
                                         <p className="text-[14px] leading-[1.4] text-gray-500 line-clamp-2">
                                             {excerpt}
                                         </p>
-                                        <span className="text-[14px] font-medium text-primary-1 underline">Learn MORE</span>
+                                        <span className="text-[14px] font-medium text-primary-1 underline group-hover:text-[#BA00B8] transition-colors">Learn MORE</span>
                                     </div>
                                 </Link>
                             );

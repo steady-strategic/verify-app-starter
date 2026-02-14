@@ -38,7 +38,10 @@ export const ContactHero: React.FC<ContactHeroProps> = ({ variant = "default" })
                         )}
                     </h1>
                     <p className="text-[20px] font-normal leading-normal text-white font-sans">
-                        We’d love to hear from you. Whether you’re a clinician interested in MORE certification, a patient looking for support, or an organization exploring training opportunities, our team is here to help.
+                        {variant === "knowmore"
+                            ? "Sign up for Dr. Garland's insights and stay up to date on the research and events."
+                            : "We’d love to hear from you. Whether you’re a clinician interested in MORE certification, a patient looking for support, or an organization exploring training opportunities, our team is here to help."
+                        }
                     </p>
                 </div>
 

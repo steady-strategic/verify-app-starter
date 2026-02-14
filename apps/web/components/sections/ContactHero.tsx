@@ -1,14 +1,16 @@
 import React from "react";
 import Image from "next/image";
 import { ContactHubspotForm } from "./ContactHubspotForm";
+import { BlogForm } from "./BlogForm";
 
 interface ContactHeroProps {
     // Props kept for compatibility, though currently unused with the custom form
     portalId?: string;
     formId?: string;
+    variant?: "default" | "knowmore";
 }
 
-export const ContactHero: React.FC<ContactHeroProps> = () => {
+export const ContactHero: React.FC<ContactHeroProps> = ({ variant = "default" }) => {
     return (
         <section className="relative w-full pb-24 bg-white">
             {/* Background Banner */}
@@ -29,7 +31,11 @@ export const ContactHero: React.FC<ContactHeroProps> = () => {
                 {/* Header Text */}
                 <div className="flex flex-col items-center text-center max-w-[672px] gap-4 mb-12">
                     <h1 className="text-[36px] font-extrabold leading-tight text-white font-sans tracking-tight">
-                        Contact Us
+                        {variant === "knowmore" ? (
+                            <span>Know <span className="text-white">MORE</span></span>
+                        ) : (
+                            "Contact Us"
+                        )}
                     </h1>
                     <p className="text-[20px] font-normal leading-normal text-white font-sans">
                         We’d love to hear from you. Whether you’re a clinician interested in MORE certification, a patient looking for support, or an organization exploring training opportunities, our team is here to help.
@@ -38,7 +44,7 @@ export const ContactHero: React.FC<ContactHeroProps> = () => {
 
                 {/* Form Card */}
                 <div className="w-full max-w-[811px] bg-white rounded-[40px] shadow-[0px_10px_30px_rgba(0,0,0,0.04)] border border-gray-100 p-8 md:p-12">
-                    <ContactHubspotForm />
+                    {variant === "knowmore" ? <BlogForm /> : <ContactHubspotForm />}
                 </div>
             </div>
         </section>

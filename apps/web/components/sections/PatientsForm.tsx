@@ -24,9 +24,9 @@ export const PatientsForm: React.FC<PatientsFormSectionProps> = ({
                 </div>
 
                 {/* HubSpot Form */}
-                <div className="bg-white p-8 md:p-12 rounded-[32px] shadow-sm min-h-[400px]">
+                <div className="bg-white p-8 md:p-12 rounded-[32px] shadow-sm">
                     <div
-                        className="hs-form-frame min-h-[580px]"
+                        className="hs-form-frame min-h-[320px]"
                         data-region="na2"
                         data-form-id="4a0c8e6e-b72b-4fd9-8ce7-1a8ea4de2012"
                         data-portal-id="243662289"

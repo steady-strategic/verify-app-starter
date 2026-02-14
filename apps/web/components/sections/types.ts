@@ -320,3 +320,5 @@ export interface CTAStripSectionProps extends BaseSectionProps {
         href: string;
     };
 }
+
+export interface AuthTextSectionProps extends BaseSectionProps { }

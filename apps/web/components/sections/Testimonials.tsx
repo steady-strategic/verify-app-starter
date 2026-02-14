@@ -70,7 +70,7 @@ export const Testimonials: React.FC<TestimonialsSectionProps> = ({ className = "
                     <Carousel
                         slideInterval={5000}
                         leftControl={
-                            <div className="flex items-center justify-center w-10 h-10 rounded-full bg-white/30 hover:bg-white/50 transition-colors">
+                            <div className="hidden md:flex items-center justify-center w-10 h-10 rounded-full bg-white/30 hover:bg-white/50 transition-colors">
                                 <Image
                                     src="/assets/images/Testimonials/arrow-left-outline.svg"
                                     alt="Previous"
@@ -80,7 +80,7 @@ export const Testimonials: React.FC<TestimonialsSectionProps> = ({ className = "
                             </div>
                         }
                         rightControl={
-                            <div className="flex items-center justify-center w-10 h-10 rounded-full bg-white/30 hover:bg-white/50 transition-colors">
+                            <div className="hidden md:flex items-center justify-center w-10 h-10 rounded-full bg-white/30 hover:bg-white/50 transition-colors">
                                 <Image
                                     src="/assets/images/Testimonials/arrow-right-outline1.svg"
                                     alt="Next"
@@ -133,13 +133,13 @@ export const Testimonials: React.FC<TestimonialsSectionProps> = ({ className = "
                                     </p>
 
                                     {/* Author */}
-                                    <div className="flex items-center gap-3">
+                                    <div className="flex flex-col md:flex-row items-center gap-1 md:gap-3">
                                         <p className="text-base font-semibold leading-[1.25] text-gray-900 m-0">
                                             {testimonial.name}
                                         </p>
                                         {testimonial.title && (
                                             <>
-                                                <p className="text-base font-semibold leading-[1.25] text-gray-900 m-0">
+                                                <p className="text-base font-semibold leading-[1.25] text-gray-900 m-0 hidden md:block">
                                                     /
                                                 </p>
                                                 <p className="text-base leading-[1.25] text-gray-500 m-0">

@@ -4,6 +4,7 @@ import { ProviderListSectionProps } from "./types";
 
 export const ProviderList: React.FC<ProviderListSectionProps> = ({
     className = "",
+    variant = "default",
     title,
     description,
     items,
@@ -52,14 +53,16 @@ export const ProviderList: React.FC<ProviderListSectionProps> = ({
                 </div>
 
                 {/* CTA */}
-                <Link
-                    href={cta.href}
-                    className="cursor-pointer py-3.5 px-8 bg-primary-1 rounded-md text-white border-none hover:bg-[#BA00B8] transition-colors inline-flex items-center justify-center mt-4"
-                >
-                    <span className="text-lg font-bold font-sans">
-                        {cta.text}
-                    </span>
-                </Link>
+                {variant !== "research" && (
+                    <Link
+                        href={cta.href}
+                        className="cursor-pointer py-3.5 px-8 bg-primary-1 rounded-md text-white border-none hover:bg-[#BA00B8] transition-colors inline-flex items-center justify-center mt-4"
+                    >
+                        <span className="text-lg font-bold font-sans">
+                            {cta.text}
+                        </span>
+                    </Link>
+                )}
 
             </section>
         </div>

@@ -82,7 +82,7 @@ export const cliniciansContent = {
                 Implementing <span className="text-primary-1">MORE</span> in Health Care
             </span>
         ),
-        description: "1000+ Providers and health care systems nationwide have implemented MORE in a range of settings, including medical centers, addiction treatment, behavioral health, community-based clinics, higher education institutions, state and local government, and the military health system.",
+        description: "1000+ clinicians and health care systems nationwide have implemented MORE in a range of settings, including medical centers, addiction treatment, behavioral health, community-based clinics, higher education institutions, state and local government, and the military health system.",
         items: [
             { name: "Kaiser Permanente", location: "Washington" },
             { name: "John Hopkins Medical School", location: "Maryland" },

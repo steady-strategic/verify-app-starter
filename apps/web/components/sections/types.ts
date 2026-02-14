@@ -161,6 +161,7 @@ export interface KnowMoreTallSectionProps extends BaseSectionProps {
 }
 
 export interface ProviderListSectionProps extends BaseSectionProps {
+    variant?: "default" | "research";
     title: React.ReactNode;
     description: React.ReactNode;
     items: {

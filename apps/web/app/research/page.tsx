@@ -11,9 +11,10 @@ import {
     ResearchStats,
     ResearchTextList,
     ResearchSidebar,
-    ResearchJumbotron
+    ProviderList
 } from "../../components/sections";
 import { prisma } from "../../lib/db";
+import { cliniciansContent } from "../../content/pages/clinicians";
 
 export default async function ResearchPage() {
     // Fetch all published blog posts
@@ -72,7 +73,7 @@ export default async function ResearchPage() {
                     </div>
                 </div>
 
-                <ResearchJumbotron />
+                <ProviderList {...cliniciansContent.providerList} variant="research" />
             </main>
             <Footer />
         </div>

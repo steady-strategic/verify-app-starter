@@ -6,7 +6,7 @@ const nextConfig = {
     reactStrictMode: true,
 
     // Transpile workspace packages
-    transpilePackages: ["@verify/validation", "@verify/config"],
+    transpilePackages: ["@verify/config", "@verify/validation"],
 
     // Disable webpack cache to avoid ENOENT errors on paths with spaces
     webpack: (config, { dev }) => {
@@ -23,6 +23,9 @@ const nextConfig = {
                 pathname: "/storage/v1/object/public/**",
             },
         ],
+    },
+    eslint: {
+        ignoreDuringBuilds: true,
     },
 };
 

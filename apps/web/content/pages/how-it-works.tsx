@@ -104,7 +104,7 @@ export const howItWorksContent = {
             alt: "Footer background"
         },
         cta: {
-            text: "Know MORE",
+            text: "Sign Up",
             href: "/sign-up"
         }
     } satisfies KnowMoreSectionProps

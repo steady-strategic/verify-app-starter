@@ -26,7 +26,7 @@ export const aboutContent = {
 
     profileAbout: {
         image: {
-            src: "/assets/images/ProfileAbout/drGarland-about.png",
+            src: "/assets/images/About/about-profile.avif",
             alt: "Dr. Eric Garland"
         },
         title: (

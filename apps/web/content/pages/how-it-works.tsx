@@ -82,7 +82,7 @@ export const howItWorksContent = {
             "Relieve physical and emotional pain"
         ],
         image: {
-            src: "/assets/images/Content/howItWorks-Left-Image.png",
+            src: "/assets/images/Content/howItWorks-Left-Image.avif",
             alt: "Person enjoying nature"
         },
         cta: {

@@ -87,7 +87,7 @@ export function DirectoryClient({ initialClinicians }: DirectoryClientProps) {
 
     return (
         <div className="min-h-screen text-stone-700 overflow-x-hidden selection:bg-amber-100 selection:text-amber-900 bg-stone-50">
-            <Navbar scrolled={scrolled} />
+            <Navbar scrolled={scrolled} transparent={false} />
 
             <main className="pt-20">
                 <PageBanner

@@ -60,7 +60,7 @@ export const VideoModTall: React.FC<VideoModTallSectionProps> = ({
             </div>
 
             {/* Content Container */}
-            <div className="relative z-10 container mx-auto px-4 md:px-8 flex flex-col items-center gap-12 text-center">
+            <div className="relative z-10 container mx-auto px-4 md:px-8 flex flex-col items-center gap-6 text-center">
 
                 {/* Text Block 1 */}
                 <div className="max-w-7xl flex flex-col gap-6">
@@ -80,16 +80,6 @@ export const VideoModTall: React.FC<VideoModTallSectionProps> = ({
                     <div className="font-sans text-lg md:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed font-light">
                         {description}
                     </div>
-                    {cta && (
-                        <div className="mt-4">
-                            <a
-                                href={cta.href}
-                                className="inline-flex items-center justify-center bg-primary-1 text-white font-bold py-3.5 px-8 rounded-md hover:bg-[#BA00B8] transition-colors"
-                            >
-                                {cta.text}
-                            </a>
-                        </div>
-                    )}
                 </div>
 
                 {/* Video/Image Container */}

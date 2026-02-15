@@ -55,7 +55,7 @@ export const cliniciansContent = {
             "Easy homework delivery",
             "Enriching for both patient and clinician",
             "An insurance-reimbursable service covered by CPT codes",
-            "CE-eligible, earn up to 13 continuing education units"
+            "CEUs for training and ongoing education opportunities"
         ],
         image: {
             src: "/assets/images/Content/left-image.avif",

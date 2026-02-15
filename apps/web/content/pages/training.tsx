@@ -18,7 +18,6 @@ export const cliniciansCertifiedContent = {
             <div className="text-gray-900 text-lg flex flex-col gap-4">
                 <ul className="list-disc pl-6 space-y-2">
                     <li>Engaging asynchronous and on-demand training to become MORE certified</li>
-                    <li>CE-eligible and reimbursable</li>
                     <li>Professional videos, interactive exercises, and group supervision sessions</li>
                     <li>Ready-to-use tools including scripts, handouts, and guided mind-body techniques</li>
                     <li>Instruction on delivering MORE to patients over eight weekly sessions</li>

@@ -39,7 +39,7 @@ export const BlogFeedBanner: React.FC<BlogFeedBannerSectionProps> = ({
                     {/* CTA Button */}
                     <div className="mt-8">
                         <a
-                            href="/patients#patients-form"
+                            href="/know-more"
                             className="inline-block px-8 py-3 bg-primary-1 text-white text-lg font-semibold rounded-lg hover:bg-[#BA00B8] transition-all duration-300 shadow-md"
                         >
                             Sign Up for Insights

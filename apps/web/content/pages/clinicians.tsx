@@ -126,7 +126,7 @@ export const cliniciansContent = {
         ),
         cta: {
             text: "Pre-register Today",
-            href: "/register"
+            href: "/training"
         },
         backgroundImage: {
             src: "/assets/images/KnowMoreTall/Background3@2x.avif",

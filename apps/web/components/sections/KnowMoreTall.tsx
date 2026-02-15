@@ -1,6 +1,5 @@
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { KnowMoreTallSectionProps } from "./types";
 
 export const KnowMoreTall: React.FC<KnowMoreTallSectionProps> = ({
@@ -28,14 +27,14 @@ export const KnowMoreTall: React.FC<KnowMoreTallSectionProps> = ({
                     {title}
                 </h2>
 
-                <Link
+                <a
                     href={cta.href}
                     className="cursor-pointer py-3.5 px-6 bg-primary-1 rounded-md text-white border-none hover:bg-[#BA00B8] transition-colors inline-flex items-center justify-center"
                 >
                     <span className="text-lg font-medium">
                         {cta.text}
                     </span>
-                </Link>
+                </a>
             </section>
         </div>
     );

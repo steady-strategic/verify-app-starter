@@ -67,7 +67,7 @@ export const cliniciansCertifiedContent = {
             </span>
         ),
         image: {
-            src: "/assets/images/ContentTraining/whatToExpect-new.png",
+            src: "/assets/images/ContentTraining/whatToExpect-new.avif",
             alt: "Training Session"
         },
         cta: {
@@ -122,7 +122,7 @@ export const cliniciansCertifiedContent = {
             href: "/training"
         },
         backgroundImage: {
-            src: "/assets/images/KnowMoreTall/Background3@2x.png",
+            src: "/assets/images/KnowMoreTall/Background3@2x.avif",
             alt: "Background"
         }
     } satisfies KnowMoreTallSectionProps

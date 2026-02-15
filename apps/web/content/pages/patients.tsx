@@ -26,7 +26,7 @@ export const patientsContent = {
             alt: "Background"
         },
         foregroundImage: {
-            src: "/assets/images/PageBanner/patients-right-image.png",
+            src: "/assets/images/PageBanner/patients-right-image.avif",
             alt: "Patients Healing"
         }
     } satisfies PageBannerSectionProps,

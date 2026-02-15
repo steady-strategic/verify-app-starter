@@ -37,7 +37,7 @@ export const cliniciansContent = {
             alt: "Background"
         },
         foregroundImage: {
-            src: "/assets/images/PageBanner/content-right-image-src.png",
+            src: "/assets/images/PageBanner/content-right-image-src.avif",
             alt: "Clinicians Illustration"
         }
     } satisfies PageBannerSectionProps,
@@ -58,7 +58,7 @@ export const cliniciansContent = {
             "CE-eligible, earn up to 13 continuing education units"
         ],
         image: {
-            src: "/assets/images/Content/left-image.png",
+            src: "/assets/images/Content/left-image.avif",
             alt: "Therapy Session"
         },
         cta: {
@@ -129,7 +129,7 @@ export const cliniciansContent = {
             href: "/register"
         },
         backgroundImage: {
-            src: "/assets/images/KnowMoreTall/Background3@2x.png",
+            src: "/assets/images/KnowMoreTall/Background3@2x.avif",
             alt: "Background"
         }
     } satisfies KnowMoreTallSectionProps,

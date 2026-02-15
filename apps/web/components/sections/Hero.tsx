@@ -10,13 +10,17 @@ export const Hero: React.FC<HeroSectionProps> = ({ className = "" }) => {
             className={`w-full min-h-screen md:min-h-[899px] flex items-center justify-center pt-32 md:pt-[200px] pb-4 md:pb-[51px] box-border relative isolate bg-[#040404] ${className}`}
         >
             <Image
-                className="w-full absolute !m-0 h-full top-[0px] right-[0px] bottom-[0px] left-[0px] max-w-full overflow-hidden max-h-full object-cover z-[0] shrink-0"
-                width={1440}
-                height={899}
+                className="absolute inset-0 z-0"
+                fill
                 sizes="100vw"
                 alt=""
-                src="/assets/images/Hero/content-hero-bg-src@2x.png"
+                src="/assets/images/Hero/mindfulness2-hq.avif"
                 priority
+                quality={100}
+                style={{
+                    objectFit: 'cover',
+                    objectPosition: 'center'
+                }}
             />
             <main className="w-full max-w-[1061px] px-6 md:px-0 flex flex-col items-center gap-16 md:gap-[170px] z-[1] shrink-0">
                 <section className="self-stretch h-auto md:h-[369px] flex flex-col items-center gap-6 md:gap-[22px] text-center text-5xl md:text-[85px] text-white font-sans">

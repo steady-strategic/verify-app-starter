@@ -260,7 +260,7 @@ export function StoryForm({ initialData, mode }: StoryFormProps) {
                     URL Slug
                 </label>
                 <div className="flex items-center space-x-2">
-                    <span className="text-stone-400 text-sm">/stories/</span>
+                    <span className="text-stone-400 text-sm">/insights/</span>
                     <input
                         type="text"
                         name="slug"

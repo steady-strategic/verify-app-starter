@@ -41,7 +41,7 @@ export function StoryActions({ story }: { story: Story }) {
         <div className="flex justify-end items-center gap-4">
             {story.published && (
                 <Link
-                    href={`/blog/${story.slug}`}
+                    href={`/insights/${story.slug}`}
                     className="text-stone-500 hover:text-stone-900 font-medium text-sm"
                 >
                     View Post

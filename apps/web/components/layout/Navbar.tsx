@@ -112,8 +112,8 @@ export const Navbar: React.FC<NavbarProps> = ({ scrolled = false, variant = "lig
     const { data: session, status } = useSession();
 
     const isActive = (path: string) => {
-        if (path === "/blog") {
-            return pathname === "/blog" || pathname.startsWith("/blog/");
+        if (path === "/insights") {
+            return pathname === "/insights" || pathname.startsWith("/insights/");
         }
         return pathname === path;
     };
@@ -131,7 +131,7 @@ export const Navbar: React.FC<NavbarProps> = ({ scrolled = false, variant = "lig
 
     const resourcesItems: DropdownItem[] = [
         { label: "The Science", href: "/research" },
-        { label: "Insights from Dr. Garland", href: "/blog" },
+        { label: "Insights from Dr. Garland", href: "/insights" },
     ];
 
     return (

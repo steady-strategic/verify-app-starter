@@ -51,7 +51,7 @@ export default async function BlogPage() {
                         <div key={post.id} className="flex flex-col lg:flex-row gap-8 md:gap-12 items-center w-full">
                             {/* Card Image - Full width mobile, fixed 540px desktop */}
                             <Link
-                                href={`/blog/${post.slug}`}
+                                href={`/insights/${post.slug}`}
                                 className="lg:w-[540px] lg:shrink-0 relative h-[300px] md:h-[400px] w-full max-w-full rounded-2xl overflow-hidden shadow-sm block group"
                             >
                                 {post.imageUrl ? (
@@ -71,7 +71,7 @@ export default async function BlogPage() {
                             {/* Card Content - Fills remaining space */}
                             <div className="flex-1 flex flex-col justify-center pl-0 lg:pl-4 w-full max-w-full">
                                 <h2 className="text-3xl md:text-[2rem] font-bold text-stone-900 mb-6 leading-tight">
-                                    <Link href={`/blog/${post.slug}`}>
+                                    <Link href={`/insights/${post.slug}`}>
                                         {post.title.split(/(MORE)/g).map((part, i) => (
                                             part === "MORE" ? <span key={i} className="text-primary-1">{part}</span> : part
                                         ))}
@@ -85,7 +85,7 @@ export default async function BlogPage() {
 
                                 <div>
                                     <Link
-                                        href={`/blog/${post.slug}`}
+                                        href={`/insights/${post.slug}`}
                                         className="inline-flex items-center px-6 py-3 border border-stone-200 rounded-lg text-stone-900 text-sm font-bold hover:bg-white hover:border-stone-400 transition-all group"
                                     >
                                         Read more

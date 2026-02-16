@@ -33,7 +33,7 @@ export default async function Page() {
         category: "Blog Post", // Default category or could be improved later
         title: post.title,
         description: post.excerpt,
-        href: `/blog/${post.slug}`
+        href: `/insights/${post.slug}`
     }));
 
     // Use dynamic items if available, otherwise fallback to static content

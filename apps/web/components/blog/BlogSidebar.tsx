@@ -70,7 +70,7 @@ export const BlogSidebar: React.FC<BlogSidebarProps> = ({ blogPosts = [] }) => {
                             return (
                                 <Link
                                     key={post.slug}
-                                    href={`/blog/${post.slug}`}
+                                    href={`/insights/${post.slug}`}
                                     className="group flex gap-3 items-start cursor-pointer"
                                 >
                                     {/* Image */}

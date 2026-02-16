@@ -4,6 +4,13 @@ import type { NextRequest } from 'next/server';
 export function middleware(request: NextRequest) {
     const response = NextResponse.next();
 
+    // Development Redirects: Redirect /blog to /insights
+    const url = request.nextUrl.clone();
+    if (url.pathname === '/blog' || url.pathname.startsWith('/blog/')) {
+        url.pathname = url.pathname.replace(/^\/blog/, '/insights');
+        return NextResponse.redirect(url);
+    }
+
     // Security Headers
     // HSTS (HTTP Strict Transport Security) - Force HTTPS for 1 year
     response.headers.set('Strict-Transport-Security', 'max-age=31536000; includeSubDomains; preload');

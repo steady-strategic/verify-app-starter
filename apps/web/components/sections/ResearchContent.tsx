@@ -16,7 +16,7 @@ export const ResearchContent: React.FC<BaseSectionProps> = ({ className = "" }) 
                     <p className="font-sans text-[18px] leading-[1.5] text-gray-900 m-0">
                         Garland et al 2022 Science Advances
                     </p>
-                    <Link href="#" className="flex items-center gap-2 group w-fit">
+                    <Link href="https://www.science.org/doi/10.1126/sciadv.abo4455" className="flex items-center gap-2 group w-fit">
                         <span className="font-bold text-gray-900 group-hover:text-primary-1 transition-colors">→</span>
                         <span className="font-bold text-primary-1 underline decoration-primary-1 underline-offset-4">Read Research</span>
                     </Link>
@@ -40,7 +40,7 @@ export const ResearchContent: React.FC<BaseSectionProps> = ({ className = "" }) 
                     <p className="font-sans text-[18px] leading-[1.5] text-gray-900 m-0">
                         Garland et al 2019 Science Advances
                     </p>
-                    <Link href="#" className="flex items-center gap-2 group w-fit">
+                    <Link href="https://www.science.org/doi/10.1126/sciadv.aax1569" className="flex items-center gap-2 group w-fit">
                         <span className="font-bold text-gray-900 group-hover:text-primary-1 transition-colors">→</span>
                         <span className="font-bold text-primary-1 underline decoration-primary-1 underline-offset-4">Read Research</span>
                     </Link>
@@ -64,7 +64,7 @@ export const ResearchContent: React.FC<BaseSectionProps> = ({ className = "" }) 
                     <p className="font-sans text-[18px] leading-[1.5] text-gray-900 m-0">
                         Garland et al 2025 JAMA Psychiatry
                     </p>
-                    <Link href="#" className="flex items-center gap-2 group w-fit">
+                    <Link href="https://jamanetwork.com/journals/jamapsychiatry/fullarticle/2833307" className="flex items-center gap-2 group w-fit">
                         <span className="font-bold text-gray-900 group-hover:text-primary-1 transition-colors">→</span>
                         <span className="font-bold text-primary-1 underline decoration-primary-1 underline-offset-4">Read Research</span>
                     </Link>

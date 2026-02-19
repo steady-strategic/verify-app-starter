@@ -24,6 +24,20 @@ const nextConfig = {
             },
         ],
     },
+    async redirects() {
+        return [
+            {
+                source: "/lms-register",
+                destination: "/training",
+                permanent: true,
+            },
+            {
+                source: "/blog-subscribe",
+                destination: "/insights",
+                permanent: true,
+            },
+        ];
+    },
     eslint: {
         ignoreDuringBuilds: true,
     },
